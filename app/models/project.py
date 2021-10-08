@@ -14,9 +14,13 @@ class Project(db.Model):
   # Omitting tag_id until we create the tag table
   # tag_id = db.Column(db.Integer, nullable=False)
 
+  # Foreign Keys
+  user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
   # Relationships
-  user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
   user = db.relationship('User', back_populates='projects')
+
+  comments = db.relationship('Comment', back_populates='project')
 
   def to_dict(self):
     return {
@@ -28,4 +32,5 @@ class Project(db.Model):
       'start_date' : self.start_date,
       'end_date' : self.end_date,
       'risks' : self.risks,
+      'comments': [comment.to_dict() for comment in self.comments]
     }
