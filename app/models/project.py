@@ -32,5 +32,5 @@ class Project(db.Model):
       'start_date' : self.start_date,
       'end_date' : self.end_date,
       'risks' : self.risks,
-      'comments': self.comments[0].to_dict(),
+      'comments': [comment.to_dict() for comment in self.comments]
     }
