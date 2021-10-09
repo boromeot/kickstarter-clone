@@ -1,5 +1,4 @@
 from app.models import db, Update
-from app.seeds import projects
 
 def seed_updates():
   new_york_update = Update(
