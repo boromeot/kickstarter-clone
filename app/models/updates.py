@@ -1,6 +1,7 @@
 from .db import db
 
 class Update(db.Model):
+  __tablename__ = 'updates'
   id = db.Column(db.Integer, primary_key=True)
   title = db.Column(db.String(100), nullable=False)
   description = db.Column(db.Text, nullable=False)
