@@ -10,5 +10,4 @@ project_routes = Blueprint('projects', __name__)
 def get_project(id):
   print('TEST')
   project = Project.query.get(id)
-  print(project.to_dict(), 'PRINT PROJECTttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt')
   return project.to_dict()
