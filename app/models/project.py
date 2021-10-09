@@ -19,8 +19,8 @@ class Project(db.Model):
 
   # Relationships
   user = db.relationship('User', back_populates='projects')
-
   comments = db.relationship('Comment', back_populates='project')
+  updates = db.relationship('Update', back_populates='project')
 
   def to_dict(self):
     return {
@@ -32,5 +32,6 @@ class Project(db.Model):
       'start_date' : self.start_date,
       'end_date' : self.end_date,
       'risks' : self.risks,
-      'comments': [comment.to_dict() for comment in self.comments]
+      'comments': [comment.to_dict() for comment in self.comments],
+      'updates': [update.to_dict() for update in self.updates],
     }
