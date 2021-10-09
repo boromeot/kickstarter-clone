@@ -21,6 +21,7 @@ class Project(db.Model):
   user = db.relationship('User', back_populates='projects')
   comments = db.relationship('Comment', back_populates='project')
   updates = db.relationship('Update', back_populates='project')
+  faqs = db.relationship('Faq', back_populates='project')
 
   def to_dict(self):
     return {
