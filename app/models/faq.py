@@ -13,3 +13,12 @@ class Faq(db.Model):
   # Relationships
   project = db.relationship('Project', back_populates='faqs')
   user = db.relationship('User', back_populates='faqs')
+
+  def to_dict(self):
+    return {
+      'id': self.id,
+      'question': self.question,
+      'answer': self.answer,
+      'project_id': self.project_id,
+      'user_id': self.user_id,
+    }
