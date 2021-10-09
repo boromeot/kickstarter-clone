@@ -11,16 +11,17 @@ class Project(db.Model):
   start_date = db.Column(db.DateTime, nullable=False)
   end_date = db.Column(db.DateTime, nullable=False)
   risks = db.Column(db.Text, nullable=False)
-  # Omitting tag_id until we create the tag table
-  # tag_id = db.Column(db.Integer, nullable=False)
 
   # Foreign Keys
   user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+  tag_id = db.Column(db.Integer, db.ForeignKey('tags.id'))
 
   # Relationships
   user = db.relationship('User', back_populates='projects')
-
   comments = db.relationship('Comment', back_populates='project')
+  updates = db.relationship('Update', back_populates='project')
+  faqs = db.relationship('Faq', back_populates='project')
+  tag = db.relationship('Tag', back_populates='projects')
 
   def to_dict(self):
     return {
@@ -32,5 +33,8 @@ class Project(db.Model):
       'start_date' : self.start_date,
       'end_date' : self.end_date,
       'risks' : self.risks,
-      'comments': [comment.to_dict() for comment in self.comments]
+      'comments': [comment.to_dict() for comment in self.comments],
+      'updates': [update.to_dict() for update in self.updates],
+      'faqs': [faq.to_dict() for faq in self.faqs],
+      'tag': self.tag.title
     }
