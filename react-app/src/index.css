@@ -12,6 +12,19 @@
 
 a {
   text-decoration: none;
+  color: rgb(40, 40, 40);
+}
+
+a:hover {
+  color: rgb(3, 115, 98);
+}
+
+.underline:hover {
+  text-decoration: underline;
+}
+
+li {
+  list-style: none;
 }
 
 .flex-center {

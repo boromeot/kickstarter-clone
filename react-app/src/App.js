@@ -9,6 +9,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import ProjectPage from './components/ProjectPage';
 import Navigation from './components/Navigation';
+import Footer from './components/Footer';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -48,6 +49,7 @@ function App() {
           <ProjectPage />
         </Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }
