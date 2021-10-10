@@ -25,9 +25,10 @@
   margin: 0 18px;
 }
 
-#project-image, iframe{
+#project-image, iframe, img {
   height: inherit;
   width: inherit;
+  background-color: teal;
 }
 
 #project-minor-info {

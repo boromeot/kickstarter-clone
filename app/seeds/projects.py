@@ -4,6 +4,8 @@ def seed_projects():
   CleanUpNewYork = Project(
     title="Clean Up New York",
     description="Help fund a New York environmental restoration project",
+    video_src='https://www.youtube.com/embed/FGQAuN1hM8g',
+    image_src='https://static01.nyt.com/images/2018/08/19/nyregion/00TRASH3/00TRASH3-jumbo.jpg',
     pledge_goal=30000, current_funding=0,
     end_date='2022 10 01', start_date='2021 10 08',
     risks="Here are some risks",

@@ -6,7 +6,7 @@ import { useParams } from 'react-router';
 
 const ProjectPage = () => {
   const { projectId } = useParams();
-  const {title, description} = useSelector(state => state.project)
+  const {title, description, video_src, image_src} = useSelector(state => state.project)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -21,7 +21,10 @@ const ProjectPage = () => {
       <div id='project-body'>
         <div id='project-left-col'>
           <div id='project-image'>
-            <iframe src="https://www.youtube.com/embed/FGQAuN1hM8g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            {video_src ?
+              <iframe src={video_src} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              : <img src={image_src}></img>
+            }
           </div>
           <div id='project-minor-info'>
             <span>Project we love</span>
