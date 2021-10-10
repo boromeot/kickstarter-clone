@@ -34,7 +34,26 @@ const ProjectPage = () => {
         </div>
         <div id='project-pledge'>
           <div id='project-progress-bar'>
-            <div id='project-progress'style={{width: `${(current_funding / pledge_goal) * 100}%`}}>
+            <div id='project-progress' style={{width: `${(current_funding / pledge_goal) * 100}%`}} />
+          </div>
+          <div id='project-info-container'>
+            <div>
+              <div className='project-main-info-header'>
+                <span>${current_funding}</span>
+              </div>
+              <span>pledged of ${pledge_goal} goal</span>
+            </div>
+            <div>
+              <div className='project-main-info-header'>
+                <span>611</span>
+              </div>
+              <span>backers</span>
+            </div>
+            <div>
+              <div className='project-main-info-header'>
+                <span>33</span>
+              </div>
+              <span>days to go</span>
             </div>
           </div>
         </div>

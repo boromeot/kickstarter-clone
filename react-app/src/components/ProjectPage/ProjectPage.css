@@ -59,3 +59,12 @@
   height: inherit;
   background-color: #009E74;
 }
+
+#project-info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-main-info-header {
+  font-size: 28px;
+}
