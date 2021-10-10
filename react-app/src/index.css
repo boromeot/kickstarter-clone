@@ -1,5 +1,16 @@
 /* TODO Add site wide styles */
+:root {
+  --nav-bar-height: 66px;
+}
+
 * {
   margin: 0;
 	padding: 0;
+  box-sizing: border-box;
+  font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.fill-remaining-page {
+  background-color: #F7F7F6;
+  height: calc(100vh  - var(--nav-bar-height));
 }

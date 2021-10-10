@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 66px;
+  height: var(--nav-bar-height);
   border-bottom: 0.8px solid rgb(232, 232, 232);
 }
 
@@ -15,7 +15,6 @@
 }
 
 .nav-button {
-  font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: #282828;
   text-decoration: none;
