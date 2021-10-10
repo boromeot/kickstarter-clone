@@ -28,6 +28,7 @@ class Project(db.Model):
       'id' : self.id,
       'user_id' : self.user_id,
       'title': self.title,
+      'description': self.description,
       'pledge_goal' : self.pledge_goal,
       'current_funding': self.current_funding,
       'start_date' : self.start_date,

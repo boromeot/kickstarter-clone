@@ -6,18 +6,17 @@ import { useParams } from 'react-router';
 
 const ProjectPage = () => {
   const { projectId } = useParams();
-  const project = useSelector(state => state.project)
+  const {title, description} = useSelector(state => state.project)
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(projectAction.getProject(projectId))
   }, [dispatch, projectId])
-
   return (
     <>
       <div id='project-header'>
-        <h1>Project title</h1>
-        <p>Project description</p>
+        <h1>{title}</h1>
+        <p>{description}</p>
       </div>
     </>
   )
