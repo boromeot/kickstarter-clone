@@ -3,6 +3,7 @@ import './ProjectPage.css'
 import * as projectAction from '../../store/project';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
+import { NavLink } from 'react-router-dom';
 
 const ProjectPage = () => {
   const { projectId } = useParams();
@@ -55,6 +56,11 @@ const ProjectPage = () => {
               </div>
               <span className='project-main-info-description'>days to go</span>
             </div>
+          </div>
+          <div>
+            <NavLink className='btn-primary' id='pledge-btn' to='#'>
+              Back this project
+            </NavLink>
           </div>
         </div>
       </div>

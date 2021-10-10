@@ -43,11 +43,12 @@
 }
 
 /* Right side*/
+
+/* Progress bar*/
 #project-pledge {
   height: 425px;
   width: 400px;
   margin: 0 18px;
-  background-color: blanchedalmond;
 }
 
 #project-progress-bar {
@@ -60,6 +61,7 @@
   background-color: #009E74;
 }
 
+/* Project info, pledge amount, etc...*/
 #project-info-container {
   display: flex;
   flex-direction: column;
@@ -81,4 +83,11 @@
 
 .pledge-amount {
   color: rgb(0, 158, 116);
+}
+
+/* Project button section */
+#pledge-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
 }
