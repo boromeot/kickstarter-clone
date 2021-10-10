@@ -19,8 +19,15 @@ const ProjectPage = () => {
         <p>{description}</p>
       </div>
       <div id='project-body'>
-        <div id='project-image'>
-
+        <div id='project-left-col'>
+          <div id='project-image'>
+            <iframe src="https://www.youtube.com/embed/FGQAuN1hM8g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div id='project-minor-info'>
+            <span>Project we love</span>
+            <span>Nice</span>
+            <span>New York, USA</span>
+          </div>
         </div>
         <div id='project-pledge'>
 

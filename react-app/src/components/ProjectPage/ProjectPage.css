@@ -18,13 +18,30 @@
   margin: 0 auto;
 }
 
-#project-image {
+/* Left side*/
+#project-left-col {
   height: 460px;
   width: 810px;
   margin: 0 18px;
-  background-color: teal;
 }
 
+#project-image, iframe{
+  height: inherit;
+  width: inherit;
+}
+
+#project-minor-info {
+  width: inherit;
+  height: 60px;
+  padding: 16px 0;
+}
+
+#project-minor-info > span {
+  margin-right: 18px;
+  font-size: 12px;
+}
+
+/* Right side*/
 #project-pledge {
   height: 425px;
   width: 400px;
