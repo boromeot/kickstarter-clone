@@ -1,3 +1,23 @@
+.form-background {
+  background-color: #F7F7F6;
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#form-signup-box {
+  height: 62px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  font-size: 14px;
+  border: 0.8px solid #F1EEEA;
+}
+
 .form-container {
   display: flex;
   flex-direction: column;
@@ -6,16 +26,11 @@
   height: 540px;
   border: 0.8px solid #F1EEEA;
   background-color: white;
-  position: absolute;
-
-  /*This is a common way to center an item on the page */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%)
 }
 
+
 .form-container > * {
-  padding-bottom: 18px;
+  margin-bottom: 18px;
 }
 
 .form-header {

@@ -1,6 +1,7 @@
 /* TODO Add site wide styles */
 :root {
   --nav-bar-height: 66px;
+  height: 100%;
 }
 
 * {
@@ -14,7 +15,8 @@ a {
   text-decoration: none;
 }
 
-.fill-remaining-page {
-  background-color: #F7F7F6;
-  height: calc(100vh  - var(--nav-bar-height));
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -32,9 +32,14 @@ const LoginForm = () => {
   }
 
   return (
-    <div className='fill-remaining-page'>
+    <div className='form-background'>
       <form onSubmit={onLogin} className='form-container'>
         <p className='form-header'>Log in </p>
+        <div>
+          {errors.map((error, ind) => (
+            <div key={ind}>{error}</div>
+          ))}
+        </div>
         <div>
           <input
             name='email'
@@ -56,11 +61,6 @@ const LoginForm = () => {
           />
         </div>
         <button className='btn-primary' type='submit'>Login</button>
-        <div>
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
-        </div>
         <div>
           New to Kickstarter?&nbsp;
           <NavLink to='/sign-up' exact={true} activeClassName='active'>
