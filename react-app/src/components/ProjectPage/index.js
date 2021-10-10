@@ -6,7 +6,7 @@ import { useParams } from 'react-router';
 
 const ProjectPage = () => {
   const { projectId } = useParams();
-  const {title, description, video_src, image_src} = useSelector(state => state.project)
+  const {title, description, video_src, image_src, current_funding, pledge_goal} = useSelector(state => state.project)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -33,7 +33,10 @@ const ProjectPage = () => {
           </div>
         </div>
         <div id='project-pledge'>
-
+          <div id='project-progress-bar'>
+            <div id='project-progress'style={{width: `${(current_funding / pledge_goal) * 100}%`}}>
+            </div>
+          </div>
         </div>
       </div>
     </div>
