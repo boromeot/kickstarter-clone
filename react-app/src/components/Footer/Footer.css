@@ -1,10 +1,12 @@
 .footer-container {
-  height: 400px;
-  width: 100vw;
   border-top: solid 1.6px black;
+  display: flex;
+  flex-direction: column;
+
 }
 
-.footer-categories-container {
+/* Footer categories section*/
+.footer-tags-container {
   display: flex;
   align-items: center;
   height: 70px;
@@ -26,15 +28,25 @@
   font-size: 14px;
 }
 
+/* Footer about us section*/
 .footer-item-container {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 135px;
+  height: 200px;
   width: 320px;
   margin: 0px 18px;
 }
 
 .footer-item {
   display: inline-block;
+}
+
+/* Footer legal section*/
+.footer-legal-container {
+  display: flex;
+  align-items: center;
+  height: 70px;
+  width: 100%;
+  border-top: solid 1.6px rgb(220, 222, 221);
 }
