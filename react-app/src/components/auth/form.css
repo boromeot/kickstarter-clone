@@ -6,6 +6,12 @@
   height: 540px;
   border: 0.8px solid #F1EEEA;
   background-color: white;
+  position: absolute;
+
+  /*This is a common way to center an item on the page */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
 }
 
 .form-container > * {
