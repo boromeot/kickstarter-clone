@@ -11,7 +11,7 @@ const ProjectPage = () => {
 
   useEffect(() => {
     dispatch(projectAction.getProject(projectId))
-  }, [dispatch])
+  }, [dispatch, projectId])
 
   return (
     <>
