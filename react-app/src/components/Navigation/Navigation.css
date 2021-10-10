@@ -10,6 +10,10 @@
   padding: 0px 24px;
 }
 
+.nav-section-right {
+  margin-right: 45px;
+}
+
 .nav-button {
   font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
@@ -17,10 +21,14 @@
   text-decoration: none;
 }
 
+.nav-button:hover {
+  cursor: pointer;
+}
+
 #discover {
   margin-right: 12px;
 }
 
-#login {
+.login, .logout {
   margin-left: 16px;
 }
