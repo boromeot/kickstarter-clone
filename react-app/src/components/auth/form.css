@@ -1,5 +1,5 @@
 .form-background {
-  background-color: #F7F7F6;
+  background-color: var(--body-background-color);
   height: 700px;
   display: flex;
   justify-content: center;

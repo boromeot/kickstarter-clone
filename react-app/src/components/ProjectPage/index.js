@@ -13,12 +13,20 @@ const ProjectPage = () => {
     dispatch(projectAction.getProject(projectId))
   }, [dispatch, projectId])
   return (
-    <>
+    <div id='project-container'>
       <div id='project-header'>
         <h1>{title}</h1>
         <p>{description}</p>
       </div>
-    </>
+      <div id='project-body'>
+        <div id='project-image'>
+
+        </div>
+        <div id='project-pledge'>
+
+        </div>
+      </div>
+    </div>
   )
 }
 

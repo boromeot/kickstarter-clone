@@ -1,4 +1,33 @@
+#project-container {
+  background-color: var(--body-background-color);
+}
+
 #project-header {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 42px;
+  margin-bottom: 36px;
+}
+
+#project-body {
+  display: flex;
+  height: 850px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+#project-image {
+  height: 460px;
+  width: 810px;
+  margin: 0 18px;
+  background-color: teal;
+}
+
+#project-pledge {
+  height: 425px;
+  width: 400px;
+  margin: 0 18px;
+  background-color: teal;
 }
