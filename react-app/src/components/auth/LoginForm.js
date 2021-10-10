@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 import './form.css';
 
@@ -60,6 +60,12 @@ const LoginForm = () => {
           {errors.map((error, ind) => (
             <div key={ind}>{error}</div>
           ))}
+        </div>
+        <div>
+          New to Kickstarter?&nbsp;
+          <NavLink to='/sign-up' exact={true} activeClassName='active'>
+            Sign up
+          </NavLink>
         </div>
       </form>
     </div>

@@ -10,6 +10,10 @@
   font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
 .fill-remaining-page {
   background-color: #F7F7F6;
   height: calc(100vh  - var(--nav-bar-height));
