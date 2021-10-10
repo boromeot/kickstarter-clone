@@ -38,22 +38,22 @@ const ProjectPage = () => {
           </div>
           <div id='project-info-container'>
             <div>
-              <div className='project-main-info-header'>
+              <div className='project-main-info-header pledge-amount'>
                 <span>${current_funding}</span>
               </div>
-              <span>pledged of ${pledge_goal} goal</span>
+              <span className='project-main-info-description'>pledged of ${pledge_goal} goal</span>
             </div>
             <div>
               <div className='project-main-info-header'>
                 <span>611</span>
               </div>
-              <span>backers</span>
+              <span className='project-main-info-description'>backers</span>
             </div>
             <div>
               <div className='project-main-info-header'>
                 <span>33</span>
               </div>
-              <span>days to go</span>
+              <span className='project-main-info-description'>days to go</span>
             </div>
           </div>
         </div>

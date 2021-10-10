@@ -63,8 +63,22 @@
 #project-info-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  height: 210px;
+  margin-top: 18px;
+  margin-bottom: 30px;
 }
 
 .project-main-info-header {
   font-size: 28px;
+  color: rgb(101, 105, 105);
+}
+
+.project-main-info-description {
+  font-size: 14px;
+  color: rgb(101, 105, 105);
+}
+
+.pledge-amount {
+  color: rgb(0, 158, 116);
 }
