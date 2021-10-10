@@ -20,10 +20,10 @@ const ProjectPage = () => {
       </div>
       <div id='project-body'>
         <div id='project-left-col'>
-          <div id='project-image'>
+          <div id='project-image-conatiner'>
             {video_src ?
-              <iframe src={video_src} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              : <img src={image_src}></img>
+              <iframe id='project-video' src={video_src} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              : <img id='project-image' src={image_src}></img>
             }
           </div>
           <div id='project-minor-info'>
