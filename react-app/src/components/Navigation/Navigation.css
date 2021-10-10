@@ -10,19 +10,11 @@
   padding: 0px 24px;
 }
 
-.nav-section-logo {
-  height: 22px;
-}
-
 .nav-button {
   font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   color: #282828;
   text-decoration: none;
-}
-
-.logo {
-  fill: rgb(5, 206, 120);
 }
 
 #discover {
