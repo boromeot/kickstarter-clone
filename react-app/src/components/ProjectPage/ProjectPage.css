@@ -1,4 +1,93 @@
+#project-container {
+  background-color: var(--body-background-color);
+}
+
 #project-header {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 42px;
+  margin-bottom: 36px;
+}
+
+#project-body {
+  display: flex;
+  height: 850px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* Left side*/
+#project-left-col {
+  height: 460px;
+  width: 810px;
+  margin: 0 18px;
+}
+
+#project-image-conatiner, #project-video, #project-image {
+  height: inherit;
+  width: inherit;
+  background-color: teal;
+}
+
+#project-minor-info {
+  width: inherit;
+  height: 60px;
+  padding: 16px 0;
+}
+
+#project-minor-info > span {
+  margin-right: 18px;
+  font-size: 12px;
+}
+
+/* Right side*/
+
+/* Progress bar*/
+#project-pledge {
+  height: 425px;
+  width: 400px;
+  margin: 0 18px;
+}
+
+#project-progress-bar {
+  height: 6px;
+  background-color: rgb(232, 232, 232);
+}
+
+#project-progress {
+  height: inherit;
+  background-color: #009E74;
+}
+
+/* Project info, pledge amount, etc...*/
+#project-info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 210px;
+  margin-top: 18px;
+  margin-bottom: 30px;
+}
+
+.project-main-info-header {
+  font-size: 28px;
+  color: rgb(101, 105, 105);
+}
+
+.project-main-info-description {
+  font-size: 14px;
+  color: rgb(101, 105, 105);
+}
+
+.pledge-amount {
+  color: rgb(0, 158, 116);
+}
+
+/* Project button section */
+#pledge-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
 }

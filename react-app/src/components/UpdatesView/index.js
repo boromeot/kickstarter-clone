@@ -1,17 +1,19 @@
 import './UpdatesView.css'
 import { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import * as updateActions from '../../store/update'
 
 function UpdatesView() {
     const [newUpdate, setNewUpdate] = useState("")
     const [updateTitle, setUpdateTitle] = useState("")
 
+    const dispatch = useDispatch()
     function handleUpdateCreation() {
         const payload = {
             title: updateTitle,
             description: newUpdate
         }
-        // dispatch(updateActions.createUpdate(payload))
+        dispatch(updateActions.createUpdate(payload))
 
     }
 

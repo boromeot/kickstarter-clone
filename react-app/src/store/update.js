@@ -26,7 +26,7 @@ export const createUpdate = (body) => async (dispatch) => {
 
 
 
-export default function reducer(state = {}, action) {
+export default function updateReducer(state = {}, action) {
     let newState;
     switch (action.type) {
         case CREATE_UPDATE:
