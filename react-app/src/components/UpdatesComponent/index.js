@@ -4,7 +4,8 @@ import './UpdatesComponent.css'
 
 
 export default function UpdatesComponent({ id }) {
-    const project = useSelector()
+    const projectComments = useSelector(state => state.project.comments)
+    console.log(projectComments)
     return (
 
         <div>
