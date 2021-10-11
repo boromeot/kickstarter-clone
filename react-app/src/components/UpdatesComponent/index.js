@@ -3,12 +3,13 @@ import './UpdatesComponent.css'
 
 
 export default function UpdatesComponent({ id }) {
-
+    const project = useSelector()
     return (
 
         <div>
 
-            <UpdatesView id={id} />
+
+            {/* <UpdatesView id={id} /> */}
         </div>
     )
 }

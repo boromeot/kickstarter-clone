@@ -140,14 +140,14 @@
 }
 
 .test-item {
-  /* display: flex; */
-  /* position: absolute; */
-  /* align-items: center; */
-  /* height: 100%; */
-  /* background-color: lightcoral; */
-  /* color: rgb(40, 40, 40); */
-  /* font-size: 14px; */
-  /* margin-right: 18px; */
+  display: flex;
+  position: absolute;
+  align-items: center;
+  height: 100%;
+  background-color: lightcoral;
+  color: rgb(40, 40, 40);
+  font-size: 14px;
+  margin-right: 18px;
 }
 
 .test-item:not(:nth-child(1)) {
