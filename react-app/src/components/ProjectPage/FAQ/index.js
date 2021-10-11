@@ -1,15 +1,21 @@
-import './FAQ.css';
 import FAQpage from './FAQpage';
+import './FAQ.css';
 
 function FAQ({faqs}){
 
   return(
-    <div>
-      <h2 class="faq-header">Frequently Asked Questions</h2>
-      <div class="component-container">
-        {faqs?.map((faq) =>
-          <FAQpage faq={faq}/>
-        )}
+    <div class="component-container">
+      <div class="faq-left">
+        <h2 class="faq-header">Frequently Asked Questions</h2>
+        <div class="faq-container">
+          {faqs?.map((faq) =>
+            <FAQpage faq={faq}/>
+          )}
+        </div>
+      </div>
+      <div class="faq-right">
+        <span>Don't see the answer to your question?</span>
+        <button>Ask a question</button>
       </div>
     </div>
   )

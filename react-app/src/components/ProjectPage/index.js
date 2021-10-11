@@ -2,13 +2,13 @@ import React, { useEffect } from 'react';
 import './ProjectPage.css'
 import * as projectAction from '../../store/project';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router';
-import { NavLink } from 'react-router-dom';
-import FAQ from './FAQ'
+import { Route, useParams } from 'react-router';
+import { BrowserRouter, NavLink } from 'react-router-dom';
+import FAQ from './FAQ';
 
 const ProjectPage = () => {
   const { projectId } = useParams();
-  const {title, description, video_src, image_src, current_funding, pledge_goal, faqs} = useSelector(state => state.project)
+  const {id, title, description, video_src, image_src, current_funding, pledge_goal, faqs} = useSelector(state => state.project)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -65,6 +65,58 @@ const ProjectPage = () => {
           </div>
         </div>
       </div>
+      <div className='project-disclaimer-bar'>
+          <div className='project-disclaimer-item'>
+            Kickstarter connects creators with backers to fund projects.
+          </div>
+          <div className='project-disclaimer-item'>
+            Rewards aren’t guaranteed, but creators must regularly update backers.
+          </div>
+          <div className='project-disclaimer-item'>
+            You’re only charged if the project meets its funding goal by the campaign deadline.
+          </div>
+      </div>
+      <div className='test'>
+        <div className='test-block'>
+            <div className='test-item-container'>
+              <NavLink to={`/projects/${id}/description`} className='test-item' activeClassName='active-test'>
+                Campaign
+              </NavLink>
+              <NavLink to={`/projects/${id}/risks`} className='test-item' activeClassName='active-test'>
+                Risk
+              </NavLink>
+              <NavLink to={`/projects/${id}/faqs`} className='test-item' activeClassName='active-test'>
+                FAQ
+              </NavLink>
+              <NavLink to={`/projects/${id}/updates`} className='test-item' activeClassName='active-test'>
+                Updates
+              </NavLink>
+              <NavLink to={`/projects/${id}/comments`} className='test-item' activeClassName='active-test'>
+                Comments
+              </NavLink>
+            </div>
+            <div className='test-item-container'>
+              <button className='btn-primary test-item-btn'>
+                Back this project
+              </button>
+            </div>
+        </div>
+      </div>
+      <Route path={`/projects/${id}/description`}>
+        Campaign
+      </Route>
+      <Route path={`/projects/${id}/risks`}>
+        Risks
+      </Route>
+      <Route path={`/projects/${id}/faqs`}>
+        <FAQ faqs={faqs}/>
+      </Route>
+      <Route path={`/projects/${id}/updates`}>
+        Updates
+      </Route>
+      <Route path={`/projects/${id}/comments`}>
+        Comments
+      </Route>
     </div>
   )
 }
