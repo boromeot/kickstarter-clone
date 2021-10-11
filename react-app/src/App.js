@@ -12,6 +12,7 @@ import UpdatesView from './components/UpdatesView';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
