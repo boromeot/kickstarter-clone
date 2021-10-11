@@ -1,0 +1,22 @@
+.hide{
+  display:none;
+}
+
+.faq-header{
+  color:rgb(59, 59, 59);
+}
+
+.faq-container{
+
+}
+
+.component-container{
+  border: 2px solid rgb(187, 187, 187);
+  border-radius: 1px;
+  padding: 20px;
+  margin: 15px;
+}
+
+.component-container:hover{
+  background-color: rgb(236, 236, 236);
+}
