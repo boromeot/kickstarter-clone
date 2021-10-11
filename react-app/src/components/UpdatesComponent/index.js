@@ -1,4 +1,5 @@
 import UpdatesView from '../UpdatesView'
+import { useSelector } from 'react-redux'
 import './UpdatesComponent.css'
 
 
