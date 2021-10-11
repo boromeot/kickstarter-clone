@@ -21,4 +21,5 @@ class Comment(db.Model):
       'user_id': self.user_id,
       'project_id': self.project_id,
       'description': self.description,
+      'username': self.user.username,
     }

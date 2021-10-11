@@ -9,7 +9,7 @@ const Comment = ({ comment }) => {
           👤
         </div>
         <div className='comment-info'>
-          <span>{comment.user_id}</span>
+          <span>{comment.username}</span>
           <time className='comment-time'>30 minutes ago</time>
         </div>
       </div>
