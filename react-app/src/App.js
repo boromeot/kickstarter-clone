@@ -8,6 +8,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import ProjectPage from './components/ProjectPage';
+import UpdatesView from './components/UpdatesView';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 
@@ -17,7 +18,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    (async() => {
+    (async () => {
       await dispatch(authenticate());
       setLoaded(true);
     })();
@@ -38,7 +39,7 @@ function App() {
           <SignUpForm />
         </Route>
         <ProtectedRoute path='/users' exact={true} >
-          <UsersList/>
+          <UsersList />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
@@ -48,6 +49,9 @@ function App() {
         </Route>
         <Route path='/projects/:projectId' >
           <ProjectPage />
+        </Route>
+        <Route path='/updates'>
+          <UpdatesView />
         </Route>
       </Switch>
       <Footer />
