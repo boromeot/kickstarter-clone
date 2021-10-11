@@ -2,13 +2,14 @@ import React, { useEffect } from 'react';
 import './ProjectPage.css'
 import * as projectAction from '../../store/project';
 import { useDispatch, useSelector } from 'react-redux';
-import { Route, useParams } from 'react-router';
-import { BrowserRouter, NavLink } from 'react-router-dom';
+import { Route, useParams, useRouteMatch } from 'react-router';
+import { NavLink } from 'react-router-dom';
 
 const ProjectPage = () => {
   const { projectId } = useParams();
   const {id, title, description, video_src, image_src, current_funding, pledge_goal} = useSelector(state => state.project)
   const dispatch = useDispatch();
+  const { path, url } = useRouteMatch(); //Allows for backwards compatibility of route names
 
   useEffect(() => {
     dispatch(projectAction.getProject(projectId))
@@ -78,19 +79,19 @@ const ProjectPage = () => {
       <div className='test'>
         <div className='test-block'>
             <div className='test-item-container'>
-              <NavLink to={`/projects/${id}/description`} className='test-item' activeClassName='active-test'>
+              <NavLink to={`${url}/description`} className='test-item' activeClassName='active-test'>
                 Campaign
               </NavLink>
-              <NavLink to={`/projects/${id}/risks`} className='test-item' activeClassName='active-test'>
+              <NavLink to={`${url}/risks`} className='test-item' activeClassName='active-test'>
                 Risk
               </NavLink>
-              <NavLink to={`/projects/${id}/faqs`} className='test-item' activeClassName='active-test'>
+              <NavLink to={`${url}/faqs`} className='test-item' activeClassName='active-test'>
                 FAQ
               </NavLink>
-              <NavLink to={`/projects/${id}/updates`} className='test-item' activeClassName='active-test'>
+              <NavLink to={`${url}/updates`} className='test-item' activeClassName='active-test'>
                 Updates
               </NavLink>
-              <NavLink to={`/projects/${id}/comments`} className='test-item' activeClassName='active-test'>
+              <NavLink to={`${url}/comments`} className='test-item' activeClassName='active-test'>
                 Comments
               </NavLink>
             </div>
@@ -101,19 +102,19 @@ const ProjectPage = () => {
             </div>
         </div>
       </div>
-      <Route path={`/projects/${id}/description`}>
+      <Route path={`${path}/description`}>
         Campaign
       </Route>
-      <Route path={`/projects/${id}/risks`}>
+      <Route path={`${path}/risks`}>
         Risks
       </Route>
-      <Route path={`/projects/${id}/faqs`}>
+      <Route path={`${path}/faqs`}>
         Faqs
       </Route>
-      <Route path={`/projects/${id}/updates`}>
+      <Route path={`${path}/updates`}>
         Updates
       </Route>
-      <Route path={`/projects/${id}/comments`}>
+      <Route path={`${path}/comments`}>
         Comments
       </Route>
     </div>
