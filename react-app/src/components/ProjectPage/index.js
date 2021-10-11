@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './ProjectPage.css'
 import * as projectAction from '../../store/project';
 import { useDispatch, useSelector } from 'react-redux';
@@ -89,18 +89,16 @@ const ProjectPage = () => {
         <div className='test-block'>
           <div className='test-item-container'>
             <NavLink to={`/projects/${id}/description`} className='test-item' activeClassName='active-test'>
-              Campaign
+
             </NavLink>
             <NavLink to={`/projects/${id}/risks`} className='test-item' activeClassName='active-test'>
-              Risk
+              Risks
             </NavLink>
             <NavLink to={`/projects/${id}/faqs`} className='test-item' activeClassName='active-test'>
               FAQ
             </NavLink>
             <NavLink to={`/projects/${id}/updates`} className='test-item' activeClassName='active-test'>
-              {/* <div>
-                <UpdatesComponent id={id} />
-              </div> */}
+              Updates
             </NavLink>
             <NavLink to={`/projects/${id}/comments`} className='test-item' activeClassName='active-test'>
               Comments
@@ -123,14 +121,12 @@ const ProjectPage = () => {
         <FAQ faqs={faqs}/>
       </Route>
       <Route path={`/projects/${id}/updates`}>
-        Updates
+        <UpdatesComponent id={id} />
       </Route>
       <Route path={`/projects/${id}/comments`}>
         Comments
       </Route>
-      <div>
-        <UpdatesComponent id={id} />
-      </div>
+
     </div >
   )
 }
