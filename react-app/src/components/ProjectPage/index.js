@@ -5,10 +5,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Route, useParams, useRouteMatch } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import CommentsSection from '../CommentsSection';
+import FAQ from './FAQ';
 
 const ProjectPage = () => {
   const { projectId } = useParams();
-  const {id, title, description, video_src, image_src, current_funding, pledge_goal, comments} = useSelector(state => state.project)
+  const {id, title, description, video_src, image_src, current_funding, pledge_goal, faqs, comments} = useSelector(state => state.project)
   const dispatch = useDispatch();
   const { path, url } = useRouteMatch(); //Allows for backwards compatibility of route names
 
@@ -110,13 +111,13 @@ const ProjectPage = () => {
         Risks
       </Route>
       <Route path={`${path}/faqs`}>
-        Faqs
+        <FAQ faqs={faqs}/>
       </Route>
       <Route path={`${path}/updates`}>
         Updates
       </Route>
       <Route path={`${path}/comments`}>
-        {comments ? <CommentsSection comments={comments}/> : null}
+        {comments ? <CommentsSection comments={comments}/> : 'no comments'}
       </Route>
     </div>
   )
