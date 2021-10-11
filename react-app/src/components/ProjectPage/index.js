@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import './ProjectPage.css'
 import * as projectAction from '../../store/project';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router';
+import { Route, useParams } from 'react-router';
 import { BrowserRouter, NavLink } from 'react-router-dom';
 
 const ProjectPage = () => {
@@ -81,16 +81,16 @@ const ProjectPage = () => {
               <NavLink to={`/projects/${id}/description`} className='test-item' activeClassName='active-test'>
                 Campaign
               </NavLink>
-              <NavLink to='#' className='test-item' activeClassName='active-test'>
+              <NavLink to={`/projects/${id}/risks`} className='test-item' activeClassName='active-test'>
                 Risk
               </NavLink>
-              <NavLink to='#' className='test-item' activeClassName='active-test'>
+              <NavLink to={`/projects/${id}/faqs`} className='test-item' activeClassName='active-test'>
                 FAQ
               </NavLink>
-              <NavLink to='#' className='test-item' activeClassName='active-test'>
+              <NavLink to={`/projects/${id}/updates`} className='test-item' activeClassName='active-test'>
                 Updates
               </NavLink>
-              <NavLink to='#' className='test-item' activeClassName='active-test'>
+              <NavLink to={`/projects/${id}/comments`} className='test-item' activeClassName='active-test'>
                 Comments
               </NavLink>
             </div>
@@ -101,8 +101,21 @@ const ProjectPage = () => {
             </div>
         </div>
       </div>
-      <div className='huge'>
-      </div>
+      <Route path={`/projects/${id}/description`}>
+        Campaign
+      </Route>
+      <Route path={`/projects/${id}/risks`}>
+        Risks
+      </Route>
+      <Route path={`/projects/${id}/faqs`}>
+        Faqs
+      </Route>
+      <Route path={`/projects/${id}/updates`}>
+        Updates
+      </Route>
+      <Route path={`/projects/${id}/comments`}>
+        Comments
+      </Route>
     </div>
   )
 }

@@ -45,7 +45,7 @@ function App() {
         <Route path='/' exact={true} >
           <h1>My Home Page</h1>
         </Route>
-        <Route path='/projects/:projectId' exact={true} >
+        <Route path='/projects/:projectId' >
           <ProjectPage />
         </Route>
       </Switch>
