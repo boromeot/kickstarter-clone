@@ -4,7 +4,7 @@ import './UpdatesComponent.css'
 
 
 export default function UpdatesComponent({ id }) {
-    const project = useSelector()
+    const project = useSelector(state => state.project)
     return (
 
         <div>
