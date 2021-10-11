@@ -5,6 +5,13 @@
   padding: 60px 0;
 }
 
+.comments-login-notification {
+  width: 680px;
+  height: 48px;
+  margin-bottom: 20px;
+  background-color: rgb(247, 247, 247);
+}
+
 .comments-section {
   width: 680px;
   padding: 12px;

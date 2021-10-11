@@ -3,15 +3,18 @@ import { NavLink } from "react-router-dom";
 import Comment from "./Comment";
 import './CommentsSection.css';
 
-const CommentsSection = ({ comments, project_id }) => {
+const CommentsSection = ({ comments, project_id, user }) => {
   return (
     <div className='comments-container'>
-      <div className='comments-section'>
-        {
-          comments.map(comment => {
-            return <Comment comment={comment} />
-          })
-        }
+      <div>
+        {user ? null : <div className='comments-login-notification'>You must be logged in to comment</div> }
+        <div className='comments-section'>
+          {
+            comments.map(comment => {
+              return <Comment comment={comment} />
+            })
+          }
+        </div>
       </div>
       <div className='comments-right-col'>
         <p className='comments-right-top-text'>

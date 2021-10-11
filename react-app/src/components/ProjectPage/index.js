@@ -10,6 +10,7 @@ import FAQ from './FAQ';
 const ProjectPage = () => {
   const { projectId } = useParams();
   const {id, title, description, video_src, image_src, current_funding, pledge_goal, faqs, comments} = useSelector(state => state.project)
+  const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const { path, url } = useRouteMatch(); //Allows for backwards compatibility of route names
 
@@ -117,7 +118,7 @@ const ProjectPage = () => {
         Updates
       </Route>
       <Route path={`${path}/comments`}>
-        {comments ? <CommentsSection comments={comments} project_id={id}/> : 'no comments'}
+        {comments ? <CommentsSection comments={comments} project_id={id} user={user}/> : 'no comments'}
       </Route>
     </div>
   )
