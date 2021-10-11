@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
 import './ProjectPage.css'
 import * as projectAction from '../../store/project';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 
 const ProjectPage = () => {
   const { projectId } = useParams();
-  const project = useSelector(state => state.project)
+  // const project = useSelector(state => state.project)
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(projectAction.getProject(projectId))
-  }, [dispatch])
+  }, [dispatch, projectId])
 
   return (
     <>
