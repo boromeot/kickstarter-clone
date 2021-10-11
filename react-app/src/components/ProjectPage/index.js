@@ -4,12 +4,15 @@ import * as projectAction from '../../store/project';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, useParams } from 'react-router';
 import { BrowserRouter, NavLink } from 'react-router-dom';
+import UpdatesComponent from '../UpdatesComponent';
 import FAQ from './FAQ';
 import Risks from './Risks';
 
 const ProjectPage = () => {
   const { projectId } = useParams();
   const { id, title, description, video_src, image_src, current_funding, pledge_goal, faqs, risks } = useSelector(state => state.project)
+  const projectObj = useSelector(state => state.project)
+  console.log(projectObj)
   const dispatch = useDispatch();
 
   useEffect(() => {
