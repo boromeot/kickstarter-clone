@@ -9,6 +9,7 @@ const create_update = (update) => {
 
 
 export const createUpdate = (body) => async (dispatch) => {
+
     const response = await fetch(`/api/updates/`, {
         method: 'POST',
         headers: {
@@ -16,10 +17,12 @@ export const createUpdate = (body) => async (dispatch) => {
         },
         body: JSON.stringify(body)
     });
+    console.log(body)
 
     if (response.ok) {
         const data = await response.json();
         dispatch(create_update(data));
+        return response
     }
 };
 

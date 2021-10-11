@@ -30,18 +30,18 @@ const Footer = () => {
         </div>
         <div className='footer-item-container'>
           <h4>Trevin Woods</h4>
-            <span><a className='underline' href='https://github.com/Woods-Trevin' target="_blank">Github</a></span>
-            <span><a className='underline' href='https://www.linkedin.com/in/trevinwoods4778661aa/' target="_blank">Linkedin</a></span>
+          <span><a className='underline' href='https://github.com/Woods-Trevin' target="_blank">Github</a></span>
+          <span><a className='underline' href='https://www.linkedin.com/in/trevinwoods4778661aa/' target="_blank">Linkedin</a></span>
         </div>
       </div>
       <div className='footer-legal-container'>
         <div className='footer-categories'>
-            <NavLink to='#' className='footer-category-item underline'>Trust & Safety</NavLink >
-            <NavLink to='#' className='footer-category-item underline'>Terms of Use</NavLink >
-            <NavLink to='#' className='footer-category-item underline'>Private Policy</NavLink >
-            <NavLink to='#' className='footer-category-item underline'>Cookie Policy</NavLink >
-            <NavLink to='#' className='footer-category-item underline'>Accessibility Statement</NavLink >
-            <NavLink to='#' className='footer-category-item underline'>CA Notice of Consent</NavLink >
+          <NavLink to='#' className='footer-category-item underline'>{'Trust & Safety'}</NavLink >
+          <NavLink to='#' className='footer-category-item underline'>Terms of Use</NavLink >
+          <NavLink to='#' className='footer-category-item underline'>Private Policy</NavLink >
+          <NavLink to='#' className='footer-category-item underline'>Cookie Policy</NavLink >
+          <NavLink to='#' className='footer-category-item underline'>Accessibility Statement</NavLink >
+          <NavLink to='#' className='footer-category-item underline'>CA Notice of Consent</NavLink >
         </div>
       </div>
     </div>

@@ -1,18 +1,29 @@
 import './UpdatesView.css'
 import { useState, useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import * as updateActions from '../../store/update'
 
-function UpdatesView() {
-    const [newUpdate, setNewUpdate] = useState("")
-    const [updateTitle, setUpdateTitle] = useState("")
-
+function UpdatesView({ id }) {
     const dispatch = useDispatch()
-    function handleUpdateCreation() {
+    const [updateDescription, setUpdateDescription] = useState("")
+    const [updateTitle, setUpdateTitle] = useState("")
+    const currentUser = useSelector(state => state.session.user?.id)
+    // const currentProject = useSelector(state => state.project?.id)
+    console.log(currentUser)
+
+    // useEffect(() => {
+
+    // }, [updateTitle, updateDescription])
+
+    function handleUpdateCreation(e) {
+        e.preventDefault()
         const payload = {
             title: updateTitle,
-            description: newUpdate
+            description: updateDescription,
+            user_id: currentUser,
+            project_id: id
         }
+        console.log(payload)
         dispatch(updateActions.createUpdate(payload))
 
     }
@@ -36,13 +47,13 @@ function UpdatesView() {
                         </div>
                         <div>
                             <textarea
-                                name="update"
-                                value={newUpdate}
+                                name="description"
+                                value={updateDescription}
                                 rows="8"
                                 columns="30"
                                 placeholder="Add New Update"
                                 className="update_TF"
-                                onChange={(e) => setNewUpdate(e.target.value)}
+                                onChange={(e) => setUpdateDescription(e.target.value)}
                             />
                         </div>
                     </label>
