@@ -3,7 +3,7 @@ import './ProjectPage.css'
 import * as projectAction from '../../store/project';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
-import { NavLink } from 'react-router-dom';
+import { BrowserRouter, NavLink } from 'react-router-dom';
 
 const ProjectPage = () => {
   const { projectId } = useParams();
@@ -63,6 +63,17 @@ const ProjectPage = () => {
             </NavLink>
           </div>
         </div>
+      </div>
+      <div className='project-disclaimer-bar'>
+          <div className='project-disclaimer-item'>
+            Kickstarter connects creators with backers to fund projects.
+          </div>
+          <div className='project-disclaimer-item'>
+            Rewards aren’t guaranteed, but creators must regularly update backers.
+          </div>
+          <div className='project-disclaimer-item'>
+            You’re only charged if the project meets its funding goal by the campaign deadline.
+          </div>
       </div>
     </div>
   )

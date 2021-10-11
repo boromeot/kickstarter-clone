@@ -13,8 +13,8 @@
 
 #project-body {
   display: flex;
-  height: 850px;
   max-width: 1300px;
+  height: 520px;
   margin: 0 auto;
 }
 
@@ -90,4 +90,23 @@
   display: block;
   width: 100%;
   text-align: center;
+}
+
+/* Project tan disclaimer bar*/
+.project-disclaimer-bar {
+  display: grid;
+  grid-template-columns: 400px 400px 400px;
+  grid-template-rows: 156px;
+  grid-gap: 30px;
+  justify-content: center;
+  width: 100%;
+  background-color: #F6F2EB;
+}
+
+.project-disclaimer-item {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: rgb(40, 40, 40);
+  font-size: 18px;
 }
