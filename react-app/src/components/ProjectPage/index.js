@@ -5,10 +5,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Route, useParams } from 'react-router';
 import { BrowserRouter, NavLink } from 'react-router-dom';
 import FAQ from './FAQ';
+import Risks from './Risks';
 
 const ProjectPage = () => {
   const { projectId } = useParams();
-  const {id, title, description, video_src, image_src, current_funding, pledge_goal, faqs} = useSelector(state => state.project)
+  const {id, title, description, video_src, image_src, current_funding, pledge_goal, faqs, risks} = useSelector(state => state.project)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -106,7 +107,7 @@ const ProjectPage = () => {
         Campaign
       </Route>
       <Route path={`/projects/${id}/risks`}>
-        Risks
+        <Risks risks={risks}/>
       </Route>
       <Route path={`/projects/${id}/faqs`}>
         <FAQ faqs={faqs}/>
