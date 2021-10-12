@@ -14,7 +14,7 @@ const Navigation = () => {
         <NavLink to='#' className='nav-button' id='discover' exact={true} activeClassName='active'>
           Discover
         </NavLink>
-        <NavLink to='#' className='nav-button' exact={true} activeClassName='active'>
+        <NavLink to='/start' className='nav-button' exact={true} activeClassName='active'>
           Start a project
         </NavLink>
       </div>
