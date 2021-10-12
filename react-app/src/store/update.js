@@ -7,7 +7,6 @@ const create_update = (update) => {
     };
 }
 
-
 export const createUpdate = (body) => async (dispatch) => {
 
     const response = await fetch(`/api/updates/`, {
@@ -24,15 +23,13 @@ export const createUpdate = (body) => async (dispatch) => {
     }
 };
 
-
-
-
 export default function updateReducer(state = {}, action) {
     let newState;
     switch (action.type) {
         case CREATE_UPDATE:
             newState = Object.assign({}, state);
             newState = action.payload
+            return
         default:
             return state;
     }
