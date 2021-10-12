@@ -1,0 +1,64 @@
+.updates_outter_container {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F5F5F5;
+    /* background-color: black; */
+    /* gap: 50px; */
+}
+
+.updates_inner_container {
+    border: 2px solid grey;
+    display:flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 700px;
+    margin-bottom: 50px;
+}
+
+
+.updateInfo{
+
+}
+
+.updateNumber {
+    /* border: 2px solid goldenrod; */
+    position: relative;
+    top: 30px;
+    left: 40px;
+    color: grey;
+    font-size: 20px;
+}
+
+
+.projectOwner{
+    /* border: 2px solid purple; */
+    position: relative;
+    font-size: 20px;
+    left: 40px;
+    bottom: 20px;
+    width: 600px;
+    height: 45px;
+    border-bottom: 1px solid grey;
+
+}
+
+
+.projectTitle{
+    /* border: 2px solid orange; */
+    position: relative;
+    left: 40px;
+    width: 600px;
+    font-size: 40px;
+}
+
+
+.projectDescription{
+    /* border: 2px solid blue; */
+    position: relative;
+    width: 600px;
+    left: 40px;
+    bottom: 40px;
+    height: 300px;
+}
