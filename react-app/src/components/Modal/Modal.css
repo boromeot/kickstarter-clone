@@ -11,8 +11,8 @@
 }
 
 .modal-content {
-  width: 500px;
   background-color: white;
+  display: inline-block;
 }
 
 .modal-header {

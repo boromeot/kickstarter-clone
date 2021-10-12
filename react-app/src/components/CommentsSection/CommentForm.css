@@ -1,3 +1,6 @@
+/* Allows the parent form the scale with the size of the textarea field*/
 .form-container {
-  height: 300px;
+  align-items: center;
+  height: auto;
+  width: auto;
 }

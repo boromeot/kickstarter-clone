@@ -19,6 +19,7 @@ const CommentForm = () => {
             className='input'
           />
         </div>
+      <button className='btn-primary' type='submit'>Submit</button>
     </form>
   )
 }
