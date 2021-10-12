@@ -84,7 +84,7 @@ const ProjectPage = () => {
         <div className='test-block'>
           <div className='test-item-container'>
             <NavLink to={`/projects/${id}/description`} className='test-item' activeClassName='active-test'>
-
+              Campaign
             </NavLink>
             <NavLink to={`/projects/${id}/risks`} className='test-item' activeClassName='active-test'>
               Risks
