@@ -30,10 +30,10 @@ def create_update():
 
 @update_routes.route('/', methods=['DELETE'])
 def delete_update():
-    currentUpdate = Update.query.filter(Update.id == request.json['idx']).delete()
     # currentUpdate = Update.query.get())
     # print(currentUpdate)
     print( request.json['idx'],'------------------------')
     # db.session.delete(currentUpdate)
+    currentUpdate = Update.query.filter(Update.id == request.json['idx']).delete()
     db.session.commit()
     return 'currentUpdate.to_dict()'
