@@ -44,7 +44,7 @@ const Comment = ({ comment }) => {
         {comment.description}
       </div>
       <Modal title='Update your comment' onClose={() => setShow(false)} show={show}>
-        <CommentForm setShow={setShow} project_id={project_id} user_id={commentUserId} comment_id={comment.id} method='PATCH'/>
+        <CommentForm setShow={setShow} comment_user_id={commentUserId} comment_id={comment.id} method='PATCH'/>
       </Modal>
     </div>
   )

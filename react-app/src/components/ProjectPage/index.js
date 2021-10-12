@@ -123,7 +123,7 @@ const ProjectPage = () => {
       </Route>
       <Route path={`${path}/comments`}>
         {comments ?
-          <CommentsSection comments={comments} project_id={id} user={user}/>
+          <CommentsSection comments={comments} project_id={id} />
           : 'no comments'}
       </Route>
 

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { postComment, patchComment } from "../../store/comment";
 import './CommentForm.css';
 
-const CommentForm = ({project_id, user_id, comment_id, setShow, method}) => {
+const CommentForm = ({comment_user_id, comment_id, setShow, method}) => {
   const [description, setDescription] = useState('');
+  const project_id = useSelector(state => state.project.id)
+  const user_id = useSelector(state => state.session.user.id);
   const dispatch = useDispatch();
 
   const updateDescription = (e) => {
@@ -14,9 +16,9 @@ const CommentForm = ({project_id, user_id, comment_id, setShow, method}) => {
   const onSubmit = async e => {
     e.preventDefault();
     if (method === 'POST') {
-      const data = await dispatch(postComment(description, project_id, user_id));
+      const newComment = await dispatch(postComment(description, project_id, user_id));
     } else if (method === 'PATCH') {
-      const data = await dispatch(patchComment(description, project_id, user_id, comment_id))
+      const upDatedComment = await dispatch(patchComment(description, project_id, comment_user_id, comment_id));
     }
     setShow(false);
   }

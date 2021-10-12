@@ -4,10 +4,11 @@ import Comment from "./Comment";
 import './CommentsSection.css';
 import Modal from '../Modal/index';
 import CommentForm from "./CommentForm";
+import { useSelector } from "react-redux";
 
-const CommentsSection = ({ comments, project_id, user }) => {
+const CommentsSection = ({ comments, project_id }) => {
   const [show, setShow] = useState(false);
-
+  const user = useSelector(state => state.session.user)
   return (
     <div className='comments-container'>
       <div>
@@ -36,7 +37,7 @@ const CommentsSection = ({ comments, project_id, user }) => {
               Add a comment
             </button>
             <Modal title='Add a comment' onClose={() => setShow(false)} show={show}>
-              <CommentForm project_id={project_id} user_id={user.id} setShow={setShow} method='POST'/>
+              <CommentForm setShow={setShow} method='POST'/>
             </Modal>
           </>
         }

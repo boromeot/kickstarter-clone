@@ -25,7 +25,7 @@ export const postComment = (description, project_id, user_id) => async dispatch 
   if (response.ok) {
     const data = await response.json();
     dispatch(post_comment(data));
-    return null;
+    return data;
   } else if (response.status < 500) {
     const data = await response.json();
     if (data.errors) {
@@ -62,6 +62,7 @@ export const patchComment = (description, project_id, user_id, comment_id) => as
       comment_id,
     }
     dispatch(patch_comment(payload));
+    return data;
   } else {
     return ['An error occurred with patching comment. Please try again.']
   }
