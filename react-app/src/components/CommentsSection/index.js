@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Comment from "./Comment";
 import './CommentsSection.css';
+import Modal from '../Modal/index';
 
 const CommentsSection = ({ comments, project_id, user }) => {
+  const [show, setShow] = useState(false);
+
   return (
     <div className='comments-container'>
       <div>
@@ -26,9 +29,12 @@ const CommentsSection = ({ comments, project_id, user }) => {
           </p>
           <NavLink className='comments-right-link' to={`/projects/${project_id}/faqs`}>Check this project's FAQ</NavLink>
         </div>
-          <button className='comments-btn btn-primary'>
+          <button className='comments-btn btn-primary' onClick={() => setShow(true) }>
             Add a comment
           </button>
+          <Modal title='Add a comment' onClose={() => setShow(false)} show={show}>
+            Comment form
+          </Modal>
       </div>
     </div>
   )
