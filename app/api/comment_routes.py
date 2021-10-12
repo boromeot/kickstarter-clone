@@ -30,3 +30,11 @@ def post_comment():
     db.session.commit()
     return comment.to_dict()
   return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+@comment_routes.route('/<int:id>', methods=['DELETE'])
+@login_required
+def delete_comment():
+  comment = db.session.query(Comment).get(id)
+  db.session.delete(comment)
+  db.session.commit()
+  return {'message': 'Comment deleted'}
