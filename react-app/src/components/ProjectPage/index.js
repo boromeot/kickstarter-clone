@@ -31,7 +31,7 @@ const ProjectPage = () => {
         <div id='project-left-col'>
           <div id='project-image-conatiner'>
             {video_src ?
-              <iframe id='project-video' src={video_src} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe id='project-video' src={video_src} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
               : <img id='project-image' src={image_src}></img>
             }
           </div>

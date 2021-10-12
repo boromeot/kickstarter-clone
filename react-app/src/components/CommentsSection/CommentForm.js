@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { postComment } from "../../store/comment";
 import './CommentForm.css';
 
-const CommentForm = ({project_id, user_id}) => {
+const CommentForm = ({project_id, user_id, setShow}) => {
   const [description, setDescription] = useState('');
   const dispatch = useDispatch();
 
@@ -14,6 +14,7 @@ const CommentForm = ({project_id, user_id}) => {
   const onSubmit = async e => {
     e.preventDefault();
     const data = await dispatch(postComment(project_id, user_id, description));
+    setShow(false);
   }
 
   return (
