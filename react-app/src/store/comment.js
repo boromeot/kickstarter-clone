@@ -1,5 +1,4 @@
 export const postComment = (project_id, user_id, description) => async dispatch => {
-  console.log(project_id, user_id, 'IDDDDDDDDDDDDDDS');
   const response = await fetch('/api/comments/', {
     method: 'POST',
     headers: {

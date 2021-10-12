@@ -5,7 +5,6 @@ import './UpdatesComponent.css'
 
 export default function UpdatesComponent({ id }) {
     const projectUpdates = useSelector(state => state.project.updates)
-    console.log(projectUpdates, "Project Updates!!!!!!!!!!!")
     return (
 
         <div className="updates_outter_container">

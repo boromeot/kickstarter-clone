@@ -20,8 +20,6 @@ def validation_errors_to_error_messages(validation_errors):
 def post_comment():
   form = CommentForm()
   form['csrf_token'].data = request.cookies['csrf_token']
-  print(form.data, 'gggggggggggggggggggggggg')
-  print(request.data, 'hhhhhhhhhhhhhhhhhhhh')
   if form.validate_on_submit():
     comment = Comment(
       project_id=form.data['project_id'],

@@ -9,10 +9,7 @@ function UpdatesView({ id }) {
     const [updateTitle, setUpdateTitle] = useState("")
     const currentUser = useSelector(state => state.session.user?.id)
     // const currentProject = useSelector(state => state.project?.id)
-    console.log(currentUser)
-
     // useEffect(() => {
-
     // }, [updateTitle, updateDescription])
 
     function handleUpdateCreation(e) {
@@ -23,7 +20,6 @@ function UpdatesView({ id }) {
             user_id: currentUser,
             project_id: id
         }
-        console.log(payload)
         dispatch(updateActions.createUpdate(payload))
 
     }
