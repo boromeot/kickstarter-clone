@@ -1,3 +1,12 @@
+export const POST_COMMENT = 'project/postComment';
+
+export const post_comment = (comment) => {
+  return {
+    type: POST_COMMENT,
+    payload: comment,
+  };
+}
+
 export const postComment = (project_id, user_id, description) => async dispatch => {
   const response = await fetch('/api/comments/', {
     method: 'POST',
@@ -13,6 +22,7 @@ export const postComment = (project_id, user_id, description) => async dispatch 
 
   if (response.ok) {
     const data = await response.json();
+    dispatch(post_comment(data));
     return null;
   } else if (response.status < 500) {
     const data = await response.json();
@@ -22,7 +32,6 @@ export const postComment = (project_id, user_id, description) => async dispatch 
   } else {
     return ['An error occurred. Please try again.']
   }
-
 }
 
 export const deleteComment = (comment_id) => async dispatch => {

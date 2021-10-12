@@ -1,4 +1,5 @@
-const GET_PROJECT = 'project/getProject'
+import { POST_COMMENT, post_comment, postComment, deleteComment } from "./comment";
+const GET_PROJECT = 'project/getProject';
 
 const get_project = (project) => {
   return {
@@ -20,7 +21,11 @@ const projectReducer = (state = {}, action) => {
     case GET_PROJECT:
       newState = Object.assign({}, state);
       newState = action.payload;
-      return newState
+      return newState;
+    case POST_COMMENT:
+      newState = Object.assign({}, state);
+      newState.comments.push(action.payload);
+      return newState;
     default:
       return state;
   }
