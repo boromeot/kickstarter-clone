@@ -15,7 +15,9 @@
   background-color: white;
 }
 
-.modal-header, .modal-footer {
+.modal-header {
+  display: flex;
+  justify-content: center;
   padding: 10px;
 }
 
@@ -24,6 +26,8 @@
 }
 
 .modal-body {
+  display: flex;
+  justify-content: center;
   padding: 10px;
   border-top: solid 1px #eee;
   border-bottom: solid 1px #eee;

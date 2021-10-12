@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import Comment from "./Comment";
 import './CommentsSection.css';
 import Modal from '../Modal/index';
+import CommentForm from "./CommentForm";
 
 const CommentsSection = ({ comments, project_id, user }) => {
   const [show, setShow] = useState(false);
@@ -33,7 +34,7 @@ const CommentsSection = ({ comments, project_id, user }) => {
             Add a comment
           </button>
           <Modal title='Add a comment' onClose={() => setShow(false)} show={show}>
-            Comment form
+            <CommentForm />
           </Modal>
       </div>
     </div>
