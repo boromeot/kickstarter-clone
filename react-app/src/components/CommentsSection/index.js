@@ -30,12 +30,17 @@ const CommentsSection = ({ comments, project_id, user }) => {
           </p>
           <NavLink className='comments-right-link' to={`/projects/${project_id}/faqs`}>Check this project's FAQ</NavLink>
         </div>
-          <button className='comments-btn btn-primary' onClick={() => setShow(true) }>
-            Add a comment
-          </button>
-          <Modal title='Add a comment' onClose={() => setShow(false)} show={show}>
-            <CommentForm project_id={project_id} user_id={user.id} setShow={setShow} />
-          </Modal>
+        { user &&
+          <>
+            <button className='comments-btn btn-primary' onClick={() => setShow(true)}>
+              Add a comment
+            </button>
+            <Modal title='Add a comment' onClose={() => setShow(false)} show={show}>
+              <CommentForm project_id={project_id} user_id={user.id} setShow={setShow} />
+            </Modal>
+          </>
+        }
+
       </div>
     </div>
   )
