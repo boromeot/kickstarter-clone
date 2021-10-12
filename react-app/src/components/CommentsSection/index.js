@@ -17,13 +17,18 @@ const CommentsSection = ({ comments, project_id, user }) => {
         </div>
       </div>
       <div className='comments-right-col'>
-        <p className='comments-right-top-text'>
-          This is your space to offer support and feedback. Remember to be constructive—there's a human behind this project.
-        </p>
-        <p className='comments-right-bottom-text'>
-          Have a question for the creator?
-        </p>
-        <NavLink className='comments-right-link' to={`/projects/${project_id}/faqs`}>Check this project's FAQ</NavLink>
+        <div className='comments-right-col-info'>
+          <p className='comments-right-top-text'>
+            This is your space to offer support and feedback. Remember to be constructive—there's a human behind this project.
+          </p>
+          <p className='comments-right-bottom-text'>
+            Have a question for the creator?
+          </p>
+          <NavLink className='comments-right-link' to={`/projects/${project_id}/faqs`}>Check this project's FAQ</NavLink>
+        </div>
+          <button className='comments-btn btn-primary'>
+            Add a comment
+          </button>
       </div>
     </div>
   )
