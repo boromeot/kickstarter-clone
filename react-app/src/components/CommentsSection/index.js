@@ -7,7 +7,7 @@ const CommentsSection = ({ comments, project_id, user }) => {
   return (
     <div className='comments-container'>
       <div>
-        {user ? null : <div className='comments-login-notification'>You must be logged in to comment</div> }
+        {user ? null : <div className='comments-login-notification flex-center'>You must be logged in to comment</div> }
         <div className='comments-section'>
           {
             comments.map(comment => {

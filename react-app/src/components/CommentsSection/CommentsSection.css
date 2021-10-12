@@ -10,6 +10,7 @@
   height: 48px;
   margin-bottom: 20px;
   background-color: rgb(247, 247, 247);
+  font-size: 14px;
 }
 
 .comments-section {
@@ -35,4 +36,9 @@
   line-height: 24px;
   font-size: 14px;
   padding-left: 18px;
+}
+
+.comments-right-link {
+  font-weight: bold;
+  text-decoration: underline;
 }

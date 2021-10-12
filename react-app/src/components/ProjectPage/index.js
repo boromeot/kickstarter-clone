@@ -113,7 +113,7 @@ const ProjectPage = () => {
         Campaign
       </Route>
       <Route path={`${path}/risks`}>
-        Risks
+        <Risks risks={risks} />
       </Route>
       <Route path={`${path}/faqs`}>
         <FAQ faqs={faqs}/>
