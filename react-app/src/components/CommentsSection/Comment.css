@@ -23,11 +23,16 @@
 }
 
 .comment-description {
+  display: flex;
+  justify-content: space-between;
   font-size: 14px;
 }
 
 .comment-info {
-
   display: flex;
   flex-direction: column;
+}
+
+.comment-delete, .comment-edit {
+  padding: 6px;
 }

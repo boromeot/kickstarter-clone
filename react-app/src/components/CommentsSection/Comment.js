@@ -15,6 +15,10 @@ const Comment = ({ comment }) => {
       </div>
       <div className='comment-description'>
         {comment.description}
+        <div>
+          <button className='btn-edit comment-edit' >Edit</button>
+          <button className='btn-delete comment-delete' >Delete</button>
+        </div>
       </div>
     </div>
   )

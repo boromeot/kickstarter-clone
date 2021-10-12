@@ -14,7 +14,6 @@ export default function UpdatesComponent({ id }) {
                     <li className='updateInfo projectTitle'>{updates.title}</li>
                     <li className='updateInfo projectOwner'>{updates.username}</li>
                     <li className='updateInfo projectDescription'>{updates.description}</li>
-
                 </div>
             )}
 
