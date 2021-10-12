@@ -8,6 +8,7 @@ const CommentForm = () => {
 
   const updateDescription = (e) => {
     setDescription(e.target.value);
+    
   };
 
   const onSubmit = async e => {
