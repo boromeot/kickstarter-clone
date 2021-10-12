@@ -122,13 +122,9 @@ const ProjectPage = () => {
         <UpdatesComponent project_id={id} />
       </Route>
       <Route path={`${path}/comments`}>
-<<<<<<< HEAD
-  { comments ? <CommentsSection comments={comments} project_id={id} user={user} /> : 'no comments' }
-=======
         {comments ?
           <CommentsSection comments={comments} project_id={id} />
           : 'no comments'}
->>>>>>> master
       </Route >
 
     </div >
