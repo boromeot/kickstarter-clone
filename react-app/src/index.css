@@ -33,3 +33,38 @@ li {
   justify-content: center;
   align-items: center;
 }
+
+.btn-primary, .btn-delete, .btn-edit {
+  border: none;
+  transition: all 0.2s;
+  padding: 12px;
+  color: white;
+}
+
+.btn-primary:hover, .btn-delete:hover, .btn-edit:hover {
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: rgb(2, 136, 88);
+}
+
+.btn-delete {
+  background-color: rgb(209, 26, 42);
+}
+
+.btn-edit {
+  background-color: rgb(150, 150, 150)
+}
+
+.btn-primary:hover {
+  background-color: rgb(1, 87, 56);
+}
+
+.btn-delete:hover {
+  background-color: rgb(110, 20, 33);
+}
+
+.btn-edit:hover {
+  background-color: rgb(80, 80, 80)
+}

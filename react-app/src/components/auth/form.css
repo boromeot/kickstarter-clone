@@ -26,21 +26,9 @@
   font-size: 26px;
 }
 
-.input, .btn-primary{
+.input {
   width: 338px;
   padding: 12px;
-}
-
-.btn-primary {
-  background-color: rgb(2, 136, 88);
-  color: white;
-  border: none;
-  transition: all 0.2s;
-}
-
-.btn-primary:hover {
-  background-color: rgb(1, 87, 56);
-  cursor: pointer;
 }
 
 /*Sign up page specific styles*/
