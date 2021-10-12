@@ -33,7 +33,7 @@ def post_comment():
 
 @comment_routes.route('/<int:id>', methods=['DELETE'])
 @login_required
-def delete_comment():
+def delete_comment(id):
   comment = db.session.query(Comment).get(id)
   db.session.delete(comment)
   db.session.commit()

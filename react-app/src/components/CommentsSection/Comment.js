@@ -1,10 +1,18 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import './Comment.css';
+import { deleteComment } from "../../store/comment";
 
 const Comment = ({ comment }) => {
   const user = useSelector(state => state.session.user)
   const commentUserId = comment.user_id;
+  const dispatch = useDispatch();
+
+  const onDelete = async e => {
+    e.preventDefault()
+    await dispatch(deleteComment(comment.id))
+  }
+
   return (
     <div className='comment-container'>
       <div className='comment-header'>
@@ -19,7 +27,7 @@ const Comment = ({ comment }) => {
           user?.id === commentUserId &&
           <div className='comment-buttons'>
             <button className='btn-edit comment-edit' >Edit</button>
-            <button className='btn-delete comment-delete' >Delete</button>
+            <button className='btn-delete comment-delete' onClick={onDelete}>Delete</button>
           </div>
         }
       </div>

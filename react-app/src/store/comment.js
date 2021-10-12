@@ -24,3 +24,14 @@ export const postComment = (project_id, user_id, description) => async dispatch 
   }
 
 }
+
+export const deleteComment = (comment_id) => async dispatch => {
+  const response = await fetch(`/api/comments/${comment_id}`, {
+    method: 'DELETE'
+  })
+  if (response.ok) {
+    return null
+  } else {
+    return ['An error occured. Please try again']
+  }
+}
