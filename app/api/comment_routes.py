@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from app.forms import CommentForm
 from app.models import Comment, db
-from flask_login import login_required
+from flask_login import login_required, current_user
 
 comment_routes = Blueprint('comments', __name__)
 
@@ -35,6 +35,9 @@ def post_comment():
 @login_required
 def delete_comment(id):
   comment = db.session.query(Comment).get(id)
-  db.session.delete(comment)
-  db.session.commit()
-  return {'message': 'Comment deleted'}
+  if current_user.id == comment.user_id:
+    db.session.delete(comment)
+    db.session.commit()
+    return {'message': 'Comment deleted'}
+  else:
+    return {'message': 'Unauthorized'}
