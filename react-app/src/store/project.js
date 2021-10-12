@@ -1,4 +1,4 @@
-import { POST_COMMENT, post_comment, postComment, deleteComment } from "./comment";
+import { POST_COMMENT, DELETE_COMMENT } from "./comment";
 const GET_PROJECT = 'project/getProject';
 
 const get_project = (project) => {
@@ -26,6 +26,12 @@ const projectReducer = (state = {}, action) => {
       newState = Object.assign({}, state);
       newState.comments.push(action.payload);
       return newState;
+    case DELETE_COMMENT:
+      newState = Object.assign({}, state);
+      newState.comments = newState.comments.filter(comment => {
+        return comment.id !== action.payload;
+      })
+      return newState
     default:
       return state;
   }

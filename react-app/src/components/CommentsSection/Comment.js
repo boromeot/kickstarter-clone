@@ -15,6 +15,7 @@ const Comment = ({ comment }) => {
 
   return (
     <div className='comment-container'>
+      {comment.id}
       <div className='comment-header'>
         <div className='comment-profile'>
           👤

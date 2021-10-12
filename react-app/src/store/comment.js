@@ -1,6 +1,7 @@
 export const POST_COMMENT = 'project/postComment';
+export const DELETE_COMMENT = 'project/deleteComment';
 
-export const post_comment = (comment) => {
+export const post_comment = comment => {
   return {
     type: POST_COMMENT,
     payload: comment,
@@ -34,11 +35,19 @@ export const postComment = (project_id, user_id, description) => async dispatch 
   }
 }
 
-export const deleteComment = (comment_id) => async dispatch => {
+export const delete_comment = comment_id => {
+  return {
+    type: DELETE_COMMENT,
+    payload: comment_id,
+  }
+}
+
+export const deleteComment = comment_id => async dispatch => {
   const response = await fetch(`/api/comments/${comment_id}`, {
     method: 'DELETE'
   })
   if (response.ok) {
+    dispatch(delete_comment(comment_id));
     return null
   } else {
     return ['An error occured. Please try again']
