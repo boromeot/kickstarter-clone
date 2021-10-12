@@ -2,18 +2,21 @@ import React, { useEffect, useState } from 'react';
 import './ProjectPage.css'
 import * as projectAction from '../../store/project';
 import { useDispatch, useSelector } from 'react-redux';
-import { Route, useParams } from 'react-router';
-import { BrowserRouter, NavLink } from 'react-router-dom';
+import { Route, useParams, useRouteMatch } from 'react-router';
+import { NavLink } from 'react-router-dom';
+import CommentsSection from '../CommentsSection';
 import UpdatesComponent from '../UpdatesComponent';
 import FAQ from './FAQ';
 import Risks from './Risks';
 
 const ProjectPage = () => {
   const { projectId } = useParams();
-  const { id, title, description, video_src, image_src, current_funding, pledge_goal, faqs, risks } = useSelector(state => state.project)
+  const {id, title, description, video_src, image_src, current_funding, pledge_goal, faqs, risks, comments} = useSelector(state => state.project)
+  const user = useSelector(state => state.session.user);
+
   const projectObj = useSelector(state => state.project)
-  console.log(projectObj)
   const dispatch = useDispatch();
+  const { path, url } = useRouteMatch(); //Allows for backwards compatibility of route names
 
   useEffect(() => {
     dispatch(projectAction.getProject(projectId))
@@ -28,7 +31,7 @@ const ProjectPage = () => {
         <div id='project-left-col'>
           <div id='project-image-conatiner'>
             {video_src ?
-              <iframe id='project-video' src={video_src} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe id='project-video' src={video_src} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
               : <img id='project-image' src={image_src}></img>
             }
           </div>
@@ -82,44 +85,44 @@ const ProjectPage = () => {
       </div>
       <div className='test'>
         <div className='test-block'>
-          <div className='test-item-container'>
-            <NavLink to={`/projects/${id}/description`} className='test-item' activeClassName='active-test'>
-              Campaign
-            </NavLink>
-            <NavLink to={`/projects/${id}/risks`} className='test-item' activeClassName='active-test'>
-              Risks
-            </NavLink>
-            <NavLink to={`/projects/${id}/faqs`} className='test-item' activeClassName='active-test'>
-              FAQ
-            </NavLink>
-            <NavLink to={`/projects/${id}/updates`} className='test-item' activeClassName='active-test'>
-              Updates
-            </NavLink>
-            <NavLink to={`/projects/${id}/comments`} className='test-item' activeClassName='active-test'>
-              Comments
-            </NavLink>
-          </div>
-          <div className='test-item-container'>
-            <button className='btn-primary test-item-btn'>
-              Back this project
-            </button>
-          </div>
+            <div className='test-item-container'>
+              <NavLink to={`${url}/description`} className='test-item' activeClassName='active-test'>
+                Campaign
+              </NavLink>
+              <NavLink to={`${url}/risks`} className='test-item' activeClassName='active-test'>
+                Risk
+              </NavLink>
+              <NavLink to={`${url}/faqs`} className='test-item' activeClassName='active-test'>
+                FAQ
+              </NavLink>
+              <NavLink to={`${url}/updates`} className='test-item' activeClassName='active-test'>
+                Updates
+              </NavLink>
+              <NavLink to={`${url}/comments`} className='test-item' activeClassName='active-test'>
+                Comments
+              </NavLink>
+            </div>
+            <div className='test-item-container'>
+              <button className='btn-primary test-item-btn'>
+                Back this project
+              </button>
+            </div>
         </div>
-      </div >
-      <Route path={`/projects/${id}/description`}>
+      </div>
+      <Route path={`${path}/description`}>
         Campaign
       </Route>
-      <Route path={`/projects/${id}/risks`}>
+      <Route path={`${path}/risks`}>
         <Risks risks={risks} />
       </Route>
-      <Route path={`/projects/${id}/faqs`}>
-        <FAQ faqs={faqs} />
+      <Route path={`${path}/faqs`}>
+        <FAQ faqs={faqs}/>
       </Route>
-      <Route path={`/projects/${id}/updates`}>
-        <UpdatesComponent id={id} />
+      <Route path={`${path}/updates`}>
+        <UpdatesComponent project_id={id} />
       </Route>
-      <Route path={`/projects/${id}/comments`}>
-        Comments
+      <Route path={`${path}/comments`}>
+        {comments ? <CommentsSection comments={comments} project_id={id} user={user}/> : 'no comments'}
       </Route>
 
     </div >

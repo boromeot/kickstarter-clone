@@ -8,6 +8,5 @@ project_routes = Blueprint('projects', __name__)
 
 @project_routes.route('/<int:id>')
 def get_project(id):
-  print('TEST')
   project = Project.query.get(id)
   return project.to_dict()

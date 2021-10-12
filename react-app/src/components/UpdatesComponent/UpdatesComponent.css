@@ -6,7 +6,6 @@
     background-color: #F5F5F5;
     /* background-color: black; */
     /* gap: 50px; */
-    z-index: 0;
 }
 
 .updates_inner_container {
@@ -20,7 +19,7 @@
 
 
 .updateInfo{
-    
+
 }
 
 .updateNumber {
@@ -42,7 +41,7 @@
     width: 600px;
     height: 45px;
     border-bottom: 1px solid grey;
-    
+
 }
 
 
