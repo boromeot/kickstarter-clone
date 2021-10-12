@@ -1,16 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './ProjectPage.css'
 import * as projectAction from '../../store/project';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, useParams, useRouteMatch } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import CommentsSection from '../CommentsSection';
+import UpdatesComponent from '../UpdatesComponent';
 import FAQ from './FAQ';
+import Risks from './Risks';
 
 const ProjectPage = () => {
   const { projectId } = useParams();
-  const {id, title, description, video_src, image_src, current_funding, pledge_goal, faqs, comments} = useSelector(state => state.project)
+  const {id, title, description, video_src, image_src, current_funding, pledge_goal, faqs, risks, comments} = useSelector(state => state.project)
   const user = useSelector(state => state.session.user);
+
+  const projectObj = useSelector(state => state.project)
   const dispatch = useDispatch();
   const { path, url } = useRouteMatch(); //Allows for backwards compatibility of route names
 
@@ -39,7 +43,7 @@ const ProjectPage = () => {
         </div>
         <div id='project-pledge'>
           <div id='project-progress-bar'>
-            <div id='project-progress' style={{width: `${(current_funding / pledge_goal) * 100}%`}} />
+            <div id='project-progress' style={{ width: `${(current_funding / pledge_goal) * 100}%` }} />
           </div>
           <div id='project-info-container'>
             <div>
@@ -69,15 +73,15 @@ const ProjectPage = () => {
         </div>
       </div>
       <div className='project-disclaimer-bar'>
-          <div className='project-disclaimer-item'>
-            Kickstarter connects creators with backers to fund projects.
-          </div>
-          <div className='project-disclaimer-item'>
-            Rewards aren’t guaranteed, but creators must regularly update backers.
-          </div>
-          <div className='project-disclaimer-item'>
-            You’re only charged if the project meets its funding goal by the campaign deadline.
-          </div>
+        <div className='project-disclaimer-item'>
+          Kickstarter connects creators with backers to fund projects.
+        </div>
+        <div className='project-disclaimer-item'>
+          Rewards aren’t guaranteed, but creators must regularly update backers.
+        </div>
+        <div className='project-disclaimer-item'>
+          You’re only charged if the project meets its funding goal by the campaign deadline.
+        </div>
       </div>
       <div className='test'>
         <div className='test-block'>
@@ -120,7 +124,8 @@ const ProjectPage = () => {
       <Route path={`${path}/comments`}>
         {comments ? <CommentsSection comments={comments} project_id={id} user={user}/> : 'no comments'}
       </Route>
-    </div>
+
+    </div >
   )
 }
 

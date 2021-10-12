@@ -6,7 +6,7 @@ function FAQ({faqs}){
   return(
     <div class="component-container">
       <div class="faq-left">
-        <h2 class="faq-header">Frequently Asked Questions</h2>
+        <h2 class="component-header">Frequently Asked Questions</h2>
         <div class="faq-container">
           {faqs?.map((faq) =>
             <FAQpage faq={faq}/>
