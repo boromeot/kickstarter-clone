@@ -31,7 +31,7 @@ def post_comment():
     return comment.to_dict()
   return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
-@comment_routes.route('/<int:id>', methods=['DELETE', 'PUT'])
+@comment_routes.route('/<int:id>', methods=['DELETE', 'PATCH'])
 @login_required
 def delete_comment(id):
   comment = db.session.query(Comment).get(id)
@@ -42,15 +42,11 @@ def delete_comment(id):
       return {'message': 'Comment deleted'}
     else:
       return {'message': 'Unauthorized'}
-  elif request.method == 'PUT':
+  elif request.method == 'PATCH':
     form = CommentForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-      comment = Comment(
-        project_id=form.data['project_id'],
-        user_id=form.data['user_id'],
-        description=form.data['description'],
-      )
+      comment['description'] = form.data['description']
       db.session.commit()
       return comment.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
