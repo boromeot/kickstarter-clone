@@ -119,7 +119,7 @@ const ProjectPage = () => {
         <FAQ faqs={faqs}/>
       </Route>
       <Route path={`${path}/updates`}>
-        Updates
+        <UpdatesComponent project_id={id} />
       </Route>
       <Route path={`${path}/comments`}>
         {comments ? <CommentsSection comments={comments} project_id={id} user={user}/> : 'no comments'}
