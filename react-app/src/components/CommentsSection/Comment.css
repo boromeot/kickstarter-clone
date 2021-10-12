@@ -13,6 +13,19 @@
   margin-bottom: 18px;
 }
 
+.comment-delete, .comment-edit {
+  padding: 6px;
+}
+
+.comment-buttons {
+  margin-left: auto;
+}
+
+.comment-delete {
+  margin-left: 6px;
+  margin-right: 5px;
+}
+
 .comment-profile {
   margin-right: 12px;
 }
@@ -23,16 +36,11 @@
 }
 
 .comment-description {
-  display: flex;
-  justify-content: space-between;
   font-size: 14px;
+  word-wrap: break-word
 }
 
 .comment-info {
   display: flex;
   flex-direction: column;
-}
-
-.comment-delete, .comment-edit {
-  padding: 6px;
 }
