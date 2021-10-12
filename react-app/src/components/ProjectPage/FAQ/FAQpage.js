@@ -2,17 +2,17 @@ import { useState } from 'react';
 
 import './FAQ.css';
 
-function FAQpage ({faq}){
+function FAQpage({ faq }) {
   const [hide, setHide] = useState(true);
-  function toggleHide(){
-    if (hide){
+  function toggleHide() {
+    if (hide) {
       setHide(false);
     } else {
       setHide(true)
     }
   }
-  return(
-    <div class="question-container" onClick={()=>toggleHide()}>
+  return (
+    <div class="question-container" onClick={() => toggleHide()}>
       <div class="question-preview">
         <div class="question">{faq.question}</div>
         <div class="arrow">{'>'}</div>
