@@ -34,7 +34,7 @@ const CommentsSection = ({ comments, project_id, user }) => {
             Add a comment
           </button>
           <Modal title='Add a comment' onClose={() => setShow(false)} show={show}>
-            <CommentForm />
+            <CommentForm project_id={project_id} user_id={user.id} />
           </Modal>
       </div>
     </div>
