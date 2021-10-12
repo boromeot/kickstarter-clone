@@ -21,4 +21,5 @@ class Update(db.Model):
       'description': self.description,
       'project_id': self.project_id,
       'user_id': self.user_id,
+      'username': self.user.username,
     }
