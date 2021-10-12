@@ -9,7 +9,7 @@ export const post_comment = comment => {
   };
 }
 
-export const postComment = (project_id, user_id, description) => async dispatch => {
+export const postComment = (description, project_id, user_id) => async dispatch => {
   const response = await fetch('/api/comments/', {
     method: 'POST',
     headers: {
@@ -43,14 +43,16 @@ const patch_comment = comment => {
   }
 }
 
-export const patchComment = (description, comment_id) => async dispatch => {
+export const patchComment = (description, project_id, user_id, comment_id) => async dispatch => {
   const response = await fetch(`/api/comments/${comment_id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      description
+      project_id,
+      user_id,
+      description,
     })
   });
   if (response.ok) {

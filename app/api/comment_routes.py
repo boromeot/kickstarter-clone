@@ -1,4 +1,5 @@
 from flask import Blueprint, request
+from app.api.auth_routes import login
 from app.forms import CommentForm
 from app.models import Comment, db
 from flask_login import login_required, current_user
@@ -46,7 +47,7 @@ def delete_comment(id):
     form = CommentForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-      comment['description'] = form.data['description']
+      comment.description = form.data['description']
       db.session.commit()
       return comment.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
