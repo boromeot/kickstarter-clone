@@ -1,13 +1,14 @@
 from flask import Blueprint, jsonify, request, redirect
 from flask_login import login_required
 from app.models import Update, db
+from flask import jsonify
 
 
 
 update_routes = Blueprint('updates', __name__)
 
 
-@update_routes.route('/', methods=['POST'])
+@update_routes.route('/', methods=['POST', 'PUT'])
 def create_update():
     print("Test------------------------")
     # print(request.json['title'])
@@ -27,6 +28,9 @@ def create_update():
     else:
         return 'Bad Data'
 
+    if request.method == 'PUT':
+        return 'This is a put route!'
+
 
 @update_routes.route('/', methods=['DELETE'])
 def delete_update():
@@ -36,4 +40,4 @@ def delete_update():
     # db.session.delete(currentUpdate)
     currentUpdate = Update.query.filter(Update.id == request.json['idx']).delete()
     db.session.commit()
-    return 'currentUpdate.to_dict()'
+    return jsonify(message='currentUpdate.to_dict()')

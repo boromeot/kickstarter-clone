@@ -1,5 +1,5 @@
-const CREATE_UPDATE = 'update/CREATE_USER';
-const DELETE_UPDATE = 'update/DELETE_USER';
+export const CREATE_UPDATE = 'update/CREATE_USER';
+export const DELETE_UPDATE = 'update/DELETE_USER';
 
 const create_update = (update) => {
     return {
@@ -43,6 +43,7 @@ export const deleteUpdate = (body) => async (dispatch) => {
 
     if (response.ok) {
         const data = await response.json()
+        console.log(data.message)
         dispatch(delete_update(data))
         return data
     }
@@ -50,16 +51,18 @@ export const deleteUpdate = (body) => async (dispatch) => {
 
 
 
-
-export default function updateReducer(state = {}, action) {
+const initialState = { updates: null }
+export default function updateReducer(state = initialState, action) {
     let newState;
     switch (action.type) {
         case CREATE_UPDATE:
             newState = Object.assign({}, state);
-            newState = action.payload
+            newState.updates = action.payload
+            return newState;
         case DELETE_UPDATE:
             newState = Object.assign({}, state);
-            newState = action.payload
+            newState.updates = action.payload
+            return newState;
         default:
             return state;
     }

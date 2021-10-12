@@ -11,7 +11,7 @@ import Risks from './Risks';
 
 const ProjectPage = () => {
   const { projectId } = useParams();
-  const {id, title, description, video_src, image_src, current_funding, pledge_goal, faqs, risks, comments} = useSelector(state => state.project)
+  const { id, title, description, video_src, image_src, current_funding, pledge_goal, faqs, risks, comments } = useSelector(state => state.project)
   const user = useSelector(state => state.session.user);
 
   const projectObj = useSelector(state => state.project)
@@ -31,7 +31,7 @@ const ProjectPage = () => {
         <div id='project-left-col'>
           <div id='project-image-conatiner'>
             {video_src ?
-              <iframe id='project-video' src={video_src} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+              <iframe id='project-video' src={video_src} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
               : <img id='project-image' src={image_src}></img>
             }
           </div>
@@ -85,28 +85,28 @@ const ProjectPage = () => {
       </div>
       <div className='test'>
         <div className='test-block'>
-            <div className='test-item-container'>
-              <NavLink to={`${url}/description`} className='test-item' activeClassName='active-test'>
-                Campaign
-              </NavLink>
-              <NavLink to={`${url}/risks`} className='test-item' activeClassName='active-test'>
-                Risk
-              </NavLink>
-              <NavLink to={`${url}/faqs`} className='test-item' activeClassName='active-test'>
-                FAQ
-              </NavLink>
-              <NavLink to={`${url}/updates`} className='test-item' activeClassName='active-test'>
-                Updates
-              </NavLink>
-              <NavLink to={`${url}/comments`} className='test-item' activeClassName='active-test'>
-                Comments
-              </NavLink>
-            </div>
-            <div className='test-item-container'>
-              <button className='btn-primary test-item-btn'>
-                Back this project
-              </button>
-            </div>
+          <div className='test-item-container'>
+            <NavLink to={`${url}/description`} className='test-item' activeClassName='active-test'>
+              Campaign
+            </NavLink>
+            <NavLink to={`${url}/risks`} className='test-item' activeClassName='active-test'>
+              Risk
+            </NavLink>
+            <NavLink to={`${url}/faqs`} className='test-item' activeClassName='active-test'>
+              FAQ
+            </NavLink>
+            <NavLink to={`${url}/updates`} className='test-item' activeClassName='active-test'>
+              Updates
+            </NavLink>
+            <NavLink to={`${url}/comments`} className='test-item' activeClassName='active-test'>
+              Comments
+            </NavLink>
+          </div>
+          <div className='test-item-container'>
+            <button className='btn-primary test-item-btn'>
+              Back this project
+            </button>
+          </div>
         </div>
       </div>
       <Route path={`${path}/description`}>
@@ -116,13 +116,13 @@ const ProjectPage = () => {
         <Risks risks={risks} />
       </Route>
       <Route path={`${path}/faqs`}>
-        <FAQ faqs={faqs}/>
+        <FAQ faqs={faqs} />
       </Route>
       <Route path={`${path}/updates`}>
         <UpdatesComponent project_id={id} />
       </Route>
       <Route path={`${path}/comments`}>
-        {comments ? <CommentsSection comments={comments} project_id={id} user={user}/> : 'no comments'}
+        {comments ? <CommentsSection comments={comments} project_id={id} user={user} /> : 'no comments'}
       </Route>
 
     </div >

@@ -8,22 +8,31 @@ import './UpdatesComponent.css'
 export default function UpdatesComponent({ id }) {
     const projectUpdates = useSelector(state => state.project.updates)
     const dispatch = useDispatch()
+
+    // if (reload === true) {
+    //     window.location.reload();
+    //     reload = false
+    // }
     let [reload, setReload] = useState(false);
 
-    if (reload === true) {
-        window.location.reload();
-        reload = false
-    }
+
+    useEffect(() => {
+
+        setReload(false)
+
+    }, [dispatch, reload])
+
 
     return (
 
         <div className="updates_outter_container">
             {projectUpdates?.map((updates, idx) =>
-                <div className='updates_inner_container'>
+                <div key={updates.id} className='updates_inner_container'>
                     <div className='updates_container'>
                         <div className='updateBtn_container'>
                             <li className="updateInfo updates_deleteBtn" onClick={() => {
                                 dispatch(updateActions.deleteUpdate({ idx: updates.id }))
+
                                 setReload(true)
                             }}>DELETE</li>
                         </div>
