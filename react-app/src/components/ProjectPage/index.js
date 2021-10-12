@@ -31,7 +31,7 @@ const ProjectPage = () => {
         <div id='project-left-col'>
           <div id='project-image-conatiner'>
             {video_src ?
-              <iframe id='project-video' src={video_src} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+              <iframe id='project-video' src={video_src} title="YouTube video player" frameBorder="0" allowFullScreen></iframe>
               : <img id='project-image' src={image_src}></img>
             }
           </div>
@@ -122,7 +122,9 @@ const ProjectPage = () => {
         <UpdatesComponent project_id={id} />
       </Route>
       <Route path={`${path}/comments`}>
-        {comments ? <CommentsSection comments={comments} project_id={id} user={user}/> : 'no comments'}
+        {comments ?
+          <CommentsSection comments={comments} project_id={id} />
+          : 'no comments'}
       </Route>
 
     </div >
