@@ -26,3 +26,14 @@ def create_update():
         return "Success"
     else:
         return 'Bad Data'
+
+
+@update_routes.route('/', methods=['DELETE'])
+def delete_update():
+    currentUpdate = Update.query.filter(Update.id == request.json['idx']).delete()
+    # currentUpdate = Update.query.get())
+    # print(currentUpdate)
+    print( request.json['idx'],'------------------------')
+    # db.session.delete(currentUpdate)
+    db.session.commit()
+    return 'currentUpdate.to_dict()'
