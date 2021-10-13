@@ -1,4 +1,7 @@
 from .db import db
+from datetime import datetime, timedelta
+now = datetime.now()
+year = timedelta(days=365)
 
 class Project(db.Model):
   __tablename__ = 'projects'
@@ -10,8 +13,8 @@ class Project(db.Model):
   image_src = db.Column(db.String(100), default='')
   pledge_goal = db.Column(db.Float, nullable=False, default=1000)
   current_funding = db.Column(db.Float, nullable=False, default=0)
-  start_date = db.Column(db.DateTime, nullable=False, default='2021 01 01')
-  end_date = db.Column(db.DateTime, nullable=False, default='2021 01 01')
+  start_date = db.Column(db.DateTime, nullable=False, default=now.strftime("%c"))
+  end_date = db.Column(db.DateTime, nullable=False, default=(now + year).strftime("%c"))
   risks = db.Column(db.Text, nullable=False, default='')
 
   # Foreign Keys

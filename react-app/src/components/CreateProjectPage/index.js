@@ -52,7 +52,6 @@ const CreateProjectPage = () => {
         user_id: user.id,
       })
     });
-    console.log('finish post');
   }
 
   if (!user) {
