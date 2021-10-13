@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import * as updateActions from '../../store/update'
+
 import './UpdatePatchComponent.css';
 
 export default function UpdatePatchComponent({ setToRenderComponent, setToRenderDisplay, setToRenderPatch, currentUpdateId }) {
@@ -8,25 +9,21 @@ export default function UpdatePatchComponent({ setToRenderComponent, setToRender
     const dispatch = useDispatch()
 
 
-    const currentUser = useSelector(state => state.session.user?.id)
+    const currentUser = useSelector(state => state.session.user.id)
+    const currentProject = useSelector(state => state.project.id)
+    // console.log(currentProject)
     const updates = useSelector(state => state.project.updates)
     // console.log(updates)
     const currentUpdate = updates.find(update => update.id === currentUpdateId)
     // console.log(currentUpdate)
 
-    const [updateDescription, setUpdateDescription] = useState(currentUpdate?.description)
-    const [updateTitle, setUpdateTitle] = useState(currentUpdate?.title)
+    const [description, setDescription] = useState(currentUpdate?.description)
+    const [title, setTitle] = useState(currentUpdate?.title)
 
     function handleUpdateUpdate(e) {
         e.preventDefault()
-        const payload = {
-            title: updateTitle,
-            description: updateDescription,
-            user_id: currentUser,
-            project_id: 1
-        }
-        console.log('')
-        dispatch(updateActions.patchUpdate({ idx: currentUpdateId }))
+
+        dispatch(updateActions.patchUpdate({ idx: currentUpdateId, title: title, description: description, project_id: currentProject }))
 
     }
 
@@ -49,21 +46,21 @@ export default function UpdatePatchComponent({ setToRenderComponent, setToRender
                             <input
                                 type="text"
                                 name="title"
-                                value={updateTitle}
+                                value={title}
                                 placeholder="Title"
                                 className="updateTitle_TF"
-                                onChange={(e) => setUpdateTitle(e.target.value)}
+                                onChange={(e) => setTitle(e.target.value)}
                             />
                         </div>
                         <div>
                             <textarea
                                 name="description"
-                                value={updateDescription}
+                                value={description}
                                 rows="8"
                                 columns="30"
                                 placeholder="Add New Update"
                                 className="update_TF"
-                                onChange={(e) => setUpdateDescription(e.target.value)}
+                                onChange={(e) => setDescription(e.target.value)}
                             />
                         </div>
                     </label>

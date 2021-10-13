@@ -34,25 +34,32 @@ def create_update():
         return 'Bad Data'
         
 
-@update_routes.route('/', methods=['PATCH'])
-def patch_update():
+@update_routes.route('/<int:id>', methods=['PATCH'])
+def patch_update(id):
     form = UpdateForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    print(form['csrf_token'].data)
     if request.method == 'PATCH':
         print('------------------Making Patch Request--------------------')
         print('------------------', request.json['idx'])
+        # print('------------------', request.json['title'])
+        # print('------------------', request.json['description'])
         print('------------------', form.data['title'])
         print('------------------', form.data['description'])
 
         updateToChange = Update.query.get(request.json['idx'])
         print(updateToChange.to_dict(), '---------------------------------')
-
         
         if form.validate_on_submit():
             updateToChange.title = form.data['title']
             updateToChange.description = form.data['description']
             db.session.commit()
-            return updateToChange.to_dict()
+            allUpdates = Update.query.all()
+            # return updateToChange.to_dict()
+            fillStoreWithUpdates = [update.to_dict() for update in allUpdates]
+            print('----------------ALL UPDATES ----------------')
+            print(fillStoreWithUpdates)
+            return jsonify(fillStoreWithUpdates)
         else:
             return jsonify('Form did not validate!')
 

@@ -11,6 +11,7 @@ import ProjectPage from './components/ProjectPage';
 import UpdatesView from './components/UpdatesView';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
+import SplashPageComponent from './components/SplashPageComponent';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -44,7 +45,7 @@ function App() {
           <User />
         </ProtectedRoute>
         <Route path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <SplashPageComponent />
         </Route>
         <Route path='/projects/:projectId' >
           <ProjectPage />

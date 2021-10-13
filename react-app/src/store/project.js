@@ -54,7 +54,8 @@ const projectReducer = (state = {}, action) => {
     case PATCH_UPDATE:
       newState = Object.assign({}, state);
       // console.log(action.payload)
-      newState.updates = newState.updates.filter((update) => update.id !== action.payload)
+      // newState.updates = newState.updates.filter((update) => update.id !== action.payload)
+      newState.updates = action.payload
       return newState;
     default:
       return state;

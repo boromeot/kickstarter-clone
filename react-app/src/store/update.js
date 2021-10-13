@@ -59,12 +59,17 @@ export const deleteUpdate = (body) => async (dispatch) => {
 
 export const patchUpdate = (body) => async (dispatch) => {
     console.log(body.idx)
-    const response = await fetch(`/api/updates/`, {
+    const response = await fetch(`/api/updates/${body.idx}`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(body)
+        body: JSON.stringify({
+            idx: body.idx,
+            title: body.title,
+            description: body.description,
+            project_id: body.project_id,
+        })
     })
 
     if (response.ok) {
