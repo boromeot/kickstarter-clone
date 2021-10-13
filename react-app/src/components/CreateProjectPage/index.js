@@ -11,6 +11,8 @@ const CreateProjectPage = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({tag: '', description: '', title: ''})
   const totalSteps = 3;
+  //The disabled attribute is true if the current steps data is falsey
+  let isDisabled = !formData[Object.keys(formData)[currentStep - 1]];
 
   const prevStep = () => {
     if (currentStep > 1) {
@@ -54,7 +56,7 @@ const CreateProjectPage = () => {
         <div className='start-form-spacer'>
           <div className='start-form-button-container'>
             {currentStep < totalSteps &&
-              <button className='start-form-next-btn' onClick={nextStep}>Next</button>
+              <button className={isDisabled ? 'disabled' : 'start-form-next-btn' } onClick={nextStep} disabled={isDisabled}>Next</button>
             }
             {currentStep > 1 &&
               <span className='start-form-back-btn' onClick={prevStep}>

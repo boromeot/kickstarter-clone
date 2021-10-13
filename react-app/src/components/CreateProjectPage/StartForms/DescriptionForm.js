@@ -18,7 +18,7 @@ const DescriptionForm = ({ description, handleChange, currentStep}) => {
             name='description'
             value={description}
             onChange={handleChange}
-            placeholder='Description'
+            placeholder='A novel written in three languages.'
             className='start-text-area'
             maxLength={200} //Same max length as the db column
           />

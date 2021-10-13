@@ -12,12 +12,15 @@ const TitleForm = ({ title, handleChange, currentStep}) => {
         <div className='start-form-content'>
           <h2 className='start-form-heading'>Last one—set a title for your project.</h2>
           <h3 className='start-form-sub-heading'>Give it a title. Something to let others remember you by.</h3>
-          <input
+          <textarea
             name='title'
             value={title}
             onChange={handleChange}
             placeholder='title'
+            className='start-text-area'
+            maxLength={100}
           />
+          <div className='start-form-character-count'>{title.length}/100</div>
         </div>
       </div>
     </div>

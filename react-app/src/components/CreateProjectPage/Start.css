@@ -65,7 +65,7 @@
   border-top: solid 0.8px rgb(232, 232, 232);
 }
 
-.start-form-next-btn {
+.start-form-next-btn, .disabled {
   width: 155px;
   height: 46px;
   background-color: rgb(70, 70, 70);
@@ -81,17 +81,27 @@
   cursor: pointer;
 }
 
+.disabled {
+  background-color: rgb(235, 235, 235);
+  border: none;
+}
+
+.disabled:hover {
+  cursor: not-allowed;
+}
+
 .start-form-back-btn {
   display: flex;
   align-items: center;
+  color: rgb(101, 105, 105);
 }
 
 .start-form-back-btn:hover {
   cursor: pointer;
+  color: black;
 }
 
 .start-form-back-btn-text {
   padding: 0 6px;
   font-size: 14px;
-  color: rgb(101, 105, 105);
 }
