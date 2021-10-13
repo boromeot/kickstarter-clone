@@ -3,10 +3,11 @@
   margin: 0 auto;
   max-width: 1366px;
   /* height: calc(100vh - var(--nav-bar-height)); */
+  height: 700px;
 }
 
 .start-step-count {
-  margin-top: 3px;
+  margin-top: 5px;
   font-size: 14px;
   color: rgb(40, 40, 40);
 }
@@ -44,6 +45,15 @@
   margin-bottom: 36px;
   text-align: center;
 }
+
+.start-form-character-count {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 5px;
+  font-size: 13px;
+  color: #656969;
+}
+
 
 /* Button container styler */
 .start-form-button-container {

@@ -9,7 +9,7 @@ import TitleForm from './StartForms/TitleForm';
 const CreateProjectPage = () => {
   const user = useSelector(state => state.session.user);
   const [currentStep, setCurrentStep] = useState(1);
-  const [formData, setFormData] = useState({tag: 'tag', description: 'description', title: 'title'})
+  const [formData, setFormData] = useState({tag: '', description: '', title: ''})
   const totalSteps = 3;
 
   const prevStep = () => {
