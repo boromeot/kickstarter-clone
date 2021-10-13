@@ -58,6 +58,7 @@ export const deleteUpdate = (body) => async (dispatch) => {
 }
 
 export const patchUpdate = (body) => async (dispatch) => {
+    console.log(body.idx)
     const response = await fetch(`/api/updates/`, {
         method: "PATCH",
         headers: {

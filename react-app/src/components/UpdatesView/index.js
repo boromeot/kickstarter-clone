@@ -20,6 +20,7 @@ function UpdatesView({ id }) {
             user_id: currentUser,
             project_id: 1
         }
+
         dispatch(updateActions.createUpdate(payload))
 
     }

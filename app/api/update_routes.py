@@ -9,7 +9,7 @@ from flask import jsonify
 update_routes = Blueprint('updates', __name__)
 
 
-@update_routes.route('/', methods=['POST', 'PATCH'])
+@update_routes.route('/', methods=['POST'])
 def create_update():
     # print("Test------------------------")
     # print(request.json['title'])
@@ -32,18 +32,29 @@ def create_update():
         return jsonify(updates)
     else:
         return 'Bad Data'
+        
 
+@update_routes.route('/', methods=['PATCH'])
+def patch_update():
+    form = UpdateForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
     if request.method == 'PATCH':
-        form = UpdateForm()
-        # form['csrf_token'].data = request.cookies['csrf_token']
+        print('------------------Making Patch Request--------------------')
+        print('------------------', request.json['idx'])
+        print('------------------', form.data['title'])
+        print('------------------', form.data['description'])
+
+        updateToChange = Update.query.get(request.json['idx'])
+        print(updateToChange.to_dict(), '---------------------------------')
+
+        
         if form.validate_on_submit():
-            updateToChange = Update.query.filter(Update.id == request.json['idx'])
             updateToChange.title = form.data['title']
             updateToChange.description = form.data['description']
             db.session.commit()
             return updateToChange.to_dict()
-        
-
+        else:
+            return jsonify('Form did not validate!')
 
 @update_routes.route('/', methods=['DELETE'])
 def delete_update():
