@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useSelector } from 'react-redux';
 import './css/drop-down.css';
 
 const TagForm = ({ tag, handleChange, currentStep }) => {
   //Return no JSX if not on this step yet
+  const tags = useSelector(state => Object.values(state.tags));
   if (currentStep !== 1) {
     return null
   }
@@ -19,11 +21,10 @@ const TagForm = ({ tag, handleChange, currentStep }) => {
             onChange={handleChange}
             className='start-drop-down'
           >
-            <option value='Environment'>Environment</option>
-            <option value='Food'>Food</option>
-            <option value='Music'>Music</option>
-            <option value='Games'>Games</option>
-            <option value='Art'>Art</option>
+            {
+              tags?.map(({id, title}) =>
+              <option value={id} >{title}</option>
+            )}
           </select>
         </div>
       </div>

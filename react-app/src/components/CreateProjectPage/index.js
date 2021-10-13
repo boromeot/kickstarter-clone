@@ -48,7 +48,7 @@ const CreateProjectPage = () => {
       body: JSON.stringify({
         title: formData.title,
         description: formData.description,
-        tag_id: 1,
+        tag_id: formData.tag,
         user_id: user.id,
       })
     });

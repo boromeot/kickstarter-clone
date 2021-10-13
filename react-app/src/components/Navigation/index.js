@@ -25,7 +25,7 @@ const Navigation = () => {
         <Modal title='Discover' onClose={() => setShowDiscover(false)} show={showDiscover}>
           <TagsModal tags={tags} onClose={()=>setShowDiscover(false)} />
         </Modal>
-        <NavLink to='#' className='nav-button' exact={true} activeClassName='active'>
+        <NavLink to='/start' className='nav-button' exact={true} activeClassName='active'>
           Start a project
         </NavLink>
       </div>
