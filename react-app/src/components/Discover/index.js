@@ -67,7 +67,6 @@ function Discover(){
         )}
       </div>
     </div>
-
   )
 }
 
