@@ -39,6 +39,7 @@
 
 .start-form-sub-heading {
   font-size: 18px;
+  font-weight: 400;
   color: rgba(0, 0, 0, 0.6);
   margin-bottom: 36px;
   text-align: center;
@@ -48,7 +49,10 @@
 .start-form-button-container {
   padding: 18px 0;
   display: flex;
+  flex-direction: row-reverse;
   justify-content: space-between;
+  align-items: center;
+  border-top: solid 0.8px rgb(232, 232, 232);
 }
 
 .start-form-next-btn {
@@ -65,4 +69,19 @@
   background-color: black;
   border-color: black;
   cursor: pointer;
+}
+
+.start-form-back-btn {
+  display: flex;
+  align-items: center;
+}
+
+.start-form-back-btn:hover {
+  cursor: pointer;
+}
+
+.start-form-back-btn-text {
+  padding: 0 6px;
+  font-size: 14px;
+  color: rgb(101, 105, 105);
 }
