@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './css/drop-down.css';
 
 const TagForm = ({ tag, handleChange, currentStep }) => {
   //Return no JSX if not on this step yet
@@ -7,17 +8,26 @@ const TagForm = ({ tag, handleChange, currentStep }) => {
   }
 
   return (
-    <select
-      name='tag'
-      value={tag}
-      onChange={handleChange}
-    >
-      <option value='Environment'>Environment</option>
-      <option value='Food'>Food</option>
-      <option value='Music'>Music</option>
-      <option value='Games'>Games</option>
-      <option value='Art'>Art</option>
-    </select>
+    <div className='start-form-container'>
+      <div className='start-form-spacer'>
+        <div className='start-form-content'>
+          <h2 className='start-form-heading'>First, let's get you set up.</h2>
+          <h3 className='start-form-sub-heading'>Pick a project category to connect with a specific community. You can always update this later.</h3>
+          <select
+            name='tag'
+            value={tag}
+            onChange={handleChange}
+            className='start-drop-down'
+          >
+            <option value='Environment'>Environment</option>
+            <option value='Food'>Food</option>
+            <option value='Music'>Music</option>
+            <option value='Games'>Games</option>
+            <option value='Art'>Art</option>
+          </select>
+        </div>
+      </div>
+    </div>
   )
 }
 

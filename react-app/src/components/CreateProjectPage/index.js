@@ -10,15 +10,16 @@ const CreateProjectPage = () => {
   const user = useSelector(state => state.session.user);
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({tag: 'tag', description: 'description', title: 'title'})
+  const totalSteps = 3;
 
   const prevStep = () => {
     if (currentStep > 1) {
-      setCurrentStep(prevStep => prevStep -1)
+      setCurrentStep(prevStep => prevStep - 1)
     }
   }
 
   const nextStep = () => {
-    if (currentStep < 3) {
+    if (currentStep < totalSteps) {
       setCurrentStep(prevStep => prevStep + 1)
     }
   }
@@ -32,23 +33,31 @@ const CreateProjectPage = () => {
     })
   }
 
+  //todo: add dispatch
+  const handleSubmit = e => {
+    e.preventDefault();
+  }
+
   if (!user) {
     return <Redirect to='/login' />
   }
 
   return (
     <div className='start-container'>
-      <div>Step {currentStep} of 3</div>
-      <form >
-        <TagForm tag={formData.tag} handleChange={handleChange} currentStep={currentStep} />
-        <DescriptionForm description={formData.description} handleChange={handleChange} currentStep={currentStep} />
-        <TitleForm title={formData.title} handleChange={handleChange} currentStep={currentStep} />
+      <div className='start-step-count'>{currentStep} of {totalSteps}</div>
+      <form onSubmit={handleSubmit}>
+          <TagForm tag={formData.tag} handleChange={handleChange} currentStep={currentStep} />
+          <DescriptionForm description={formData.description} handleChange={handleChange} currentStep={currentStep} />
+          <TitleForm title={formData.title} handleChange={handleChange} currentStep={currentStep} />
       </form>
-      <p>{formData.tag}</p>
-      <p>{formData.description}</p>
-      <p>{formData.title}</p>
-      <button onClick={prevStep}>Prev</button>
-      <button onClick={nextStep}>Next</button>
+      <div>
+        <div className='start-form-spacer'>
+          <div className='start-form-button-container'>
+            <button onClick={prevStep}>Prev</button>
+            <button className='start-form-next-btn' onClick={nextStep}>Next</button>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
