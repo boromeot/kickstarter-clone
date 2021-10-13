@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const TagForm = ({ tag, handleChange, currentStep }) => {
-
+  //Return no JSX if not on this step yet
   if (currentStep !== 1) {
     return null
   }

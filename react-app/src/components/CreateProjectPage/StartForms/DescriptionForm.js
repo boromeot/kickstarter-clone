@@ -1,7 +1,7 @@
 import React from "react";
 
 const DescriptionForm = ({ description, handleChange, currentStep}) => {
-  //Return no JSX
+  //Return no JSX if not on this step yet
   if (currentStep !== 2) {
     return null;
   }

@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import './Start.css';
 import TagForm from './StartForms/TagForm';
 import DescriptionForm from './StartForms/DescriptionForm';
+import TitleForm from './StartForms/TitleForm';
 
 const CreateProjectPage = () => {
   const user = useSelector(state => state.session.user);
@@ -25,10 +26,11 @@ const CreateProjectPage = () => {
 
   return (
     <div className='start-container'>
-      <div>{currentStep}</div>
+      <div>Step {currentStep} of 3</div>
       <form >
         <TagForm tag={formData.tag} handleChange={handleChange} currentStep={currentStep} />
         <DescriptionForm description={formData.description} handleChange={handleChange} currentStep={currentStep} />
+        <TitleForm title={formData.title} handleChange={handleChange} currentStep={currentStep} />
       </form>
       <p>{formData.tag}</p>
       <p>{formData.description}</p>
