@@ -56,12 +56,10 @@ export default function updateReducer(state = {}, action) {
     switch (action.type) {
         case CREATE_UPDATE:
             newState = Object.assign({}, state);
-            newState = action.payload;
-            return newState;
+            newState = action.payload
         case DELETE_UPDATE:
             newState = Object.assign({}, state);
-            newState = action.payload;
-            return newState;
+            newState = action.payload
         default:
             return state;
     }
