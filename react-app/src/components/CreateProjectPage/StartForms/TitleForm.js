@@ -16,7 +16,7 @@ const TitleForm = ({ title, handleChange, currentStep}) => {
             name='title'
             value={title}
             onChange={handleChange}
-            placeholder='title'
+            placeholder='Long Night Of Solace'
             className='start-text-area'
             maxLength={100}
           />

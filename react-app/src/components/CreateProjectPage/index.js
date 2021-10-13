@@ -38,6 +38,13 @@ const CreateProjectPage = () => {
   //todo: add dispatch
   const handleSubmit = e => {
     e.preventDefault();
+    alert(
+      `
+      ${formData.tag}
+      ${formData.description}
+      ${formData.title}
+      `
+    )
   }
 
   if (!user) {
@@ -55,8 +62,9 @@ const CreateProjectPage = () => {
       <div>
         <div className='start-form-spacer'>
           <div className='start-form-button-container'>
-            {currentStep < totalSteps &&
-              <button className={isDisabled ? 'disabled' : 'start-form-next-btn' } onClick={nextStep} disabled={isDisabled}>Next</button>
+            {currentStep < totalSteps
+              ? <button className={isDisabled ? 'disabled' : 'start-form-next-btn' } onClick={nextStep} disabled={isDisabled}>Next</button>
+              : <button type='submit' className={isDisabled ? 'disabled' : 'start-form-next-btn' } disabled={isDisabled}>Continue</button>
             }
             {currentStep > 1 &&
               <span className='start-form-back-btn' onClick={prevStep}>
