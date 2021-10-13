@@ -10,7 +10,7 @@ import { getTags } from '../../store/tag';
 
 const Navigation = () => {
   const user = useSelector(state => state.session.user);
-  const tags = useSelector(state => Object.values(state.tag));
+  const tags = useSelector(state => Object.values(state.tags));
   const [showDiscover, setShowDiscover] = useState(false);
   const dispatch = useDispatch();
 

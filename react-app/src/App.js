@@ -16,7 +16,7 @@ import Discover from './components/Discover';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
-  const tags = useSelector(state => Object.values(state.tag));
+  const tags = useSelector(state => Object.values(state.tags));
   const dispatch = useDispatch();
 
   useEffect(() => {
