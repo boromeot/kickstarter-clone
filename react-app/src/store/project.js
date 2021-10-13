@@ -1,11 +1,19 @@
 import { POST_COMMENT, DELETE_COMMENT, PATCH_COMMENT } from "./comment";
 import { CREATE_UPDATE, DELETE_UPDATE, PATCH_UPDATE } from "./update"
 const GET_PROJECT = 'project/getProject';
+const GET_AllPROJECTS = '/project/getAllProjects'
 
 const get_project = (project) => {
   return {
     type: GET_PROJECT,
     payload: project,
+  };
+}
+
+const get_allProjects = (projects) => {
+  return {
+    type: GET_AllPROJECTS,
+    payload: projects,
   };
 }
 
@@ -16,10 +24,30 @@ export const getProject = (projectId) => async dispatch => {
   return response
 }
 
+
+export const getAllProjects = (projectId) => async dispatch => {
+  const response = await fetch(`/api/projects/`, {
+    method: "GET"
+  });
+  const data = await response.json();
+  // const projArr = []
+  // for (let key in data) {
+  //   // console.log(data[key])
+  //   projArr.push(data[key]);
+  // }
+  // console.log(projArr)
+  dispatch(get_allProjects(data));
+  return response
+}
+
 const projectReducer = (state = {}, action) => {
   let newState;
   switch (action.type) {
     case GET_PROJECT:
+      newState = Object.assign({}, state);
+      newState = action.payload;
+      return newState;
+    case GET_AllPROJECTS:
       newState = Object.assign({}, state);
       newState = action.payload;
       return newState;
