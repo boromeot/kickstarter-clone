@@ -12,6 +12,7 @@ from .api.project_routes import project_routes
 from .api.update_routes import update_routes
 from .api.FAQ_routes import FAQ_routes
 from .api.comment_routes import comment_routes
+from .api.tag_routes import tag_routes
 
 from .seeds import seed_commands
 
@@ -38,6 +39,7 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(project_routes, url_prefix='/api/projects')
 app.register_blueprint(update_routes, url_prefix='/api/updates/')
 app.register_blueprint(comment_routes, url_prefix='/api/comments')
+app.register_blueprint(tag_routes, url_prefix='/api/tags')
 db.init_app(app)
 Migrate(app, db)
 
