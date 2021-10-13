@@ -13,4 +13,5 @@
 
 .start-text-area:focus {
   border-color: black;
+  outline: none;
 }
