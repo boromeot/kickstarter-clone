@@ -38,15 +38,21 @@ const CreateProjectPage = () => {
   }
 
   //todo: add dispatch
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    alert(
-      `
-      ${formData.tag}
-      ${formData.description}
-      ${formData.title}
-      `
-    )
+    const response = fetch('/api/projects/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        title: formData.title,
+        description: formData.description,
+        tag_id: 1,
+        user_id: user.id,
+      })
+    });
+    console.log('finish post');
   }
 
   if (!user) {
