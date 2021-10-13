@@ -11,6 +11,18 @@ const CreateProjectPage = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({tag: 'tag', description: 'description', title: 'title'})
 
+  const prevStep = () => {
+    if (currentStep > 1) {
+      setCurrentStep(prevStep => prevStep -1)
+    }
+  }
+
+  const nextStep = () => {
+    if (currentStep < 3) {
+      setCurrentStep(prevStep => prevStep + 1)
+    }
+  }
+
   const handleChange = e => {
     const { name, value } = e.target
     const oldState = {...formData}
@@ -35,8 +47,8 @@ const CreateProjectPage = () => {
       <p>{formData.tag}</p>
       <p>{formData.description}</p>
       <p>{formData.title}</p>
-      <button onClick={() => setCurrentStep(prev => prev - 1)}>Prev</button>
-      <button onClick={() => setCurrentStep(prev => prev + 1)}>Next</button>
+      <button onClick={prevStep}>Prev</button>
+      <button onClick={nextStep}>Next</button>
     </div>
   )
 }
