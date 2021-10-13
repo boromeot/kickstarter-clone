@@ -12,8 +12,16 @@ export default function SplashPageComponent() {
     const dispatch = useDispatch()
     const allProjects = useSelector(state => state.project)
     console.log(allProjects.length)
+    const allProj = []
+    useEffect(() => {
+        for (let key in allProjects) {
+            allProj.push(allProjects[key])
+        }
+        console.log(allProj, '----------------------')
+    }, [dispatch, allProjects, allProj])
     const randomProjIdx = Math.floor(Math.random() * (allProjects.length - 1 + 1) + 0)
     console.log(randomProjIdx)
+
 
 
     const [featureId, setFeatureId] = useState()
@@ -41,13 +49,15 @@ export default function SplashPageComponent() {
                     </div>
                 </div>
                 <div className="recommended_outmost_container">
-                    <p>RECOMMENDED FOR YOU</p>
+                    <div>
+                        <p>RECOMMENDED FOR YOU</p>
+                    </div>
                     <div className="recommended_container" >
-                        <div>
-                            {allProjects?.map((project, idx) => {
 
-                            })}
-                        </div>
+
+
+
+
                     </div>
                 </div>
             </div>

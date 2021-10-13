@@ -26,16 +26,8 @@ export const getProject = (projectId) => async dispatch => {
 
 
 export const getAllProjects = (projectId) => async dispatch => {
-  const response = await fetch(`/api/projects/`, {
-    method: "GET"
-  });
+  const response = await fetch(`/api/projects/`);
   const data = await response.json();
-  // const projArr = []
-  // for (let key in data) {
-  //   // console.log(data[key])
-  //   projArr.push(data[key]);
-  // }
-  // console.log(projArr)
   dispatch(get_allProjects(data));
   return response
 }
