@@ -7,10 +7,24 @@ const get_project = (project) => {
   };
 }
 
+const get_all_projects = (project) => {
+  return {
+    type: GET_PROJECT,
+    payload: project,
+  };
+}
+
 export const getProject = (projectId) => async dispatch => {
   const response = await fetch(`/api/projects/${projectId}`);
   const data = await response.json();
   dispatch(get_project(data));
+  return response
+}
+
+export const getAllProjects = () => async dispatch => {
+  const response = await fetch(`/api/projects`);
+  const data = await response.json()
+  dispatch(get_project(data.projects))
   return response
 }
 

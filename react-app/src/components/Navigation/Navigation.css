@@ -26,6 +26,13 @@
 
 #discover {
   margin-right: 12px;
+  background-color:#ffffff;
+  border: none;
+}
+
+#discover:hover{
+  cursor: pointer;
+  color: rgb(3, 115, 98);
 }
 
 .login, .logout {

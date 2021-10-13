@@ -10,3 +10,10 @@ project_routes = Blueprint('projects', __name__)
 def get_project(id):
   project = Project.query.get(id)
   return project.to_dict()
+
+
+@project_routes.route('/')
+def get_projects_by_tag():
+  projects = Project.query.all()
+  projectDict = {"projects" : [project.to_dict() for project in projects]}
+  return projectDict

@@ -1,0 +1,52 @@
+.tags-container{
+  width:100vw;
+  height:100vh;
+  padding: 30px 50px;
+
+}
+
+.tags-header-inner{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid gray;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  animation-duration:2s;
+  animation-name:slidein;
+}
+
+.tags-header-inner button{
+  background: none;
+  border: none;
+  font-size: 20px;
+  font-style: bold;
+}
+
+.tags-header-inner button:hover{
+  cursor: pointer;
+}
+
+.tags-list{
+  display:flex;
+  flex-direction: column;
+  animation-duration:2s;
+  animation-name:slidein;
+}
+
+.tags-item{
+  width: fit-content;
+  font-size: 40px;
+}
+
+
+
+@keyframes slidein {
+  from{
+    color: white;
+    top: -100px;
+  }
+  to {
+    color: black;
+    top: 10px;
+  }
+}

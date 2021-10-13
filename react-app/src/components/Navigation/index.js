@@ -1,33 +1,29 @@
 import React, {useEffect, useState} from 'react'
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Logo from './logo';
 import LogoutButton from '../auth/LogoutButton';
 import './Navigation.css'
 import Modal from '../Modal/index';
-import Tags from '../Tags';
-import getTags from '../../store/tag'
+import TagsModal from '../TagsModal';
+import { getTags } from '../../store/tag';
 
 const Navigation = () => {
   const user = useSelector(state => state.session.user);
-  const tags = useSelector(state => state.tag)
+  const tags = useSelector(state => Object.values(state.tag));
   const [showDiscover, setShowDiscover] = useState(false);
-  const dispatch = useDispatch()
-
-  console.log("------------")
-  // console.log(getTags())
-  // getTags()
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getTags())
-  }, [dispatch])
+  },[dispatch])
 
   return (
     <nav className='nav-bar'>
       <div className='nav-section'>
-        <button onClick={() => setShowDiscover(true)}>Discover</button>
-        <Modal title='Discover' className='nav-button' onClose={() => setShowDiscover(false)} show={showDiscover}>
-          <Tags tags={tags}/>
+        <button classname='nav-button' id="discover" onClick={() => setShowDiscover(true)}>Discover</button>
+        <Modal title='Discover' onClose={() => setShowDiscover(false)} show={showDiscover}>
+          <TagsModal tags={tags} onClose={()=>setShowDiscover(false)} />
         </Modal>
         <NavLink to='#' className='nav-button' exact={true} activeClassName='active'>
           Start a project

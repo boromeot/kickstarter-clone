@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import ProtectedRoute from './components/auth/ProtectedRoute';
@@ -11,14 +11,18 @@ import ProjectPage from './components/ProjectPage';
 import UpdatesView from './components/UpdatesView';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
+import IndividualTagPage from './components/IndividualTagPage';
+import Discover from './components/Discover';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
+  const tags = useSelector(state => Object.values(state.tag));
   const dispatch = useDispatch();
 
   useEffect(() => {
     (async () => {
       await dispatch(authenticate());
+
       setLoaded(true);
     })();
   }, [dispatch]);
@@ -52,6 +56,14 @@ function App() {
         <Route path='/updates'>
           <UpdatesView />
         </Route>
+        <Route path='/discover'>
+          <Discover />
+        </Route>
+        {tags.map((tag) =>
+          <Route path={`/discover/${tag.title}`}>
+            <IndividualTagPage tagId={tag.id} tagTitle={tag.title}/>
+          </Route>
+        )}
       </Switch>
       <Footer />
     </BrowserRouter>
