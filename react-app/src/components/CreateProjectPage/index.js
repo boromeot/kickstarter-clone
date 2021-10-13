@@ -14,13 +14,15 @@ const CreateProjectPage = () => {
   //The disabled attribute is true if the current steps data is falsey
   let isDisabled = !formData[Object.keys(formData)[currentStep - 1]];
 
-  const prevStep = () => {
+  const prevStep = e => {
+    e.preventDefault()
     if (currentStep > 1) {
       setCurrentStep(prevStep => prevStep - 1)
     }
   }
 
-  const nextStep = () => {
+  const nextStep = e => {
+    e.preventDefault()
     if (currentStep < totalSteps) {
       setCurrentStep(prevStep => prevStep + 1)
     }
@@ -55,28 +57,30 @@ const CreateProjectPage = () => {
     <div className='start-container'>
       <div className='start-step-count'>{currentStep} of {totalSteps}</div>
       <form onSubmit={handleSubmit}>
-          <TagForm tag={formData.tag} handleChange={handleChange} currentStep={currentStep} />
-          <DescriptionForm description={formData.description} handleChange={handleChange} currentStep={currentStep} />
-          <TitleForm title={formData.title} handleChange={handleChange} currentStep={currentStep} />
-      </form>
-      <div>
-        <div className='start-form-spacer'>
-          <div className='start-form-button-container'>
-            {currentStep < totalSteps
-              ? <button className={isDisabled ? 'disabled' : 'start-form-next-btn' } onClick={nextStep} disabled={isDisabled}>Next</button>
-              : <button type='submit' className={isDisabled ? 'disabled' : 'start-form-next-btn' } disabled={isDisabled}>Continue</button>
-            }
-            {currentStep > 1 &&
-              <span className='start-form-back-btn' onClick={prevStep}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
-                </svg>
-                <span className='start-form-back-btn-text'>Prev</span>
-              </span>
-            }
+        <TagForm tag={formData.tag} handleChange={handleChange} currentStep={currentStep} />
+        <DescriptionForm description={formData.description} handleChange={handleChange} currentStep={currentStep} />
+        <TitleForm title={formData.title} handleChange={handleChange} currentStep={currentStep} />
+        <div>
+          <div className='start-form-spacer'>
+            <div className='start-form-button-container'>
+              {
+                currentStep < totalSteps
+                ? <button className={isDisabled ? 'disabled' : 'start-form-next-btn' } onClick={nextStep} disabled={isDisabled}>Next</button>
+                : <button type='submit' className={isDisabled ? 'disabled' : 'start-form-next-btn' } disabled={isDisabled}>Continue</button>
+              }
+              {
+                currentStep > 1
+                && <span className='start-form-back-btn' onClick={prevStep}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                  </svg>
+                  <span className='start-form-back-btn-text'>Prev</span>
+                </span>
+              }
+            </div>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   )
 }
