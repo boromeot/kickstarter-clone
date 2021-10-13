@@ -1,11 +1,12 @@
 import UpdatesView from '../UpdatesView'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import * as updateActions from '../../store/update'
+
 import './UpdatesComponent.css'
 
 
-export default function UpdatesComponent({ id }) {
+export default function UpdatesComponent({ id, setCurrentUpdateId, setToRenderComponent, setToRenderDisplay, setToRenderPatch, currentUpdateId }) {
     const projectUpdates = useSelector(state => state.project.updates)
     const dispatch = useDispatch()
 
@@ -31,8 +32,14 @@ export default function UpdatesComponent({ id }) {
                     <div className='updates_container'>
                         <div className='updateBtn_container'>
                             <li className="updateInfo btn-primary" onClick={() => {
+                                setCurrentUpdateId(updates.id)
+                                setToRenderComponent(false)
+                                setToRenderDisplay(true)
+                                setToRenderPatch(false)
+                                setReload(true)
+                            }}>READ MORE</li>
+                            <li className="updateInfo btn-primary" onClick={() => {
                                 dispatch(updateActions.deleteUpdate({ idx: updates.id }))
-
                                 setReload(true)
                             }}>DELETE</li>
                         </div>

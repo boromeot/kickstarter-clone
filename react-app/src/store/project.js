@@ -1,4 +1,5 @@
 import { POST_COMMENT, DELETE_COMMENT, PATCH_COMMENT } from "./comment";
+import { CREATE_UPDATE, DELETE_UPDATE, PATCH_UPDATE } from "./update"
 const GET_PROJECT = 'project/getProject';
 
 const get_project = (project) => {
@@ -41,6 +42,20 @@ const projectReducer = (state = {}, action) => {
         return comment.id !== action.payload;
       })
       return newState
+    case DELETE_UPDATE:
+      newState = Object.assign({}, state);
+      // console.log(action.payload)
+      newState.updates = action.payload
+    case CREATE_UPDATE:
+      newState = Object.assign({}, state);
+      // console.log(action.payload)
+      newState.updates = action.payload
+      return newState;
+    case PATCH_UPDATE:
+      newState = Object.assign({}, state);
+      // console.log(action.payload)
+      newState.updates = newState.updates.filter((update) => update.id !== action.payload)
+      return newState;
     default:
       return state;
   }

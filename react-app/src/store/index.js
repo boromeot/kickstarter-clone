@@ -7,7 +7,7 @@ import updateReducer from './update';
 const rootReducer = combineReducers({
   session,
   project: projectReducer,
-  update: updateReducer
+  // update: updateReducer
 });
 
 

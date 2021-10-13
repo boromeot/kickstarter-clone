@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './ProjectPage.css'
 import * as projectAction from '../../store/project';
 import { useDispatch, useSelector } from 'react-redux';
@@ -6,8 +6,11 @@ import { Route, useParams, useRouteMatch } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import CommentsSection from '../CommentsSection';
 import UpdatesComponent from '../UpdatesComponent';
+import UpdatePatchComponent from '../UpdatePatchComponent';
 import FAQ from './FAQ';
 import Risks from './Risks';
+
+import UpdateDisplayComponent from '../UpdateDisplayComponent';
 
 const ProjectPage = () => {
   const { projectId } = useParams();
@@ -17,6 +20,13 @@ const ProjectPage = () => {
   const projectObj = useSelector(state => state.project)
   const dispatch = useDispatch();
   const { path, url } = useRouteMatch(); //Allows for backwards compatibility of route names
+
+  const [toRenderComponent, setToRenderComponent] = useState(true)
+  const [toRenderDisplay, setToRenderDisplay] = useState(false)
+  const [toRenderPatch, setToRenderPatch] = useState(false)
+
+  const [currentUpdateId, setCurrentUpdateId] = useState()
+
 
   useEffect(() => {
     dispatch(projectAction.getProject(projectId))
@@ -119,7 +129,32 @@ const ProjectPage = () => {
         <FAQ faqs={faqs} />
       </Route>
       <Route path={`${path}/updates`}>
-        <UpdatesComponent project_id={id} />
+        {toRenderComponent &&
+          <UpdatesComponent
+            project_id={id}
+            setToRenderComponent={setToRenderComponent}
+            setToRenderDisplay={setToRenderDisplay}
+            setToRenderPatch={setToRenderPatch}
+            setCurrentUpdateId={setCurrentUpdateId}
+          />
+        }
+        {toRenderDisplay &&
+          <UpdateDisplayComponent
+            setToRenderComponent={setToRenderComponent}
+            setToRenderDisplay={setToRenderDisplay}
+            setToRenderPatch={setToRenderPatch}
+            currentUpdateId={currentUpdateId}
+          />
+        }
+        {toRenderPatch &&
+          <UpdatePatchComponent
+            setToRenderComponent={setToRenderComponent}
+            setToRenderDisplay={setToRenderDisplay}
+            setToRenderPatch={setToRenderPatch}
+            currentUpdateId={currentUpdateId}
+          />
+        }
+
       </Route>
       <Route path={`${path}/comments`}>
         {comments ?

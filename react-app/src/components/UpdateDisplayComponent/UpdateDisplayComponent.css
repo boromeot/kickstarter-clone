@@ -1,0 +1,9 @@
+.outter_container{
+    border: 2px solid red;
+    height:800px;
+}
+
+.inner_Container{
+    border: 2px solid navy;
+    height:800px;
+}
