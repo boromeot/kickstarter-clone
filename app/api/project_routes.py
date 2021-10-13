@@ -11,7 +11,6 @@ def get_project(id):
   project = Project.query.get(id)
   return project.to_dict()
 
-<<<<<<< HEAD
 @project_routes.route('/', methods=['POST'])
 @login_required
 def post_project():
@@ -29,11 +28,9 @@ def post_project():
     return project.to_dict()
   else:
     return {'error': 'Form did not validate'}
-=======
 
 @project_routes.route('/')
 def get_projects_by_tag():
   projects = Project.query.all()
   projectDict = {"projects" : [project.to_dict() for project in projects]}
   return projectDict
->>>>>>> master
