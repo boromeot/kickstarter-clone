@@ -2,8 +2,6 @@ import FAQpage from './FAQpage';
 import './FAQ.css';
 
 function FAQ({ faqs }) {
-  console.log("faqs in comonent")
-  console.log(faqs)
   return (
     <div class="component-container">
       <div class="faq-left">

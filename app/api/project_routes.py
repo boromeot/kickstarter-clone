@@ -1,9 +1,9 @@
-from flask import Blueprint, jsonify
-from app.seeds import projects
+from flask import Blueprint, request
 from flask_login import login_required
-from app.models import Project, Comment
+from app.models import Project, db
 from sqlalchemy.orm import joinedload
 import random
+from app.forms import ProjectForm
 
 project_routes = Blueprint('projects', __name__)
 
@@ -20,6 +20,23 @@ def get_project(id):
   project = Project.query.get(id)
   return project.to_dict()
 
+@project_routes.route('/', methods=['POST'])
+@login_required
+def post_project():
+  form = ProjectForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
+  if form.validate_on_submit():
+    project = Project(
+      user_id = (form.data['user_id']),
+      tag_id = (form.data['tag_id']),
+      title = (form.data['title'] if form.data['title'] else 'Default Title'),
+      description = (form.data['description'] if form.data['description'] else 'Default description'),
+    )
+    db.session.add(project)
+    db.session.commit()
+    return project.to_dict()
+  else:
+    return {'error': 'Form did not validate'}
 
 @project_routes.route('/')
 def get_projects_by_tag():

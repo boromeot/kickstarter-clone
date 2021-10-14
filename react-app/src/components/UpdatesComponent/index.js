@@ -33,7 +33,6 @@ export default function UpdatesComponent({ id, setCurrentUpdateId, setToRenderCo
                 <div key={update.id} className='updates_inner_container'>
                     <div className='updates_container'>
                         <div className='updateBtn_container'>
-
                             <li className="updateInfo btn-primary" onClick={() => {
                                 setCurrentUpdateId(update.id)
                                 setToRenderComponent(false)
