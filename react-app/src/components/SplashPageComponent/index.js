@@ -11,14 +11,16 @@ import './SplashPageComponent.css'
 export default function SplashPageComponent() {
     const dispatch = useDispatch()
     const allProjects = useSelector(state => state.project)
-    console.log(allProjects.length)
-    const allProj = []
-    useEffect(() => {
-        for (let key in allProjects) {
-            allProj.push(allProjects[key])
-        }
-        console.log(allProj, '----------------------')
-    }, [dispatch, allProjects, allProj])
+    const [render, setRender] = useState(true);
+    console.log(typeof (allProjects))
+    // console.log(allProjects.length)
+    // const allProj = []
+    // useEffect(() => {
+    //     for (let key in allProjects) {
+    //         allProj.push(allProjects[key])
+    //     }
+    //     console.log(allProj, '----------------------')
+    // }, [dispatch, allProjects, allProj])
     const randomProjIdx = Math.floor(Math.random() * (allProjects.length - 1 + 1) + 0)
     console.log(randomProjIdx)
 
@@ -27,8 +29,12 @@ export default function SplashPageComponent() {
     const [featureId, setFeatureId] = useState()
 
     useEffect(() => {
+        if (allProjects[randomProjIdx]?.image_src !== null) {
+            setRender(true)
+        }
         dispatch(projectAction.getAllProjects())
     }, [dispatch])
+
 
     // const allProjectsNoFeatured = allProjects?.map(project => project.id = featureId)
 
@@ -38,10 +44,14 @@ export default function SplashPageComponent() {
             <div className="splash-page main_container">
 
                 <SplashNav />
+                {/* <iframe id='project-video' src={video_src} title="YouTube video player" frameBorder="0" allowFullScreen></iframe> */}
                 <div className="featuredProj_outmost_container">
                     <div className="featuredProj_inner_container">
                         <li className="featuredProject_label featureItem" > Featured Project </li>
-                        <img className="featuredProject_img featureItem" src={allProjects[randomProjIdx]?.image_src}></img>
+                        {render ?
+                            <iframe className='featuredProject_video featureItem' src={allProjects[randomProjIdx]?.video_src} title="YouTube video player" frameBorder="0" allowFullScreen></iframe>
+                            : <img className="featuredProject_img featureItem" src={allProjects[randomProjIdx]?.image_src}></img>
+                        }
                         <p className="featuredProject_title featureItem">{allProjects[randomProjIdx]?.title}</p>
                         <p className="featuredProject_subTitle featureItem">{allProjects[randomProjIdx]?.description}</p>
                         {/* <p className="featuredProject_subTitle featureItem">{allProjects[randomProjIdx]?.description}</p> */}
@@ -52,13 +62,9 @@ export default function SplashPageComponent() {
                     <div>
                         <p>RECOMMENDED FOR YOU</p>
                     </div>
-                    <div className="recommended_container" >
-
-
-
-
-
-                    </div>
+                    {allProjects?.map(project =>
+                        <li>{project.title}</li>
+                    )}
                 </div>
             </div>
         </div>
