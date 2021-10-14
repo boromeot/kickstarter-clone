@@ -13,14 +13,6 @@ export default function SplashPageComponent() {
     const allProjects = useSelector(state => state.project)
     const [render, setRender] = useState(true);
     console.log(typeof (allProjects))
-    // console.log(allProjects.length)
-    // const allProj = []
-    // useEffect(() => {
-    //     for (let key in allProjects) {
-    //         allProj.push(allProjects[key])
-    //     }
-    //     console.log(allProj, '----------------------')
-    // }, [dispatch, allProjects, allProj])
     const randomProjIdx = Math.floor(Math.random() * (allProjects.length - 1 + 1) + 0)
     console.log(randomProjIdx)
 
@@ -62,8 +54,10 @@ export default function SplashPageComponent() {
                     <div>
                         <p>RECOMMENDED FOR YOU</p>
                     </div>
-                    {allProjects?.map(project =>
-                        <li>{project.title}</li>
+                    {allProjects?.map(project => {
+
+                        console.log(project.title)
+                    }
                     )}
                 </div>
             </div>
