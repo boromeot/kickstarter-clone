@@ -4,7 +4,7 @@ import './SubPageHeader.css';
 
 const SubPageHeader = ({ header, subHeader}) => {
   return (
-    <div>
+    <div className='sub-page-header-border'>
       <div className='edit-page-spacer'>
         <div className='sub-page-header-spacer'>
           <div className='sub-page-header-container'>

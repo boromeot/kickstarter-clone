@@ -1,5 +1,6 @@
 import React from "react";
-import FormInfo from "../FormInfo";
+import FormWrapper from "../FormWrapper";
+import '../FormWrapper.css';
 
 const TitleForm = ({title, handleChange}) => {
   const infoArr = [
@@ -7,15 +8,14 @@ const TitleForm = ({title, handleChange}) => {
     'Potential backers will also see them if your project appears on category pages, search results, or in emails we send to our community.'
   ];
   return (
-    <>
-      <FormInfo header='Project title' infoArr={infoArr}/>
+    <FormWrapper header='Project title' infoArr={infoArr}>
       <textarea
         name='title'
         value={title}
         onChange={handleChange}
         placeholder='Papercuts: A Party Game for the Rude and Well-Read'
       />
-    </>
+    </FormWrapper>
   )
 }
 
