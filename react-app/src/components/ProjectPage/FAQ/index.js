@@ -1,10 +1,9 @@
 import FAQpage from './FAQpage';
 import './FAQ.css';
 
-function FAQ({ faqs }) {
-  console.log("faqs in comonent")
-  console.log(faqs)
-  return (
+
+function FAQ({faqs}){
+  return(
     <div class="component-container">
       <div class="faq-left">
         <h2 class="component-header">Frequently Asked Questions</h2>
