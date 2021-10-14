@@ -15,6 +15,7 @@ import SplashPageComponent from './components/SplashPageComponent';
 import CreateProjectPage from './components/CreateProjectPage';
 import IndividualTagPage from './components/IndividualTagPage';
 import Discover from './components/Discover';
+import { getTags } from './store/tag'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -24,6 +25,7 @@ function App() {
   useEffect(() => {
     (async () => {
       await dispatch(authenticate());
+      dispatch(getTags())
 
       setLoaded(true);
     })();

@@ -1,9 +1,10 @@
-from flask import Blueprint, request
+from flask import Blueprint, request, jsonify
 from flask_login import login_required
 from app.models import Project, db
 from sqlalchemy.orm import joinedload
 import random
 from app.forms import ProjectForm
+
 
 project_routes = Blueprint('projects', __name__)
 

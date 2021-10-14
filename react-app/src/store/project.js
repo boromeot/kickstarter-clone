@@ -62,8 +62,7 @@ const projectReducer = (state = {}, action) => {
       newState = action.payload;
       return newState;
     case GET_RANDOM_PROJECTS:
-      newState = { ...state };
-      newState = Object.assign(newState, state);
+      newState = Object.assign({}, state);
       newState = action.payload;
       return newState;
     case GET_USER:

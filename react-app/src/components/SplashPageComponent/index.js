@@ -48,10 +48,6 @@ export default function SplashPageComponent() {
         // dispatch(projectAction.getAllProjects())
     }, [dispatch])
 
-    function helper() {
-        dispatch(projectAction.getRandomProjects())
-    }
-
 
 
     return (
