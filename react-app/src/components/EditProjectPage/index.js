@@ -1,17 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Logo from '../Navigation/logo';
 import NavItem from './NavItem';
 import '../Navigation/Navigation.css';
 import './EditProjectPage.css';
-import { NavLink, Route, useRouteMatch } from 'react-router-dom';
+import { NavLink, Route, Redirect, useRouteMatch, useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { getProject } from '../../store/project';
 
 const EditProjectPage = () => {
+  const dispatch = useDispatch();
+  const { projectId } = useParams()
   const { path, url } = useRouteMatch(); //Allows for backwards compatibility of route names
+  const user = useSelector(state => state.session.user);
+  const project = useSelector(state => state.project);
+  const [formData, setFormData] = useState({
+    ...project
+  })
+
+  useEffect(() => {
+    dispatch(getProject(projectId));
+  }, [dispatch, projectId])
+
+  useEffect(() => {
+    setFormData({
+      ...project,
+    })
+  }, [project])
+
+  if (!user) {
+    return <Redirect to='/login' />
+  }
   return (
     <>
       <nav className='nav-bar'>
         <div className=''>
-          <NavLink to='/' className='nav-button' exact={true} activeClassName='active'>
+          <NavLink to='/' className='nav-button' exact={true}>
             <Logo />
           </NavLink>
         </div>
@@ -24,7 +47,7 @@ const EditProjectPage = () => {
           <div className='edit-page-items-container'>
             <NavItem emoji='✍️' text='Basics' link={`${url}/basics`}/>
             <NavItem emoji='📊' text='Funding' link={`${url}/funding`}/>
-            <NavItem emoji='🎁' text='Updates' link={`${url}/updates`}/>
+            <NavItem emoji='📝' text='Updates' link={`${url}/updates`}/>
             <NavItem emoji='📖' text='Story' link={`${url}/story`}/>
             <NavItem emoji='👥' text='People' link={`${url}/people`}/>
             <NavItem emoji='💰' text='Payment' link={`${url}/payment`}/>

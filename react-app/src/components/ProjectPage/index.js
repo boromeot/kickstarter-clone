@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './ProjectPage.css'
-import * as projectAction from '../../store/project';
+import { getProject } from '../../store/project';
 import { useDispatch, useSelector } from 'react-redux';
-import { Route, useParams, useRouteMatch } from 'react-router';
-import { NavLink } from 'react-router-dom';
+import { Route, NavLink, useParams, useRouteMatch } from 'react-router-dom';
 import CommentsSection from '../CommentsSection';
 import UpdatesComponent from '../UpdatesComponent';
 import FAQ from './FAQ';
@@ -12,14 +11,11 @@ import Risks from './Risks';
 const ProjectPage = () => {
   const { projectId } = useParams();
   const {id, title, description, video_src, image_src, current_funding, pledge_goal, faqs, risks, comments} = useSelector(state => state.project)
-  const user = useSelector(state => state.session.user);
-
-  const projectObj = useSelector(state => state.project)
   const dispatch = useDispatch();
   const { path, url } = useRouteMatch(); //Allows for backwards compatibility of route names
 
   useEffect(() => {
-    dispatch(projectAction.getProject(projectId))
+    dispatch(getProject(projectId))
   }, [dispatch, projectId])
   return (
     <div id='project-container'>

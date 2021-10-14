@@ -53,7 +53,7 @@
   padding-bottom: 3px;
 }
 
-.active {
+.active-underline {
   font-weight: bold;
   border-bottom: solid 2.4px #05CE78;
 }
