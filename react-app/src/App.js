@@ -60,8 +60,8 @@ function App() {
         <Route path='/discover'>
           <Discover />
         </Route>
-        {tags.map((tag) =>
-          <Route path={`/discover/${tag.title}`}>
+        {tags.map((tag, idx) =>
+          <Route key={idx} path={`/discover/${tag.title}`}>
             <IndividualTagPage tagId={tag.id} tagTitle={tag.title} />
           </Route>
         )}

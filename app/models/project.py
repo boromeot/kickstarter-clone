@@ -29,6 +29,7 @@ class Project(db.Model):
     return {
       'id' : self.id,
       'user_id' : self.user_id,
+      'username': self.user.username,
       'title': self.title,
       'description': self.description,
       'video_src': self.video_src,

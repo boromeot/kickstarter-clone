@@ -3,6 +3,7 @@ import { CREATE_UPDATE, DELETE_UPDATE, PATCH_UPDATE } from "./update"
 import { GET_USER } from "./user";
 const GET_PROJECT = 'project/getProject';
 const GET_AllPROJECTS = '/project/getAllProjects'
+const GET_RANDOM_PROJECTS = '/project/getAllProjects'
 
 const get_project = (project) => {
   return {
@@ -18,6 +19,15 @@ const get_all_projects = (project) => {
   };
 }
 
+
+const get_random_projects = (project) => {
+  return {
+    type: GET_RANDOM_PROJECTS,
+    payload: project,
+  };
+}
+
+
 export const getProject = (projectId) => async dispatch => {
   const response = await fetch(`/api/projects/${projectId}`);
   const data = await response.json();
@@ -31,6 +41,14 @@ export const getAllProjects = () => async dispatch => {
   dispatch(get_all_projects(data.projects))
   return response
 }
+export const getRandomProjects = () => async dispatch => {
+  const response = await fetch(`/api/projects/random`);
+
+
+  const data = await response.json()
+  dispatch(get_random_projects(data))
+  return response
+}
 
 const projectReducer = (state = {}, action) => {
   let newState;
@@ -41,6 +59,11 @@ const projectReducer = (state = {}, action) => {
       return newState;
     case GET_AllPROJECTS:
       newState = Object.assign({}, state);
+      newState = action.payload;
+      return newState;
+    case GET_RANDOM_PROJECTS:
+      newState = { ...state };
+      newState = Object.assign(newState, state);
       newState = action.payload;
       return newState;
     case GET_USER:

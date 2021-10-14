@@ -27,6 +27,10 @@ export default function UpdatePatchComponent({ setToRenderComponent, setToRender
 
     }
 
+    useEffect(() => {
+
+    }, [dispatch, title, description])
+
 
 
     return (

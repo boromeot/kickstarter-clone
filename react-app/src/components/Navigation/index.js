@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Logo from './logo';
@@ -16,14 +16,14 @@ const Navigation = () => {
 
   useEffect(() => {
     dispatch(getTags())
-  },[dispatch])
+  }, [dispatch])
 
   return (
     <nav className='nav-bar'>
       <div className='nav-section'>
-        <button classname='nav-button' id="discover" onClick={() => setShowDiscover(true)}>Discover</button>
+        <button className='nav-button' id="discover" onClick={() => setShowDiscover(true)}>Discover</button>
         <Modal title='Discover' onClose={() => setShowDiscover(false)} show={showDiscover}>
-          <TagsModal tags={tags} onClose={()=>setShowDiscover(false)} />
+          <TagsModal tags={tags} onClose={() => setShowDiscover(false)} />
         </Modal>
         <NavLink to='#' className='nav-button' exact={true} activeClassName='active'>
           Start a project
