@@ -1,0 +1,18 @@
+.form-info-container {
+  padding: 0 18px;
+  width: calc(4/12 * 100%);
+}
+
+.form-info-header {
+  width: 100%;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  margin-bottom: 6px;
+}
+
+.form-info {
+  font-size: 16px;
+  color: rgb(101, 105, 105);
+  margin-bottom: 20px
+}
