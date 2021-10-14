@@ -9,7 +9,7 @@ import './Discover.css';
 function Discover(){
   const dispatch = useDispatch();
   const projects = useSelector(state => Object.values(state.project));
-  const tags = useSelector(state => Object.values(state.tag));
+  const tags = useSelector(state => Object.values(state.tags));
   const params = new URLSearchParams(useLocation().search)
   const title = params.get('title');
   const [currTag, setCurrTag] = useState(title);
@@ -67,7 +67,6 @@ function Discover(){
         )}
       </div>
     </div>
-
   )
 }
 

@@ -9,7 +9,7 @@ const rootReducer = combineReducers({
   session,
   project: projectReducer,
   update: updateReducer,
-  tag: tagReducer
+  tags: tagReducer
 });
 
 

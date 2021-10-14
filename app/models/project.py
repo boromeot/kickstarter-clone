@@ -1,18 +1,21 @@
 from .db import db
+from datetime import datetime, timedelta
+now = datetime.now()
+year = timedelta(days=365)
 
 class Project(db.Model):
   __tablename__ = 'projects'
 
   id = db.Column(db.Integer, primary_key=True)
-  title = db.Column(db.String(100), nullable=False)
-  description = db.Column(db.String(200), nullable=False)
-  video_src = db.Column(db.String(200))
-  image_src = db.Column(db.String(255))
-  pledge_goal = db.Column(db.Float, nullable=False)
+  title = db.Column(db.String(100), nullable=False, default='')
+  description = db.Column(db.String(200), nullable=False, default='')
+  video_src = db.Column(db.String(100), default='')
+  image_src = db.Column(db.String(100), default='')
+  pledge_goal = db.Column(db.Float, nullable=False, default=1000)
   current_funding = db.Column(db.Float, nullable=False, default=0)
-  start_date = db.Column(db.DateTime, nullable=False)
-  end_date = db.Column(db.DateTime, nullable=False)
-  risks = db.Column(db.Text, nullable=False)
+  start_date = db.Column(db.DateTime, nullable=False, default=now.strftime("%c"))
+  end_date = db.Column(db.DateTime, nullable=False, default=(now + year).strftime("%c"))
+  risks = db.Column(db.Text, nullable=False, default='')
 
   # Foreign Keys
   user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
