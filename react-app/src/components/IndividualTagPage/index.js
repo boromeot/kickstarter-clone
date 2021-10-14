@@ -6,9 +6,6 @@ function IndividualTagPage({tagId, tagTitle}){
   const dispatch = useDispatch();
   const projects = useSelector(state => Object.values(state.project))
 
-  console.log("---------projects----------")
-  console.log(projects)
-
   useEffect(() => {
     dispatch(getAllProjects())
   }, [dispatch])

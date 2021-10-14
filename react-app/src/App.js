@@ -11,12 +11,13 @@ import ProjectPage from './components/ProjectPage';
 import UpdatesView from './components/UpdatesView';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
+import CreateProjectPage from './components/CreateProjectPage';
 import IndividualTagPage from './components/IndividualTagPage';
 import Discover from './components/Discover';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
-  const tags = useSelector(state => Object.values(state.tag));
+  const tags = useSelector(state => Object.values(state.tags));
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -55,6 +56,9 @@ function App() {
         </Route>
         <Route path='/updates'>
           <UpdatesView />
+        </Route>
+        <Route path='/start'>
+          <CreateProjectPage />
         </Route>
         <Route path='/discover'>
           <Discover />
