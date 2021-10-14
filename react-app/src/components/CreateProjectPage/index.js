@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import './Start.css';
 import TagForm from './StartForms/TagForm';
 import DescriptionForm from './StartForms/DescriptionForm';
@@ -11,6 +11,7 @@ const CreateProjectPage = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({tag: '', description: '', title: ''})
   const totalSteps = 3;
+  const history = useHistory();
   //The disabled attribute is true if the current steps data is falsey
   let isDisabled = !formData[Object.keys(formData)[currentStep - 1]];
 
@@ -40,7 +41,7 @@ const CreateProjectPage = () => {
   //todo: add dispatch
   const handleSubmit = async e => {
     e.preventDefault();
-    const response = fetch('/api/projects/', {
+    const response = await fetch('/api/projects/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -52,10 +53,13 @@ const CreateProjectPage = () => {
         user_id: user.id,
       })
     });
+
+    const project = await response.json();
+    history.push(`/projects/${project.id}`);
   }
 
   if (!user) {
-    return <Redirect to='/login' />
+    history.push('/login')
   }
 
   return (
