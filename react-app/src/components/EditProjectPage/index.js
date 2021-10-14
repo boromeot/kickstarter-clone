@@ -27,6 +27,15 @@ const EditProjectPage = () => {
     })
   }, [project])
 
+  const handleChange = e => {
+    const { name, value } = e.target;
+    const oldState = {...formData};
+    setFormData({
+      ...oldState,
+      [name]: value
+    })
+  }
+
   if (!user) {
     return <Redirect to='/login' />
   }
