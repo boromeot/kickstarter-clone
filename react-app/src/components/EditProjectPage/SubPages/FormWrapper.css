@@ -26,7 +26,8 @@
   margin-bottom: 20px
 }
 
-.ggg {
+.form-wrapper-spacer-2 {
   padding: 0 18px;
   margin-left: calc(1/12 * 100%);
+  width: calc(7/12 * 100%);
 }

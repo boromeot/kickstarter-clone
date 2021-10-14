@@ -12,7 +12,7 @@ const FormWrapper = ({ header, infoArr, children }) => {
               return <p className='form-info' key={i}>{info}</p>
             })}
           </div>
-          <div className='ggg'>
+          <div className='form-wrapper-spacer-2'>
             {children}
           </div>
         </div>

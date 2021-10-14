@@ -57,3 +57,19 @@
   font-weight: bold;
   border-bottom: solid 2.4px #05CE78;
 }
+
+/* Form Styles */
+.edit-page-text-area {
+  border: solid 1px #E8E8E8;
+  resize: none;
+  overflow: hidden;
+}
+
+.edit-page-text-area:hover {
+  border-color: #009E74;
+}
+
+.edit-page-text-area:focus {
+  border-color: black;
+  outline: none;
+}

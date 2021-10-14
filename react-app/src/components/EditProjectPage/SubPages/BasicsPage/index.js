@@ -3,11 +3,11 @@ import SubPageHeader from '../SubPageHeader';
 import TitleForm from "./TitleForm";
 import CategoryForm from "./CategoryForm";
 
-const BasicsPage = ({ title, handleChange }) => {
+const BasicsPage = ({ title, description, handleChange }) => {
   return (
     <>
       <SubPageHeader header='Start with the basics' subHeader='Make it easy for people to learn about your project.' />
-      <TitleForm title={title} handleChange={handleChange} />
+      <TitleForm title={title} description={description} handleChange={handleChange} />
       <CategoryForm />
     </>
   )
