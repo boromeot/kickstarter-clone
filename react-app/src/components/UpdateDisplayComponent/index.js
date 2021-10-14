@@ -19,11 +19,11 @@ export default function UpdateDisplayComponent({ setToRenderComponent, setToRend
                     <h1>{chosenUpdate.description}</h1>
                     <h1>{chosenUpdate.username}</h1>
                     <li className="updateBtn btn-primary" onClick={() => {
-                        setToRenderComponent(false)
+                        setToRenderComponent(true)
                         setToRenderDisplay(false)
-                        setToRenderPatch(true)
+                        setToRenderPatch(false)
                     }}>
-                        UPDATE
+                        {'< BACK'}
                     </li>
                 </div>
 
