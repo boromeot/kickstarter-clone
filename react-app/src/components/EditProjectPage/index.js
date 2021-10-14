@@ -6,6 +6,7 @@ import './EditProjectPage.css';
 import { NavLink, Route, Redirect, useRouteMatch, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getProject } from '../../store/project';
+import BasicsPage from './SubPages/BasicsPage';
 
 const EditProjectPage = () => {
   const dispatch = useDispatch();
@@ -64,7 +65,7 @@ const EditProjectPage = () => {
           </div>
         </div>
       </div>
-      <Route path={`${path}/basics`}>basics</Route>
+      <Route path={`${path}/basics`}><BasicsPage /></Route>
       <Route path={`${path}/funding`}>funding</Route>
       <Route path={`${path}/updates`}>updates</Route>
       <Route path={`${path}/story`}>story</Route>
