@@ -6,6 +6,7 @@ import './EditProjectPage.css';
 import { NavLink, Route, Redirect, useRouteMatch, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getProject } from '../../store/project';
+import { createUpdate } from '../../store/update';
 import BasicsPage from './SubPages/BasicsPage';
 import FundingPage from './SubPages/FundingPage';
 import StoryPage from './SubPages/StoryPage';
@@ -20,6 +21,7 @@ const EditProjectPage = () => {
   const [formData, setFormData] = useState({
     ...project
   })
+  const [newUpdate, setNewUpdate] = useState({});
 
   useEffect(() => {
     dispatch(getProject(projectId));
@@ -42,19 +44,31 @@ const EditProjectPage = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    console.log(formData, 'formData');
-    const response = await fetch(`/api/projects/${projectId}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
+    if (window.location.pathname === `${url}/updates`) {
+      const response = await fetch(`/api/updates/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        ...formData
-      })
-    });
+        body: JSON.stringify(newUpdate)
+      });
+      if (response.ok) {
+          const data = await response.json();
+          dispatch(createUpdate(data));
+          return response
+        }
+    } else {
+      const response = await fetch(`/api/projects/${projectId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          ...formData
+        })
+      });
+    }
 
-    const project = await response.json();
-    console.log(project);
   }
 
   if (!user) {
@@ -90,9 +104,11 @@ const EditProjectPage = () => {
           title={formData.title}
           description={formData.description}
           tag_id={formData.tag_id}
+          video_src={formData.video_src}
+          image_src={formData.image_src}
+          start_date={formData.start_date}
         />
-        {formData.tag}
-        {formData.tag_id}
+        {formData.start_date}
       </Route>
       <Route path={`${path}/funding`}>
         <FundingPage />
