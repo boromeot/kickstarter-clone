@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { Redirect, useHistory } from 'react-router-dom';
 import './Start.css';
 import TagForm from './StartForms/TagForm';
 import DescriptionForm from './StartForms/DescriptionForm';
 import TitleForm from './StartForms/TitleForm';
+import * as projectActions from '../../store'
 
 const CreateProjectPage = () => {
+  const dispatch = useDispatch();
+  const history = useHistory();
   const user = useSelector(state => state.session.user);
   const [currentStep, setCurrentStep] = useState(1);
   // const [fetchResponse, setFetchResponse] = useState();
@@ -38,10 +41,10 @@ const CreateProjectPage = () => {
     })
   }
 
-  //todo: add dispatch
+
   const handleSubmit = async e => {
     e.preventDefault();
-    const response = fetch('/api/projects/', {
+    const response = await fetch('/api/projects/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -53,10 +56,9 @@ const CreateProjectPage = () => {
         user_id: user.id,
       })
     });
-    // await response.json();
-    // setFetchResponse(data)
 
-
+    const project = await response.json();
+    history.push(`/projects/${project.id}/edit/basics`);
   }
 
 

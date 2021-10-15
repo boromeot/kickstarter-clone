@@ -3,6 +3,7 @@ import { CREATE_UPDATE, DELETE_UPDATE, PATCH_UPDATE } from "./update"
 const GET_PROJECT = 'project/getProject';
 const GET_AllPROJECTS = '/project/getAllProjects'
 const GET_RANDOM_PROJECTS = '/project/getAllProjects'
+const CREATE_PROJECT = '/project/createProject'
 
 const get_project = (project) => {
   return {
@@ -26,6 +27,23 @@ const get_random_projects = (project) => {
   };
 }
 
+const create_project = (project) => {
+  return {
+    type: CREATE_PROJECT,
+    payload: project,
+  };
+}
+
+
+export const createProject = (payload) => async dispatch => {
+  const response = fetch('/api/projects/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(payload)
+  });
+}
 
 export const getProject = (projectId) => async dispatch => {
   const response = await fetch(`/api/projects/${projectId}`);
@@ -52,6 +70,8 @@ export const getRandomProjects = () => async dispatch => {
 const projectReducer = (state = {}, action) => {
   let newState;
   switch (action.type) {
+    case CREATE_PROJECT:
+      return newState;
     case GET_PROJECT:
       newState = Object.assign({}, state);
       newState = action.payload;
