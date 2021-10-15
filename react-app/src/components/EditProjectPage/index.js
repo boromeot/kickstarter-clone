@@ -82,7 +82,15 @@ const EditProjectPage = () => {
           </div>
         </div>
       </div>
-      <Route path={`${path}/basics`}><BasicsPage title={formData.title} description={formData.description} handleChange={handleChange}/>{formData.title}</Route>
+      <Route path={`${path}/basics`}>
+        <BasicsPage handleChange={handleChange}
+          title={formData.title}
+          description={formData.description}
+          tag_id={formData.tag_id}
+        />
+        {formData.tag}
+        {formData.tag_id}
+      </Route>
       <Route path={`${path}/funding`}>funding</Route>
       <Route path={`${path}/updates`}>updates</Route>
       <Route path={`${path}/story`}>story</Route>
