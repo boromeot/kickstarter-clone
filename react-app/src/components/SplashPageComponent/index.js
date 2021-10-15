@@ -1,7 +1,6 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect } from 'react';
 import * as projectAction from '../../store/project';
 import { useDispatch, useSelector } from 'react-redux';
-import { Route, useParams, useRouteMatch } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import SplashNav from './SplashNav';
 
@@ -12,37 +11,8 @@ export default function SplashPageComponent() {
     const dispatch = useDispatch()
     const allProjects = useSelector(state => Object.values(state.project))
 
-    const [render, setRender] = useState(true);
-    // console.log(typeof (allProjects))
-    // console.log(allProjects)
-    // const randomProjIdxTwo = Math.floor(Math.random() * (allProjects.length - 1 + 1))
-    // const randomProjIdxThree = Math.floor(Math.random() * (allProjects.length))
-    // const randomProjIdxFour = Math.floor(Math.random() * (allProjects.length))
-    // const randomProjIdxFive = Math.floor(Math.random() * (allProjects.length - 1 + 1) + 0)
-
-
-    // console.log(randomProjIdxTwo)
-    // console.log(randomProjIdxThree)
-
-
-
-
-    const [featureId, setFeatureId] = useState()
-
     useEffect(() => {
 
-        // if (allProjects[randomProjIdxOne]?.image_src !== null) {
-        //     setRender(true)
-        // }
-        // let i = 0;
-        // let set = new Set()
-        // while (i < 3) {
-        //     const randomProjIdx = Math.random() * (allProjects.length - 1 + 1);
-        //     if (set.has(randomProjIdx)) {
-        //         console.log(randomProjIdx)
-        //         i += 1
-        //     }
-        // }
 
         dispatch(projectAction.getRandomProjects())
         // dispatch(projectAction.getAllProjects())
@@ -54,15 +24,11 @@ export default function SplashPageComponent() {
         <div className="splash_outmost_container">
             <div className="splash-page main_container">
                 <SplashNav />
-                {/* <iframe id='project-video' src={video_src} title="YouTube video player" frameBorder="0" allowFullScreen></iframe> */}
                 <div className="featuredProj_outmost_container">
                     <NavLink to={`/projects/${allProjects[0]?.id}`}>
                         <div key={0} className="featuredProj_inner_container">
                             <li className="featuredProject_label featureItem" > Featured Project </li>
-                            {render ?
-                                <img className="featuredProject_img featureItem" src={allProjects[0]?.image_src ? allProjects[0]?.image_src : allProjects[0]?.image_src} alt="alt"></img>
-                                : <iframe className='featuredProject_video featureItem' src={allProjects[0]?.video_src} title="YouTube video player" frameBorder="0" allowFullScreen></iframe>
-                            }
+                            <img className="featuredProject_img featureItem" src={allProjects[0]?.image_src ? allProjects[0]?.image_src : allProjects[0]?.image_src} alt="alt"></img>
                             <p className="featuredProject_title featureItem">{allProjects[0]?.title}</p>
                             <p className="featuredProject_subTitle featureItem">{allProjects[0]?.description}</p>
                             <p className="featuredProject_owner featureItem">By {allProjects[0]?.username} </p>
@@ -83,17 +49,17 @@ export default function SplashPageComponent() {
                         <div className="accessory_ctnr">
                             <div className="bookmark_ctnr">
                                 <li className="bookmark_btn" >
-                                    <img class="boomark_img" src='/images/bookmark-icon-darker.png' alt="alt" />
+                                    <img className="boomark_img" src='/images/bookmark-icon-darker.png' alt="alt" />
                                 </li>
                             </div>
                             <div className="like_ctnr">
                                 <li className="like_btn" >
-                                    <img class="like_img" src="/images/thumbs-up.png" alt="alt" />
+                                    <img className="like_img" src="/images/thumbs-up.png" alt="alt" />
                                 </li>
                             </div>
                             <div className="dislike_ctnr">
                                 <li className="dislike_btn" >
-                                    <img class="dislike_img" src="/images/dislike.png" alt="alt" />
+                                    <img className="dislike_img" src="/images/dislike.png" alt="alt" />
                                 </li>
                             </div>
                         </div>
@@ -108,17 +74,17 @@ export default function SplashPageComponent() {
                         <div className="accessory_ctnr">
                             <div className="bookmark_ctnr">
                                 <li className="bookmark_btn" >
-                                    <img class="boomark_img" src='/images/bookmark-icon-darker.png' alt="alt" />
+                                    <img className="boomark_img" src='/images/bookmark-icon-darker.png' alt="alt" />
                                 </li>
                             </div>
                             <div className="like_ctnr">
                                 <li className="like_btn" >
-                                    <img class="like_img" src="/images/thumbs-up.png" alt="alt" />
+                                    <img className="like_img" src="/images/thumbs-up.png" alt="alt" />
                                 </li>
                             </div>
                             <div className="dislike_ctnr">
                                 <li className="dislike_btn" >
-                                    <img class="dislike_img" src="/images/dislike.png" alt="alt" />
+                                    <img className="dislike_img" src="/images/dislike.png" alt="alt" />
                                 </li>
                             </div>
                         </div>
@@ -133,17 +99,17 @@ export default function SplashPageComponent() {
                         <div className="accessory_ctnr">
                             <div className="bookmark_ctnr">
                                 <li className="bookmark_btn" >
-                                    <img class="boomark_img" src='/images/bookmark-icon-darker.png' alt="alt" />
+                                    <img className="boomark_img" src='/images/bookmark-icon-darker.png' alt="alt" />
                                 </li>
                             </div>
                             <div className="like_ctnr">
                                 <li className="like_btn" >
-                                    <img class="like_img" src="/images/thumbs-up.png" alt="alt" />
+                                    <img className="like_img" src="/images/thumbs-up.png" alt="alt" />
                                 </li>
                             </div>
                             <div className="dislike_ctnr">
                                 <li className="dislike_btn" >
-                                    <img class="dislike_img" src="/images/dislike.png" alt="alt" />
+                                    <img className="dislike_img" src="/images/dislike.png" alt="alt" />
                                 </li>
                             </div>
                         </div>

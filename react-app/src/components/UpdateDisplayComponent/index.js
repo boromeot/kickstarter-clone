@@ -1,14 +1,10 @@
-import UpdatesView from '../UpdatesView'
-import { useEffect, useState, useContext } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import * as updateActions from '../../store/update'
+import { useSelector } from 'react-redux'
 import './UpdateDisplayComponent.css';
 
 export default function UpdateDisplayComponent({ setToRenderComponent, setToRenderDisplay, setToRenderPatch, currentUpdateId, updateNumber }) {
 
     const updates = useSelector(state => state.project.updates);
     const chosenUpdate = updates.find(update => update.id === currentUpdateId);
-    // console.log(chosenUpdate);
 
     return (
         <div>

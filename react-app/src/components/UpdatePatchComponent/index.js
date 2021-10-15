@@ -9,13 +9,9 @@ export default function UpdatePatchComponent({ setToRenderComponent, setToRender
     const dispatch = useDispatch()
 
 
-    const currentUser = useSelector(state => state.session.user.id)
     const currentProject = useSelector(state => state.project.id)
-    // console.log(currentProject)
     const updates = useSelector(state => state.project.updates)
-    // console.log(updates)
     const currentUpdate = updates.find(update => update.id === currentUpdateId)
-    // console.log(currentUpdate)
 
     const [description, setDescription] = useState(currentUpdate?.description)
     const [title, setTitle] = useState(currentUpdate?.title)

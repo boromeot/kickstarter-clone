@@ -31,7 +31,6 @@
     /* border: 2px solid black; */
     float: left;
     margin-top: 30px;
-    /* margin-bottom: 30px; */
     width: 50%;
     Height: 80%;
     font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -48,8 +47,6 @@
 
 .featureItem{
     /* border: 2px solid purple; */
-    /* margin-top: 20px; */
-    /* gap: 2px; */
     font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 }
@@ -58,8 +55,6 @@
     display: flex;
     position: relative;
     /* border: 2px solid green; */
-    /* justify-content: center; */
-    /* bottom: 18px; */
     color: #2828289f;
         -webkit-font-smoothing: antialiased;
     font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;

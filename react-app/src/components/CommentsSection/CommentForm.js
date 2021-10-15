@@ -16,9 +16,9 @@ const CommentForm = ({ comment_user_id, comment_id, setShow, method }) => {
   const onSubmit = async e => {
     e.preventDefault();
     if (method === 'POST') {
-      const newComment = await dispatch(postComment(description, project_id, user_id));
+      await dispatch(postComment(description, project_id, user_id));
     } else if (method === 'PATCH') {
-      const upDatedComment = await dispatch(patchComment(description, project_id, comment_user_id, comment_id));
+      await dispatch(patchComment(description, project_id, comment_user_id, comment_id));
     }
     setShow(false);
   }

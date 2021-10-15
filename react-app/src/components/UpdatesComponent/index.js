@@ -1,7 +1,5 @@
-import UpdatesView from '../UpdatesView'
-import { useEffect, useState, useContext } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Route, Link, NavLink } from 'react-router-dom';
 import * as updateActions from '../../store/update'
 
 import './UpdatesComponent.css'
@@ -9,13 +7,8 @@ import './UpdatesComponent.css'
 
 export default function UpdatesComponent({ id, setCurrentUpdateId, setToRenderComponent, setToRenderDisplay, setToRenderPatch, currentUpdateId, setUpdateNumber }) {
     const projectUpdates = useSelector(state => state.project.updates)
-    const projectId = useSelector(state => state.project.id)
     const dispatch = useDispatch()
 
-    // if (reload === true) {
-    //     window.location.reload();
-    //     reload = false
-    // }
     let [reload, setReload] = useState(false);
 
 
@@ -53,13 +46,9 @@ export default function UpdatesComponent({ id, setCurrentUpdateId, setToRenderCo
                         <li className='updateInfo projectTitle'>{update.title}</li>
                         <li className='updateInfo projectOwner'>{update.username}</li>
                         <li className='updateInfo projectDescription'>{update.description}</li>
-
                     </div>
-
                 </div>
             )}
-
-            {/* <UpdatesView id={id} /> */}
         </div>
     )
 }

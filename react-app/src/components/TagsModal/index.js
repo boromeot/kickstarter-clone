@@ -1,17 +1,17 @@
 import './Tags.css'
 
-function TagsModal({tags, onClose}){
+function TagsModal({ tags, onClose }) {
 
 
-  return(
-    <div class="tags-container">
-      <div class="tags-header-inner">
+  return (
+    <div className="tags-container">
+      <div className="tags-header-inner">
         <h2>Categories</h2>
         <button onClick={onClose}> X </button>
       </div>
-      <div class="tags-list">
+      <div className="tags-list">
         {tags.map(tag =>
-          <a class="tags-item" href={`/discover?title=${tag.title}`}>{tag?.title}</a>
+          <a className="tags-item" href={`/discover?title=${tag.title}`}>{tag?.title}</a>
         )}
       </div>
     </div>

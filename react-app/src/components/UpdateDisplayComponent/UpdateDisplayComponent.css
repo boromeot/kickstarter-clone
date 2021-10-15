@@ -1,11 +1,15 @@
 .outter_container{
     /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
     height:100%;
+    
 }
 
 .inner_Container{
     /* border: 2px solid navy; */
     height:100%;
+    width: 800px;
 }
 
 .updateBtn.btn {
@@ -19,7 +23,6 @@
     height: 50px;
     margin-top: 15px;
     margin-bottom: 50px;
-    left: 20%;
 }
 .updateBtn.leftArrow {
    position: relative;
@@ -28,16 +31,14 @@
 
 .item{
     position: relative;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     margin-bottom: 15px;
-    left: 20%;
-    /* width: 800px; */
-    /* height: 600px; */
 
 }
 
 .updateDisplayNum{
     color: rgba(128, 128, 128, 0.739);
+    width: 800px;
 }
 
 .updateDisplayTitle{
@@ -48,7 +49,7 @@
 
 .user_ctnr{
     display: flex;
-
+    border-bottom: 2px solid;
 }
 
 .updateDisplayUsername{
@@ -63,5 +64,7 @@
 }
 
 .updateDisplayDescription{
+    margin-top: 20px;
     height: 100%;
+    width: 800px;
 }

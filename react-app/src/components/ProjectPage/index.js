@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import './ProjectPage.css'
 import * as projectAction from '../../store/project';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, useParams, useRouteMatch } from 'react-router';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import CommentsSection from '../CommentsSection';
 import UpdatesComponent from '../UpdatesComponent';
 import UpdatePatchComponent from '../UpdatePatchComponent';
@@ -15,9 +15,7 @@ import UpdateDisplayComponent from '../UpdateDisplayComponent';
 const ProjectPage = () => {
   const { projectId } = useParams();
   const { id, title, description, video_src, image_src, current_funding, pledge_goal, faqs, risks, comments } = useSelector(state => state.project)
-  const user = useSelector(state => state.session.user);
 
-  const projectObj = useSelector(state => state.project)
   const dispatch = useDispatch();
   const { path, url } = useRouteMatch(); //Allows for backwards compatibility of route names
   console.log(path, url)
@@ -46,7 +44,7 @@ const ProjectPage = () => {
           <div id='project-image-conatiner'>
             {video_src ?
               <iframe id='project-video' src={video_src} title="YouTube video player" frameBorder="0" allowFullScreen></iframe>
-              : <img id='project-image' src={image_src}></img>
+              : <img id='project-image' src={image_src} alt="alt"></img>
             }
           </div>
           <div id='project-minor-info'>

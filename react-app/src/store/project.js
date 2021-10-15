@@ -1,6 +1,5 @@
 import { POST_COMMENT, DELETE_COMMENT, PATCH_COMMENT } from "./comment";
 import { CREATE_UPDATE, DELETE_UPDATE, PATCH_UPDATE } from "./update"
-import { GET_USER } from "./user";
 const GET_PROJECT = 'project/getProject';
 const GET_AllPROJECTS = '/project/getAllProjects'
 const GET_RANDOM_PROJECTS = '/project/getAllProjects'
@@ -65,10 +64,6 @@ const projectReducer = (state = {}, action) => {
       newState = Object.assign({}, state);
       newState = action.payload;
       return newState;
-    case GET_USER:
-      newState = Object.assign({}, state);
-      newState = action.payload;
-      return newState;
     case POST_COMMENT:
       newState = Object.assign({}, state);
       newState.comments.push(action.payload);
@@ -90,17 +85,14 @@ const projectReducer = (state = {}, action) => {
       return newState
     case DELETE_UPDATE:
       newState = Object.assign({}, state);
-      // console.log(action.payload)
       newState.updates = action.payload
+      return newState;
     case CREATE_UPDATE:
       newState = Object.assign({}, state);
-      // console.log(action.payload)
       newState.updates = action.payload
       return newState;
     case PATCH_UPDATE:
       newState = Object.assign({}, state);
-      // console.log(action.payload)
-      // newState.updates = newState.updates.filter((update) => update.id !== action.payload)
       newState.updates = action.payload
       return newState;
     default:

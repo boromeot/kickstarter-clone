@@ -79,22 +79,3 @@ export const patchUpdate = (body) => async (dispatch) => {
         return data
     }
 }
-
-
-
-// const initialState = { updates: null }
-// export default function updateReducer(state = initialState, action) {
-//     let newState;
-//     switch (action.type) {
-//         case CREATE_UPDATE:
-//             newState = Object.assign({}, state);
-//             newState.updates = action.payload
-//             return newState;
-//         case DELETE_UPDATE:
-//             newState = Object.assign({}, state);
-//             newState.updates = action.payload
-//             return newState;
-//         default:
-//             return state;
-//     }
-// }

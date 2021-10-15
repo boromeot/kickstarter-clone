@@ -1,5 +1,5 @@
 import './UpdatesView.css'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import * as updateActions from '../../store/update'
 

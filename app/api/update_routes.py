@@ -11,9 +11,6 @@ update_routes = Blueprint('updates', __name__)
 
 @update_routes.route('/', methods=['POST'])
 def create_update():
-    # print("Test------------------------")
-    # print(request.json['title'])
-    
     if request.method == 'POST':
         
         new_update = Update(
@@ -42,8 +39,6 @@ def patch_update(id):
     if request.method == 'PATCH':
         print('------------------Making Patch Request--------------------')
         print('------------------', request.json['idx'])
-        # print('------------------', request.json['title'])
-        # print('------------------', request.json['description'])
         print('------------------', form.data['title'])
         print('------------------', form.data['description'])
 
@@ -55,7 +50,6 @@ def patch_update(id):
             updateToChange.description = form.data['description']
             db.session.commit()
             allUpdates = Update.query.all()
-            # return updateToChange.to_dict()
             fillStoreWithUpdates = [update.to_dict() for update in allUpdates]
             print('----------------ALL UPDATES ----------------')
             print(fillStoreWithUpdates)
@@ -65,10 +59,7 @@ def patch_update(id):
 
 @update_routes.route('/', methods=['DELETE'])
 def delete_update():
-    # currentUpdate = Update.query.get())
-    # print(currentUpdate)
     print( request.json['idx'],'------------------------')
-    # db.session.delete(currentUpdate)
     currentUpdate = Update.query.filter(Update.id == request.json['idx']).delete()
     db.session.commit()
     allUpdates = Update.query.all()
