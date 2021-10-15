@@ -13,6 +13,7 @@ import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import IndividualTagPage from './components/IndividualTagPage';
 import Discover from './components/Discover';
+import CampaignAndRisksForm from './components/CampaignAndRisksForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -59,11 +60,15 @@ function App() {
         <Route path='/discover'>
           <Discover />
         </Route>
-        {tags.map((tag) =>
+        {/*Route for omitted individual tags page*/}
+        {/* {tags.map((tag) =>
           <Route path={`/discover/${tag.title}`}>
             <IndividualTagPage tagId={tag.id} tagTitle={tag.title}/>
           </Route>
-        )}
+        )} */}
+        <Route path='/testform'>
+          <CampaignAndRisksForm />
+        </Route>
       </Switch>
       <Footer />
     </BrowserRouter>

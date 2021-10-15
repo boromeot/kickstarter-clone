@@ -8,10 +8,11 @@ import CommentsSection from '../CommentsSection';
 import UpdatesComponent from '../UpdatesComponent';
 import FAQ from './FAQ';
 import Risks from './Risks';
+import Campaign from './Campaign';
 
 const ProjectPage = () => {
   const { projectId } = useParams();
-  const {id, title, description, video_src, image_src, current_funding, pledge_goal, faqs, risks, comments} = useSelector(state => state.project)
+  const {id, title, description, campaign, video_src, image_src, current_funding, pledge_goal, faqs, risks, comments} = useSelector(state => state.project)
   const user = useSelector(state => state.session.user);
 
   const projectObj = useSelector(state => state.project)
@@ -110,7 +111,7 @@ const ProjectPage = () => {
         </div>
       </div>
       <Route path={`${path}/description`}>
-        Campaign
+        <Campaign campaign={campaign} />
       </Route>
       <Route path={`${path}/risks`}>
         <Risks risks={risks} />

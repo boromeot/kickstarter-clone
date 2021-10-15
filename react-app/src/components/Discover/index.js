@@ -33,7 +33,7 @@ function Discover(){
           <div>Show me</div>
           <select value={currTag} onChange={handleChange}>
             {tags?.map((tag) =>
-              <option value={tag.title}>{tag.title}</option>
+              <option class="discover-option" value={tag.title}>{tag.title}</option>
             )}
           </select>
           <div>
@@ -43,28 +43,30 @@ function Discover(){
       </div>
       <div className="discover-results">
         <div className="discover-numproj">Explore {numProj} projects</div>
-        {projectsByTag?.map((project) =>
-          <a href={`/projects/${project.id}`} className="discover-card">
-            <img className="discover-thumbnail" src={project.image_src} alt="thumbnail"></img>
-            <div className="discover-title">
-              {project.title}
-            </div>
-            <div className="discover-desc">
-              {project.description}
-            </div>
-            <div className="discover-funding-info">
-              <div className="discover-curr-pledge">
-                ${project.current_funding} pledged
+        <div className="discover-results-cards-container">
+          {projectsByTag?.map((project) =>
+            <a href={`/projects/${project.id}`} className="discover-card">
+              <img className="discover-thumbnail" src={project.image_src} alt="thumbnail"></img>
+              <div className="discover-title">
+                {project.title}
               </div>
-              <div>
-                {((project.current_funding / project.pledge_goal)*100).toFixed(1)} % Funded
+              <div className="discover-desc">
+                {project.description}
               </div>
-              <div>
-                Ends {new Date(project.end_date).toDateString()}
+              <div className="discover-funding-info">
+                <div className="discover-curr-pledge">
+                  ${project.current_funding} pledged
+                </div>
+                <div>
+                  {((project.current_funding / project.pledge_goal)*100).toFixed(1)} % Funded
+                </div>
+                <div>
+                  Ends {new Date(project.end_date).toDateString()}
+                </div>
               </div>
-            </div>
-          </a>
-        )}
+            </a>
+          )}
+        </div>
       </div>
     </div>
 
