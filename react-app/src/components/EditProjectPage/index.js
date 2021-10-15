@@ -9,6 +9,7 @@ import { getProject } from '../../store/project';
 import BasicsPage from './SubPages/BasicsPage';
 import FundingPage from './SubPages/FundingPage';
 import StoryPage from './SubPages/StoryPage';
+import UpdatesPage from './SubPages/UpdatesPage';
 
 const EditProjectPage = () => {
   const dispatch = useDispatch();
@@ -96,7 +97,9 @@ const EditProjectPage = () => {
       <Route path={`${path}/funding`}>
         <FundingPage />
       </Route>
-      <Route path={`${path}/updates`}>updates</Route>
+      <Route path={`${path}/updates`}>
+        <UpdatesPage />
+      </Route>
       <Route path={`${path}/story`}>
         <StoryPage />
       </Route>
