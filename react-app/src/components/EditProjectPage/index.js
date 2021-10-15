@@ -43,15 +43,32 @@ const EditProjectPage = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    const response = await fetch(`/api/projects/${projectId}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
+    if (window.location.pathname === `${url}/updates`) {
+      const response = await fetch(`/api/updates/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        ...formData
-      })
-    });
+        body: JSON.stringify(newUpdate)
+      });
+      if (response.ok) {
+          const data = await response.json();
+          dispatch(create_update(data));
+          return response
+        }
+    } else {
+      const response = await fetch(`/api/projects/${projectId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          ...formData
+        })
+      });
+
+    }
+
 
     const project = await response.json();
   }
