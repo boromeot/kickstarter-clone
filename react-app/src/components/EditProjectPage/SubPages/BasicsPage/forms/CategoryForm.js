@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import FormWrapper from "../FormWrapper";
-import './CategoryForm.css';
+import FormWrapper from "../../FormWrapper";
+import '../CategoryForm.css';
 
 const CategoryForm = ({ tag_id, handleChange }) => {
   const infoArr = [

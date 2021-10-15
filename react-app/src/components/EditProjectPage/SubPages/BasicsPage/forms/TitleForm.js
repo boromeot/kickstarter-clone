@@ -1,6 +1,6 @@
 import React from "react";
-import FormWrapper from "../FormWrapper";
-import './TitleForm.css';
+import FormWrapper from "../../FormWrapper";
+import '../TitleForm.css';
 
 const TitleForm = ({title, description, handleChange}) => {
   const infoArr = [

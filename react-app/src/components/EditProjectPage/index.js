@@ -7,6 +7,7 @@ import { NavLink, Route, Redirect, useRouteMatch, useParams } from 'react-router
 import { useSelector, useDispatch } from 'react-redux';
 import { getProject } from '../../store/project';
 import BasicsPage from './SubPages/BasicsPage';
+import FundingPage from './SubPages/FundingPage';
 
 const EditProjectPage = () => {
   const dispatch = useDispatch();
@@ -91,7 +92,9 @@ const EditProjectPage = () => {
         {formData.tag}
         {formData.tag_id}
       </Route>
-      <Route path={`${path}/funding`}>funding</Route>
+      <Route path={`${path}/funding`}>
+        <FundingPage />
+      </Route>
       <Route path={`${path}/updates`}>updates</Route>
       <Route path={`${path}/story`}>story</Route>
       <Route path={`${path}/people`}>people</Route>

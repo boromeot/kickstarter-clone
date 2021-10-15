@@ -1,11 +1,11 @@
 import React from "react";
 import SubPageHeader from '../SubPageHeader';
-import TitleForm from "./TitleForm";
-import CategoryForm from "./CategoryForm";
-import VideoForm from "./VideoForm";
-import ImageForm from "./ImageForm";
-import StartForm from "./StartForm";
-import EndForm from "./EndForm";
+import TitleForm from "./forms/TitleForm";
+import CategoryForm from "./forms/CategoryForm";
+import VideoForm from "./forms/VideoForm";
+import ImageForm from "./forms/ImageForm";
+import StartForm from "./forms/StartForm";
+import EndForm from "./forms/EndForm";
 
 const BasicsPage = ({ title, description, tag_id, handleChange }) => {
   return (
