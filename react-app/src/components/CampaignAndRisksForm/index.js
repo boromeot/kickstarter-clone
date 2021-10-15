@@ -3,7 +3,6 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { patchProject } from "../../store/project";
 import { useDispatch } from "react-redux";
 
-
 function CampaignAndRisksForm(){
 
   const projectId = 1;
@@ -24,8 +23,8 @@ function CampaignAndRisksForm(){
       <CKEditor
         editor={ ClassicEditor }
         config={ {
-          //plugins: [ Bold, Italic, Essentials, Paragraph ],
-          //toolbar: [ 'bold', 'italic' ]
+          removePlugins: [ 'Table', 'MediaEmbed', 'InsertImage', 'EasyImage' ],
+          //toolbar: [ 'bold', 'italic', 'insertImage', 'image', 'easyImage' ]
         } }
 
         onReady={ editor => {
