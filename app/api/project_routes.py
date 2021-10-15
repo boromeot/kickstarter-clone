@@ -16,8 +16,10 @@ def put_project(id):
   form = ProjectForm()
   form['csrf_token'].data = request.cookies['csrf_token']
   if form.validate_on_submit():
-    project.title = form.data['title']
-    project.description = form.data['description']
+    for key, val in form.data.items():
+      if key != 'csrf_token':
+        print(key, val)
+        setattr(project, key, val)
     db.session.commit()
     return project.to_dict()
   return 'error'
