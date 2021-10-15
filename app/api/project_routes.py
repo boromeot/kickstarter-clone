@@ -21,6 +21,20 @@ def get_project(id):
   project = Project.query.get(id)
   return project.to_dict()
 
+@project_routes.route('/<int:id>', methods=['PUT'])
+def put_project(id):
+  project = Project.query.get(id)
+  form = ProjectForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
+  if form.validate_on_submit():
+    for key, val in form.data.items():
+      if key != 'csrf_token':
+        print(key, val)
+        setattr(project, key, val)
+    db.session.commit()
+    return project.to_dict()
+  return 'error'
+
 @project_routes.route('/', methods=['POST'])
 @login_required
 def post_project():
