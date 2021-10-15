@@ -6,6 +6,7 @@ import './EditProjectPage.css';
 import { NavLink, Route, Redirect, useRouteMatch, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getProject } from '../../store/project';
+import { createUpdate } from '../../store/update';
 import BasicsPage from './SubPages/BasicsPage';
 import FundingPage from './SubPages/FundingPage';
 import StoryPage from './SubPages/StoryPage';
@@ -53,7 +54,7 @@ const EditProjectPage = () => {
       });
       if (response.ok) {
           const data = await response.json();
-          dispatch(create_update(data));
+          dispatch(createUpdate(data));
           return response
         }
     } else {
@@ -66,11 +67,8 @@ const EditProjectPage = () => {
           ...formData
         })
       });
-
     }
 
-
-    const project = await response.json();
   }
 
   if (!user) {
