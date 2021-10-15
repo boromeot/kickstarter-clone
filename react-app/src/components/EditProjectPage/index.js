@@ -20,6 +20,7 @@ const EditProjectPage = () => {
   const [formData, setFormData] = useState({
     ...project
   })
+  const [newUpdate, setNewUpdate] = useState({});
 
   useEffect(() => {
     dispatch(getProject(projectId));
@@ -42,7 +43,6 @@ const EditProjectPage = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    console.log(formData, 'formData');
     const response = await fetch(`/api/projects/${projectId}`, {
       method: 'PUT',
       headers: {
@@ -54,7 +54,6 @@ const EditProjectPage = () => {
     });
 
     const project = await response.json();
-    console.log(project);
   }
 
   if (!user) {
@@ -92,9 +91,9 @@ const EditProjectPage = () => {
           tag_id={formData.tag_id}
           video_src={formData.video_src}
           image_src={formData.image_src}
+          start_date={formData.start_date}
         />
-        {formData.tag}
-        {formData.tag_id}
+        {formData.start_date}
       </Route>
       <Route path={`${path}/funding`}>
         <FundingPage />
