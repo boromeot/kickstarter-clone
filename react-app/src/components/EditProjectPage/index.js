@@ -91,6 +91,7 @@ const EditProjectPage = () => {
           description={formData.description}
           tag_id={formData.tag_id}
           video_src={formData.video_src}
+          image_src={formData.image_src}
         />
         {formData.tag}
         {formData.tag_id}
