@@ -15,6 +15,7 @@ import SplashPageComponent from './components/SplashPageComponent';
 import CreateProjectPage from './components/CreateProjectPage';
 import IndividualTagPage from './components/IndividualTagPage';
 import Discover from './components/Discover';
+import EditProjectPage from './components/EditProjectPage';
 import { getTags } from './store/tag'
 
 function App() {
@@ -37,42 +38,46 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navigation />
       <Switch>
+        <Route path='/projects/:projectId/edit'>
+          <EditProjectPage />
+        </Route>
         <Route path='/login' exact={true}>
+          <Navigation />
           <LoginForm />
+          <Footer />
         </Route>
         <Route path='/sign-up' exact={true}>
+          <Navigation />
           <SignUpForm />
+          <Footer />
         </Route>
-        <ProtectedRoute path='/users' exact={true} >
-          <UsersList />
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
         <Route path='/' exact={true} >
+          <Navigation />
           <SplashPageComponent />
+          <Footer />
         </Route>
         <Route path='/projects/:projectId' >
+          <Navigation />
           <ProjectPage />
+          <Footer />
         </Route>
         <Route path='/updates'>
+          <Navigation />
           <UpdatesView />
+          <Footer />
         </Route>
         <Route path='/start'>
+          <Navigation />
           <CreateProjectPage />
+          <Footer />
         </Route>
         <Route path='/discover'>
+          <Navigation />
           <Discover />
+          <Footer />
         </Route>
-        {tags.map((tag, idx) =>
-          <Route key={idx} path={`/discover/${tag.title}`}>
-            <IndividualTagPage tagId={tag.id} tagTitle={tag.title} />
-          </Route>
-        )}
       </Switch>
-      <Footer />
     </BrowserRouter>
   );
 }

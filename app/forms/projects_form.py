@@ -3,7 +3,8 @@ from wtforms import StringField, IntegerField
 from wtforms.validators import DataRequired
 
 class ProjectForm(FlaskForm):
-  title = StringField('title', validators=[])
-  description = StringField('description', validators=[])
+  title = StringField('title')
+  description = StringField('description')
   tag_id = IntegerField('tag_id', validators=[DataRequired()])
   user_id = IntegerField('user_id', validators=[DataRequired()])
+  # updates = StringField('updates')

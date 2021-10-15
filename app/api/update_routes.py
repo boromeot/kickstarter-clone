@@ -12,6 +12,8 @@ update_routes = Blueprint('updates', __name__)
 @update_routes.route('/', methods=['POST'])
 def create_update():
     if request.method == 'POST':
+        print('HERE!!!---------------------------------------')
+        print(request.get_json())
         
         new_update = Update(
             title=request.json['title'],
