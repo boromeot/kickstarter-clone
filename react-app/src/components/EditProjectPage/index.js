@@ -51,7 +51,7 @@ const EditProjectPage = () => {
     });
 
     const project = await response.json();
-    console.log(project, 'project');
+    console.log(project);
   }
 
   if (!user) {

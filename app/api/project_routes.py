@@ -15,11 +15,11 @@ def put_project(id):
   project = Project.query.get(id)
   form = ProjectForm()
   form['csrf_token'].data = request.cookies['csrf_token']
-  print(form.data, '--------------2------------')
   if form.validate_on_submit():
     project.title = form.data['title']
+    project.description = form.data['description']
     db.session.commit()
-    return 'success'
+    return project.to_dict()
   return 'error'
 
 @project_routes.route('/', methods=['POST'])
