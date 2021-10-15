@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from 'react-redux';
 import './css/drop-down.css';
 
@@ -22,9 +22,9 @@ const TagForm = ({ tag, handleChange, currentStep }) => {
             className='start-drop-down'
           >
             {
-              tags?.map(({id, title}) =>
-              <option value={id} >{title}</option>
-            )}
+              tags?.map(({ id, title }) =>
+                <option value={id} >{title}</option>
+              )}
           </select>
         </div>
       </div>

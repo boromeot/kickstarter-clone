@@ -1,12 +1,12 @@
 import "./risks.css";
 
-function Risks({risks}){
+function Risks({ risks }) {
 
-  return(
-    <div class="component-container">
-      <div class="risk-inner">
-        <h2 class="component-header">Risks</h2>
-        <div class="risk-description">{risks}</div>
+  return (
+    <div className="component-container">
+      <div className="risk-inner">
+        <h2 className="component-header">Risks</h2>
+        <div className="risk-description">{risks}</div>
       </div>
     </div>
   )

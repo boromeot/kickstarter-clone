@@ -9,7 +9,7 @@ import TitleForm from './StartForms/TitleForm';
 const CreateProjectPage = () => {
   const user = useSelector(state => state.session.user);
   const [currentStep, setCurrentStep] = useState(1);
-  const [formData, setFormData] = useState({tag: '', description: '', title: ''})
+  const [formData, setFormData] = useState({ tag: '', description: '', title: '' })
   const totalSteps = 3;
   const history = useHistory();
   //The disabled attribute is true if the current steps data is falsey
@@ -31,7 +31,7 @@ const CreateProjectPage = () => {
 
   const handleChange = e => {
     const { name, value } = e.target
-    const oldState = {...formData}
+    const oldState = { ...formData }
     setFormData({
       ...oldState,
       [name]: value
@@ -74,14 +74,14 @@ const CreateProjectPage = () => {
             <div className='start-form-button-container'>
               {
                 currentStep < totalSteps
-                ? <button className={isDisabled ? 'disabled' : 'start-form-next-btn' } onClick={nextStep} disabled={isDisabled}>Next</button>
-                : <button type='submit' className={isDisabled ? 'disabled' : 'start-form-next-btn' } disabled={isDisabled}>Continue</button>
+                  ? <button className={isDisabled ? 'disabled' : 'start-form-next-btn'} onClick={nextStep} disabled={isDisabled}>Next</button>
+                  : <button type='submit' className={isDisabled ? 'disabled' : 'start-form-next-btn'} disabled={isDisabled}>Continue</button>
               }
               {
                 currentStep > 1
                 && <span className='start-form-back-btn' onClick={prevStep}>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
                   </svg>
                   <span className='start-form-back-btn-text'>Prev</span>
                 </span>

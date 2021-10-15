@@ -1,5 +1,6 @@
-const CREATE_UPDATE = 'update/CREATE_USER';
-const DELETE_UPDATE = 'update/DELETE_USER';
+export const CREATE_UPDATE = 'update/CREATE_UPDATE';
+export const DELETE_UPDATE = 'update/DELETE_UPDATE';
+export const PATCH_UPDATE = 'update/PATCH_UPDATE';
 
 const create_update = (update) => {
     return {
@@ -12,6 +13,13 @@ const delete_update = (message) => {
     return {
         type: DELETE_UPDATE,
         payload: message
+    }
+}
+
+const patch_update = (update_id) => {
+    return {
+        type: PATCH_UPDATE,
+        payload: update_id
     }
 }
 
@@ -43,24 +51,31 @@ export const deleteUpdate = (body) => async (dispatch) => {
 
     if (response.ok) {
         const data = await response.json()
+        console.log(data)
         dispatch(delete_update(data))
         return data
     }
 }
 
+export const patchUpdate = (body) => async (dispatch) => {
+    console.log(body.idx)
+    const response = await fetch(`/api/updates/${body.idx}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            idx: body.idx,
+            title: body.title,
+            description: body.description,
+            project_id: body.project_id,
+        })
+    })
 
-
-
-export default function updateReducer(state = {}, action) {
-    let newState;
-    switch (action.type) {
-        case CREATE_UPDATE:
-            newState = Object.assign({}, state);
-            newState = action.payload
-        case DELETE_UPDATE:
-            newState = Object.assign({}, state);
-            newState = action.payload
-        default:
-            return state;
+    if (response.ok) {
+        const data = await response.json()
+        console.log(data)
+        dispatch(patch_update(data))
+        return data
     }
 }

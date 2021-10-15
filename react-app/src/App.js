@@ -11,10 +11,12 @@ import ProjectPage from './components/ProjectPage';
 import UpdatesView from './components/UpdatesView';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
+import SplashPageComponent from './components/SplashPageComponent';
 import CreateProjectPage from './components/CreateProjectPage';
 import IndividualTagPage from './components/IndividualTagPage';
 import Discover from './components/Discover';
 import EditProjectPage from './components/EditProjectPage';
+import { getTags } from './store/tag'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -24,6 +26,7 @@ function App() {
   useEffect(() => {
     (async () => {
       await dispatch(authenticate());
+      dispatch(getTags())
 
       setLoaded(true);
     })();
@@ -51,7 +54,7 @@ function App() {
         </Route>
         <Route path='/' exact={true} >
           <Navigation />
-          <h1>My Home Page</h1>
+          <SplashPageComponent />
           <Footer />
         </Route>
         <Route path='/projects/:projectId' >
@@ -75,7 +78,6 @@ function App() {
           <Footer />
         </Route>
       </Switch>
-
     </BrowserRouter>
   );
 }
