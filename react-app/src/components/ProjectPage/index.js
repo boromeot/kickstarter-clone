@@ -25,6 +25,7 @@ const ProjectPage = () => {
   const [toRenderComponent, setToRenderComponent] = useState(true)
   const [toRenderDisplay, setToRenderDisplay] = useState(false)
   const [toRenderPatch, setToRenderPatch] = useState(false)
+  const [updateNumber, setUpdateNumber] = useState(0)
 
   const [currentUpdateId, setCurrentUpdateId] = useState()
 
@@ -139,6 +140,7 @@ const ProjectPage = () => {
             setToRenderDisplay={setToRenderDisplay}
             setToRenderPatch={setToRenderPatch}
             setCurrentUpdateId={setCurrentUpdateId}
+            setUpdateNumber={setUpdateNumber}
           />
         }
         {toRenderDisplay &&
@@ -147,6 +149,7 @@ const ProjectPage = () => {
             setToRenderDisplay={setToRenderDisplay}
             setToRenderPatch={setToRenderPatch}
             currentUpdateId={currentUpdateId}
+            updateNumber={updateNumber}
           />
         }
         {toRenderPatch &&

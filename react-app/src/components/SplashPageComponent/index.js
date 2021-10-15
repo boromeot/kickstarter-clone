@@ -55,8 +55,8 @@ export default function SplashPageComponent() {
             <div className="splash-page main_container">
                 <SplashNav />
                 {/* <iframe id='project-video' src={video_src} title="YouTube video player" frameBorder="0" allowFullScreen></iframe> */}
-                <NavLink to={`/projects/${allProjects[0]?.id}`}>
-                    <div className="featuredProj_outmost_container">
+                <div className="featuredProj_outmost_container">
+                    <NavLink to={`/projects/${allProjects[0]?.id}`}>
                         <div key={0} className="featuredProj_inner_container">
                             <li className="featuredProject_label featureItem" > Featured Project </li>
                             {render ?
@@ -67,87 +67,87 @@ export default function SplashPageComponent() {
                             <p className="featuredProject_subTitle featureItem">{allProjects[0]?.description}</p>
                             <p className="featuredProject_owner featureItem">By {allProjects[0]?.username} </p>
                         </div>
-                    </div>
-                </NavLink>
+                    </NavLink>
+                </div>
                 <div className="recommended_outmost_container">
                     <div className="recommendedLabel_ctnr">
                         <p className="recommendedLabel">RECOMMENDED FOR YOU</p>
                     </div>
-                    <NavLink to={`/projects/${allProjects[1]?.id}`}>
-                        <div key={1} className="recommendedTwo_ctnr">
+                    <div key={1} className="recommendedTwo_ctnr">
+                        <NavLink to={`/projects/${allProjects[1]?.id}`}>
                             <img className="recommended_img rec_item" src={allProjects[1]?.image_src ? allProjects[1]?.image_src : allProjects[1]?.image_src} alt="alt" />
                             <li className="recommended_title rec_item" >{allProjects[1]?.title}</li>
-                            <li className="recommended_goal rec_item" >${allProjects[1]?.pledge_goal} Goal</li>
+                            <li className="recommended_goal rec_item" >{((allProjects[1]?.current_funding / allProjects[1]?.pledge_goal) * 100).toFixed(2)}% Funded</li>
                             <li className="recommended_owner rec_item" >By {allProjects[1]?.username}</li>
-                            <div className="accessory_ctnr">
-                                <div className="bookmark_ctnr">
-                                    <li className="bookmark_btn" >
-                                        <img class="boomark_img" src='/images/bookmark-icon-darker.png' alt="alt" />
-                                    </li>
-                                </div>
-                                <div className="like_ctnr">
-                                    <li className="like_btn" >
-                                        <img class="like_img" src="/images/thumbs-up.png" alt="alt" />
-                                    </li>
-                                </div>
-                                <div className="dislike_ctnr">
-                                    <li className="dislike_btn" >
-                                        <img class="dislike_img" src="/images/dislike.png" alt="alt" />
-                                    </li>
-                                </div>
+                        </NavLink>
+                        <div className="accessory_ctnr">
+                            <div className="bookmark_ctnr">
+                                <li className="bookmark_btn" >
+                                    <img class="boomark_img" src='/images/bookmark-icon-darker.png' alt="alt" />
+                                </li>
+                            </div>
+                            <div className="like_ctnr">
+                                <li className="like_btn" >
+                                    <img class="like_img" src="/images/thumbs-up.png" alt="alt" />
+                                </li>
+                            </div>
+                            <div className="dislike_ctnr">
+                                <li className="dislike_btn" >
+                                    <img class="dislike_img" src="/images/dislike.png" alt="alt" />
+                                </li>
                             </div>
                         </div>
-                    </NavLink>
-                    <NavLink to={`/projects/${allProjects[2]?.id}`}>
-                        <div key={2} className="recommendedThree_ctnr">
+                    </div>
+                    <div key={2} className="recommendedThree_ctnr">
+                        <NavLink to={`/projects/${allProjects[2]?.id}`}>
                             <img className="recommended_img rec_item" src={allProjects[2]?.image_src ? allProjects[2]?.image_src : allProjects[2]?.image_src} alt="alt" />
                             <li className="recommended_title rec_item" >{allProjects[2]?.title}</li>
-                            <li className="recommended_goal rec_item" >${allProjects[2]?.pledge_goal} Goal</li>
+                            <li className="recommended_goal rec_item" >{((allProjects[2]?.current_funding / allProjects[2]?.pledge_goal) * 100).toFixed(2)}% Funded</li>
                             <li className="recommended_owner rec_item" >By {allProjects[2]?.username}</li>
-                            <div className="accessory_ctnr">
-                                <div className="bookmark_ctnr">
-                                    <li className="bookmark_btn" >
-                                        <img class="boomark_img" src='/images/bookmark-icon-darker.png' alt="alt" />
-                                    </li>
-                                </div>
-                                <div className="like_ctnr">
-                                    <li className="like_btn" >
-                                        <img class="like_img" src="/images/thumbs-up.png" alt="alt" />
-                                    </li>
-                                </div>
-                                <div className="dislike_ctnr">
-                                    <li className="dislike_btn" >
-                                        <img class="dislike_img" src="/images/dislike.png" alt="alt" />
-                                    </li>
-                                </div>
+                        </NavLink>
+                        <div className="accessory_ctnr">
+                            <div className="bookmark_ctnr">
+                                <li className="bookmark_btn" >
+                                    <img class="boomark_img" src='/images/bookmark-icon-darker.png' alt="alt" />
+                                </li>
+                            </div>
+                            <div className="like_ctnr">
+                                <li className="like_btn" >
+                                    <img class="like_img" src="/images/thumbs-up.png" alt="alt" />
+                                </li>
+                            </div>
+                            <div className="dislike_ctnr">
+                                <li className="dislike_btn" >
+                                    <img class="dislike_img" src="/images/dislike.png" alt="alt" />
+                                </li>
                             </div>
                         </div>
-                    </NavLink>
-                    <NavLink to={`/projects/${allProjects[3]?.id}`}>
-                        <div key={3} className="recommendedFour_ctnr">
+                    </div>
+                    <div key={3} className="recommendedFour_ctnr">
+                        <NavLink to={`/projects/${allProjects[3]?.id}`}>
                             <img className="recommended_img rec_item" src={allProjects[3]?.image_src ? allProjects[3]?.image_src : allProjects[3]?.image_src} alt="alt" />
                             <li className="recommended_title rec_item" >{allProjects[3]?.title}</li>
-                            <li className="recommended_goal rec_item" >${allProjects[3]?.pledge_goal} Goal</li>
+                            <li className="recommended_goal rec_item" >{((allProjects[3]?.current_funding / allProjects[3]?.pledge_goal) * 100).toFixed(2)}% Funded</li>
                             <li className="recommended_owner rec_item" >By {allProjects[3]?.username}</li>
-                            <div className="accessory_ctnr">
-                                <div className="bookmark_ctnr">
-                                    <li className="bookmark_btn" >
-                                        <img class="boomark_img" src='/images/bookmark-icon-darker.png' alt="alt" />
-                                    </li>
-                                </div>
-                                <div className="like_ctnr">
-                                    <li className="like_btn" >
-                                        <img class="like_img" src="/images/thumbs-up.png" alt="alt" />
-                                    </li>
-                                </div>
-                                <div className="dislike_ctnr">
-                                    <li className="dislike_btn" >
-                                        <img class="dislike_img" src="/images/dislike.png" alt="alt" />
-                                    </li>
-                                </div>
+                        </NavLink>
+                        <div className="accessory_ctnr">
+                            <div className="bookmark_ctnr">
+                                <li className="bookmark_btn" >
+                                    <img class="boomark_img" src='/images/bookmark-icon-darker.png' alt="alt" />
+                                </li>
+                            </div>
+                            <div className="like_ctnr">
+                                <li className="like_btn" >
+                                    <img class="like_img" src="/images/thumbs-up.png" alt="alt" />
+                                </li>
+                            </div>
+                            <div className="dislike_ctnr">
+                                <li className="dislike_btn" >
+                                    <img class="dislike_img" src="/images/dislike.png" alt="alt" />
+                                </li>
                             </div>
                         </div>
-                    </NavLink>
+                    </div>
                 </div>
             </div>
         </div>

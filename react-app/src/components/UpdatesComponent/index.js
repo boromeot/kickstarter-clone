@@ -7,7 +7,7 @@ import * as updateActions from '../../store/update'
 import './UpdatesComponent.css'
 
 
-export default function UpdatesComponent({ id, setCurrentUpdateId, setToRenderComponent, setToRenderDisplay, setToRenderPatch, currentUpdateId }) {
+export default function UpdatesComponent({ id, setCurrentUpdateId, setToRenderComponent, setToRenderDisplay, setToRenderPatch, currentUpdateId, setUpdateNumber }) {
     const projectUpdates = useSelector(state => state.project.updates)
     const projectId = useSelector(state => state.project.id)
     const dispatch = useDispatch()
@@ -38,6 +38,7 @@ export default function UpdatesComponent({ id, setCurrentUpdateId, setToRenderCo
                                 setToRenderComponent(false)
                                 setToRenderDisplay(true)
                                 setToRenderPatch(false)
+                                setUpdateNumber(idx)
                                 setReload(true)
                             }}>
                                 READ MORE

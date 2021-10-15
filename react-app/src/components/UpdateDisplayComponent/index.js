@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import * as updateActions from '../../store/update'
 import './UpdateDisplayComponent.css';
 
-export default function UpdateDisplayComponent({ setToRenderComponent, setToRenderDisplay, setToRenderPatch, currentUpdateId }) {
+export default function UpdateDisplayComponent({ setToRenderComponent, setToRenderDisplay, setToRenderPatch, currentUpdateId, updateNumber }) {
 
     const updates = useSelector(state => state.project.updates);
     const chosenUpdate = updates.find(update => update.id === currentUpdateId);
@@ -14,17 +14,20 @@ export default function UpdateDisplayComponent({ setToRenderComponent, setToRend
         <div>
             <div className="updateDisplay outter_container">
                 <div className="updateDisplay inner_Container">
-                    <h1>UpdateDisplayComponent</h1>
-                    <h1>{chosenUpdate.title}</h1>
-                    <h1>{chosenUpdate.description}</h1>
-                    <h1>{chosenUpdate.username}</h1>
-                    <li className="updateBtn btn-primary" onClick={() => {
+                    <li className="updateBtn btn btn-primary" onClick={() => {
                         setToRenderComponent(true)
                         setToRenderDisplay(false)
                         setToRenderPatch(false)
                     }}>
-                        {'< BACK'}
+                        <li className="updateBtn leftArrow">{'<'}</li> {'All updates'}
                     </li>
+                    <li className="updateDisplayNum item">UPDATE #{updateNumber}</li>
+                    <li className="updateDisplayTitle item">{chosenUpdate.title}</li>
+                    <div className="user_ctnr">
+                        <img className="updateDisplayImg item" src={'/images/person-icon.png'} alt="alt" />
+                        <li className="updateDisplayUsername item">{chosenUpdate.username}</li>
+                    </div>
+                    <li className="updateDisplayDescription item">{chosenUpdate.description}</li>
                 </div>
 
             </div>
