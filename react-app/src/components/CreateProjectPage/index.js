@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import './Start.css';
@@ -9,6 +9,7 @@ import TitleForm from './StartForms/TitleForm';
 const CreateProjectPage = () => {
   const user = useSelector(state => state.session.user);
   const [currentStep, setCurrentStep] = useState(1);
+  // const [fetchResponse, setFetchResponse] = useState();
   const [formData, setFormData] = useState({ tag: '', description: '', title: '' })
   const totalSteps = 3;
   //The disabled attribute is true if the current steps data is falsey
@@ -52,11 +53,12 @@ const CreateProjectPage = () => {
         user_id: user.id,
       })
     });
-
     await response.json();
+    // setFetchResponse(data)
 
 
   }
+
 
   if (!user) {
     return <Redirect to='/login' />
@@ -74,7 +76,7 @@ const CreateProjectPage = () => {
             <div className='start-form-button-container'>
               {
                 currentStep < totalSteps
-                  ? <button className={isDisabled ? 'disabled' : 'start-form-next-btn'} onClick={nextStep} disabled={isDisabled}>Next</button>
+                  ? <button type="submit" className={isDisabled ? 'disabled' : 'start-form-next-btn'} onClick={nextStep} disabled={isDisabled}>Next</button>
                   : <button type='submit' className={isDisabled ? 'disabled' : 'start-form-next-btn'} disabled={isDisabled}>Continue</button>
               }
               {

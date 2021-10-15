@@ -7,7 +7,7 @@ export default function UpdateDisplayComponent({ setToRenderComponent, setToRend
     const chosenUpdate = updates.find(update => update.id === currentUpdateId);
 
     return (
-        <div>
+        <div className="root-container">
             <div className="updateDisplay outter_container">
                 <div className="updateDisplay inner_Container">
                     <li className="updateBtn btn btn-primary" onClick={() => {
@@ -15,17 +15,19 @@ export default function UpdateDisplayComponent({ setToRenderComponent, setToRend
                         setToRenderDisplay(false)
                         setToRenderPatch(false)
                     }}>
-                        <li className="updateBtn leftArrow">{'<'}</li> {'All updates'}
+                        <p className="updateBtn leftArrow">{'<'}</p> {'All updates'}
                     </li>
                     <li className="updateDisplayNum item">UPDATE #{updateNumber}</li>
                     <li className="updateDisplayTitle item">{chosenUpdate.title}</li>
                     <div className="user_ctnr">
                         <img className="updateDisplayImg item" src={'/images/person-icon.png'} alt="alt" />
                         <li className="updateDisplayUsername item">{chosenUpdate.username}</li>
+                        <li className="creatorTag" > Creator </li>
                     </div>
-                    <li className="updateDisplayDescription item">{chosenUpdate.description}</li>
+                    <div className="updateDisplayDescriptionCtnr">
+                        <li className="updateDisplayDescription item">{chosenUpdate.description}</li>
+                    </div>
                 </div>
-
             </div>
         </div>
     )
