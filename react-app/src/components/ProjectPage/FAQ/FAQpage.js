@@ -12,13 +12,13 @@ function FAQpage({ faq }) {
     }
   }
   return (
-    <div class="question-container" onClick={() => toggleHide()}>
-      <div class="question-preview">
-        <div class="question">{faq.question}</div>
-        <div class="arrow">{'>'}</div>
+    <div className="question-container" onClick={() => toggleHide()}>
+      <div className="question-preview">
+        <div className="question">{faq.question}</div>
+        <div className="arrow">{'>'}</div>
       </div>
-      <div class={hide ? "hide" : ""}>
-        <div class="answer">{faq.answer}</div>
+      <div className={hide ? "hide" : ""}>
+        <div className="answer">{faq.answer}</div>
       </div>
     </div>
   )

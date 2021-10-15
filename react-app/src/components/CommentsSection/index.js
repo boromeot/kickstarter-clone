@@ -12,11 +12,11 @@ const CommentsSection = ({ comments, project_id }) => {
   return (
     <div className='comments-container'>
       <div>
-        {user ? null : <div className='comments-login-notification flex-center'>You must be logged in to comment</div> }
+        {user ? null : <div className='comments-login-notification flex-center'>You must be logged in to comment</div>}
         <div className='comments-section'>
           {
-            comments.map(comment => {
-              return <Comment comment={comment} />
+            comments.map((comment, idx) => {
+              return <Comment key={idx} comment={comment} />
             })
           }
         </div>
@@ -31,13 +31,13 @@ const CommentsSection = ({ comments, project_id }) => {
           </p>
           <NavLink className='comments-right-link' to={`/projects/${project_id}/faqs`}>Check this project's FAQ</NavLink>
         </div>
-        { user &&
+        {user &&
           <>
             <button className='comments-btn btn-primary' onClick={() => setShow(true)}>
               Add a comment
             </button>
             <Modal title='Add a comment' onClose={() => setShow(false)} show={show}>
-              <CommentForm setShow={setShow} method='POST'/>
+              <CommentForm setShow={setShow} method='POST' />
             </Modal>
           </>
         }

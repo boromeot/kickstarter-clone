@@ -11,9 +11,11 @@ import ProjectPage from './components/ProjectPage';
 import UpdatesView from './components/UpdatesView';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
+import SplashPageComponent from './components/SplashPageComponent';
 import CreateProjectPage from './components/CreateProjectPage';
 import IndividualTagPage from './components/IndividualTagPage';
 import Discover from './components/Discover';
+import { getTags } from './store/tag'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -23,6 +25,7 @@ function App() {
   useEffect(() => {
     (async () => {
       await dispatch(authenticate());
+      dispatch(getTags())
 
       setLoaded(true);
     })();
@@ -49,7 +52,7 @@ function App() {
           <User />
         </ProtectedRoute>
         <Route path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <SplashPageComponent />
         </Route>
         <Route path='/projects/:projectId' >
           <ProjectPage />
@@ -63,9 +66,9 @@ function App() {
         <Route path='/discover'>
           <Discover />
         </Route>
-        {tags.map((tag) =>
-          <Route path={`/discover/${tag.title}`}>
-            <IndividualTagPage tagId={tag.id} tagTitle={tag.title}/>
+        {tags.map((tag, idx) =>
+          <Route key={idx} path={`/discover/${tag.title}`}>
+            <IndividualTagPage tagId={tag.id} tagTitle={tag.title} />
           </Route>
         )}
       </Switch>
