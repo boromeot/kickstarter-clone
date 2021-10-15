@@ -53,7 +53,7 @@ const CreateProjectPage = () => {
         user_id: user.id,
       })
     });
-    await response.json();
+    // await response.json();
     // setFetchResponse(data)
 
 
