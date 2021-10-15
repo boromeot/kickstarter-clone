@@ -90,6 +90,7 @@ const EditProjectPage = () => {
           title={formData.title}
           description={formData.description}
           tag_id={formData.tag_id}
+          video_src={formData.video_src}
         />
         {formData.tag}
         {formData.tag_id}
