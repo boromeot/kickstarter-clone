@@ -37,19 +37,36 @@ const EditProjectPage = () => {
     })
   }
 
+  const handleSubmit = async e => {
+    e.preventDefault();
+    console.log(formData, 'formData');
+    const response = await fetch(`/api/projects/${projectId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        ...formData
+      })
+    });
+
+    const project = await response.json();
+    console.log(project, 'project');
+  }
+
   if (!user) {
     return <Redirect to='/login' />
   }
   return (
-    <>
+    <form onSubmit={handleSubmit}>
       <nav className='nav-bar'>
         <div className=''>
           <NavLink to='/' className='nav-button' exact={true}>
             <Logo />
           </NavLink>
         </div>
-        <button className='btn-primary edit-project-next'>
-          Next
+        <button type='submit' className='btn-primary edit-project-next'>
+          Save
         </button>
       </nav>
       <div className='shadow-wrapper'>
@@ -72,7 +89,7 @@ const EditProjectPage = () => {
       <Route path={`${path}/people`}>people</Route>
       <Route path={`${path}/payment`}>payment</Route>
       <Route path={`${path}/promotion`}>promotion</Route>
-    </>
+    </form>
   )
 }
 

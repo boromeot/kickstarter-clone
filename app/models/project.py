@@ -44,5 +44,6 @@ class Project(db.Model):
       'comments': [comment.to_dict() for comment in self.comments],
       'updates': [update.to_dict() for update in self.updates],
       'faqs': [faq.to_dict() for faq in self.faqs],
-      'tag': self.tag.title
+      'tag': self.tag.title,
+      'tag_id': self.tag_id
     }

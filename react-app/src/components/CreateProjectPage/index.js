@@ -55,7 +55,7 @@ const CreateProjectPage = () => {
     });
 
     const project = await response.json();
-    history.push(`/projects/${project.id}`);
+    history.push(`/projects/${project.id}/edit`);
   }
 
   if (!user) {
