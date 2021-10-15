@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getProject } from '../../store/project';
 import BasicsPage from './SubPages/BasicsPage';
 import FundingPage from './SubPages/FundingPage';
+import StoryPage from './SubPages/StoryPage';
 
 const EditProjectPage = () => {
   const dispatch = useDispatch();
@@ -96,7 +97,9 @@ const EditProjectPage = () => {
         <FundingPage />
       </Route>
       <Route path={`${path}/updates`}>updates</Route>
-      <Route path={`${path}/story`}>story</Route>
+      <Route path={`${path}/story`}>
+        <StoryPage />
+      </Route>
       <Route path={`${path}/people`}>people</Route>
       <Route path={`${path}/payment`}>payment</Route>
       <Route path={`${path}/promotion`}>promotion</Route>
