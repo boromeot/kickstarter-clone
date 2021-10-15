@@ -27,7 +27,6 @@ export default function UpdatesComponent({ id, setCurrentUpdateId, setToRenderCo
 
 
     return (
-
         <div className="updates_outter_container">
             {projectUpdates?.map((update, idx) =>
                 <div key={update.id} className='updates_inner_container'>
