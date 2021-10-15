@@ -25,7 +25,7 @@ const patch_update = (update_id) => {
 
 
 export const createUpdate = (body) => async (dispatch) => {
-
+    console.log('HERE----------------------------------------------------------------')
     const response = await fetch(`/api/updates/`, {
         method: 'POST',
         headers: {

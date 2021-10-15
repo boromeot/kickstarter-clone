@@ -7,3 +7,4 @@ class ProjectForm(FlaskForm):
   description = StringField('description')
   tag_id = IntegerField('tag_id', validators=[DataRequired()])
   user_id = IntegerField('user_id', validators=[DataRequired()])
+  # updates = StringField('updates')

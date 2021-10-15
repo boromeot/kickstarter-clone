@@ -20,6 +20,7 @@ const EditProjectPage = () => {
   const [formData, setFormData] = useState({
     ...project
   })
+  const [typeReq, setTypeReq] = useState()
 
   useEffect(() => {
     dispatch(getProject(projectId));
@@ -33,7 +34,7 @@ const EditProjectPage = () => {
 
   const handleChange = e => {
     const { name, value } = e.target;
-    const oldState = {...formData};
+    const oldState = { ...formData };
     setFormData({
       ...oldState,
       [name]: value
@@ -52,6 +53,15 @@ const EditProjectPage = () => {
         ...formData
       })
     });
+    // const response = await fetch(`/api/projects/${projectId}`, {
+    //   method: 'PUT',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify({
+    //     ...formData
+    //   })
+    // });
 
     const project = await response.json();
     console.log(project);
@@ -75,13 +85,13 @@ const EditProjectPage = () => {
       <div className='shadow-wrapper'>
         <div className='edit-page-spacer'>
           <div className='edit-page-items-container'>
-            <NavItem emoji='✍️' text='Basics' link={`${url}/basics`}/>
-            <NavItem emoji='📊' text='Funding' link={`${url}/funding`}/>
-            <NavItem emoji='📝' text='Updates' link={`${url}/updates`}/>
-            <NavItem emoji='📖' text='Story' link={`${url}/story`}/>
-            <NavItem emoji='👥' text='People' link={`${url}/people`}/>
-            <NavItem emoji='💰' text='Payment' link={`${url}/payment`}/>
-            <NavItem emoji='📢' text='Promotion' link={`${url}/promotion`}/>
+            <NavItem emoji='✍️' text='Basics' link={`${url}/basics`} />
+            <NavItem emoji='📊' text='Funding' link={`${url}/funding`} />
+            <NavItem emoji='📝' text='Updates' link={`${url}/updates`} />
+            <NavItem emoji='📖' text='Story' link={`${url}/story`} />
+            <NavItem emoji='👥' text='People' link={`${url}/people`} />
+            <NavItem emoji='💰' text='Payment' link={`${url}/payment`} />
+            <NavItem emoji='📢' text='Promotion' link={`${url}/promotion`} />
           </div>
         </div>
       </div>
@@ -98,7 +108,8 @@ const EditProjectPage = () => {
         <FundingPage />
       </Route>
       <Route path={`${path}/updates`}>
-        <UpdatesPage />
+        <UpdatesPage updates={formData.updates} />
+        {/* {console.log(formData)} */}
       </Route>
       <Route path={`${path}/story`}>
         <StoryPage />
