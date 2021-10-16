@@ -7,6 +7,7 @@ import { NavLink, Route, Redirect, useRouteMatch, useParams } from 'react-router
 import { useSelector, useDispatch } from 'react-redux';
 import { getProject } from '../../store/project';
 import { createUpdate } from '../../store/update';
+import { getTags } from '../../store/tag';
 import BasicsPage from './SubPages/BasicsPage';
 import FundingPage from './SubPages/FundingPage';
 import StoryPage from './SubPages/StoryPage';
@@ -25,6 +26,7 @@ const EditProjectPage = () => {
 
   useEffect(() => {
     dispatch(getProject(projectId));
+    dispatch(getTags())
   }, [dispatch, projectId])
 
   useEffect(() => {
