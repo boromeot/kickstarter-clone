@@ -81,8 +81,14 @@ const EditProjectPage = () => {
         body: JSON.stringify(newUpdate)
       });
       if (response.ok) {
-        alert(await response.json())
-        return response
+        alert('Update posted!')
+      } else {
+        const data = await response.json();
+        const errors = data.errors;
+        const errorMessage = errors.reduce((accum, error) => {
+          return accum + '\n' + error;
+        });
+        alert(errorMessage);
       }
     } else { //Put project
       const response = await fetch(`/api/projects/${projectId}`, {
