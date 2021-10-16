@@ -82,6 +82,10 @@ const EditProjectPage = () => {
       });
       if (response.ok) {
         alert('Update posted!')
+        setNewUpdate({
+          title: '', description: '',
+          project_id: projectId, user_id: user.id,
+        });
       } else {
         const data = await response.json();
         const errors = data.errors;
