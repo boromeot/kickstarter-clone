@@ -36,12 +36,13 @@ export default function UpdatePatchComponent({ setToRenderComponent, setToRender
 
     return (
         <div>
-
-            {/* <li className="btn-primary" onClick={() => {
-                setToRenderComponent(true)
-                setToRenderDisplay(false)
-                setToRenderPatch(false)
-            }}>LIST</li> */}
+            <div className="updatePatch_return_ctnr">
+                <li className="updatePatch_return btn-primary" onClick={() => {
+                    setToRenderComponent(false)
+                    setToRenderDisplay(true)
+                    setToRenderPatch(false)
+                }}>CANCEL</li>
+            </div>
             {/* <li>CurrentUpdateId: {currentUpdateId}</li> */}
             <form onSubmit={handleUpdateUpdate}>
                 {/* <div className="componentTitle">

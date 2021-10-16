@@ -10,6 +10,7 @@ const UpdatesForm = ({ updates, setNewUpdate, newUpdate }) => {
 
     const [updateDescription, setUpdateDescription] = useState("")
     const [updateTitle, setUpdateTitle] = useState("")
+    const [updated, setUpdated] = useState(false)
     const currentUser = useSelector(state => state.session.user?.id)
     const project = useSelector(state => state.project)
     console.log(project.id)
@@ -33,52 +34,61 @@ const UpdatesForm = ({ updates, setNewUpdate, newUpdate }) => {
     }
 
     useEffect(() => {
-
-    }, [dispatch])
+        window.scrollTo(0, 0)
+        setUpdated(false)
+    }, [dispatch, newUpdate])
 
 
     return (
         <FormWrapper header='Create an Update' infoArr={infoArr}>
-            <div>
-                <div>
-                    <label>
+            <div className='createUpdate_outmost_ctnr'>
+                <div className='newUpdateConfirmation_ctnr'>
+                    {updated &&
+                        <li className='newUpdate_confirmation'> PLEASE SAVE!</li>
+                    }
+                </div>
+                <div className="createUpdate_ctnr" >
+                    {/* <div className="createUpdate title">
                         Create An Update:
-                        <div>
+                    </div> */}
+                    <label>
+                        <div className="createUpdate titleLabel">
+                            Enter Title:
+                        </div>
+                        <div className="createUpdate title_Ctnr">
                             <input
                                 type="text"
                                 name="title"
                                 value={updateTitle}
                                 placeholder="Title"
-                                className="updateTitle_TF"
+                                className="createUpdateTitle_TF"
                                 onChange={(e) => setUpdateTitle(e.target.value)}
                             />
                         </div>
-                        <div>
+                    </label>
+                    <label>
+                        <div className="createUpdate descriptionLabel">
+                            Enter Description:
+                        </div>
+                        <div className="createUpdate description_Ctnr">
                             <textarea
                                 name="description"
                                 value={updateDescription}
                                 rows="8"
                                 columns="30"
                                 placeholder="Add New Update"
-                                className="update_TF"
+                                className="createUpdateDescription_TF"
                                 onChange={(e) => setUpdateDescription(e.target.value)}
                             />
                         </div>
                     </label>
                 </div>
-                {/* <div>
-                    <button className="createUpdateBtn" onClick={() => {
-                        setNewUpdate(payload)
-                    }} >
-                        Add Update
-                    </button>
-                </div> */}
                 <li className="updateSubmit" onClick={() => {
                     submitPayload()
-                    alert('Dont forget to save!')
+                    setUpdated(true)
                     console.log(newUpdate)
                 }} >
-                    Update
+                    CREATE
                 </li>
             </div>
         </FormWrapper>
