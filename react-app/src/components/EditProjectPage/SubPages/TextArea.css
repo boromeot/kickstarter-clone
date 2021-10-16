@@ -1,13 +1,13 @@
-.title-form-container {
+.edit-form-container {
   display: flex;
   flex-direction: column;
 }
 
-.title-form-title-container {
+.edit-form-title-container {
   margin-bottom: 42px;
 }
 
-.title-form-character-count {
+.edit-form-character-count {
   display: flex;
   justify-content: flex-end;
   font-size: 14px;
@@ -15,13 +15,13 @@
   color: rgb(40, 40, 40);
 }
 
-.title-form-header {
+.edit-form-header {
   margin-bottom: 6px;
   font-size: 14px;
   color: rgb(40, 40, 40);
 }
 
-.title-form-text-area {
+.edit-form-text-area {
   height: 42px;
   width: 100%;;
   padding: 12px;

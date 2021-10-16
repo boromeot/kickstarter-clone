@@ -49,15 +49,32 @@ export const getProject = (projectId) => async dispatch => {
   const response = await fetch(`/api/projects/${projectId}`);
   const data = await response.json();
   dispatch(get_project(data));
-  return response
+  return response;
 }
 
 export const getAllProjects = () => async dispatch => {
   const response = await fetch(`/api/projects/`);
-  const data = await response.json()
-  dispatch(get_all_projects(data.projects))
-  return response
+  const data = await response.json();
+  dispatch(get_project(data.projects));
+  return response;
 }
+
+export const patchProject = ({projectId, campaign}) => async dispatch => {
+  const response = await fetch(`/api/projects/${projectId}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      projectId,
+      campaign
+    })
+  })
+  const data = await response.json();
+  dispatch(get_all_projects(data.projects));
+  return response;
+}
+
 export const getRandomProjects = () => async dispatch => {
   const response = await fetch(`/api/projects/random`);
 

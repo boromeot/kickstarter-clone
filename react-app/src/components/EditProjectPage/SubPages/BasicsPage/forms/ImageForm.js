@@ -9,18 +9,18 @@ const ImageForm = ({ image_src, handleChange }) => {
   ]
   return (
     <FormWrapper header='Project Image' infoArr={infoArr}>
-      <div className='title-form-container'>
-        <div className='title-form-title-container'>
-          <div className='title-form-header'>Title</div>
+      <div className='edit-form-container'>
+        <div className='edit-form-title-container'>
+          <div className='edit-form-header'>Title</div>
           <textarea
             name='image_src'
             value={image_src}
             onChange={handleChange}
             placeholder='https://www.somewebsite.com/image.jpg'
-            className='title-form-text-area edit-page-text-area'
+            className='edit-form-text-area edit-page-text-area'
             maxLength={100}
           />
-          <div className='title-form-character-count'>{image_src?.length}/100</div>
+          <div className='edit-form-character-count'>{image_src?.length}/100</div>
         </div>
       </div>
     </FormWrapper>

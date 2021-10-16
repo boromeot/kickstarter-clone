@@ -13,20 +13,17 @@ import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import SplashPageComponent from './components/SplashPageComponent';
 import CreateProjectPage from './components/CreateProjectPage';
-import IndividualTagPage from './components/IndividualTagPage';
 import Discover from './components/Discover';
 import EditProjectPage from './components/EditProjectPage';
 import { getTags } from './store/tag'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
-  const tags = useSelector(state => Object.values(state.tags));
-  const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
   useEffect(() => {
     (async () => {
       await dispatch(authenticate());
-      dispatch(getTags())
 
       setLoaded(true);
     })();

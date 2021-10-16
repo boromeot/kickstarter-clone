@@ -73,6 +73,17 @@ const EditProjectPage = () => {
 
   }
 
+  const handleRTE = (data) => {
+    const name = "campaign";
+    const oldState = {...formData};
+    console.log(oldState);
+    setFormData({
+      ...oldState,
+      [name]: data
+    })
+  }
+
+
   if (!user) {
     return <Redirect to='/login' />
   }
@@ -109,18 +120,23 @@ const EditProjectPage = () => {
           video_src={formData.video_src}
           image_src={formData.image_src}
           start_date={formData.start_date}
+          end_date={formData.end_date}
         />
-        {formData.start_date}
       </Route>
       <Route path={`${path}/funding`}>
-        <FundingPage />
+        <FundingPage handleChange={handleChange}
+          pledge_goal={formData.pledge_goal}
+        />
       </Route>
       <Route path={`${path}/updates`}>
         <UpdatesPage setNewUpdate={setNewUpdate} newUpdate={newUpdate} />
         {/* {console.log(formData)} */}
       </Route>
       <Route path={`${path}/story`}>
-        <StoryPage />
+        <StoryPage
+          campaign={formData.campaign}
+          handleRTE={handleRTE}
+        />
       </Route>
       <Route path={`${path}/people`}>people</Route>
       <Route path={`${path}/payment`}>payment</Route>
