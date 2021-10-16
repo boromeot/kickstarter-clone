@@ -49,17 +49,17 @@ export default function SplashPageComponent() {
                         <div className="accessory_ctnr">
                             <div className="bookmark_ctnr">
                                 <li className="bookmark_btn" >
-                                    <img className="boomark_img" src='/images/bookmark-icon-darker.png' alt="alt" />
+                                    <img className="boomark_img" src='https://www.clipartmax.com/png/small/473-4737744_bookmark-png-clipart-bookmark-icon-instagram.png' alt="alt" />
                                 </li>
                             </div>
                             <div className="like_ctnr">
                                 <li className="like_btn" >
-                                    <img className="like_img" src="/images/thumbs-up.png" alt="alt" />
+                                    <img className="like_img" src="https://aux2.iconspalace.com/uploads/thumbs-up-icon-256-1592257045.png" alt="alt" />
                                 </li>
                             </div>
                             <div className="dislike_ctnr">
                                 <li className="dislike_btn" >
-                                    <img className="dislike_img" src="/images/dislike.png" alt="alt" />
+                                    <img className="dislike_img" src="https://aux2.iconspalace.com/uploads/thumbs-down-icon-256-470311744.png" alt="alt" />
                                 </li>
                             </div>
                         </div>
@@ -74,17 +74,17 @@ export default function SplashPageComponent() {
                         <div className="accessory_ctnr">
                             <div className="bookmark_ctnr">
                                 <li className="bookmark_btn" >
-                                    <img className="boomark_img" src='/images/bookmark-icon-darker.png' alt="alt" />
+                                    <img className="boomark_img" src='https://www.clipartmax.com/png/small/473-4737744_bookmark-png-clipart-bookmark-icon-instagram.png' alt="alt" />
                                 </li>
                             </div>
                             <div className="like_ctnr">
                                 <li className="like_btn" >
-                                    <img className="like_img" src="/images/thumbs-up.png" alt="alt" />
+                                    <img className="like_img" src="https://aux2.iconspalace.com/uploads/thumbs-up-icon-256-1592257045.png" alt="alt" />
                                 </li>
                             </div>
                             <div className="dislike_ctnr">
                                 <li className="dislike_btn" >
-                                    <img className="dislike_img" src="/images/dislike.png" alt="alt" />
+                                    <img className="dislike_img" src="https://aux2.iconspalace.com/uploads/thumbs-down-icon-256-470311744.png" alt="alt" />
                                 </li>
                             </div>
                         </div>
@@ -99,17 +99,17 @@ export default function SplashPageComponent() {
                         <div className="accessory_ctnr">
                             <div className="bookmark_ctnr">
                                 <li className="bookmark_btn" >
-                                    <img className="boomark_img" src='/images/bookmark-icon-darker.png' alt="alt" />
+                                    <img className="boomark_img" src='https://www.clipartmax.com/png/small/473-4737744_bookmark-png-clipart-bookmark-icon-instagram.png' alt="alt" />
                                 </li>
                             </div>
                             <div className="like_ctnr">
                                 <li className="like_btn" >
-                                    <img className="like_img" src="/images/thumbs-up.png" alt="alt" />
+                                    <img className="like_img" src="https://aux2.iconspalace.com/uploads/thumbs-up-icon-256-1592257045.png" alt="alt" />
                                 </li>
                             </div>
                             <div className="dislike_ctnr">
                                 <li className="dislike_btn" >
-                                    <img className="dislike_img" src="/images/dislike.png" alt="alt" />
+                                    <img className="dislike_img" src="https://aux2.iconspalace.com/uploads/thumbs-down-icon-256-470311744.png" alt="alt" />
                                 </li>
                             </div>
                         </div>

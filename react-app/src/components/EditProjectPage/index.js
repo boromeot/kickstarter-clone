@@ -49,14 +49,16 @@ const EditProjectPage = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-      },
+        },
         body: JSON.stringify(newUpdate)
       });
+
+      console.log(newUpdate);
       if (response.ok) {
-          const data = await response.json();
-          dispatch(createUpdate(data));
-          return response
-        }
+        const data = await response.json();
+        dispatch(createUpdate(data));
+        return response
+      }
     } else {
       const response = await fetch(`/api/projects/${projectId}`, {
         method: 'PUT',
@@ -114,7 +116,7 @@ const EditProjectPage = () => {
         <FundingPage />
       </Route>
       <Route path={`${path}/updates`}>
-        <UpdatesPage updates={formData.updates} />
+        <UpdatesPage setNewUpdate={setNewUpdate} newUpdate={newUpdate} />
         {/* {console.log(formData)} */}
       </Route>
       <Route path={`${path}/story`}>

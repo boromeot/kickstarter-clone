@@ -8,12 +8,16 @@ from flask import jsonify
 
 update_routes = Blueprint('updates', __name__)
 
+def dump(obj):
+    for attr in dir(obj):
+        print("obj.%s = %r" % (attr, getattr(obj, attr)))
 
 @update_routes.route('/', methods=['POST'])
 def create_update():
+    # form = UpdateForm()
+    # form['csrf_token'].data = request.cookies['csrf_token']
     if request.method == 'POST':
         print('HERE!!!---------------------------------------')
-        print(request.get_json())
         
         new_update = Update(
             title=request.json['title'],
@@ -21,16 +25,19 @@ def create_update():
             project_id=request.json['project_id'],
             user_id=request.json['user_id'],
         )
+        # dump(new_update)
         db.session.add(new_update)
         db.session.commit()
 
         allUpdates = Update.query.all() 
         updates = [update.to_dict() for update in allUpdates]
-        print(updates)
+        # print(updates)
 
         return jsonify(updates)
     else:
         return 'Bad Data'
+
+    
         
 
 @update_routes.route('/<int:id>', methods=['PATCH'])
@@ -39,13 +46,9 @@ def patch_update(id):
     form['csrf_token'].data = request.cookies['csrf_token']
     print(form['csrf_token'].data)
     if request.method == 'PATCH':
-        print('------------------Making Patch Request--------------------')
-        print('------------------', request.json['idx'])
-        print('------------------', form.data['title'])
-        print('------------------', form.data['description'])
 
         updateToChange = Update.query.get(request.json['idx'])
-        print(updateToChange.to_dict(), '---------------------------------')
+        # print(updateToChange.to_dict(), '---------------------------------')
         
         if form.validate_on_submit():
             updateToChange.title = form.data['title']
@@ -53,11 +56,12 @@ def patch_update(id):
             db.session.commit()
             allUpdates = Update.query.all()
             fillStoreWithUpdates = [update.to_dict() for update in allUpdates]
-            print('----------------ALL UPDATES ----------------')
+            # print('----------------ALL UPDATES ----------------')
             print(fillStoreWithUpdates)
             return jsonify(fillStoreWithUpdates)
         else:
             return jsonify('Form did not validate!')
+
 
 @update_routes.route('/', methods=['DELETE'])
 def delete_update():
