@@ -9,3 +9,5 @@ class ProjectForm(FlaskForm):
   user_id = IntegerField('user_id', validators=[DataRequired()])
   video_src = StringField('video_src')
   image_src = StringField('image_src')
+  start_date = StringField('start_date')
+  end_date = StringField('end_date')

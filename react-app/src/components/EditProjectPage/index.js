@@ -107,8 +107,11 @@ const EditProjectPage = () => {
           video_src={formData.video_src}
           image_src={formData.image_src}
           start_date={formData.start_date}
+          end_date={formData.end_date}
         />
         {formData.start_date}
+        {' '}
+        {formData.end_date}
       </Route>
       <Route path={`${path}/funding`}>
         <FundingPage />
