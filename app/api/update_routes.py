@@ -17,28 +17,24 @@ def create_update():
     # form = UpdateForm()
     # form['csrf_token'].data = request.cookies['csrf_token']
     if request.method == 'POST':
-        print('HERE!!!---------------------------------------')
-        
         new_update = Update(
             title=request.json['title'],
-            description=request.json['description'], 
+            description=request.json['description'],
             project_id=request.json['project_id'],
             user_id=request.json['user_id'],
         )
-        # dump(new_update)
         db.session.add(new_update)
         db.session.commit()
 
-        allUpdates = Update.query.all() 
+        allUpdates = Update.query.all()
         updates = [update.to_dict() for update in allUpdates]
-        # print(updates)
 
         return jsonify(updates)
     else:
         return 'Bad Data'
 
-    
-        
+
+
 
 @update_routes.route('/<int:id>', methods=['PATCH'])
 def patch_update(id):
@@ -49,7 +45,7 @@ def patch_update(id):
 
         updateToChange = Update.query.get(request.json['idx'])
         # print(updateToChange.to_dict(), '---------------------------------')
-        
+
         if form.validate_on_submit():
             updateToChange.title = form.data['title']
             updateToChange.description = form.data['description']

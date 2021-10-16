@@ -8,6 +8,10 @@
   padding: 10.5px 36px;
 }
 
+.edit-project-next:active {
+  transform: translateY(2px);
+}
+
 
 /* Second nav bar */
 .shadow-wrapper {

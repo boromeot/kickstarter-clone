@@ -22,7 +22,7 @@ const EditProjectPage = () => {
   const [formData, setFormData] = useState({
     ...project
   })
-  const [newUpdate, setNewUpdate] = useState({});
+  const [newUpdate, setNewUpdate] = useState();
 
   useEffect(() => {
     dispatch(getProject(projectId));
@@ -32,9 +32,14 @@ const EditProjectPage = () => {
   useEffect(() => {
     setFormData({
       ...project,
-    })
+    });
+    setNewUpdate({
+      title: '', description: '',
+      project_id: projectId, user_id: user.id,
+    });
   }, [project])
 
+  //Controls changes of the project object
   const handleChange = e => {
     const { name, value } = e.target;
     const oldState = { ...formData };
@@ -44,8 +49,29 @@ const EditProjectPage = () => {
     })
   }
 
+  //Controls changes of the update object
+  const handleUpdate = e => {
+    const { name, value } = e.target;
+    const oldState = { ...newUpdate };
+    setNewUpdate({
+      ...oldState,
+      [name]: value
+    })
+  }
+
+  //Controls changes of formData.description due to CktEditors form not having a name attribute
+  const handleRTE = (data) => {
+    const name = "campaign";
+    const oldState = {...formData};
+    setFormData({
+      ...oldState,
+      [name]: data
+    })
+  }
+
   const handleSubmit = async e => {
     e.preventDefault();
+    //Post to new update
     if (window.location.pathname === `${url}/updates`) {
       const response = await fetch(`/api/updates/`, {
         method: 'POST',
@@ -54,14 +80,11 @@ const EditProjectPage = () => {
         },
         body: JSON.stringify(newUpdate)
       });
-
-      console.log(newUpdate);
       if (response.ok) {
-        const data = await response.json();
-        dispatch(createUpdate(data));
+        alert(await response.json())
         return response
       }
-    } else {
+    } else { //Put project
       const response = await fetch(`/api/projects/${projectId}`, {
         method: 'PUT',
         headers: {
@@ -74,17 +97,6 @@ const EditProjectPage = () => {
     }
 
   }
-
-  const handleRTE = (data) => {
-    const name = "campaign";
-    const oldState = {...formData};
-    console.log(oldState);
-    setFormData({
-      ...oldState,
-      [name]: data
-    })
-  }
-
 
   if (!user) {
     return <Redirect to='/login' />
@@ -131,8 +143,7 @@ const EditProjectPage = () => {
         />
       </Route>
       <Route path={`${path}/updates`}>
-        <UpdatesPage setNewUpdate={setNewUpdate} newUpdate={newUpdate} />
-        {/* {console.log(formData)} */}
+        <UpdatesPage newUpdate={newUpdate} handleUpdate={handleUpdate}/>
       </Route>
       <Route path={`${path}/story`}>
         <StoryPage
