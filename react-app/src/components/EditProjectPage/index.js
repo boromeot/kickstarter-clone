@@ -71,6 +71,17 @@ const EditProjectPage = () => {
 
   }
 
+  const handleRTE = (data) => {
+    const name = "campaign";
+    const oldState = {...formData};
+    console.log(oldState);
+    setFormData({
+      ...oldState,
+      [name]: data
+    })
+  }
+
+
   if (!user) {
     return <Redirect to='/login' />
   }
@@ -122,7 +133,10 @@ const EditProjectPage = () => {
         <UpdatesPage />
       </Route>
       <Route path={`${path}/story`}>
-        <StoryPage />
+        <StoryPage
+          campaign={formData.campaign}
+          handleRTE={handleRTE}
+        />
       </Route>
       <Route path={`${path}/people`}>people</Route>
       <Route path={`${path}/payment`}>payment</Route>

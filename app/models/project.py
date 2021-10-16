@@ -9,6 +9,7 @@ class Project(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   title = db.Column(db.String(100), nullable=False, default='')
   description = db.Column(db.String(200), nullable=False, default='')
+  campaign = db.Column(db.Text, nullable=False, default="default")
   video_src = db.Column(db.String(100), default='')
   image_src = db.Column(db.String(100), default='')
   pledge_goal = db.Column(db.Float, nullable=False, default=1000)
@@ -35,6 +36,7 @@ class Project(db.Model):
       'username': self.user.username,
       'title': self.title,
       'description': self.description,
+      'campaign': self.campaign,
       'video_src': self.video_src,
       'image_src': self.image_src,
       'pledge_goal' : self.pledge_goal,

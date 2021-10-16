@@ -13,7 +13,6 @@ import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import SplashPageComponent from './components/SplashPageComponent';
 import CreateProjectPage from './components/CreateProjectPage';
-import IndividualTagPage from './components/IndividualTagPage';
 import Discover from './components/Discover';
 import EditProjectPage from './components/EditProjectPage';
 import { getTags } from './store/tag'

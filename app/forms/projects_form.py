@@ -7,6 +7,7 @@ class ProjectForm(FlaskForm):
   description = StringField('description')
   tag_id = IntegerField('tag_id', validators=[DataRequired()])
   user_id = IntegerField('user_id', validators=[DataRequired()])
+  campaign = StringField('campaign')
   video_src = StringField('video_src')
   image_src = StringField('image_src')
   start_date = StringField('start_date')

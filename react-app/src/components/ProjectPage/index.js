@@ -8,12 +8,13 @@ import UpdatesComponent from '../UpdatesComponent';
 import UpdatePatchComponent from '../UpdatePatchComponent';
 import FAQ from './FAQ';
 import Risks from './Risks';
+import Campaign from './Campaign';
 
 import UpdateDisplayComponent from '../UpdateDisplayComponent';
 
 const ProjectPage = () => {
   const { projectId } = useParams();
-  const {id, title, description, video_src, image_src, current_funding, pledge_goal, faqs, risks, comments} = useSelector(state => state.project)
+  const {id, title, description, campaign, video_src, image_src, current_funding, pledge_goal, faqs, risks, comments} = useSelector(state => state.project)
   const dispatch = useDispatch();
   const { path, url } = useRouteMatch(); //Allows for backwards compatibility of route names
   console.log(path, url)
@@ -120,7 +121,7 @@ const ProjectPage = () => {
         </div>
       </div>
       <Route path={`${path}/description`}>
-        Campaign
+        <Campaign campaign={campaign} />
       </Route>
       <Route path={`${path}/risks`}>
         <Risks risks={risks} />
