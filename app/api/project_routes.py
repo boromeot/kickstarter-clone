@@ -71,8 +71,4 @@ def get_random_projects():
     if item['id'] in list(randomNums):
       randomProjects.append(item)
 
-  # print("RANDOM NUMBERS-------------------------------------> ", randomNums)
-  # print("DESTRUCTURED PROJECTS-------------------------------------> ", projects)
-  # print("RANDOM PROJECTS-------------------------------------> ", randomProjects)
-
   return jsonify(randomProjects)
