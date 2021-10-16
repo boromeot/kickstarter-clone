@@ -5,17 +5,19 @@ const EndForm = ({ end_date, handleChange}) => {
   const infoArr = [
     'Set a time limit for your campaign. You won’t be able to change this after you launch.'
   ]
+  const formatted_date = new Date(end_date)
   return (
     <FormWrapper header='Target end date' infoArr={infoArr}>
       <div className='calendar-conatiner'>
-        <div className='calendar-label'>Day / Month / Year </div>
+        <div className='calendar-label'>Month / Day / Year </div>
         <input
           type="date"
           name="end_date"
-          value={end_date}
+          value={formatted_date}
           onChange={handleChange}
           className='calendar-input' />
       </div>
+      {console.log(formatted_date)}
     </FormWrapper>
   )
 }

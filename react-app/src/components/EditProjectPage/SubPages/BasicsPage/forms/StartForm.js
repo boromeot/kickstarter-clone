@@ -10,7 +10,7 @@ const StartForm = ({ start_date, handleChange}) => {
   return (
     <FormWrapper header='Target launch date' infoArr={infoArr}>
       <div className='calendar-conatiner'>
-        <div className='calendar-label'>Day / Month / Year </div>
+        <div className='calendar-label'>Month / Day / Year </div>
         <input
           type="date"
           name="start_date"
