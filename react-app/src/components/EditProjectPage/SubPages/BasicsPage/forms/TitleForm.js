@@ -1,6 +1,6 @@
 import React from "react";
 import FormWrapper from "../../FormWrapper";
-import '../TitleForm.css';
+import '../../TextArea.css';
 
 const TitleForm = ({title, description, handleChange}) => {
   const infoArr = [
@@ -9,31 +9,31 @@ const TitleForm = ({title, description, handleChange}) => {
   ];
   return (
     <FormWrapper header='Project title' infoArr={infoArr}>
-      <div className='title-form-container'>
-        <div className='title-form-title-container'>
-          <div className='title-form-header'>Title</div>
+      <div className='edit-form-container'>
+        <div className='edit-form-title-container'>
+          <div className='edit-form-header'>Title</div>
           <textarea
             name='title'
             value={title}
             onChange={handleChange}
             placeholder='Papercuts: A Party Game for the Rude and Well-Read'
-            className='title-form-text-area edit-page-text-area'
+            className='edit-form-text-area edit-page-text-area'
             maxLength={100}
           />
-          <div className='title-form-character-count'>{title?.length}/100</div>
+          <div className='edit-form-character-count'>{title?.length}/100</div>
         </div>
         <div>
-          <div className='title-form-header'>Subtitle</div>
+          <div className='edit-form-header'>Subtitle</div>
             <textarea
               name='description'
               value={description}
               onChange={handleChange}
               placeholder='Papercuts is a rowdy card game about books and writing brought to you by Electric Literature.'
-              className='title-form-text-area edit-page-text-area'
+              className='edit-form-text-area edit-page-text-area'
               id='title-form-sub-title-text-area'
               maxLength={200}
             />
-            <div className='title-form-character-count'>{description?.length}/200</div>
+            <div className='edit-form-character-count'>{description?.length}/200</div>
         </div>
       </div>
     </FormWrapper>
