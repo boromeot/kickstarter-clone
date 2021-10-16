@@ -19,13 +19,11 @@ import { getTags } from './store/tag'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
-  const tags = useSelector(state => Object.values(state.tags));
-  const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
   useEffect(() => {
     (async () => {
       await dispatch(authenticate());
-      dispatch(getTags())
 
       setLoaded(true);
     })();
