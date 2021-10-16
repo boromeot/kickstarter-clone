@@ -1,0 +1,70 @@
+.outter_container{
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: center;
+    height:100%;
+    
+}
+
+.inner_Container{
+    /* border: 2px solid navy; */
+    height:100%;
+    width: 800px;
+}
+
+.updateBtn.btn {
+    /* border: 1px solid purple; */
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 150px;
+    height: 50px;
+    margin-top: 15px;
+    margin-bottom: 50px;
+}
+.updateBtn.leftArrow {
+   position: relative;
+   margin-right: 15px;
+}
+
+.item{
+    position: relative;
+    /* border: 2px solid red; */
+    margin-bottom: 15px;
+
+}
+
+.updateDisplayNum{
+    color: rgba(128, 128, 128, 0.739);
+    width: 800px;
+}
+
+.updateDisplayTitle{
+    font-size: 32px;
+    font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    width: 800px;
+}
+
+.user_ctnr{
+    display: flex;
+    border-bottom: 2px solid;
+}
+
+.updateDisplayUsername{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.updateDisplayImg{
+    width: 50px;
+    height: 50px;
+}
+
+.updateDisplayDescription{
+    margin-top: 20px;
+    height: 100%;
+    width: 800px;
+}

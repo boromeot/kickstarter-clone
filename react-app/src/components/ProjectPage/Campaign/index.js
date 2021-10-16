@@ -3,14 +3,10 @@ import "./Campaign.css";
 
 function Campaign({campaign}){
 
-
-
-
   useEffect(() => {
     let campaignText = document.getElementsByClassName("campaign-description");
     campaignText[0].innerHTML = campaign;
-
-  },[])
+  })
 
   return(
     <div class="component-container">

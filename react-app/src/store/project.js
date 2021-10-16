@@ -1,5 +1,8 @@
 import { POST_COMMENT, DELETE_COMMENT, PATCH_COMMENT } from "./comment";
+import { CREATE_UPDATE, DELETE_UPDATE, PATCH_UPDATE } from "./update"
 const GET_PROJECT = 'project/getProject';
+const GET_AllPROJECTS = '/project/getAllProjects'
+const GET_RANDOM_PROJECTS = '/project/getAllProjects'
 
 const get_project = (project) => {
   return {
@@ -7,6 +10,22 @@ const get_project = (project) => {
     payload: project,
   };
 }
+
+const get_all_projects = (project) => {
+  return {
+    type: GET_AllPROJECTS,
+    payload: project,
+  };
+}
+
+
+const get_random_projects = (project) => {
+  return {
+    type: GET_RANDOM_PROJECTS,
+    payload: project,
+  };
+}
+
 
 export const getProject = (projectId) => async dispatch => {
   const response = await fetch(`/api/projects/${projectId}`);
@@ -34,14 +53,31 @@ export const patchProject = ({projectId, campaign}) => async dispatch => {
     })
   })
   const data = await response.json();
-  //dispatch(get_project(data));
+  dispatch(get_all_projects(data.projects));
   return response;
+}
+
+export const getRandomProjects = () => async dispatch => {
+  const response = await fetch(`/api/projects/random`);
+
+
+  const data = await response.json()
+  dispatch(get_random_projects(data))
+  return response
 }
 
 const projectReducer = (state = {}, action) => {
   let newState;
   switch (action.type) {
     case GET_PROJECT:
+      newState = Object.assign({}, state);
+      newState = action.payload;
+      return newState;
+    case GET_AllPROJECTS:
+      newState = Object.assign({}, state);
+      newState = action.payload;
+      return newState;
+    case GET_RANDOM_PROJECTS:
       newState = Object.assign({}, state);
       newState = action.payload;
       return newState;
@@ -64,6 +100,18 @@ const projectReducer = (state = {}, action) => {
         return comment.id !== action.payload;
       })
       return newState
+    case DELETE_UPDATE:
+      newState = Object.assign({}, state);
+      newState.updates = action.payload
+      return newState;
+    case CREATE_UPDATE:
+      newState = Object.assign({}, state);
+      newState.updates = action.payload
+      return newState;
+    case PATCH_UPDATE:
+      newState = Object.assign({}, state);
+      newState.updates = action.payload
+      return newState;
     default:
       return state;
   }

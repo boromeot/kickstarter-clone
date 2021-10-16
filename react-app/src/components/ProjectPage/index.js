@@ -1,26 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import './ProjectPage.css'
-import * as projectAction from '../../store/project';
+import { getProject } from '../../store/project';
 import { useDispatch, useSelector } from 'react-redux';
-import { Route, useParams, useRouteMatch } from 'react-router';
-import { NavLink } from 'react-router-dom';
+import { Route, NavLink, useParams, useRouteMatch } from 'react-router-dom';
 import CommentsSection from '../CommentsSection';
 import UpdatesComponent from '../UpdatesComponent';
+import UpdatePatchComponent from '../UpdatePatchComponent';
 import FAQ from './FAQ';
 import Risks from './Risks';
 import Campaign from './Campaign';
 
+import UpdateDisplayComponent from '../UpdateDisplayComponent';
+
 const ProjectPage = () => {
   const { projectId } = useParams();
   const {id, title, description, campaign, video_src, image_src, current_funding, pledge_goal, faqs, risks, comments} = useSelector(state => state.project)
-  const user = useSelector(state => state.session.user);
-
-  const projectObj = useSelector(state => state.project)
   const dispatch = useDispatch();
   const { path, url } = useRouteMatch(); //Allows for backwards compatibility of route names
+  console.log(path, url)
+
+  const [toRenderComponent, setToRenderComponent] = useState(true)
+  const [toRenderDisplay, setToRenderDisplay] = useState(false)
+  const [toRenderPatch, setToRenderPatch] = useState(false)
+  const [updateNumber, setUpdateNumber] = useState(0)
+
+  const [currentUpdateId, setCurrentUpdateId] = useState()
+
+
+
 
   useEffect(() => {
-    dispatch(projectAction.getProject(projectId))
+    dispatch(getProject(projectId))
   }, [dispatch, projectId])
   return (
     <div id='project-container'>
@@ -33,7 +43,7 @@ const ProjectPage = () => {
           <div id='project-image-conatiner'>
             {video_src ?
               <iframe id='project-video' src={video_src} title="YouTube video player" frameBorder="0" allowFullScreen></iframe>
-              : <img id='project-image' src={image_src}></img>
+              : <img id='project-image' src={image_src} alt="alt"></img>
             }
           </div>
           <div id='project-minor-info'>
@@ -86,28 +96,28 @@ const ProjectPage = () => {
       </div>
       <div className='test'>
         <div className='test-block'>
-            <div className='test-item-container'>
-              <NavLink to={`${url}/description`} className='test-item' activeClassName='active-test'>
-                Campaign
-              </NavLink>
-              <NavLink to={`${url}/risks`} className='test-item' activeClassName='active-test'>
-                Risk
-              </NavLink>
-              <NavLink to={`${url}/faqs`} className='test-item' activeClassName='active-test'>
-                FAQ
-              </NavLink>
-              <NavLink to={`${url}/updates`} className='test-item' activeClassName='active-test'>
-                Updates
-              </NavLink>
-              <NavLink to={`${url}/comments`} className='test-item' activeClassName='active-test'>
-                Comments
-              </NavLink>
-            </div>
-            <div className='test-item-container'>
-              <button className='btn-primary test-item-btn'>
-                Back this project
-              </button>
-            </div>
+          <div className='test-item-container'>
+            <NavLink to={`${url}/description`} className='test-item' activeClassName='active-test'>
+              Campaign
+            </NavLink>
+            <NavLink to={`${url}/risks`} className='test-item' activeClassName='active-test'>
+              Risk
+            </NavLink>
+            <NavLink to={`${url}/faqs`} className='test-item' activeClassName='active-test'>
+              FAQ
+            </NavLink>
+            <NavLink to={`${url}/updates`} className='test-item' activeClassName='active-test'>
+              Updates
+            </NavLink>
+            <NavLink to={`${url}/comments`} className='test-item' activeClassName='active-test'>
+              Comments
+            </NavLink>
+          </div>
+          <div className='test-item-container'>
+            <button className='btn-primary test-item-btn'>
+              Back this project
+            </button>
+          </div>
         </div>
       </div>
       <Route path={`${path}/description`}>
@@ -117,16 +127,42 @@ const ProjectPage = () => {
         <Risks risks={risks} />
       </Route>
       <Route path={`${path}/faqs`}>
-        <FAQ faqs={faqs}/>
+        <FAQ faqs={faqs} />
       </Route>
       <Route path={`${path}/updates`}>
-        <UpdatesComponent project_id={id} />
+        {toRenderComponent &&
+          <UpdatesComponent
+            project_id={id}
+            setToRenderComponent={setToRenderComponent}
+            setToRenderDisplay={setToRenderDisplay}
+            setToRenderPatch={setToRenderPatch}
+            setCurrentUpdateId={setCurrentUpdateId}
+            setUpdateNumber={setUpdateNumber}
+          />
+        }
+        {toRenderDisplay &&
+          <UpdateDisplayComponent
+            setToRenderComponent={setToRenderComponent}
+            setToRenderDisplay={setToRenderDisplay}
+            setToRenderPatch={setToRenderPatch}
+            currentUpdateId={currentUpdateId}
+            updateNumber={updateNumber}
+          />
+        }
+        {toRenderPatch &&
+          <UpdatePatchComponent
+            setToRenderComponent={setToRenderComponent}
+            setToRenderDisplay={setToRenderDisplay}
+            setToRenderPatch={setToRenderPatch}
+            currentUpdateId={currentUpdateId}
+          />
+        }
       </Route>
       <Route path={`${path}/comments`}>
         {comments ?
           <CommentsSection comments={comments} project_id={id} />
           : 'no comments'}
-      </Route>
+      </Route >
 
     </div >
   )
