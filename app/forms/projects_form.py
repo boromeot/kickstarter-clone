@@ -11,3 +11,4 @@ class ProjectForm(FlaskForm):
   image_src = StringField('image_src')
   start_date = StringField('start_date')
   end_date = StringField('end_date')
+  pledge_goal = IntegerField('pledge_goal')

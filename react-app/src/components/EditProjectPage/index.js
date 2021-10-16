@@ -114,7 +114,9 @@ const EditProjectPage = () => {
         {formData.end_date}
       </Route>
       <Route path={`${path}/funding`}>
-        <FundingPage />
+        <FundingPage handleChange={handleChange}
+          pledge_goal={formData.pledge_goal}
+        />
       </Route>
       <Route path={`${path}/updates`}>
         <UpdatesPage />
