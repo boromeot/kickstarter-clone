@@ -1,6 +1,6 @@
 import React from "react";
 import FormWrapper from "../../FormWrapper";
-import '../TitleForm.css';
+import '../../TextArea.css';
 
 const VideoForm = ({ video_src, handleChange }) => {
   const infoArr = [
@@ -10,18 +10,18 @@ const VideoForm = ({ video_src, handleChange }) => {
   ]
   return (
     <FormWrapper header='Project video' infoArr={infoArr}>
-      <div className='title-form-container'>
-        <div className='title-form-title-container'>
-          <div className='title-form-header'>Title</div>
+      <div className='edit-form-container'>
+        <div className='edit-form-title-container'>
+          <div className='edit-form-header'>Title</div>
           <textarea
             name='video_src'
             value={video_src}
             onChange={handleChange}
             placeholder='https://www.youtube.com/embed/<video_id>'
-            className='title-form-text-area edit-page-text-area'
+            className='edit-form-text-area edit-page-text-area'
             maxLength={100}
           />
-          <div className='title-form-character-count'>{video_src?.length}/100</div>
+          <div className='edit-form-character-count'>{video_src?.length}/100</div>
         </div>
       </div>
     </FormWrapper>
