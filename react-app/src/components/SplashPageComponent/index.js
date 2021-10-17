@@ -12,10 +12,10 @@ export default function SplashPageComponent() {
     const allProjects = useSelector(state => Object.values(state.project))
 
     useEffect(() => {
-
-
-        dispatch(projectAction.getRandomProjects())
-        // dispatch(projectAction.getAllProjects())
+        dispatch(projectAction.getRandomProjects());
+        return () => {
+            dispatch(projectAction.clear_project());
+        }
     }, [dispatch])
 
 

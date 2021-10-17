@@ -1,9 +1,16 @@
 import { POST_COMMENT, DELETE_COMMENT, PATCH_COMMENT } from "./comment";
 import { CREATE_UPDATE, DELETE_UPDATE, PATCH_UPDATE } from "./update"
+const CLEAR_PROJECT = '/project/clearProject'
 const GET_PROJECT = 'project/getProject';
 const GET_AllPROJECTS = '/project/getAllProjects'
 const GET_RANDOM_PROJECTS = '/project/getAllProjects'
-const CREATE_PROJECT = '/project/createProject'
+
+export const clear_project = () => {
+  return {
+    type: CLEAR_PROJECT,
+    payload: {},
+  };
+}
 
 const get_project = (project) => {
   return {
@@ -27,23 +34,6 @@ const get_random_projects = (project) => {
   };
 }
 
-// const create_project = (project) => {
-//   return {
-//     type: CREATE_PROJECT,
-//     payload: project,
-//   };
-// }
-
-
-// export const createProject = (payload) => async dispatch => {
-//   const response = fetch('/api/projects/', {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify(payload)
-//   });
-// }
 
 export const getProject = (projectId) => async dispatch => {
   const response = await fetch(`/api/projects/${projectId}`);
@@ -52,12 +42,14 @@ export const getProject = (projectId) => async dispatch => {
   return response;
 }
 
+
 export const getAllProjects = () => async dispatch => {
   const response = await fetch(`/api/projects/`);
   const data = await response.json();
   dispatch(get_project(data.projects));
   return response;
 }
+
 
 export const patchProject = ({projectId, campaign}) => async dispatch => {
   const response = await fetch(`/api/projects/${projectId}`, {
@@ -75,6 +67,7 @@ export const patchProject = ({projectId, campaign}) => async dispatch => {
   return response;
 }
 
+
 export const getRandomProjects = () => async dispatch => {
   const response = await fetch(`/api/projects/random`);
 
@@ -84,11 +77,12 @@ export const getRandomProjects = () => async dispatch => {
   return response
 }
 
+
 const projectReducer = (state = {}, action) => {
   let newState;
   switch (action.type) {
-    case CREATE_PROJECT:
-      return newState;
+    case CLEAR_PROJECT:
+      return action.payload;//Empty object
     case GET_PROJECT:
       newState = Object.assign({}, state);
       newState = action.payload;

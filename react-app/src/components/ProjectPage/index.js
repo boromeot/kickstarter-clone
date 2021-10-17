@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './ProjectPage.css'
-import { getProject } from '../../store/project';
+import { clear_project, getProject } from '../../store/project';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, NavLink, useParams, useRouteMatch, useHistory } from 'react-router-dom';
 import CommentsSection from '../CommentsSection';
@@ -46,6 +46,9 @@ const ProjectPage = () => {
 
   useEffect(() => {
     dispatch(getProject(projectId))
+    return () => {
+      dispatch(clear_project());
+    }
   }, [dispatch, projectId])
   return (
     <div id='project-container'>
