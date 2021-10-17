@@ -83,12 +83,9 @@ def get_projects_by_tag():
 @project_routes.route('/random')
 def get_random_projects():
   projects_db = Project.query.all()
-  # projectDict = {"projects" : [project.to_dict() for project in projects]}
   projects = [project.to_dict() for project in projects_db]
-  randomNums = random.sample(range(1, len(projects_db)), 4)
-  randomProjects = []
-  for item in projects:
-    if item['id'] in list(randomNums):
-      randomProjects.append(item)
-
-  return jsonify(randomProjects)
+  random_nums = random.sample(range(0, len(projects_db)), 4)
+  random_projects = []
+  for n in random_nums:
+    random_projects.append(projects[n])
+  return jsonify(random_projects)
