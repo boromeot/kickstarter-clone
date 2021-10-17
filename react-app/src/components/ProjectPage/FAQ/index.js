@@ -10,6 +10,8 @@ function FAQ({ faqs, setFAQRender, setFAQListRender, setFAQAnswer, setFAQQuestio
   const [question, setQuestion] = useState("")
   const [askedQuestion, setAskedQuestion] = useState(false)
   const currentProject = useSelector(state => state.project.id)
+  const currentUserId = useSelector(state => state.session.user.id)
+  console.log(currentUserId)
 
   const currentProjFAQs = faqs?.filter(faq => faq.project_id === currentProject)
   console.log(currentProjFAQs)
@@ -27,7 +29,7 @@ function FAQ({ faqs, setFAQRender, setFAQListRender, setFAQAnswer, setFAQQuestio
     const payload = {
       question: question,
       project_id: id,
-      user_id: user_id,
+      user_id: currentUserId,
     }
     dispatch(FAQActions.createFAQ(payload))
     setAskedQuestion(true)
