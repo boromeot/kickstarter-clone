@@ -69,6 +69,16 @@ const EditProjectPage = () => {
     })
   }
 
+  const errorMessage = async response => {
+    //Takes in a response object and returns a string containg
+    //all the errors
+    const data = await response.json();
+    const errors = data.errors;
+    return errors.reduce((accum, error) => {
+      return accum + '\n' + error;
+    });
+  }
+
   const handleSubmit = async e => {
     e.preventDefault();
     //Post to new update
@@ -87,12 +97,7 @@ const EditProjectPage = () => {
           project_id: projectId, user_id: user.id,
         });
       } else {
-        const data = await response.json();
-        const errors = data.errors;
-        const errorMessage = errors.reduce((accum, error) => {
-          return accum + '\n' + error;
-        });
-        alert(errorMessage);
+        alert(errorMessage(response));
       }
     } else { //Put project
       const response = await fetch(`/api/projects/${projectId}`, {
@@ -104,6 +109,11 @@ const EditProjectPage = () => {
           ...formData
         })
       });
+      if (response.ok) {
+        alert('Project saved');
+      } else {
+        alert(errorMessage(response))
+      }
     }
 
   }
