@@ -129,9 +129,14 @@ const EditProjectPage = () => {
             <Logo />
           </NavLink>
         </div>
-        <button type='submit' className='btn-primary edit-project-next'>
-          Save
-        </button>
+        <div className='edit-page-buttons'>
+          <NavLink to={`/projects/${projectId}`} className='btn-primary edit-project-next edit-project-view-button'>
+            View Project
+          </NavLink>
+          <button type='submit' className='btn-primary edit-project-next'>
+            Save
+          </button>
+        </div>
       </nav>
       <div className='shadow-wrapper'>
         <div className='edit-page-spacer'>
