@@ -14,7 +14,7 @@ export default function UpdateDisplayComponent({ setToRenderComponent, setToRend
                     <li className="updateDisplayNum item">UPDATE #{updateNumber}</li>
                     <li className="updateDisplayTitle item">{chosenUpdate.title}</li>
                     <div className="user_ctnr">
-                        <img className="updateDisplayImg item" src={'https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png'} alt="alt" />
+                        <img className="updateDisplayImg item" src={'https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png'} alt="" />
                         <li className="updateDisplayUsername item">{chosenUpdate.username}</li>
                         <li className="creatorTag" > Creator </li>
                     </div>

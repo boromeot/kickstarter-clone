@@ -66,7 +66,6 @@ const CreateProjectPage = () => {
 
   return (
     <div className='start-container'>
-      {user.id}
       <div className='start-step-count'>{currentStep} of {totalSteps}</div>
       <form onSubmit={handleSubmit}>
         <TagForm tag={formData.tag} handleChange={handleChange} currentStep={currentStep} />

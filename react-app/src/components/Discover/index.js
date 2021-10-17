@@ -46,7 +46,7 @@ function Discover(){
         <div className="discover-results-cards-container">
           {projectsByTag?.map((project) =>
             <a href={`/projects/${project.id}`} className="discover-card">
-              <img className="discover-thumbnail" src={project.image_src} alt="thumbnail"></img>
+              <img className="discover-thumbnail" src={project.image_src} alt=""></img>
               <div className="discover-title">
                 {project.title}
               </div>
