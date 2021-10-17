@@ -8,7 +8,7 @@
   margin: 0 auto;
   padding-top: 50px;
   padding-bottom: 30px;
-  width: 1000px;
+  width: 90%;
   display:flex;
   font-family: 'Nunito Sans', sans-serif;
 }
@@ -29,6 +29,7 @@
   border-left: 2px solid rgb(179, 179, 179);
   padding: 30px;
   height: 150px;
+  width: 100%;
 }
 
 .faq-right span{
@@ -74,4 +75,34 @@
 .answer{
   font-family: 'Nunito Sans', sans-serif;
   margin-top: 30px;
+}
+
+
+/*-------------------------------------------------------*/
+
+.faq-input-ctnr {
+  display: flex;
+  flex-direction: row;
+  /* border: 2px solid red; */
+  margin-top: 15px;
+  width: 100%;
+}
+
+
+.questionTF {
+  /* border: 2px solid blue; */
+  width: 90%;
+  height: 50px;
+  font-size: 20px;
+
+}
+
+.faq-btn-container {
+  border: 2px solid yellow;
+}
+
+.question-btn {
+  height: 50px;
+  margin-top: 2px;
+  width: 125px;
 }
