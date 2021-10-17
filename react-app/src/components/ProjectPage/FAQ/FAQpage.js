@@ -7,7 +7,7 @@ function FAQpage({ faq, setFAQListRender, setFAQRender, setFAQId }) {
   const dispatch = useDispatch();
   const [hide, setHide] = useState(true);
 
-  const currentUserId = useSelector(state => state.session.user.id)
+  const currentUserId = useSelector(state => state.session)
 
   function toggleHide() {
     if (hide) {
@@ -21,8 +21,10 @@ function FAQpage({ faq, setFAQListRender, setFAQRender, setFAQId }) {
 
 
   useEffect(() => {
-    if (currentUserId === faq.user_id) {
+    if (currentUserId.user?.id === faq.user_id) {
       setUser(true);
+    } else {
+      setUser(false)
     }
 
   }, [])

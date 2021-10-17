@@ -10,7 +10,7 @@ function FAQ({ faqs, setFAQRender, setFAQListRender, setFAQAnswer, setFAQQuestio
   const [question, setQuestion] = useState("")
   const [askedQuestion, setAskedQuestion] = useState(false)
   const currentProject = useSelector(state => state.project.id)
-  const currentUserId = useSelector(state => state.session.user.id)
+  const currentUserId = useSelector(state => state.session.user?.id)
   console.log(currentUserId)
 
   const currentProjFAQs = faqs?.filter(faq => faq.project_id === currentProject)
