@@ -6,7 +6,6 @@ export default function UpdateDisplayComponent({ setToRenderComponent, setToRend
     const updates = useSelector(state => state.project.updates);
     const chosenUpdate = updates.find(update => update.id === currentUpdateId);
     const user = useSelector(state => state.session.user)
-    console.log(user);
 
     return (
         <div className="root-container">

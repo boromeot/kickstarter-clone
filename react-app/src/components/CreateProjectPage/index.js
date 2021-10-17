@@ -41,6 +41,7 @@ const CreateProjectPage = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
+    console.log(user.id, 'user id post');
     const response = await fetch('/api/projects/', {
       method: 'POST',
       headers: {
@@ -65,6 +66,7 @@ const CreateProjectPage = () => {
 
   return (
     <div className='start-container'>
+      {user.id}
       <div className='start-step-count'>{currentStep} of {totalSteps}</div>
       <form onSubmit={handleSubmit}>
         <TagForm tag={formData.tag} handleChange={handleChange} currentStep={currentStep} />

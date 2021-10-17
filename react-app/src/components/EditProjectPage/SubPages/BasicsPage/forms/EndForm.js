@@ -17,7 +17,6 @@ const EndForm = ({ end_date, handleChange}) => {
           onChange={handleChange}
           className='calendar-input' />
       </div>
-      {console.log(formatted_date)}
     </FormWrapper>
   )
 }

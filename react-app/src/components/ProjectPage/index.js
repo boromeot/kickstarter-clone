@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './ProjectPage.css'
 import { getProject } from '../../store/project';
 import { useDispatch, useSelector } from 'react-redux';
-import { Route, NavLink, useParams, useRouteMatch } from 'react-router-dom';
+import { Route, NavLink, useParams, useRouteMatch, useHistory } from 'react-router-dom';
 import CommentsSection from '../CommentsSection';
 import UpdatesComponent from '../UpdatesComponent';
 import UpdatePatchComponent from '../UpdatePatchComponent';
@@ -13,11 +13,12 @@ import Campaign from './Campaign';
 import UpdateDisplayComponent from '../UpdateDisplayComponent';
 
 const ProjectPage = () => {
-  const { projectId } = useParams();
-  const { id, title, description, campaign, video_src, image_src, current_funding, pledge_goal, faqs, risks, comments } = useSelector(state => state.project)
   const dispatch = useDispatch();
+  const history = useHistory();
+  const { projectId } = useParams();
+  const { user } = useSelector(state => state.session);
+  const { id, title, description, campaign, video_src, image_src, current_funding, pledge_goal, faqs, risks, comments, tag, username, user_id} = useSelector(state => state.project)
   const { path, url } = useRouteMatch(); //Allows for backwards compatibility of route names
-  console.log(path, url)
 
   const [toRenderComponent, setToRenderComponent] = useState(true)
   const [toRenderDisplay, setToRenderDisplay] = useState(false)
@@ -26,7 +27,21 @@ const ProjectPage = () => {
 
   const [currentUpdateId, setCurrentUpdateId] = useState()
 
-
+  const deleteProject = async e => {
+    const response = await fetch(`/api/projects/${projectId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    });
+    if (response.ok) {
+      await response.json();
+    } else {
+      const data = await response.json();
+      alert(data.error);
+    }
+    history.push('/');
+  }
 
 
   useEffect(() => {
@@ -43,13 +58,20 @@ const ProjectPage = () => {
           <div id='project-image-conatiner'>
             {video_src ?
               <iframe id='project-video' src={video_src} title="YouTube video player" frameBorder="0" allowFullScreen></iframe>
-              : <img id='project-image' src={image_src} alt="alt"></img>
+              : <img id='project-image' src={image_src} alt="" />
             }
           </div>
           <div id='project-minor-info'>
             <span>Project we love</span>
-            <span>Nice</span>
-            <span>New York, USA</span>
+            <span>{tag}</span>
+            <span>{username}</span>
+            {
+              user?.id === user_id &&
+              <>
+                <NavLink to={`/projects/${projectId}/edit/basics`} className='btn-edit project-minor-btn'>Edit</NavLink>
+                <button onClick={deleteProject} className='btn-delete project-minor-btn' id='project-delete-btn'>Delete</button>
+              </>
+            }
           </div>
         </div>
         <div id='project-pledge'>

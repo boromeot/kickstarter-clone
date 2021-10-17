@@ -28,18 +28,30 @@
 #project-image-conatiner, #project-video, #project-image {
   height: inherit;
   width: inherit;
-  background-color: teal;
+  background-color: rgb(240, 240, 240);
 }
 
 #project-minor-info {
+  display: flex;
+  align-items: center;
   width: inherit;
   height: 60px;
   padding: 16px 0;
+  font-size: 12px;
 }
 
-#project-minor-info > span {
+#project-minor-info > * {
+  display: inline-block;
   margin-right: 18px;
-  font-size: 12px;
+}
+
+.project-minor-btn {
+  padding: 6px 10px;
+  height: 100%;
+}
+
+.project-minor-btn:hover {
+  color: white;
 }
 
 /* Right side*/
@@ -90,6 +102,10 @@
   display: block;
   width: 100%;
   text-align: center;
+}
+
+#pledge-btn:hover {
+  color: white;
 }
 
 /* Project tan disclaimer bar*/

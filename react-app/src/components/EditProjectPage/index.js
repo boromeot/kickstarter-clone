@@ -33,7 +33,7 @@ const EditProjectPage = () => {
     });
     setNewUpdate({
       title: '', description: '',
-      project_id: projectId, user_id: user.id,
+      project_id: projectId, user_id: user?.id,
     });
   }, [project, projectId, user])
 
@@ -119,13 +119,13 @@ const EditProjectPage = () => {
 
   }
 
+  if (!user) {
+    return <Redirect to='/login' />
+  }
+
   //If the user does not own the project redirect them to the home page
   if (Object.keys(project).length !== 0 && project.user_id !== user.id) {
     return <Redirect to='/' />
-  }
-
-  if (!user) {
-    return <Redirect to='/login' />
   }
 
   return (
