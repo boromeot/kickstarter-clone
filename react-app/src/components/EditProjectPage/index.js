@@ -27,8 +27,6 @@ const EditProjectPage = () => {
     dispatch(getProject(projectId));
     dispatch(getTags())
   }, [dispatch, projectId])
-  console.log(project);
-
   useEffect(() => {
     setFormData({
       ...project,
@@ -121,9 +119,15 @@ const EditProjectPage = () => {
 
   }
 
+  //If the user does not own the project redirect them to the home page
+  if (Object.keys(project).length !== 0 && project.user_id !== user.id) {
+    return <Redirect to='/' />
+  }
+
   if (!user) {
     return <Redirect to='/login' />
   }
+
   return (
     <form onSubmit={handleSubmit}>
       <nav className='nav-bar'>
