@@ -1,5 +1,5 @@
 .splash-page.main_container{
-    height: 900px;
+    height: 1100px;
     /* border: 2px solid rgb(136, 59, 59); */
     
 }
@@ -261,6 +261,7 @@
     position: relative;
     flex-direction: row;
     justify-content: space-between;
+    margin-top: 15px;
     width: 120px;
     top: 20px;
     
