@@ -6,7 +6,6 @@ export default function UpdateDisplayComponent({ setToRenderComponent, setToRend
     const updates = useSelector(state => state.project.updates);
     const chosenUpdate = updates.find(update => update.id === currentUpdateId);
     const user = useSelector(state => state.session.user)
-    console.log(user);
 
     return (
         <div className="root-container">
@@ -15,7 +14,7 @@ export default function UpdateDisplayComponent({ setToRenderComponent, setToRend
                     <li className="updateDisplayNum item">UPDATE #{updateNumber}</li>
                     <li className="updateDisplayTitle item">{chosenUpdate.title}</li>
                     <div className="user_ctnr">
-                        <img className="updateDisplayImg item" src={'https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png'} alt="alt" />
+                        <img className="updateDisplayImg item" src={'https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png'} alt="" />
                         <li className="updateDisplayUsername item">{chosenUpdate.username}</li>
                         <li className="creatorTag" > Creator </li>
                     </div>

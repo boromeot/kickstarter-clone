@@ -1,19 +1,16 @@
 
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Redirect, useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import './Start.css';
 import TagForm from './StartForms/TagForm';
 import DescriptionForm from './StartForms/DescriptionForm';
 import TitleForm from './StartForms/TitleForm';
-import * as projectActions from '../../store'
 
 const CreateProjectPage = () => {
-  const dispatch = useDispatch();
   const history = useHistory();
   const user = useSelector(state => state.session.user);
   const [currentStep, setCurrentStep] = useState(1);
-  // const [fetchResponse, setFetchResponse] = useState();
   const [formData, setFormData] = useState({ tag: '', description: '', title: '' })
   const totalSteps = 3;
   //The disabled attribute is true if the current steps data is falsey
@@ -44,6 +41,7 @@ const CreateProjectPage = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
+    console.log(user.id, 'user id post');
     const response = await fetch('/api/projects/', {
       method: 'POST',
       headers: {

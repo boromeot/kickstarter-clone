@@ -35,6 +35,15 @@
   color: rgb(3, 115, 98);
 }
 
+.logout {
+  border: none;
+  background-color: white;
+}
+
+.logout:hover {
+  color: rgb(3, 115, 98);
+}
+
 .login, .logout {
   margin-left: 16px;
 }

@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from 'react-router';
 import * as updateActions from '../../store/update'
 
 import './UpdatePatchComponent.css';
@@ -8,8 +7,6 @@ import './UpdatePatchComponent.css';
 export default function UpdatePatchComponent({ setToRenderComponent, setToRenderDisplay, setToRenderPatch, currentUpdateId }) {
 
     const dispatch = useDispatch()
-    const history = useHistory()
-
 
     const currentProject = useSelector(state => state.project.id)
     const updates = useSelector(state => state.project.updates)

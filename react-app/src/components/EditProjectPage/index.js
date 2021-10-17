@@ -6,7 +6,7 @@ import './EditProjectPage.css';
 import { NavLink, Route, Redirect, useRouteMatch, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getProject } from '../../store/project';
-import { createUpdate } from '../../store/update';
+import { getTags } from '../../store/tag';
 import BasicsPage from './SubPages/BasicsPage';
 import FundingPage from './SubPages/FundingPage';
 import StoryPage from './SubPages/StoryPage';
@@ -21,18 +21,26 @@ const EditProjectPage = () => {
   const [formData, setFormData] = useState({
     ...project
   })
-  const [newUpdate, setNewUpdate] = useState({});
+  const [newUpdate, setNewUpdate] = useState();
 
   useEffect(() => {
     dispatch(getProject(projectId));
+    dispatch(getTags())
   }, [dispatch, projectId])
-
   useEffect(() => {
     setFormData({
       ...project,
-    })
-  }, [project])
+    });
+    setNewUpdate({
+      title: '', description: '',
+      project_id: projectId, user_id: user?.id,
+    });
+  }, [project, projectId, user])
 
+  //If the current user does not own the project
+  //Dont' show them the page
+
+  //Controls changes of the project object
   const handleChange = e => {
     const { name, value } = e.target;
     const oldState = { ...formData };
@@ -42,8 +50,39 @@ const EditProjectPage = () => {
     })
   }
 
+  //Controls changes of the update object
+  const handleUpdate = e => {
+    const { name, value } = e.target;
+    const oldState = { ...newUpdate };
+    setNewUpdate({
+      ...oldState,
+      [name]: value
+    })
+  }
+
+  //Controls changes of formData.description due to CktEditors form not having a name attribute
+  const handleRTE = (data) => {
+    const name = "campaign";
+    const oldState = {...formData};
+    setFormData({
+      ...oldState,
+      [name]: data
+    })
+  }
+
+  const errorMessage = async response => {
+    //Takes in a response object and returns a string containg
+    //all the errors
+    const data = await response.json();
+    const errors = data.errors;
+    return errors.reduce((accum, error) => {
+      return accum + '\n' + error;
+    });
+  }
+
   const handleSubmit = async e => {
     e.preventDefault();
+    //Post to new update
     if (window.location.pathname === `${url}/updates`) {
       const response = await fetch(`/api/updates/`, {
         method: 'POST',
@@ -52,14 +91,16 @@ const EditProjectPage = () => {
         },
         body: JSON.stringify(newUpdate)
       });
-
-      console.log(newUpdate);
       if (response.ok) {
-        const data = await response.json();
-        dispatch(createUpdate(data));
-        return response
+        alert('Update posted!')
+        setNewUpdate({
+          title: '', description: '',
+          project_id: projectId, user_id: user.id,
+        });
+      } else {
+        alert(errorMessage(response));
       }
-    } else {
+    } else { //Put project
       const response = await fetch(`/api/projects/${projectId}`, {
         method: 'PUT',
         headers: {
@@ -69,24 +110,24 @@ const EditProjectPage = () => {
           ...formData
         })
       });
+      if (response.ok) {
+        alert('Project saved');
+      } else {
+        alert(errorMessage(response))
+      }
     }
 
   }
 
-  const handleRTE = (data) => {
-    const name = "campaign";
-    const oldState = {...formData};
-    console.log(oldState);
-    setFormData({
-      ...oldState,
-      [name]: data
-    })
-  }
-
-
   if (!user) {
     return <Redirect to='/login' />
   }
+
+  //If the user does not own the project redirect them to the home page
+  if (Object.keys(project).length !== 0 && project.user_id !== user.id) {
+    return <Redirect to='/' />
+  }
+
   return (
     <form onSubmit={handleSubmit}>
       <nav className='nav-bar'>
@@ -95,9 +136,14 @@ const EditProjectPage = () => {
             <Logo />
           </NavLink>
         </div>
-        <button type='submit' className='btn-primary edit-project-next'>
-          Save
-        </button>
+        <div className='edit-page-buttons'>
+          <NavLink to={`/projects/${projectId}`} className='btn-primary edit-project-next edit-project-view-button'>
+            View Project
+          </NavLink>
+          <button type='submit' className='btn-primary edit-project-next'>
+            Save
+          </button>
+        </div>
       </nav>
       <div className='shadow-wrapper'>
         <div className='edit-page-spacer'>
@@ -129,8 +175,7 @@ const EditProjectPage = () => {
         />
       </Route>
       <Route path={`${path}/updates`}>
-        <UpdatesPage setNewUpdate={setNewUpdate} newUpdate={newUpdate} />
-        {/* {console.log(formData)} */}
+        <UpdatesPage newUpdate={newUpdate} handleUpdate={handleUpdate}/>
       </Route>
       <Route path={`${path}/story`}>
         <StoryPage
