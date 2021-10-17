@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import * as FAQActions from '../../../store/faq';
 import './FAQ.css';
@@ -29,18 +29,20 @@ function FAQpage({ faq, setFAQListRender, setFAQRender, setFAQId }) {
         <div className="arrow">{'>'}</div>
       </div>
       <div className={hide ? "hide" : ""}>
-        <div className="answer">
+        <div className="FAQWindow_bottom">
           {faq.answer}
-          <li className="FAQPage_editBtn" onClick={() => {
-            setFAQId(faq.id)
-            setFAQRender(false)
-            setFAQListRender(true)
-          }} >
-            edit
-          </li>
-          <li className="FAQPage_editBtn" onClick={() => handleDelete()} >
-            delete
-          </li>
+          <div className="FAQBtns_ctnr">
+            <li className="FAQPage_editBtn" onClick={() => {
+              setFAQId(faq.id)
+              setFAQRender(false)
+              setFAQListRender(true)
+            }} >
+              edit
+            </li>
+            <li className="FAQPage_deleteBtn" onClick={() => handleDelete()} >
+              delete
+            </li>
+          </div>
         </div>
       </div>
     </div>

@@ -9,8 +9,10 @@ function FAQ({ faqs, setFAQRender, setFAQListRender, setFAQAnswer, setFAQQuestio
   const [renderTF, setRenderTF] = useState(false)
   const [question, setQuestion] = useState("")
   const [askedQuestion, setAskedQuestion] = useState(false)
+  const currentProject = useSelector(state => state.project.id)
 
-
+  const currentProjFAQs = faqs?.filter(faq => faq.project_id === currentProject)
+  console.log(currentProjFAQs)
 
   const { id, user_id } = useSelector(state => state.project)
 
@@ -38,7 +40,7 @@ function FAQ({ faqs, setFAQRender, setFAQListRender, setFAQAnswer, setFAQQuestio
       <div className="faq-left">
         <h2 className="component-header">Frequently Asked Questions</h2>
         <div className="faq-container">
-          {faqs?.map((faq, idx) =>
+          {currentProjFAQs?.map((faq, idx) =>
             <FAQpage key={`faq ${idx}`} faq={faq} setFAQAnswer={setFAQAnswer} setFAQQuestion={setFAQQuestion} setFAQRender={setFAQRender} setFAQListRender={setFAQListRender} setFAQId={setFAQId} FAQId={FAQId} />
           )}
         </div>
@@ -70,6 +72,9 @@ function FAQ({ faqs, setFAQRender, setFAQListRender, setFAQAnswer, setFAQQuestio
         }
         {askedQuestion &&
           <li>We will review your question!</li>
+        }
+        {askedQuestion &&
+          <li>Check back later to see the answer!</li>
         }
       </div>
     </div >
