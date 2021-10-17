@@ -85,7 +85,5 @@ def get_random_projects():
   projects_db = Project.query.all()
   projects = [project.to_dict() for project in projects_db]
   random_nums = random.sample(range(0, len(projects_db)), 4)
-  random_projects = []
-  for n in random_nums:
-    random_projects.append(projects[n])
-  return jsonify(random_projects)
+
+  return jsonify([projects[n] for n in random_nums])
