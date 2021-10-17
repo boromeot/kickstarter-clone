@@ -1,8 +1,16 @@
 import { POST_COMMENT, DELETE_COMMENT, PATCH_COMMENT } from "./comment";
 import { CREATE_UPDATE, DELETE_UPDATE, PATCH_UPDATE } from "./update"
+const CLEAR_PROJECT = '/project/clearProject'
 const GET_PROJECT = 'project/getProject';
 const GET_AllPROJECTS = '/project/getAllProjects'
 const GET_RANDOM_PROJECTS = '/project/getAllProjects'
+
+export const clear_project = () => {
+  return {
+    type: CLEAR_PROJECT,
+    payload: {},
+  };
+}
 
 const get_project = (project) => {
   return {
@@ -34,12 +42,14 @@ export const getProject = (projectId) => async dispatch => {
   return response;
 }
 
+
 export const getAllProjects = () => async dispatch => {
   const response = await fetch(`/api/projects/`);
   const data = await response.json();
   dispatch(get_project(data.projects));
   return response;
 }
+
 
 export const patchProject = ({projectId, campaign}) => async dispatch => {
   const response = await fetch(`/api/projects/${projectId}`, {
@@ -57,6 +67,7 @@ export const patchProject = ({projectId, campaign}) => async dispatch => {
   return response;
 }
 
+
 export const getRandomProjects = () => async dispatch => {
   const response = await fetch(`/api/projects/random`);
 
@@ -66,9 +77,12 @@ export const getRandomProjects = () => async dispatch => {
   return response
 }
 
+
 const projectReducer = (state = {}, action) => {
   let newState;
   switch (action.type) {
+    case CLEAR_PROJECT:
+      return action.payload;//Empty object
     case GET_PROJECT:
       newState = Object.assign({}, state);
       newState = action.payload;

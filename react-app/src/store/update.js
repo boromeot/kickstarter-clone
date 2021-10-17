@@ -25,7 +25,6 @@ const patch_update = (update_id) => {
 
 
 export const createUpdate = (body) => async (dispatch) => {
-
     const response = await fetch(`/api/updates/`, {
         method: 'POST',
         headers: {
@@ -51,14 +50,12 @@ export const deleteUpdate = (body) => async (dispatch) => {
 
     if (response.ok) {
         const data = await response.json()
-        console.log(data)
         dispatch(delete_update(data))
         return data
     }
 }
 
 export const patchUpdate = (body) => async (dispatch) => {
-    console.log(body.idx)
     const response = await fetch(`/api/updates/${body.idx}`, {
         method: "PATCH",
         headers: {
@@ -74,7 +71,6 @@ export const patchUpdate = (body) => async (dispatch) => {
 
     if (response.ok) {
         const data = await response.json()
-        console.log(data)
         dispatch(patch_update(data))
         return data
     }

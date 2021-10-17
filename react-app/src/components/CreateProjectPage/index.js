@@ -1,17 +1,18 @@
+
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import './Start.css';
 import TagForm from './StartForms/TagForm';
 import DescriptionForm from './StartForms/DescriptionForm';
 import TitleForm from './StartForms/TitleForm';
 
 const CreateProjectPage = () => {
+  const history = useHistory();
   const user = useSelector(state => state.session.user);
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({ tag: '', description: '', title: '' })
   const totalSteps = 3;
-  const history = useHistory();
   //The disabled attribute is true if the current steps data is falsey
   let isDisabled = !formData[Object.keys(formData)[currentStep - 1]];
 
@@ -40,6 +41,7 @@ const CreateProjectPage = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
+    console.log(user.id, 'user id post');
     const response = await fetch('/api/projects/', {
       method: 'POST',
       headers: {
@@ -57,6 +59,7 @@ const CreateProjectPage = () => {
     history.push(`/projects/${project.id}/edit/basics`);
   }
 
+
   if (!user) {
     history.push('/login')
   }
@@ -73,7 +76,7 @@ const CreateProjectPage = () => {
             <div className='start-form-button-container'>
               {
                 currentStep < totalSteps
-                  ? <button className={isDisabled ? 'disabled' : 'start-form-next-btn'} onClick={nextStep} disabled={isDisabled}>Next</button>
+                  ? <button type="submit" className={isDisabled ? 'disabled' : 'start-form-next-btn'} onClick={nextStep} disabled={isDisabled}>Next</button>
                   : <button type='submit' className={isDisabled ? 'disabled' : 'start-form-next-btn'} disabled={isDisabled}>Continue</button>
               }
               {

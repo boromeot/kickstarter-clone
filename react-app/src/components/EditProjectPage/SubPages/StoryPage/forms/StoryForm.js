@@ -4,7 +4,6 @@ import '../../FormWrapper.css';
 import '../../RichTextEditor.css';
 
 const StoryForm = ({campaign, handleRTE}) => {
-  console.log(campaign)
   return (
     <div className='form-wrapper-border'>
       <div className='edit-page-spacer'>

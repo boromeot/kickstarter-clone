@@ -1,7 +1,7 @@
 .splash-page.main_container{
     height: 900px;
     /* border: 2px solid rgb(136, 59, 59); */
-    
+
 }
 
 .splashNav_container{
@@ -11,7 +11,7 @@
     display: flex;
     justify-content: center;
     gap: 50px;
-    
+
 
 }
 
@@ -34,7 +34,7 @@
     width: 50%;
     Height: 80%;
     font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    
+
 
 }
 
@@ -42,7 +42,7 @@
     /* border: 1px solid black; */
     height: 90%;
     font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    
+
 }
 
 .featureItem{
@@ -106,7 +106,7 @@
     color: #656969;
         -webkit-font-smoothing: antialiased;
     font-weight: 400;
-    
+
     left: 10%;
     top: 90px;
     width: 80%;
@@ -120,7 +120,7 @@
     color: #656969;
         -webkit-font-smoothing: antialiased;
     font-weight: 400;
-    
+
     left: 10%;
     top: 120px;
     width: 80%;
@@ -189,7 +189,7 @@
     /* color: purple; */
     font-weight: 550;
     font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    
+
 }
 
 .recommended_img {
@@ -210,14 +210,14 @@
     font-size: 18px;
     font-weight: 100px;
     font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    
-    
+
+
 }
 
 .recommended_title:hover{
     text-decoration: underline;
-    
-    
+
+
 }
 
 .recommended_goal {
@@ -239,7 +239,7 @@
 
 .recommended_owner:hover{
     text-decoration: underline;
-    
+
 }
 
 .rec_item{
@@ -249,7 +249,7 @@
     top: 10%;
     /* left: 10%; */
     font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    
+
 
 }
 
@@ -263,21 +263,21 @@
     justify-content: space-between;
     width: 120px;
     top: 20px;
-    
+
 }
 
 
 .bookmark_ctnr {
     border: 2px solid rgba(0, 0, 0, 0.249);
     border-radius: 50%;
-    width: 28px;
+    width: 30px;
     height: 28px;
 }
 
 .bookmark_ctnr:hover {
     background-color: rgba(0, 0, 0, 0.249);
     cursor: pointer;
-    
+
 }
 
 .bookmark_btn{
@@ -286,10 +286,10 @@
 
 .boomark_img{
     position: relative;
-    bottom: 8.5px;
-    right: 8.5px;
-    width:40px;
-    height:40px;
+    top: 3px;
+    left: 5px;
+    width:15px;
+    height:18px;
 }
 
 
@@ -322,7 +322,7 @@
     border-radius: 50%;
     width: 27px;
     height: 27px;
-    
+
 }
 
 .dislike_ctnr:hover {
@@ -332,7 +332,7 @@
 
 
 .dislike_btn{
-    
+
 }
 
 .dislike_img{
@@ -342,4 +342,3 @@
     width:18px;
     height: 18px;
 }
-
