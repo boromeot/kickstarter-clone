@@ -6,7 +6,6 @@ import './EditProjectPage.css';
 import { NavLink, Route, Redirect, useRouteMatch, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getProject } from '../../store/project';
-import { createUpdate } from '../../store/update';
 import { getTags } from '../../store/tag';
 import BasicsPage from './SubPages/BasicsPage';
 import FundingPage from './SubPages/FundingPage';
@@ -28,6 +27,7 @@ const EditProjectPage = () => {
     dispatch(getProject(projectId));
     dispatch(getTags())
   }, [dispatch, projectId])
+  console.log(project);
 
   useEffect(() => {
     setFormData({
@@ -37,7 +37,10 @@ const EditProjectPage = () => {
       title: '', description: '',
       project_id: projectId, user_id: user.id,
     });
-  }, [project])
+  }, [project, projectId, user])
+
+  //If the current user does not own the project
+  //Dont' show them the page
 
   //Controls changes of the project object
   const handleChange = e => {

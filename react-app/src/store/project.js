@@ -27,23 +27,23 @@ const get_random_projects = (project) => {
   };
 }
 
-const create_project = (project) => {
-  return {
-    type: CREATE_PROJECT,
-    payload: project,
-  };
-}
+// const create_project = (project) => {
+//   return {
+//     type: CREATE_PROJECT,
+//     payload: project,
+//   };
+// }
 
 
-export const createProject = (payload) => async dispatch => {
-  const response = fetch('/api/projects/', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(payload)
-  });
-}
+// export const createProject = (payload) => async dispatch => {
+//   const response = fetch('/api/projects/', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify(payload)
+//   });
+// }
 
 export const getProject = (projectId) => async dispatch => {
   const response = await fetch(`/api/projects/${projectId}`);

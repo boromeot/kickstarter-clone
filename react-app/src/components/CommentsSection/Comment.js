@@ -7,7 +7,6 @@ import CommentForm from "./CommentForm";
 
 const Comment = ({ comment }) => {
   const user = useSelector(state => state.session.user)
-  const project_id = useSelector(state => state.project.id)
   const [show, setShow] = useState(false);
   const commentUserId = comment.user_id;
   const dispatch = useDispatch();
