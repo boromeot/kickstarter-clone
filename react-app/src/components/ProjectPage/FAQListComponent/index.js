@@ -16,6 +16,7 @@ export default function FAQListComponent({ FAQQuestion, FAQAnswer, FAQId, setFAQ
     const [faqAnswer, setfaqAnswer] = useState("")
 
 
+
     function handlePatch(e) {
         e.preventDefault()
         const payload = {

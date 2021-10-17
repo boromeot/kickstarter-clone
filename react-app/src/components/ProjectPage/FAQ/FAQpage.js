@@ -1,11 +1,13 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import * as FAQActions from '../../../store/faq';
 import './FAQ.css';
 
 function FAQpage({ faq, setFAQListRender, setFAQRender, setFAQId }) {
   const dispatch = useDispatch();
   const [hide, setHide] = useState(true);
+
+  const currentUserId = useSelector(state => state.session.user.id)
 
   function toggleHide() {
     if (hide) {
@@ -14,6 +16,16 @@ function FAQpage({ faq, setFAQListRender, setFAQRender, setFAQId }) {
       setHide(true)
     }
   }
+
+  const [user, setUser] = useState(false)
+
+
+  useEffect(() => {
+    if (currentUserId === faq.user_id) {
+      setUser(true);
+    }
+
+  }, [])
 
 
   function handleDelete(e) {
@@ -31,17 +43,19 @@ function FAQpage({ faq, setFAQListRender, setFAQRender, setFAQId }) {
       <div className={hide ? "hide" : ""}>
         <div className="FAQWindow_bottom">
           {faq.answer}
+          { }
           <div className="FAQBtns_ctnr">
-            <li className="FAQPage_editBtn" onClick={() => {
+            {user && <li className="FAQPage_editBtn" onClick={() => {
               setFAQId(faq.id)
               setFAQRender(false)
               setFAQListRender(true)
             }} >
               edit
-            </li>
-            <li className="FAQPage_deleteBtn" onClick={() => handleDelete()} >
+            </li>}
+            {user && <li className="FAQPage_deleteBtn" onClick={() => handleDelete()} >
               delete
             </li>
+            }
           </div>
         </div>
       </div>
