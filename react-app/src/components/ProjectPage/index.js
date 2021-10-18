@@ -120,7 +120,7 @@ const ProjectPage = () => {
             </div>
           </div>
           <div>
-            <button className='btn-primary' id='pledge-btn' onClick={() => setShow(true)}>
+            <button className='btn-primary' id='pledge-btn' onClick={() => setShow(true)} disabled={!user}>
               Back this project
             </button>
             <Modal title='Back this project' onClose={() => setShow(false)} show={show}>
