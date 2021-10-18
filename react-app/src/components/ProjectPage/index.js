@@ -7,6 +7,7 @@ import CommentsSection from '../CommentsSection';
 import UpdatesComponent from '../UpdatesComponent';
 import UpdatePatchComponent from '../UpdatePatchComponent';
 import FAQ from './FAQ';
+import FAQListComponent from './FAQListComponent';
 import Risks from './Risks';
 import Campaign from './Campaign';
 
@@ -24,6 +25,14 @@ const ProjectPage = () => {
   const [toRenderDisplay, setToRenderDisplay] = useState(false)
   const [toRenderPatch, setToRenderPatch] = useState(false)
   const [updateNumber, setUpdateNumber] = useState(0)
+
+
+  const [FAQListRender, setFAQListRender] = useState(false)
+  const [FAQRender, setFAQRender] = useState(true)
+  const [FAQQuestion, setFAQQuestion] = useState("")
+  const [FAQAnswer, setFAQAnswer] = useState("")
+  const [FAQId, setFAQId] = useState(0)
+
 
   const [currentUpdateId, setCurrentUpdateId] = useState()
 
@@ -153,7 +162,8 @@ const ProjectPage = () => {
         <Risks risks={risks} />
       </Route>
       <Route path={`${path}/faqs`}>
-        <FAQ faqs={faqs} />
+        {FAQRender && <FAQ faqs={faqs} setFAQRender={setFAQRender} setFAQListRender={setFAQListRender} setFAQQuestion={setFAQQuestion} setFAQAnswer={setFAQAnswer} setFAQId={setFAQId} FAQId={FAQId} />}
+        {FAQListRender && <FAQListComponent setFAQRender={setFAQRender} setFAQListRender={setFAQListRender} FAQQuestion={FAQQuestion} FAQAnswer={FAQAnswer} FAQId={FAQId} />}
       </Route>
       <Route path={`${path}/updates`}>
         {toRenderComponent &&
