@@ -11,7 +11,10 @@ import FAQListComponent from './FAQListComponent';
 import Risks from './Risks';
 import Campaign from './Campaign';
 
+
 import UpdateDisplayComponent from '../UpdateDisplayComponent';
+import Modal from '../Modal';
+import BackerForm from './BackerForm';
 
 const ProjectPage = () => {
   const dispatch = useDispatch();
@@ -21,11 +24,12 @@ const ProjectPage = () => {
   const { id, title, description, campaign, video_src, image_src, current_funding, pledge_goal, faqs, risks, comments, tag, username, user_id, start_date, end_date} = useSelector(state => state.project)
   const { path, url } = useRouteMatch(); //Allows for backwards compatibility of route names
 
+  const [show, setShow] = useState(false);
+
   const [toRenderComponent, setToRenderComponent] = useState(true)
   const [toRenderDisplay, setToRenderDisplay] = useState(false)
   const [toRenderPatch, setToRenderPatch] = useState(false)
   const [updateNumber, setUpdateNumber] = useState(0)
-
 
   const [FAQListRender, setFAQListRender] = useState(false)
   const [FAQRender, setFAQRender] = useState(true)
@@ -116,9 +120,12 @@ const ProjectPage = () => {
             </div>
           </div>
           <div>
-            <NavLink className='btn-primary' id='pledge-btn' to='#'>
+            <button className='btn-primary' id='pledge-btn' onClick={() => setShow(true)}>
               Back this project
-            </NavLink>
+            </button>
+            <Modal title='Back this project' onClose={() => setShow(false)} show={show}>
+              <BackerForm setShow={setShow} project_id={projectId}/>
+            </Modal>
           </div>
         </div>
       </div>

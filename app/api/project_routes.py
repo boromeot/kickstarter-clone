@@ -1,4 +1,5 @@
 from flask import Blueprint, request, jsonify
+from app.forms.funding_form import FundingForm
 from flask_login import login_required, current_user
 from app.models import Project, db
 from sqlalchemy.orm import joinedload
@@ -30,6 +31,7 @@ def get_project(id):
   project = Project.query.get(id)
   return project.to_dict()
 
+#PUT
 @project_routes.route('/<int:id>', methods=['PUT'])
 def put_project(id):
   project = Project.query.get(id)
@@ -43,13 +45,13 @@ def put_project(id):
     return project.to_dict()
   return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
+#POST
 @project_routes.route('/', methods=['POST'])
 @login_required
 def post_project():
   form = ProjectForm()
   form['csrf_token'].data = request.cookies['csrf_token']
   if form.validate_on_submit():
-    print(form.data['user_id'], 'user id')
     project = Project(
       user_id = (form.data['user_id']),
       tag_id = (form.data['tag_id']),
@@ -62,6 +64,7 @@ def post_project():
   else:
     return {'error': 'Form did not validate'}, 401
 
+#DELETE
 @project_routes.route('/<int:id>', methods=['DELETE'])
 def delete_project(id):
   project = Project.query.get(id)
@@ -79,7 +82,7 @@ def get_projects_by_tag():
   projectDict = {"projects" : [project.to_dict() for project in projects]}
   return projectDict
 
-
+#Returns 4 random projects
 @project_routes.route('/random')
 def get_random_projects():
   projects_db = Project.query.all()
@@ -87,3 +90,17 @@ def get_random_projects():
   random_nums = random.sample(range(0, len(projects_db)), 4)
 
   return jsonify([projects[n] for n in random_nums])
+
+
+@project_routes.route('/<int:id>/funding', methods=['PUT'])
+@login_required
+def add_funding(id):
+  form = FundingForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
+  if form.validate_on_submit():
+    project = Project.query.get(id)
+    project.current_funding = project.current_funding + form.data['additional_funding']
+    db.session.commit()
+    return {'current_funding': project.current_funding}
+  else:
+    return {'error': validation_errors_to_error_messages(form.errors)}, 401
