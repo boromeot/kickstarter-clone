@@ -160,7 +160,7 @@ const ProjectPage = () => {
             </NavLink>
           </div>
           <div className='test-item-container'>
-            <button className='btn-primary test-item-btn'>
+            <button className='btn-primary test-item-btn' onClick={() => setShow(true)} disabled={!user}>
               Back this project
             </button>
           </div>
