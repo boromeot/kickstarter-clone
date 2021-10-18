@@ -32,9 +32,13 @@ const ProjectPage = () => {
   const [FAQQuestion, setFAQQuestion] = useState("")
   const [FAQAnswer, setFAQAnswer] = useState("")
   const [FAQId, setFAQId] = useState(0)
-
-
   const [currentUpdateId, setCurrentUpdateId] = useState()
+
+  const differenceByDays = (date1, date2) => {
+    const timeDelta = Math.abs(date2 - date1);
+    const dayDelta = Math.ceil(timeDelta / (1000 * 60 * 60 * 24));
+    return dayDelta;
+  }
 
   const deleteProject = async e => {
     let now = new Date();
@@ -106,7 +110,7 @@ const ProjectPage = () => {
             </div>
             <div>
               <div className='project-main-info-header'>
-                <span>{33}</span>
+                <span>{differenceByDays(new Date(), new Date(end_date))}</span>
               </div>
               <span className='project-main-info-description'>days to go</span>
             </div>
