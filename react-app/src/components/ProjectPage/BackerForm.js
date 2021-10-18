@@ -1,7 +1,11 @@
 import React, { useState} from "react";
+import { useDispatch } from "react-redux";
+import { putFunds } from "../../store/project";
+
 
 const BackerForm = ({ project_id, setShow }) => {
-  const [additional_funding, setAdditional_funding] = useState(0);
+  const [additional_funding, setAdditional_funding] = useState();
+  const dispatch = useDispatch();
 
   const handleChange = e => {
     setAdditional_funding(e.target.value);
@@ -9,21 +13,7 @@ const BackerForm = ({ project_id, setShow }) => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    const response = await fetch(`/api/projects/${project_id}/funding`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        additional_funding,
-      })
-    });
-    if (response.ok) {
-
-    } else {
-      const data = await response.json();
-      alert(data.error)
-    }
+    dispatch(putFunds(project_id, +additional_funding));
     setShow(false);
   }
 
@@ -37,6 +27,8 @@ const BackerForm = ({ project_id, setShow }) => {
           onChange={handleChange}
           className='input'
           type='number'
+          min={1}
+          max={1000000}
         />
       </div>
       <button className='btn-primary' type='submit'>Submit</button>
