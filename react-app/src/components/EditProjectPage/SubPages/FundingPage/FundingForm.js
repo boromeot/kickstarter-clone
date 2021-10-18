@@ -18,11 +18,11 @@ const FundingForm = ({ pledge_goal, handleChange }) => {
               name='pledge_goal'
               value={pledge_goal}
               onChange={handleChange}
-              placeholder='$1 >=< $1000000'
+              placeholder='$1 - $9,999,999'
               className='edit-form-text-area edit-page-text-area'
               tpye='number'
               min='1'
-              max='1000000'
+              max='9999999'
               maxLength={7}
             />
           </div>

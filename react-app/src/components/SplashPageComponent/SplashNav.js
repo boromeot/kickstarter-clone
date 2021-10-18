@@ -1,35 +1,20 @@
 
 import { NavLink } from 'react-router-dom'
+import { useSelector } from 'react-redux';
 import './SplashPageComponent.css'
 
 
 export default function SplashNav() {
+    const tags = useSelector(state => Object.values(state.tags));
     return (
         <nav className="splashNav_container">
-            <NavLink className="splashNav" to={'/'}>
-                Arts
-            </NavLink>
-            <NavLink className="splashNav" to={'/'}>
-                {'Comics & Illustration'}
-            </NavLink>
-            <NavLink className="splashNav" to={'/'}>
-                {'Design & Tech'}
-            </NavLink>
-            <NavLink className="splashNav" to={'/'}>
-                Film
-            </NavLink>
-            <NavLink className="splashNav" to={'/'}>
-                {'Food & Craft'}
-            </NavLink>
-            <NavLink className="splashNav" to={'/'}>
-                Games
-            </NavLink>
-            <NavLink className="splashNav" to={'/'}>
-                Music
-            </NavLink>
-            <NavLink className="splashNav" to={'/'}>
-                Publishing
-            </NavLink>
+            {
+                tags.map(tag => {
+                    return <NavLink className='splashNav' to={`/discover?title=${tag.title}`}>
+                        {tag.title}
+                    </NavLink>
+                })
+            }
         </nav>
     )
 }

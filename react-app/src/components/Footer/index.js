@@ -1,20 +1,21 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 import './Footer.css';
 
 const Footer = () => {
+  const tags = useSelector(state => Object.values(state.tags));
   return (
     <div className='footer-container'>
       <div className='footer-tags-container'>
         <div className='footer-categories'>
-          <NavLink to='#' className='footer-category-item underline'>Environment</NavLink >
-          <NavLink to='#' className='footer-category-item underline'>Food</NavLink >
-          <NavLink to='#' className='footer-category-item underline'>Music</NavLink >
-          <NavLink to='#' className='footer-category-item underline'>Games</NavLink >
-          <NavLink to='#' className='footer-category-item underline'>Art</NavLink >
-          <NavLink to='#' className='footer-category-item underline'>Comics</NavLink >
-          <NavLink to='#' className='footer-category-item underline'>Technology</NavLink >
-          <NavLink to='#' className='footer-category-item underline'>Film</NavLink >
+        {
+          tags.map(tag => {
+            return <NavLink className='footer-category-item underline' to={`/discover?title=${tag.title}`}>
+              {tag.title}
+            </NavLink>
+          })
+        }
         </div>
       </div>
       <div className='flex-center'>
@@ -41,7 +42,7 @@ const Footer = () => {
           <NavLink to='#' className='footer-category-item underline'>Private Policy</NavLink >
           <NavLink to='#' className='footer-category-item underline'>Cookie Policy</NavLink >
           <NavLink to='#' className='footer-category-item underline'>Accessibility Statement</NavLink >
-          <NavLink to='#' className='footer-category-item underline'>CA Notice of Consent</NavLink >
+          <NavLink to='#' className='footer-category-item underline'>Notice of Consent</NavLink >
         </div>
       </div>
     </div>

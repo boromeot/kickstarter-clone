@@ -7,6 +7,7 @@ import CommentsSection from '../CommentsSection';
 import UpdatesComponent from '../UpdatesComponent';
 import UpdatePatchComponent from '../UpdatePatchComponent';
 import FAQ from './FAQ';
+import FAQListComponent from './FAQListComponent';
 import Risks from './Risks';
 import Campaign from './Campaign';
 
@@ -17,7 +18,7 @@ const ProjectPage = () => {
   const history = useHistory();
   const { projectId } = useParams();
   const { user } = useSelector(state => state.session);
-  const { id, title, description, campaign, video_src, image_src, current_funding, pledge_goal, faqs, risks, comments, tag, username, user_id} = useSelector(state => state.project)
+  const { id, title, description, campaign, video_src, image_src, current_funding, pledge_goal, faqs, risks, comments, tag, username, user_id, start_date, end_date} = useSelector(state => state.project)
   const { path, url } = useRouteMatch(); //Allows for backwards compatibility of route names
 
   const [toRenderComponent, setToRenderComponent] = useState(true)
@@ -25,9 +26,18 @@ const ProjectPage = () => {
   const [toRenderPatch, setToRenderPatch] = useState(false)
   const [updateNumber, setUpdateNumber] = useState(0)
 
+
+  const [FAQListRender, setFAQListRender] = useState(false)
+  const [FAQRender, setFAQRender] = useState(true)
+  const [FAQQuestion, setFAQQuestion] = useState("")
+  const [FAQAnswer, setFAQAnswer] = useState("")
+  const [FAQId, setFAQId] = useState(0)
+
+
   const [currentUpdateId, setCurrentUpdateId] = useState()
 
   const deleteProject = async e => {
+    let now = new Date();
     const response = await fetch(`/api/projects/${projectId}`, {
       method: 'DELETE',
       headers: {
@@ -96,7 +106,7 @@ const ProjectPage = () => {
             </div>
             <div>
               <div className='project-main-info-header'>
-                <span>33</span>
+                <span>{33}</span>
               </div>
               <span className='project-main-info-description'>days to go</span>
             </div>
@@ -152,7 +162,8 @@ const ProjectPage = () => {
         <Risks risks={risks} />
       </Route>
       <Route path={`${path}/faqs`}>
-        <FAQ faqs={faqs} />
+        {FAQRender && <FAQ faqs={faqs} setFAQRender={setFAQRender} setFAQListRender={setFAQListRender} setFAQQuestion={setFAQQuestion} setFAQAnswer={setFAQAnswer} setFAQId={setFAQId} FAQId={FAQId} />}
+        {FAQListRender && <FAQListComponent setFAQRender={setFAQRender} setFAQListRender={setFAQListRender} FAQQuestion={FAQQuestion} FAQAnswer={FAQAnswer} FAQId={FAQId} />}
       </Route>
       <Route path={`${path}/updates`}>
         {toRenderComponent &&

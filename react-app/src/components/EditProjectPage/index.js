@@ -152,9 +152,9 @@ const EditProjectPage = () => {
             <NavItem emoji='📊' text='Funding' link={`${url}/funding`} />
             <NavItem emoji='📝' text='Updates' link={`${url}/updates`} />
             <NavItem emoji='📖' text='Story' link={`${url}/story`} />
-            <NavItem emoji='👥' text='People' link={`${url}/people`} />
+            {/* <NavItem emoji='👥' text='People' link={`${url}/people`} />
             <NavItem emoji='💰' text='Payment' link={`${url}/payment`} />
-            <NavItem emoji='📢' text='Promotion' link={`${url}/promotion`} />
+            <NavItem emoji='📢' text='Promotion' link={`${url}/promotion`} /> */}
           </div>
         </div>
       </div>

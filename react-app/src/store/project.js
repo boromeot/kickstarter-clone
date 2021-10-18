@@ -1,5 +1,6 @@
 import { POST_COMMENT, DELETE_COMMENT, PATCH_COMMENT } from "./comment";
 import { CREATE_UPDATE, DELETE_UPDATE, PATCH_UPDATE } from "./update"
+import { CREATE_FAQ, PATCH_FAQ, DELETE_FAQ } from "./faq"
 const CLEAR_PROJECT = '/project/clearProject'
 const GET_PROJECT = 'project/getProject';
 const GET_AllPROJECTS = '/project/getAllProjects'
@@ -51,7 +52,7 @@ export const getAllProjects = () => async dispatch => {
 }
 
 
-export const patchProject = ({projectId, campaign}) => async dispatch => {
+export const patchProject = ({ projectId, campaign }) => async dispatch => {
   const response = await fetch(`/api/projects/${projectId}`, {
     method: 'PATCH',
     headers: {
@@ -125,6 +126,18 @@ const projectReducer = (state = {}, action) => {
     case PATCH_UPDATE:
       newState = Object.assign({}, state);
       newState.updates = action.payload
+      return newState;
+    case CREATE_FAQ:
+      newState = Object.assign({}, state);
+      newState.faqs = action.payload
+      return newState;
+    case PATCH_FAQ:
+      newState = Object.assign({}, state);
+      newState.faqs = action.payload
+      return newState;
+    case DELETE_FAQ:
+      newState = Object.assign({}, state);
+      newState.faqs = action.payload
       return newState;
     default:
       return state;

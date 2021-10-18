@@ -7,9 +7,10 @@ import './UpdatesComponent.css'
 
 export default function UpdatesComponent({ id, setCurrentUpdateId, setToRenderComponent, setToRenderDisplay, setToRenderPatch, currentUpdateId, setUpdateNumber }) {
     const projectUpdates = useSelector(state => state.project.updates)
+    const user = useSelector(state => state.session.user)
     const dispatch = useDispatch()
 
-    let [reload, setReload] = useState(false);
+    const [reload, setReload] = useState(false);
 
 
     useEffect(() => {
@@ -35,12 +36,12 @@ export default function UpdatesComponent({ id, setCurrentUpdateId, setToRenderCo
                             }}>
                                 READ MORE
                             </li>
-                            <li className="updateInfo btn-primary" onClick={() => {
+                            {user && <li className="updateInfo btn-primary" onClick={() => {
                                 dispatch(updateActions.deleteUpdate({ idx: update.id }))
                                 setReload(true)
                             }}>
                                 DELETE
-                            </li>
+                            </li>}
                         </div>
                         <li className='updateInfo updateNumber'>Update #{idx + 1}</li>
                         <li className='updateInfo projectTitle'>{update.title}</li>

@@ -35,24 +35,24 @@
     width: 100%;
     gap: 50px;
 
-    
+
 }
 
 
 /*---------------------------------------------------------*/
 
 
-.createUpdate.titleLabel { 
+.createUpdate.titleLabel {
     /* border: 3px solid yellow; */
     font-size:25px;
     margin-bottom: 20px;
-    
+
 }
 
 .createUpdate.title_Ctnr{
     /* border: 3px solid pink; */
-    
-    
+
+
 }
 
 
@@ -61,12 +61,12 @@
     height: 50px;
     width: 100%;
     font-size: 20px;
-    
+    padding: 12px;
 }
 
 /*---------------------------------------------------------*/
 
-.createUpdate.descriptionLabel { 
+.createUpdate.descriptionLabel {
     /* border: 3px solid orange; */
     font-size:25px;
     margin-bottom: 20px;
@@ -75,7 +75,7 @@
 
 .createUpdate.description_Ctnr {
     /* border: 3px solid skyblue; */
-    
+
 }
 
 .createUpdateDescription_TF {
@@ -83,6 +83,7 @@
     height: 500px;
     width: 100%;
     font-size: 20px;
+    padding: 12px;
 }
 
 
