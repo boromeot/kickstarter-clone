@@ -1,5 +1,8 @@
-.nav-bar {
+.edit-page-nav-bar {
+  position: sticky;
+  top: 0;
   padding: 12px 18px;
+  background-color: white;
 }
 
 .edit-page-buttons {

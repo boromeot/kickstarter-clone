@@ -5,12 +5,20 @@ const CLEAR_PROJECT = '/project/clearProject'
 const GET_PROJECT = 'project/getProject';
 const GET_AllPROJECTS = '/project/getAllProjects'
 const GET_RANDOM_PROJECTS = '/project/getAllProjects'
+const PUT_FUNDS = '/project/putFunds'
 
 export const clear_project = () => {
   return {
     type: CLEAR_PROJECT,
     payload: {},
   };
+}
+
+const put_funds = (funds) => {
+  return {
+    type: PUT_FUNDS,
+    payload: funds,
+  }
 }
 
 const get_project = (project) => {
@@ -33,6 +41,21 @@ const get_random_projects = (project) => {
     type: GET_RANDOM_PROJECTS,
     payload: project,
   };
+}
+
+
+export const putFunds = (projectId, additional_funding) => async dispatch => {
+  const response = await fetch(`/api/projects/${projectId}/funding`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      additional_funding,
+    })
+  });
+  dispatch(put_funds(additional_funding));
+  return response;
 }
 
 
@@ -82,6 +105,11 @@ export const getRandomProjects = () => async dispatch => {
 const projectReducer = (state = {}, action) => {
   let newState;
   switch (action.type) {
+    case PUT_FUNDS:
+      newState = Object.assign({}, state);
+      console.log(typeof action.payload);
+      newState.current_funding += action.payload;
+      return newState;
     case CLEAR_PROJECT:
       return action.payload;//Empty object
     case GET_PROJECT:

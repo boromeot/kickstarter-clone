@@ -11,7 +11,10 @@ import FAQListComponent from './FAQListComponent';
 import Risks from './Risks';
 import Campaign from './Campaign';
 
+
 import UpdateDisplayComponent from '../UpdateDisplayComponent';
+import Modal from '../Modal';
+import BackerForm from './BackerForm';
 
 const ProjectPage = () => {
   const dispatch = useDispatch();
@@ -21,20 +24,25 @@ const ProjectPage = () => {
   const { id, title, description, campaign, video_src, image_src, current_funding, pledge_goal, faqs, risks, comments, tag, username, user_id, start_date, end_date} = useSelector(state => state.project)
   const { path, url } = useRouteMatch(); //Allows for backwards compatibility of route names
 
+  const [show, setShow] = useState(false);
+
   const [toRenderComponent, setToRenderComponent] = useState(true)
   const [toRenderDisplay, setToRenderDisplay] = useState(false)
   const [toRenderPatch, setToRenderPatch] = useState(false)
   const [updateNumber, setUpdateNumber] = useState(0)
-
 
   const [FAQListRender, setFAQListRender] = useState(false)
   const [FAQRender, setFAQRender] = useState(true)
   const [FAQQuestion, setFAQQuestion] = useState("")
   const [FAQAnswer, setFAQAnswer] = useState("")
   const [FAQId, setFAQId] = useState(0)
-
-
   const [currentUpdateId, setCurrentUpdateId] = useState()
+
+  const differenceByDays = (date1, date2) => {
+    const timeDelta = Math.abs(date2 - date1);
+    const dayDelta = Math.ceil(timeDelta / (1000 * 60 * 60 * 24));
+    return dayDelta;
+  }
 
   const deleteProject = async e => {
     let now = new Date();
@@ -106,15 +114,18 @@ const ProjectPage = () => {
             </div>
             <div>
               <div className='project-main-info-header'>
-                <span>{33}</span>
+                <span>{differenceByDays(new Date(), new Date(end_date))}</span>
               </div>
               <span className='project-main-info-description'>days to go</span>
             </div>
           </div>
           <div>
-            <NavLink className='btn-primary' id='pledge-btn' to='#'>
+            <button className='btn-primary' id='pledge-btn' onClick={() => setShow(true)} disabled={!user}>
               Back this project
-            </NavLink>
+            </button>
+            <Modal title='Back this project' onClose={() => setShow(false)} show={show}>
+              <BackerForm setShow={setShow} project_id={projectId}/>
+            </Modal>
           </div>
         </div>
       </div>
@@ -149,7 +160,7 @@ const ProjectPage = () => {
             </NavLink>
           </div>
           <div className='test-item-container'>
-            <button className='btn-primary test-item-btn'>
+            <button className='btn-primary test-item-btn' onClick={() => setShow(true)} disabled={!user}>
               Back this project
             </button>
           </div>

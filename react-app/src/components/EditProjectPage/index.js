@@ -130,7 +130,7 @@ const EditProjectPage = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <nav className='nav-bar'>
+      <nav className='nav-bar edit-page-nav-bar'>
         <div className=''>
           <NavLink to='/' className='nav-button' exact={true}>
             <Logo />
