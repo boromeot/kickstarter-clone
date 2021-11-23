@@ -4,6 +4,7 @@
     max-width: 1366px;
 }
 
+/* Category Nav CSS*/
 .category-nav {
     display: flex;
     justify-content: center;
@@ -17,6 +18,17 @@
     color: #656969;
 }
 
+/* Splage page content CSS*/
+.splash-content {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-bottom: 60px;
+}
+
+
+
+
+/* old */
 .splash-page.main_container{
     height: 1100px;
     /* border: 2px solid rgb(136, 59, 59); */
