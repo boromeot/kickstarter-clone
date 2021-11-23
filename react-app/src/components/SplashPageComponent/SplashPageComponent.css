@@ -6,7 +6,15 @@
 
 .category-nav {
     display: flex;
-    margin: 1.8rem 0;
+    justify-content: center;
+    margin: 18px 0;
+    line-height: 22px;
+    font-size: 15px;
+}
+
+.category-link {
+    margin: 0 18px;
+    color: #656969;
 }
 
 .splash-page.main_container{
