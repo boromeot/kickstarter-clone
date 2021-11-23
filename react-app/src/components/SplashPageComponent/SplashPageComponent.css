@@ -33,6 +33,10 @@
     flex-basis: 55%;
 }
 
+.splash-image-link {
+    height: max-content;
+}
+
 .splash-main-project {
     margin-bottom: 18px;
     font-weight: 700;
@@ -45,6 +49,31 @@
 
 .splash-main-image {
     width: 100%;
+}
+
+.splash-main-progress {
+    width: 100%;
+    height: 12px;
+    background-color: #E8E8E8;
+}
+
+.splash-image-header {
+    padding-top: 18px;
+    padding-bottom: 12px;
+    font-size: 28px;
+    font-weight: 400;
+}
+
+.splash-image-description {
+    padding-bottom: 24px;
+    font-size: 18px;
+    color: #282828;
+}
+
+.splash-image-author {
+    font-size: 12px;
+    line-height: 18px;
+    color: #656969;
 }
 
 /* old */
