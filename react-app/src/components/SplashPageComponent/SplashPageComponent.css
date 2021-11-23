@@ -29,7 +29,8 @@
     padding-right: 60px;
     padding-top: 30px;
     margin-top: 24px;
-    border-right: 0.1rem solid #DCDEDD;
+    border-right: 1px solid #DCDEDD;
+    flex-basis: 55%;
 }
 
 .splash-main-project {
@@ -42,6 +43,9 @@
 
 }
 
+.splash-main-image {
+    width: 100%;
+}
 
 /* old */
 .splash-page.main_container{
