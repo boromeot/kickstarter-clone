@@ -25,7 +25,7 @@
     padding-bottom: 60px;
 }
 
-.splash-spacer {
+.splash-spacer-left {
     padding-right: 60px;
     padding-top: 30px;
     margin-top: 24px;
@@ -37,6 +37,11 @@
     height: max-content;
 }
 
+.splash-image-link:hover .splash-image-header {
+    text-decoration: underline;
+    color: #037362;
+}
+
 .splash-main-project {
     margin-bottom: 18px;
     font-weight: 700;
@@ -44,11 +49,11 @@
     line-height: 18px;
     text-transform: uppercase;
     color: #656969;
-
 }
 
 .splash-main-image {
     width: 100%;
+    max-height: 351.5px;
 }
 
 .splash-main-progress {

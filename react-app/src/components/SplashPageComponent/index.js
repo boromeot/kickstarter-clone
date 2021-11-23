@@ -24,10 +24,10 @@ export default function SplashPageComponent() {
             <div className='border-bottom-gray'>
                 <div className='grid-container'>
                     <div className='splash-content'>
-                        <div className='splash-spacer'>
+                        <div className='splash-spacer-left'>
                             <div className='splash-section'>
                                 <h3 className='splash-main-project'>Featured Project</h3>
-                                <NavLink className='splash-image-link' to='#'>
+                                <NavLink className='splash-image-link' to={`/projects/${randomProjects[0]?.id}/comments`}>
                                     <img className='splash-main-image' src={`${randomProjects[0]?.image_src}`}/>
                                     <div className='splash-main-progress'></div>
                                     <h3 className='splash-image-header'>{`${randomProjects[0]?.title}`}</h3>
