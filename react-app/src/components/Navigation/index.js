@@ -1,22 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Logo from './logo';
 import LogoutButton from '../auth/LogoutButton';
 import './Navigation.css'
 import Modal from '../Modal/index';
 import TagsModal from '../TagsModal';
-import { getTags } from '../../store/tag';
 
 const Navigation = () => {
   const user = useSelector(state => state.session.user);
   const tags = useSelector(state => Object.values(state.tags));
   const [showDiscover, setShowDiscover] = useState(false);
-  const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(getTags())
-  // }, [dispatch])
 
   return (
     <nav className='nav-bar'>

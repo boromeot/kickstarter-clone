@@ -4,6 +4,10 @@
     max-width: 1366px;
 }
 
+.category-nav {
+    display: flex;
+    margin: 1.8rem 0;
+}
 
 .splash-page.main_container{
     height: 1100px;
