@@ -12,6 +12,7 @@ import SplashPageComponent from './components/SplashPageComponent';
 import CreateProjectPage from './components/CreateProjectPage';
 import Discover from './components/Discover';
 import EditProjectPage from './components/EditProjectPage';
+import { getTags } from './store/tag';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -20,7 +21,7 @@ function App() {
   useEffect(() => {
     (async () => {
       await dispatch(authenticate());
-
+      await dispatch(getTags());
       setLoaded(true);
     })();
   }, [dispatch]);

@@ -5,16 +5,16 @@ import './SplashPageComponent.css'
 
 
 export default function SplashNav() {
-    const tags = useSelector(state => Object.values(state.tags));
+    const tags = useSelector(state => state.tags);
+    console.log('tags', tags);
     return (
-        <nav className="splashNav_container">
-            {
-                tags.map(tag => {
-                    return <NavLink className='splashNav' to={`/discover?title=${tag.title}`}>
-                        {tag.title}
-                    </NavLink>
-                })
-            }
-        </nav>
+        <div className='grid-container'>
+            <nav>
+                {console.log(tags)}
+                {tags?.map(tag => {
+                    return <div>{tag.name}</div>
+                })}
+            </nav>
+        </div>
     )
 }

@@ -14,9 +14,9 @@ const Navigation = () => {
   const [showDiscover, setShowDiscover] = useState(false);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getTags())
-  }, [dispatch])
+  // useEffect(() => {
+  //   dispatch(getTags())
+  // }, [dispatch])
 
   return (
     <nav className='nav-bar'>
