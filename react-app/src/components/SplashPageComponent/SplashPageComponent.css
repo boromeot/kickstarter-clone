@@ -25,7 +25,22 @@
     padding-bottom: 60px;
 }
 
+.splash-spacer {
+    padding-right: 60px;
+    padding-top: 30px;
+    margin-top: 24px;
+    border-right: 0.1rem solid #DCDEDD;
+}
 
+.splash-main-project {
+    margin-bottom: 18px;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #656969;
+
+}
 
 
 /* old */

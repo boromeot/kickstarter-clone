@@ -23,7 +23,9 @@ export default function SplashPageComponent() {
             <div className='grid-container'>
                 <div className='splash-content'>
                     <div className='splash-spacer'>
-
+                        <div className='section'>
+                            <h3 className='splash-main-project'>Featured Project</h3>
+                        </div>
                     </div>
                     <div>
 
