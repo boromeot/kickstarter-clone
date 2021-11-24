@@ -134,9 +134,29 @@
     text-decoration: underline;
 }
 
-.spash-recommended-funded {
+.splash-recommended-funded {
     font-size: 12px;
     line-height: 18px;
     font-weight: 700;
     color: #037362;
+}
+
+.splash-recommended-button-container {
+    display: flex;
+    margin-top: 6px;
+}
+
+.splash-recommended-button {
+    display: flex;
+    align-items: center;
+    height: 25px;
+    width: 25px;
+    border: 1px solid #D1D1D1;
+    border-radius: 100%;
+    background-color: white;
+}
+
+.splash-svg {
+    height: 12px;
+    width: 100%;
 }

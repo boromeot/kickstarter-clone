@@ -46,8 +46,19 @@ export default function SplashPageComponent() {
                                         </NavLink>
                                         <div className='splash-recommended-info'>
                                             <NavLink to='#' className='splash-recommended-title'>{`${randomProjects[1]?.title}`}</NavLink>
-                                            <span className='spash-recommended-funded'>100% funded</span>
+                                            <span className='splash-recommended-funded'>100% funded</span>
                                             <span className='splash-image-author'>By {`${randomProjects[0]?.username}`}</span>
+                                            <div className='splash-recommended-button-container'>
+                                                <div>
+                                                    <button className='splash-recommended-button'>
+                                                        <svg viewBox="0 0 12 16" className="splash-svg" aria-hidden="false" aria-label="bookmark">
+                                                            <path d="M0 0h12v15.067c0 .166-.134.3-.3.3-.055 0-.11-.015-.156-.043l-5.5-3.338-5.59 3.343c-.142.084-.326.037-.41-.105-.03-.046-.044-.1-.044-.154V0zm1.8 1.8v10.627l4.25-2.542 4.15 2.517V1.8H1.8z" fill-rule="nonzero">
+
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>
