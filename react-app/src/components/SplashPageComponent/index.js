@@ -18,7 +18,7 @@ export default function SplashPageComponent() {
             dispatch(projectAction.clear_project());
         }
     }, [dispatch])
-    console.log('randomProjects', randomProjects);
+    
     return (
         <>
             <SplashNav />

@@ -11,7 +11,7 @@ export default function SplashNav() {
             <div className='grid-container'>
                 <nav className='category-nav'>
                     {tags?.map(tag => {
-                        return <NavLink className='category-link' to='#' key={tag.id}>{tag.title}</NavLink>
+                        return <NavLink className='category-link' to={`/discover?title=${tag.title}`} key={tag.id}>{tag.title}</NavLink>
                     })}
                 </nav>
             </div>
