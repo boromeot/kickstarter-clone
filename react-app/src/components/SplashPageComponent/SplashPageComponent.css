@@ -127,8 +127,16 @@
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
+    margin-bottom: 6px;
 }
 
 .splash-recommended-title:hover {
     text-decoration: underline;
+}
+
+.spash-recommended-funded {
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 700;
+    color: #037362;
 }

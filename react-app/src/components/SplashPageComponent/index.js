@@ -39,13 +39,15 @@ export default function SplashPageComponent() {
                         <div className='splash-spacer-right'>
                             <h3 className='splash-main-project'>Recommended for you</h3>
                             <ul className='splash-recommended-projects'>
-                                <li className='border-bottom-gray'>
+                                <li className='border-bottom-gray pb3'>
                                     <div className='splash-recommended-content'>
                                         <NavLink to='#' className='splash-recommended-link'>
                                             <img className='splash-recommended-image' src={`${randomProjects[1]?.image_src}`} alt='first recommended project'></img>
                                         </NavLink>
                                         <div className='splash-recommended-info'>
                                             <NavLink to='#' className='splash-recommended-title'>{`${randomProjects[1]?.title}`}</NavLink>
+                                            <span className='spash-recommended-funded'>100% funded</span>
+                                            <span className='splash-image-author'>By {`${randomProjects[0]?.username}`}</span>
                                         </div>
                                     </div>
                                 </li>
