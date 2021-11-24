@@ -16,7 +16,7 @@ function FAQ({ faqs, setFAQRender, setFAQListRender, setFAQAnswer, setFAQQuestio
   const currentProjFAQs = faqs?.filter(faq => faq.project_id === currentProject)
   console.log(currentProjFAQs)
 
-  const { id, user_id } = useSelector(state => state.project)
+  const { id } = useSelector(state => state.project)
 
   useEffect(() => {
     setAskedQuestion(false)

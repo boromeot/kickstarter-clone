@@ -1,121 +1,64 @@
-import React, { useEffect } from 'react';
-import * as projectAction from '../../store/project';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import SplashNav from './SplashNav';
-
+import Footer from '../Footer';
+import * as projectAction from '../../store/project';
+import RecommendedProject from './RecommendedProject';
 import './SplashPageComponent.css'
 
 
 export default function SplashPageComponent() {
-    const dispatch = useDispatch()
-    const allProjects = useSelector(state => Object.values(state.project))
+    const [loaded, setLoaded] = useState(false);
+    const randomProjects = useSelector(state => state.project);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(projectAction.getRandomProjects());
+        (async () => {
+             await dispatch(projectAction.getRandomProjects());
+            setLoaded(true);
+          })();
         return () => {
             dispatch(projectAction.clear_project());
         }
     }, [dispatch])
 
-
+    if (!loaded) {
+        return null;
+    }
 
     return (
-        <div className="splash_outmost_container">
-            <div className="splash-page main_container">
-                <SplashNav />
-                <div className="featuredProj_outmost_container">
-                    <NavLink to={`/projects/${allProjects[0]?.id}/comments`}>
-                        <div key={0} className="featuredProj_inner_container">
-                            <li className="featuredProject_label featureItem" > Featured Project </li>
-                            <img className="featuredProject_img featureItem" src={allProjects[0]?.image_src ? allProjects[0]?.image_src : allProjects[0]?.image_src} alt=""></img>
-                            <p className="featuredProject_title featureItem">{allProjects[0]?.title}</p>
-                            <p className="featuredProject_subTitle featureItem">{allProjects[0]?.description}</p>
-                            <p className="featuredProject_owner featureItem">By {allProjects[0]?.username} </p>
-                        </div>
-                    </NavLink>
-                </div>
-                <div className="recommended_outmost_container">
-                    <div className="recommendedLabel_ctnr">
-                        <p className="recommendedLabel">RECOMMENDED FOR YOU</p>
-                    </div>
-                    <div key={1} className="recommendedTwo_ctnr">
-                        <NavLink to={`/projects/${allProjects[1]?.id}/comments`}>
-                            <img className="recommended_img rec_item" src={allProjects[1]?.image_src ? allProjects[1]?.image_src : allProjects[1]?.image_src} alt="" />
-                            <li className="recommended_title rec_item" >{allProjects[1]?.title}</li>
-                            <li className="recommended_goal rec_item" >{((allProjects[1]?.current_funding / allProjects[1]?.pledge_goal) * 100).toFixed(2)}% Funded</li>
-                            <li className="recommended_owner rec_item" >By {allProjects[1]?.username}</li>
-                        </NavLink>
-                        <div className="accessory_ctnr">
-                            <div className="bookmark_ctnr">
-                                <li className="bookmark_btn" >
-                                    <img className="boomark_img" src='https://www.clipartmax.com/png/small/473-4737744_bookmark-png-clipart-bookmark-icon-instagram.png' alt="" />
-                                </li>
-                            </div>
-                            <div className="like_ctnr">
-                                <li className="like_btn" >
-                                    <img className="like_img" src="https://aux2.iconspalace.com/uploads/thumbs-up-icon-256-1592257045.png" alt="" />
-                                </li>
-                            </div>
-                            <div className="dislike_ctnr">
-                                <li className="dislike_btn" >
-                                    <img className="dislike_img" src="https://aux2.iconspalace.com/uploads/thumbs-down-icon-256-470311744.png" alt="" />
-                                </li>
-                            </div>
-                        </div>
-                    </div>
-                    <div key={2} className="recommendedThree_ctnr">
-                        <NavLink to={`/projects/${allProjects[2]?.id}/comments`}>
-                            <img className="recommended_img rec_item" src={allProjects[2]?.image_src ? allProjects[2]?.image_src : allProjects[2]?.image_src} alt="" />
-                            <li className="recommended_title rec_item" >{allProjects[2]?.title}</li>
-                            <li className="recommended_goal rec_item" >{((allProjects[2]?.current_funding / allProjects[2]?.pledge_goal) * 100).toFixed(2)}% Funded</li>
-                            <li className="recommended_owner rec_item" >By {allProjects[2]?.username}</li>
-                        </NavLink>
-                        <div className="accessory_ctnr">
-                            <div className="bookmark_ctnr">
-                                <li className="bookmark_btn" >
-                                    <img className="boomark_img" src='https://www.clipartmax.com/png/small/473-4737744_bookmark-png-clipart-bookmark-icon-instagram.png' alt="" />
-                                </li>
-                            </div>
-                            <div className="like_ctnr">
-                                <li className="like_btn" >
-                                    <img className="like_img" src="https://aux2.iconspalace.com/uploads/thumbs-up-icon-256-1592257045.png" alt="" />
-                                </li>
-                            </div>
-                            <div className="dislike_ctnr">
-                                <li className="dislike_btn" >
-                                    <img className="dislike_img" src="https://aux2.iconspalace.com/uploads/thumbs-down-icon-256-470311744.png" alt="" />
-                                </li>
-                            </div>
-                        </div>
-                    </div>
-                    <div key={3} className="recommendedFour_ctnr">
-                        <NavLink to={`/projects/${allProjects[3]?.id}/comments`}>
-                            <img className="recommended_img rec_item" src={allProjects[3]?.image_src ? allProjects[3]?.image_src : allProjects[3]?.image_src} alt="" />
-                            <li className="recommended_title rec_item" >{allProjects[3]?.title}</li>
-                            <li className="recommended_goal rec_item" >{((allProjects[3]?.current_funding / allProjects[3]?.pledge_goal) * 100).toFixed(2)}% Funded</li>
-                            <li className="recommended_owner rec_item" >By {allProjects[3]?.username}</li>
-                        </NavLink>
-                        <div className="accessory_ctnr">
-                            <div className="bookmark_ctnr">
-                                <li className="bookmark_btn" >
-                                    <img className="boomark_img" src='https://www.clipartmax.com/png/small/473-4737744_bookmark-png-clipart-bookmark-icon-instagram.png' alt="" />
-                                </li>
-                            </div>
-                            <div className="like_ctnr">
-                                <li className="like_btn" >
-                                    <img className="like_img" src="https://aux2.iconspalace.com/uploads/thumbs-up-icon-256-1592257045.png" alt="" />
-                                </li>
-                            </div>
-                            <div className="dislike_ctnr">
-                                <li className="dislike_btn" >
-                                    <img className="dislike_img" src="https://aux2.iconspalace.com/uploads/thumbs-down-icon-256-470311744.png" alt="" />
-                                </li>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+			<>
+				<SplashNav />
+				<div className='border-bottom-gray'>
+						<div className='grid-container'>
+								<div className='splash-content'>
+										<div className='splash-spacer-left'>
+												<div className='splash-section'>
+														<h3 className='splash-main-project'>Featured Project</h3>
+														<NavLink className='splash-image-link' to={`/projects/${randomProjects[0]?.id}/comments`}>
+																<img className='splash-main-image' src={`${randomProjects[0]?.image_src}`} alt='main featured project'/>
+																<div className='splash-main-progress-bar' >
+																	<div className='splash-main-progress' style={{ width: `clamp(0%, ${(randomProjects[0]?.current_funding / randomProjects[0]?.pledge_goal) * 100}%, 100%)` }} />
+																</div>
+																<h3 className='splash-image-header'>{`${randomProjects[0]?.title}`}</h3>
+																<p className='splash-image-description'>{`${randomProjects[0]?.description}`}</p>
+																<span className='splash-image-author'>By {`${randomProjects[0]?.username}`}</span>
+														</NavLink>
+												</div>
+										</div>
+										<div className='splash-spacer-right'>
+												<h3 className='splash-main-project'>Recommended for you</h3>
+												<ul className='splash-recommended-projects'>
+														<RecommendedProject project={randomProjects[1]} />
+														<RecommendedProject project={randomProjects[2]} />
+														<RecommendedProject project={randomProjects[3]} />
+												</ul>
+										</div>
+								</div>
+						</div>
+				</div>
+				<Footer />
+			</>
     )
 }

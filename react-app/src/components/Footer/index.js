@@ -11,7 +11,7 @@ const Footer = () => {
         <div className='footer-categories'>
         {
           tags.map(tag => {
-            return <NavLink className='footer-category-item underline' to={`/discover?title=${tag.title}`}>
+            return <NavLink className='footer-category-item underline' to={`/discover?title=${tag.title}`} key={tag.id}>
               {tag.title}
             </NavLink>
           })
