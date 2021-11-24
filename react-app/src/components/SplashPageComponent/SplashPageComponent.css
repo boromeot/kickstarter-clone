@@ -94,6 +94,10 @@
     color: #282828;
 }
 
+.splash-recommended-projects > li:not(:first-child) {
+    padding: 18px 0;
+}
+
 .splash-recommended-content {
     display: flex;
     justify-content: space-between;
