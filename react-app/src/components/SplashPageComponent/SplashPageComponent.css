@@ -52,6 +52,7 @@
 }
 
 .splash-main-image {
+    display: block;
     width: 100%;
     max-height: 351.5px;
 }
