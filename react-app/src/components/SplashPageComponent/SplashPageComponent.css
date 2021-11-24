@@ -89,7 +89,24 @@
     flex-basis: 45%;
 }
 
-.splash-recomended-projects {
+.splash-recommended-projects {
     min-height: 380px;
     color: #282828;
+}
+
+.splash-recommended-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.splash-recommended-link {
+    padding-right: 24px;
+    flex-basis: 40%;
+}
+
+.splash-recommended-image {
+    height: 90px;
+    width: 100%;
 }

@@ -38,8 +38,17 @@ export default function SplashPageComponent() {
                         </div>
                         <div className='splash-spacer-right'>
                             <h3 className='splash-main-project'>Recommended for you</h3>
-                            <ul className='splash-recomended-projects'>
-                                
+                            <ul className='splash-recommended-projects'>
+                                <li className='border-bottom-gray'>
+                                    <div className='splash-recommended-content'>
+                                        <NavLink to='#' className='splash-recommended-link'>
+                                            <img className='splash-recommended-image' src={`${randomProjects[1]?.image_src}`} alt='first recommended project'></img>
+                                        </NavLink>
+                                        <div>
+                                            
+                                        </div>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     </div>
