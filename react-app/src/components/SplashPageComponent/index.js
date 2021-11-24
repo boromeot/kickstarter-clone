@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as projectAction from '../../store/project';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
@@ -9,16 +9,24 @@ import RecommendedProject from './RecommendedProject';
 
 
 export default function SplashPageComponent() {
-    const dispatch = useDispatch()
-    const randomProjects = useSelector(state => Object.values(state.project))
+    const [loaded, setLoaded] = useState(false);
+    const randomProjects = useSelector(state => state.project);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(projectAction.getRandomProjects());
+        (async () => {
+             await dispatch(projectAction.getRandomProjects());
+            setLoaded(true);
+          })();
         return () => {
             dispatch(projectAction.clear_project());
         }
     }, [dispatch])
-    
+
+    if (!loaded) {
+        return null;
+    }
+
     return (
         <>
             <SplashNav />
