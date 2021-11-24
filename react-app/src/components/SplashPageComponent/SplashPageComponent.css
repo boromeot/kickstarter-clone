@@ -166,6 +166,11 @@
     margin-right: 6px;
 }
 
+.splash-recommended-button:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
 .splash-svg {
     height: 12px;
     width: 100%;
