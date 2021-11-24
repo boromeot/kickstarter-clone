@@ -21,7 +21,7 @@ const ProjectPage = () => {
   const history = useHistory();
   const { projectId } = useParams();
   const { user } = useSelector(state => state.session);
-  const { id, title, description, campaign, video_src, image_src, current_funding, pledge_goal, faqs, risks, comments, tag, username, user_id, start_date, end_date} = useSelector(state => state.project)
+  const { id, title, description, campaign, video_src, image_src, current_funding, pledge_goal, faqs, risks, comments, tag, username, user_id, end_date} = useSelector(state => state.project)
   const { path, url } = useRouteMatch(); //Allows for backwards compatibility of route names
 
   const [show, setShow] = useState(false);
@@ -45,7 +45,6 @@ const ProjectPage = () => {
   }
 
   const deleteProject = async e => {
-    let now = new Date();
     const response = await fetch(`/api/projects/${projectId}`, {
       method: 'DELETE',
       headers: {

@@ -28,7 +28,7 @@ export default function SplashPageComponent() {
                             <div className='splash-section'>
                                 <h3 className='splash-main-project'>Featured Project</h3>
                                 <NavLink className='splash-image-link' to={`/projects/${randomProjects[0]?.id}/comments`}>
-                                    <img className='splash-main-image' src={`${randomProjects[0]?.image_src}`}/>
+                                    <img className='splash-main-image' src={`${randomProjects[0]?.image_src}`} alt='main featured project'/>
                                     <div className='splash-main-progress'></div>
                                     <h3 className='splash-image-header'>{`${randomProjects[0]?.title}`}</h3>
                                     <p className='splash-image-description'>{`${randomProjects[0]?.description}`}</p>
@@ -36,8 +36,11 @@ export default function SplashPageComponent() {
                                 </NavLink>
                             </div>
                         </div>
-                        <div>
-
+                        <div className='splash-spacer-right'>
+                            <h3 className='splash-main-project'>Recommended for you</h3>
+                            <ul className='splash-recomended-projects'>
+                                
+                            </ul>
                         </div>
                     </div>
                 </div>

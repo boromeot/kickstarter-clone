@@ -27,7 +27,7 @@ function FAQpage({ faq, setFAQListRender, setFAQRender, setFAQId }) {
       setUser(false)
     }
 
-  }, [])
+  }, [currentUserId.user?.id, faq.user_id])
 
 
   function handleDelete(e) {
