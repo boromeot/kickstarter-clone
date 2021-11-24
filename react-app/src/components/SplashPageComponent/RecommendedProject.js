@@ -5,11 +5,11 @@ const RecommendedProject = ({ project }) => {
   return (
     <li className='border-bottom-gray pb3'>
       <div className='splash-recommended-content'>
-          <NavLink to='#' className='splash-recommended-link'>
+          <NavLink to={`/projects/${project?.id}/comments`} className='splash-recommended-link'>
               <img className='splash-recommended-image' src={`${project?.image_src}`} alt='first recommended project'></img>
           </NavLink>
           <div className='splash-recommended-info'>
-              <NavLink to='#' className='splash-recommended-title'>{`${project?.title}`}</NavLink>
+              <NavLink to={`/projects/${project?.id}/comments`} className='splash-recommended-title'>{`${project?.title}`}</NavLink>
               <span className='splash-recommended-funded'>100% funded</span>
               <span className='splash-image-author'>By {`${project?.username}`}</span>
               <div className='splash-recommended-button-container'>

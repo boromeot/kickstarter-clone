@@ -105,6 +105,11 @@
     width: 100%;
 }
 
+.splash-recommended-content:hover .splash-recommended-title {
+    text-decoration: underline;
+    color: #037362;
+}
+
 .splash-recommended-link {
     padding-right: 24px;
     flex-basis: 40%;
