@@ -49,7 +49,6 @@ function App() {
         <Route path='/' exact={true} >
           <Navigation />
           <SplashPageComponent />
-          <Footer />
         </Route>
         <Route path='/projects/:projectId' >
           <Navigation />

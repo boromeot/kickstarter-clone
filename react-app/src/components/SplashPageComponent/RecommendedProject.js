@@ -10,8 +10,8 @@ const RecommendedProject = ({ project }) => {
           </NavLink>
           <div className='splash-recommended-info'>
               <NavLink to={`/projects/${project?.id}/comments`} className='splash-recommended-title'>{`${project?.title}`}</NavLink>
-              <span className='splash-recommended-funded'>100% funded</span>
-              <span className='splash-image-author'>By {`${project?.username}`}</span>
+              <span className='splash-recommended-funded'>{`${((project?.current_funding / project?.pledge_goal) * 100).toFixed()}% funded`}</span>
+              <span className='splash-image-author'>{`By ${project?.username}`}</span>
               <div className='splash-recommended-button-container'>
                   <button className='splash-recommended-button'>
                       <svg className="splash-svg" viewBox="0 0 12 16">

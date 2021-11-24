@@ -56,10 +56,15 @@
     max-height: 351.5px;
 }
 
-.splash-main-progress {
+.splash-main-progress-bar {
     width: 100%;
     height: 12px;
     background-color: #E8E8E8;
+}
+
+.splash-main-progress {
+    height: inherit;
+    background-color: green;
 }
 
 .splash-image-header {
