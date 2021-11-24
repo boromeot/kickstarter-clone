@@ -44,8 +44,8 @@ export default function SplashPageComponent() {
                                         <NavLink to='#' className='splash-recommended-link'>
                                             <img className='splash-recommended-image' src={`${randomProjects[1]?.image_src}`} alt='first recommended project'></img>
                                         </NavLink>
-                                        <div>
-                                            
+                                        <div className='splash-recommended-info'>
+                                            <NavLink to='#' className='splash-recommended-title'>{`${randomProjects[1]?.title}`}</NavLink>
                                         </div>
                                     </div>
                                 </li>

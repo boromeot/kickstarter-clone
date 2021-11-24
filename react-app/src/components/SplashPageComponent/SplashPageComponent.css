@@ -110,3 +110,25 @@
     height: 90px;
     width: 100%;
 }
+
+.splash-recommended-info {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 60%;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.splash-recommended-title {
+    font-size: 14px;
+    line-height: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.splash-recommended-title:hover {
+    text-decoration: underline;
+}
