@@ -68,7 +68,7 @@ const LoginForm = () => {
             className='input'
           />
         </div>
-        <div>
+        <div className='login-button-container'>
           <button className='btn-primary' type='submit'>Login</button>
           <button className='btn-edit' onClick={demoLogin}>Demo Login</button>
         </div>
