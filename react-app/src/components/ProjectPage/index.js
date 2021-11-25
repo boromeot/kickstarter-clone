@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import './ProjectPage.css'
-import { clear_project, getProject } from '../../store/project';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, NavLink, useParams, useRouteMatch, useHistory } from 'react-router-dom';
-import CommentsSection from '../CommentsSection';
+import Campaign from './Campaign';
 import FAQ from './FAQ';
 import FAQListComponent from './FAQListComponent';
 import Risks from './Risks';
-import Campaign from './Campaign';
-
-import Modal from '../Modal';
+import UpdatesSection from './UpdatesSection';
+import CommentsSection from '../CommentsSection';
 import BackerForm from './BackerForm';
-import Update from './UpdatesSection/Update';
+import Modal from '../Modal';
+import { clear_project, getProject } from '../../store/project';
+import './ProjectPage.css'
 
 const ProjectPage = () => {
   const dispatch = useDispatch();
@@ -167,7 +166,7 @@ const ProjectPage = () => {
         {FAQListRender && <FAQListComponent setFAQRender={setFAQRender} setFAQListRender={setFAQListRender} FAQQuestion={FAQQuestion} FAQAnswer={FAQAnswer} FAQId={FAQId} />}
       </Route>
       <Route path={`${path}/updates`}>
-        <Update />
+        <UpdatesSection updates={null} />
       </Route>
       <Route path={`${path}/comments`}>
         {comments ?

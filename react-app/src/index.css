@@ -73,6 +73,14 @@ li {
   border-bottom: 1px solid #E8E8E8;
 }
 
+.bg-grey-100 {
+  background-color: #FBFBFA;
+}
+
+.pt6 {
+  padding-top: 36px;
+}
+
 .pb3 {
   padding-bottom: 18px;
 }
