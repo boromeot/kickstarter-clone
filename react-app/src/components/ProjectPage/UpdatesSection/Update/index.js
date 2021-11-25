@@ -16,7 +16,21 @@ const Update = () => {
           </div>
           <NavLink className='update-container' to='#'>
             <div className='update'>
+              <article>
+                <header>
+                  <div className='update-counter-container'>
+                    <span className='update-counter'>Update #3</span>
+                  </div>
+                  <h2 className='update-header'>Placeholder</h2>
+                  <div></div>
+                </header>
+                <div>
 
+                </div>
+                <footer>
+
+                </footer>
+              </article>
             </div>
           </NavLink>
         </div>
