@@ -11,7 +11,7 @@ import Campaign from './Campaign';
 
 import Modal from '../Modal';
 import BackerForm from './BackerForm';
-import Update from './Update';
+import Update from './UpdatesSection/Update';
 
 const ProjectPage = () => {
   const dispatch = useDispatch();
