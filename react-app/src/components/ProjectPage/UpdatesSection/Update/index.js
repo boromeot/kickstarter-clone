@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import './Update.css';
 
 const Update = () => {
@@ -13,7 +14,11 @@ const Update = () => {
               </path>
             </svg>
           </div>
-          I am an update
+          <NavLink className='update-container' to='#'>
+            <div className='update'>
+
+            </div>
+          </NavLink>
         </div>
       </div>
     </div>

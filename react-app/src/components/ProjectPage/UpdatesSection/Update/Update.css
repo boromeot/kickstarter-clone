@@ -1,5 +1,16 @@
 .update-container {
+  display: block;
+  border: 1px solid#DCDEDD;
+  transition: border 0.2s;
+}
 
+.update-container:hover {
+  border-color: #9B9E9E;
+}
+
+.update {
+  padding: 36px;
+  background-color: #FFF;
 }
 
 .grid-container {
