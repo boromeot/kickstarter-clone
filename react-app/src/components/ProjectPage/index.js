@@ -4,17 +4,14 @@ import { clear_project, getProject } from '../../store/project';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, NavLink, useParams, useRouteMatch, useHistory } from 'react-router-dom';
 import CommentsSection from '../CommentsSection';
-import UpdatesComponent from '../UpdatesComponent';
-import UpdatePatchComponent from '../UpdatePatchComponent';
 import FAQ from './FAQ';
 import FAQListComponent from './FAQListComponent';
 import Risks from './Risks';
 import Campaign from './Campaign';
 
-
-import UpdateDisplayComponent from '../UpdateDisplayComponent';
 import Modal from '../Modal';
 import BackerForm from './BackerForm';
+import Update from './Update';
 
 const ProjectPage = () => {
   const dispatch = useDispatch();
@@ -26,17 +23,11 @@ const ProjectPage = () => {
 
   const [show, setShow] = useState(false);
 
-  const [toRenderComponent, setToRenderComponent] = useState(true)
-  const [toRenderDisplay, setToRenderDisplay] = useState(false)
-  const [toRenderPatch, setToRenderPatch] = useState(false)
-  const [updateNumber, setUpdateNumber] = useState(0)
-
   const [FAQListRender, setFAQListRender] = useState(false)
   const [FAQRender, setFAQRender] = useState(true)
   const [FAQQuestion, setFAQQuestion] = useState("")
   const [FAQAnswer, setFAQAnswer] = useState("")
   const [FAQId, setFAQId] = useState(0)
-  const [currentUpdateId, setCurrentUpdateId] = useState()
 
   const differenceByDays = (date1, date2) => {
     const timeDelta = Math.abs(date2 - date1);
@@ -176,33 +167,7 @@ const ProjectPage = () => {
         {FAQListRender && <FAQListComponent setFAQRender={setFAQRender} setFAQListRender={setFAQListRender} FAQQuestion={FAQQuestion} FAQAnswer={FAQAnswer} FAQId={FAQId} />}
       </Route>
       <Route path={`${path}/updates`}>
-        {toRenderComponent &&
-          <UpdatesComponent
-            project_id={id}
-            setToRenderComponent={setToRenderComponent}
-            setToRenderDisplay={setToRenderDisplay}
-            setToRenderPatch={setToRenderPatch}
-            setCurrentUpdateId={setCurrentUpdateId}
-            setUpdateNumber={setUpdateNumber}
-          />
-        }
-        {toRenderDisplay &&
-          <UpdateDisplayComponent
-            setToRenderComponent={setToRenderComponent}
-            setToRenderDisplay={setToRenderDisplay}
-            setToRenderPatch={setToRenderPatch}
-            currentUpdateId={currentUpdateId}
-            updateNumber={updateNumber}
-          />
-        }
-        {toRenderPatch &&
-          <UpdatePatchComponent
-            setToRenderComponent={setToRenderComponent}
-            setToRenderDisplay={setToRenderDisplay}
-            setToRenderPatch={setToRenderPatch}
-            currentUpdateId={currentUpdateId}
-          />
-        }
+        <Update />
       </Route>
       <Route path={`${path}/comments`}>
         {comments ?
