@@ -19,6 +19,14 @@ const LoginForm = () => {
     }
   };
 
+  const demoLogin = async e => {
+    e.preventDefault();
+    const data = await dispatch(login('demo@aa.io', 'password'));
+    if (data) {
+      setErrors(data);
+    }
+  };
+
   const updateEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -60,7 +68,10 @@ const LoginForm = () => {
             className='input'
           />
         </div>
-        <button className='btn-primary' type='submit'>Login</button>
+        <div>
+          <button className='btn-primary' type='submit'>Login</button>
+          <button className='btn-edit' onClick={demoLogin}>Demo Login</button>
+        </div>
         <div>
           New to Kickstarter?&nbsp;
           <NavLink to='/sign-up' exact={true} activeClassName='active'>
