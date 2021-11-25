@@ -1,0 +1,22 @@
+.update-container {
+
+}
+
+.grid-container {
+  margin: 0 auto;
+  padding: 0 60px;
+  max-width: 1366px;
+}
+
+.grid-row {
+  margin: 0 -18px;
+}
+
+.update-spacer {
+  padding: 0 -18px;
+  position: relative;
+  float: left;
+  margin-bottom: 36px;
+  width: calc(8/12 * 100%);
+  margin-left: calc(2/12 * 100%);
+}
