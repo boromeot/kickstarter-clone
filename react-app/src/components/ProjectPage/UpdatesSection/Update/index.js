@@ -29,6 +29,7 @@ const Update = () => {
                         Placeholder author name
                         <span className='update-author-creator'>Creator</span>
                       </div>
+                      <span className='update-date'>Placeholder date</span>
                     </div>
                   </div>
                 </header>

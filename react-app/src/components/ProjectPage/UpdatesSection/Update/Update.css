@@ -63,6 +63,13 @@
   vertical-align: middle;
 }
 
+.update-date {
+  display: block;
+  color: rgba(40, 40, 40, 0.5);
+  font-size: 13px;
+  line-height: 18px;
+}
+
 .grid-container {
   margin: 0 auto;
   padding: 0 60px;
