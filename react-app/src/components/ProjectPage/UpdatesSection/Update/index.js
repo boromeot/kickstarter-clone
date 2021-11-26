@@ -19,11 +19,17 @@ const Update = () => {
               <article>
                 <header>
                   <div className='update-counter-container'>
-                    <span className='update-counter'>Update #3</span>
+                    <span className='update-counter'>Placeholder Update #3</span>
                   </div>
                   <h2 className='update-header'>Placeholder</h2>
-                  <div className='update-author-container'>
-
+                  <div className='update-author-container '>
+                    <img className='update-author-icon' />
+                    <div className='pl2'>
+                      <div>
+                        Placeholder author name
+                        <span className='update-author-creator'>Creator</span>
+                      </div>
+                    </div>
                   </div>
                 </header>
                 <div>

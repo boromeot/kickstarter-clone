@@ -39,9 +39,28 @@
   align-items: flex-start;
   margin-bottom: 18px;
   padding-bottom: 18px;
-  border: 1px solid #DCDEDD;
+  border-bottom: 1px solid #DCDEDD;
   font-size: 14px;
   line-height: 24px
+}
+
+.update-author-icon {
+  height: 42px;
+  width: 42px;
+  border: 1px solid #DCDEDD;
+  border-radius: 100%;
+}
+
+.update-author-creator {
+  padding: 4px 5px;
+  border-radius: 3px;
+  margin-left: 6px;
+  font-weight: 700;
+  background-color: #05CE78;
+  color: #FFF;
+  font-size: 12px;
+  line-height: 18px;
+  vertical-align: middle;
 }
 
 .grid-container {
