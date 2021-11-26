@@ -20,7 +20,10 @@
 }
 
 .update-counter {
-
+  text-transform: uppercase;
+  color: rgba(40, 40, 40, 0.5);
+  font-size: 13px;
+  line-height: 18px;
 }
 
 .update-header {
@@ -29,6 +32,16 @@
   line-height: 40px;
   font-weight: bold;
   color: #282828;
+}
+
+.update-author-container {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  border: 1px solid #DCDEDD;
+  font-size: 14px;
+  line-height: 24px
 }
 
 .grid-container {

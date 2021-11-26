@@ -22,7 +22,9 @@ const Update = () => {
                     <span className='update-counter'>Update #3</span>
                   </div>
                   <h2 className='update-header'>Placeholder</h2>
-                  <div></div>
+                  <div className='update-author-container'>
+
+                  </div>
                 </header>
                 <div>
 
