@@ -70,14 +70,14 @@
   line-height: 18px;
 }
 
-.grid-container {
-  margin: 0 auto;
-  padding: 0 60px;
-  max-width: 1366px;
+.update-body {
+  max-height: 240px;
+  transition: max-height 0.2s;
+  overflow: hidden;
 }
 
-.grid-row {
-  margin: 0 -18px;
+.update-body:hover {
+  max-height: 320px;
 }
 
 .update-spacer {
