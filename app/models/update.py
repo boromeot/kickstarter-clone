@@ -1,3 +1,4 @@
+from datetime import datetime
 from .db import db
 
 class Update(db.Model):
@@ -5,7 +6,8 @@ class Update(db.Model):
   id = db.Column(db.Integer, primary_key=True)
   title = db.Column(db.String(100), nullable=False)
   description = db.Column(db.Text, nullable=False)
-
+  created_at = db.Column(db.DateTime, server_default=db.func.now())
+  updated_on = db.Column(db.DateTime, server_default=db.func.now(), server_onupdate=db.func.now())
   # Foreign Keys
   project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
   user_id = db.Column(db.Integer, db.ForeignKey('users.id'))

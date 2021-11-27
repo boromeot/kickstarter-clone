@@ -17,7 +17,7 @@ const Update = ({ update, index }) => {
           <article>
             <header>
               <div className='update-counter-container'>
-                <span className='update-counter'>{`Update ${index}`}</span>
+                <span className='update-counter'>{`Update #${index + 1}`}</span>
               </div>
               <h2 className='update-header'>Placeholder</h2>
               <div className='update-author-container '>
