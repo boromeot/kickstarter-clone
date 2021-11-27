@@ -17,6 +17,7 @@ const ProjectPage = () => {
   const history = useHistory();
   const { projectId } = useParams();
   const { user } = useSelector(state => state.session);
+  const { updates } = useSelector(state => state.project);
   const { id, title, description, campaign, video_src, image_src, current_funding, pledge_goal, faqs, risks, comments, tag, username, user_id, end_date} = useSelector(state => state.project)
   const { path, url } = useRouteMatch(); //Allows for backwards compatibility of route names
 
@@ -166,7 +167,7 @@ const ProjectPage = () => {
         {FAQListRender && <FAQListComponent setFAQRender={setFAQRender} setFAQListRender={setFAQListRender} FAQQuestion={FAQQuestion} FAQAnswer={FAQAnswer} FAQId={FAQId} />}
       </Route>
       <Route path={`${path}/updates`}>
-        <UpdatesSection updates={null} />
+        <UpdatesSection updates={updates} />
       </Route>
       <Route path={`${path}/comments`}>
         {comments ?

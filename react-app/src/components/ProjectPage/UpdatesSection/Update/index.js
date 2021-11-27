@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import './Update.css';
 
-const Update = () => {
+const Update = ({ update, index }) => {
   return (
     <div className='update-spacer'>
       <div className='hamburger-icon-container'>
@@ -17,14 +17,14 @@ const Update = () => {
           <article>
             <header>
               <div className='update-counter-container'>
-                <span className='update-counter'>Placeholder Update #3</span>
+                <span className='update-counter'>{`Update ${index}`}</span>
               </div>
               <h2 className='update-header'>Placeholder</h2>
               <div className='update-author-container '>
                 <img className='update-author-icon' alt="Author's profile"/>
                 <div className='pl2'>
                   <div>
-                    Placeholder author name
+                    {update.username}
                     <span className='update-author-creator'>Creator</span>
                   </div>
                   <span className='update-date'>Placeholder date</span>
