@@ -5,7 +5,6 @@ import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import { authenticate } from './store/session';
 import ProjectPage from './components/ProjectPage';
-import UpdatesView from './components/UpdatesView';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import SplashPageComponent from './components/SplashPageComponent';
@@ -53,11 +52,6 @@ function App() {
         <Route path='/projects/:projectId' >
           <Navigation />
           <ProjectPage />
-          <Footer />
-        </Route>
-        <Route path='/updates'>
-          <Navigation />
-          <UpdatesView />
           <Footer />
         </Route>
         <Route path='/start'>

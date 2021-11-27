@@ -1,9 +1,3 @@
-.grid-container {
-    margin: 0 auto;
-    padding: 0 60px;
-    max-width: 1366px;
-}
-
 /* Category Nav CSS*/
 .category-nav {
     display: flex;

@@ -1,42 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import './ProjectPage.css'
-import { clear_project, getProject } from '../../store/project';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, NavLink, useParams, useRouteMatch, useHistory } from 'react-router-dom';
-import CommentsSection from '../CommentsSection';
-import UpdatesComponent from '../UpdatesComponent';
-import UpdatePatchComponent from '../UpdatePatchComponent';
+import Campaign from './Campaign';
 import FAQ from './FAQ';
 import FAQListComponent from './FAQListComponent';
 import Risks from './Risks';
-import Campaign from './Campaign';
-
-
-import UpdateDisplayComponent from '../UpdateDisplayComponent';
-import Modal from '../Modal';
+import UpdatesSection from './UpdatesSection';
+import CommentsSection from '../CommentsSection';
 import BackerForm from './BackerForm';
+import Modal from '../Modal';
+import { clear_project, getProject } from '../../store/project';
+import './ProjectPage.css'
+import UpdatePage from './UpdatesSection/UpdatePage';
 
 const ProjectPage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const { projectId } = useParams();
   const { user } = useSelector(state => state.session);
+  const { updates } = useSelector(state => state.project);
   const { id, title, description, campaign, video_src, image_src, current_funding, pledge_goal, faqs, risks, comments, tag, username, user_id, end_date} = useSelector(state => state.project)
   const { path, url } = useRouteMatch(); //Allows for backwards compatibility of route names
 
   const [show, setShow] = useState(false);
-
-  const [toRenderComponent, setToRenderComponent] = useState(true)
-  const [toRenderDisplay, setToRenderDisplay] = useState(false)
-  const [toRenderPatch, setToRenderPatch] = useState(false)
-  const [updateNumber, setUpdateNumber] = useState(0)
 
   const [FAQListRender, setFAQListRender] = useState(false)
   const [FAQRender, setFAQRender] = useState(true)
   const [FAQQuestion, setFAQQuestion] = useState("")
   const [FAQAnswer, setFAQAnswer] = useState("")
   const [FAQId, setFAQId] = useState(0)
-  const [currentUpdateId, setCurrentUpdateId] = useState()
 
   const differenceByDays = (date1, date2) => {
     const timeDelta = Math.abs(date2 - date1);
@@ -175,34 +167,11 @@ const ProjectPage = () => {
         {FAQRender && <FAQ faqs={faqs} setFAQRender={setFAQRender} setFAQListRender={setFAQListRender} setFAQQuestion={setFAQQuestion} setFAQAnswer={setFAQAnswer} setFAQId={setFAQId} FAQId={FAQId} />}
         {FAQListRender && <FAQListComponent setFAQRender={setFAQRender} setFAQListRender={setFAQListRender} FAQQuestion={FAQQuestion} FAQAnswer={FAQAnswer} FAQId={FAQId} />}
       </Route>
-      <Route path={`${path}/updates`}>
-        {toRenderComponent &&
-          <UpdatesComponent
-            project_id={id}
-            setToRenderComponent={setToRenderComponent}
-            setToRenderDisplay={setToRenderDisplay}
-            setToRenderPatch={setToRenderPatch}
-            setCurrentUpdateId={setCurrentUpdateId}
-            setUpdateNumber={setUpdateNumber}
-          />
-        }
-        {toRenderDisplay &&
-          <UpdateDisplayComponent
-            setToRenderComponent={setToRenderComponent}
-            setToRenderDisplay={setToRenderDisplay}
-            setToRenderPatch={setToRenderPatch}
-            currentUpdateId={currentUpdateId}
-            updateNumber={updateNumber}
-          />
-        }
-        {toRenderPatch &&
-          <UpdatePatchComponent
-            setToRenderComponent={setToRenderComponent}
-            setToRenderDisplay={setToRenderDisplay}
-            setToRenderPatch={setToRenderPatch}
-            currentUpdateId={currentUpdateId}
-          />
-        }
+      <Route path={`${path}/updates`} exact>
+        <UpdatesSection updates={updates} />
+      </Route>
+      <Route path={`${path}/updates/:updateId`}>
+        <UpdatePage />
       </Route>
       <Route path={`${path}/comments`}>
         {comments ?

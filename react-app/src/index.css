@@ -69,10 +69,50 @@ li {
   background-color: rgb(80, 80, 80)
 }
 
+.grid-container {
+  margin: 0 auto;
+  padding-left: 60px;
+  padding-right: 60px;
+  max-width: 1366px;
+}
+
+.grid-row {
+  margin: 0 -18px;
+}
+
 .border-bottom-gray {
   border-bottom: 1px solid #E8E8E8;
 }
 
+.bg-grey-100 {
+  background-color: #FBFBFA;
+}
+
+.mr4 {
+  margin-right: 24px;
+}
+
+.mt4 {
+  margin-top: 24px;
+}
+
+.pl2 {
+  padding-left: 12px;
+}
+
+.pt6 {
+  padding-top: 36px;
+}
+
 .pb3 {
   padding-bottom: 18px;
+}
+
+.pb8 {
+  padding-bottom: 48px;
+}
+
+.py6 {
+  padding-top: 36px;
+  padding-bottom: 36px;
 }
