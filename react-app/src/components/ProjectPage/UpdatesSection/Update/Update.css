@@ -6,6 +6,7 @@
 
 .update-container:hover {
   border-color: #9B9E9E;
+  color: rgb(40, 40, 40);
 }
 
 .update {
@@ -139,7 +140,7 @@
   font-size: 14px;
 }
 
-.update-readmore:hover {
+.update-readmore-link:hover {
   box-shadow: 0px 2px 5px rgba(22, 22, 22, 0.16);
   border-color: rgb(34, 34, 34);
 }
