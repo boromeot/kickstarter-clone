@@ -124,3 +124,11 @@
   font-size: 14px;
   line-height: 24px;
 }
+
+.update-footer-icon {
+  margin-right: 6px;
+  fill: #9B9E9E;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
