@@ -27,7 +27,7 @@ const Update = ({ update, index }) => {
                     {update.username}
                     <span className='update-author-creator'>Creator</span>
                   </div>
-                  <span className='update-date'>Placeholder date</span>
+                  <span className='update-date'>{update.created_at}</span>
                 </div>
               </div>
             </header>
