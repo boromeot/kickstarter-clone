@@ -1,8 +1,9 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useRouteMatch } from "react-router-dom";
 import './Update.css';
 
 const Update = ({ update, index }) => {
+  const { url } = useRouteMatch();
   return (
     <div className='update-spacer'>
       <div className='hamburger-icon-container'>
@@ -12,16 +13,16 @@ const Update = ({ update, index }) => {
           </path>
         </svg>
       </div>
-      <NavLink className='update-container' to='#'>
+      <NavLink className='update-container' to={`${url}/${update.id}`}>
         <div className='update'>
           <article>
             <header>
               <div className='update-counter-container'>
                 <span className='update-counter'>{`Update #${index + 1}`}</span>
               </div>
-              <h2 className='update-header'>Placeholder</h2>
+              <h2 className='update-header'>{update.title}</h2>
               <div className='update-author-container '>
-                <img className='update-author-icon' alt="Author's profile"/>
+                <img className='update-author-icon' alt/>
                 <div className='pl2'>
                   <div>
                     {update.username}
@@ -76,7 +77,7 @@ const Update = ({ update, index }) => {
                     Placeholder 3
                   </span>
                 </div>
-                <NavLink className='update-readmore-link' to='#'>
+                <NavLink className='update-readmore-link' to={`${url}/${update.id}`}>
                   <div className='update-readmore-container'>
                     Read More
                     <svg className='update-readmore-icon' viewBox='0 0 60 60'>

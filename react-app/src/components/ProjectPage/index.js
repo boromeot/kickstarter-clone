@@ -11,6 +11,7 @@ import BackerForm from './BackerForm';
 import Modal from '../Modal';
 import { clear_project, getProject } from '../../store/project';
 import './ProjectPage.css'
+import UpdatePage from './UpdatesSection/UpdatePage';
 
 const ProjectPage = () => {
   const dispatch = useDispatch();
@@ -166,8 +167,11 @@ const ProjectPage = () => {
         {FAQRender && <FAQ faqs={faqs} setFAQRender={setFAQRender} setFAQListRender={setFAQListRender} setFAQQuestion={setFAQQuestion} setFAQAnswer={setFAQAnswer} setFAQId={setFAQId} FAQId={FAQId} />}
         {FAQListRender && <FAQListComponent setFAQRender={setFAQRender} setFAQListRender={setFAQListRender} FAQQuestion={FAQQuestion} FAQAnswer={FAQAnswer} FAQId={FAQId} />}
       </Route>
-      <Route path={`${path}/updates`}>
+      <Route path={`${path}/updates`} exact>
         <UpdatesSection updates={updates} />
+      </Route>
+      <Route path={`${path}/updates/:updateId`}>
+        <UpdatePage />
       </Route>
       <Route path={`${path}/comments`}>
         {comments ?
