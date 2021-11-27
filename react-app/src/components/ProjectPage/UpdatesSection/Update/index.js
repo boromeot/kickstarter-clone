@@ -21,7 +21,7 @@ const Update = () => {
               </div>
               <h2 className='update-header'>Placeholder</h2>
               <div className='update-author-container '>
-                <img className='update-author-icon' />
+                <img className='update-author-icon' alt="Author's profile"/>
                 <div className='pl2'>
                   <div>
                     Placeholder author name
@@ -34,13 +34,6 @@ const Update = () => {
             <div className='update-body'>
               <div className='mt4'>
                 <div className='update-content'>
-                  {/* <p>
-                    Bacon ipsum dolor amet shank chicken bacon pig corned beef ball tip hamburger strip steak short loin tongue tenderloin boudin.
-                    Ham picanha landjaeger meatball pork belly andouille, rump ground round pastrami filet mignon.
-                    Pork loin drumstick pastrami fatback picanha boudin kielbasa leberkas ham venison kevin strip steak sirloin.
-                    Chicken prosciutto jerky, leberkas andouille tenderloin doner ribeye sausage tri-tip t-bone bresaola turkey chuck venison.
-                    T-bone venison ball tip brisket pork loin swine. Buffalo short ribs tri-tip brisket.
-                  </p>
                   <p>
                     Bacon ipsum dolor amet shank chicken bacon pig corned beef ball tip hamburger strip steak short loin tongue tenderloin boudin.
                     Ham picanha landjaeger meatball pork belly andouille, rump ground round pastrami filet mignon.
@@ -54,12 +47,24 @@ const Update = () => {
                     Pork loin drumstick pastrami fatback picanha boudin kielbasa leberkas ham venison kevin strip steak sirloin.
                     Chicken prosciutto jerky, leberkas andouille tenderloin doner ribeye sausage tri-tip t-bone bresaola turkey chuck venison.
                     T-bone venison ball tip brisket pork loin swine. Buffalo short ribs tri-tip brisket.
-                  </p> */}
+                  </p>
+                  <p>
+                    Bacon ipsum dolor amet shank chicken bacon pig corned beef ball tip hamburger strip steak short loin tongue tenderloin boudin.
+                    Ham picanha landjaeger meatball pork belly andouille, rump ground round pastrami filet mignon.
+                    Pork loin drumstick pastrami fatback picanha boudin kielbasa leberkas ham venison kevin strip steak sirloin.
+                    Chicken prosciutto jerky, leberkas andouille tenderloin doner ribeye sausage tri-tip t-bone bresaola turkey chuck venison.
+                    T-bone venison ball tip brisket pork loin swine. Buffalo short ribs tri-tip brisket.
+                  </p>
                 </div>
               </div>
             </div>
             <footer>
+              <div className='update-footer-container'>
+                <div className='update-footer-icons'>
+                  
+                </div>
 
+              </div>
             </footer>
           </article>
         </div>

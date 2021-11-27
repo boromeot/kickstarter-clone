@@ -104,3 +104,23 @@
   width: 48px;
   fill: #F97B62;
 }
+
+.update-content > p {
+  font-size: 16px;
+  line-height: 29px;
+  margin-bottom: 30px;
+}
+
+.update-footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 6px;
+}
+
+.update-footer-icons {
+  padding-bottom: 18px;
+  color: #9B9E9E;
+  font-size: 14px;
+  line-height: 24px;
+}
