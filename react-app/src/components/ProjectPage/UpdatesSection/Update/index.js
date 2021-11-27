@@ -76,8 +76,13 @@ const Update = () => {
                     Placeholder 3
                   </span>
                 </div>
-                <NavLink className='update-readmore' to='#'>
-
+                <NavLink className='update-readmore-link' to='#'>
+                  <div className='update-readmore-container'>
+                    Read More
+                    <svg className='update-readmore-icon' viewBox='0 0 60 60'>
+                      <path fill-rule="nonzero" d="M45 30L19 4l-5 5 21 21-21 21 5 5"></path>
+                    </svg>
+                  </div>
                 </NavLink>
               </div>
             </footer>
