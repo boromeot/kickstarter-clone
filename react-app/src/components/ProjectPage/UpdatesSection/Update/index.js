@@ -22,7 +22,7 @@ const Update = ({ update, index }) => {
               </div>
               <h2 className='update-header'>{update.title}</h2>
               <div className='update-author-container '>
-                <img className='update-author-icon' alt/>
+                <img className='update-author-icon' alt=""/>
                 <div className='pl2'>
                   <div>
                     {update.username}
