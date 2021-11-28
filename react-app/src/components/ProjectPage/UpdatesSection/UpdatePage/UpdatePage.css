@@ -7,8 +7,9 @@
 
 .update-page-all-updates {
   display: inline-flex;
-  padding: 10px 18px;
+  padding: 11px 18px;
   border: 1px solid rgb(209, 209, 209);
   font-size: 14px;
+  line-height: 21px;
   float: none;
 }
