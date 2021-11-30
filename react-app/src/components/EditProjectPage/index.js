@@ -137,10 +137,10 @@ const EditProjectPage = () => {
           </NavLink>
         </div>
         <div className='edit-page-buttons'>
-          <NavLink to={`/projects/${projectId}/comments`} className='btn-primary edit-project-next edit-project-view-button'>
+          <NavLink to={`/projects/${projectId}/comments`} className='btn btn-primary edit-project-next edit-project-view-button'>
             View Project
           </NavLink>
-          <button type='submit' className='btn-primary edit-project-next'>
+          <button type='submit' className='btn btn-primary edit-project-next'>
             Save
           </button>
         </div>

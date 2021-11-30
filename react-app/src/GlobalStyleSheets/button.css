@@ -1,3 +1,8 @@
+.btn:hover {
+  cursor: pointer;
+  box-shadow: 0px 2px 5px rgba(22, 22, 22, 0.16);
+}
+
 .btn-primary, .btn-delete, .btn-edit {
   border: none;
   transition: all 0.2s;
@@ -5,36 +10,42 @@
   color: white;
 }
 
-.btn-primary:hover, .btn-delete:hover, .btn-edit:hover {
-  cursor: pointer;
-}
-
 .btn-primary {
   background-color: rgb(2, 136, 88);
-}
-
-.btn-delete {
-  background-color: rgb(209, 26, 42);
-}
-
-.btn-edit {
-  background-color: rgb(150, 150, 150)
 }
 
 .btn-primary:hover {
   background-color: rgb(1, 87, 56);
 }
 
+.btn-secondary {
+  background-color: var(--btn-bg);
+  border: 1px solid var(--btn-border);
+  color: var(--btn-text);
+}
+
+.btn-secondary:hover {
+  border-color: rgb(34, 34, 34);
+  box-shadow: 0px 2px 5px rgba(22, 22, 22, 0.16);
+}
+
+.btn-delete {
+  background-color: rgb(209, 26, 42);
+}
+
 .btn-delete:hover {
   background-color: rgb(110, 20, 33);
+}
+
+.btn-edit {
+  background-color: rgb(150, 150, 150)
 }
 
 .btn-edit:hover {
   background-color: rgb(80, 80, 80)
 }
 
-.btn-secondary:hover {
-  border-color: rgb(34, 34, 34);
-  box-shadow: 0px 2px 5px rgba(22, 22, 22, 0.16);
-  color: rgb(34, 34, 34);
+.btn-medium {
+  padding: 10px 18px;
+  font-size: 14px;
 }

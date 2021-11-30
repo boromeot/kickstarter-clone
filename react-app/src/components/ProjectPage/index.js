@@ -80,8 +80,8 @@ const ProjectPage = () => {
             {
               user?.id === user_id &&
               <>
-                <NavLink to={`/projects/${projectId}/edit/basics`} className='btn-edit project-minor-btn'>Edit</NavLink>
-                <button onClick={deleteProject} className='btn-delete project-minor-btn' id='project-delete-btn'>Delete</button>
+                <NavLink to={`/projects/${projectId}/edit/basics`} className='btn btn-edit project-minor-btn'>Edit</NavLink>
+                <button onClick={deleteProject} className='btn btn-delete project-minor-btn' id='project-delete-btn'>Delete</button>
               </>
             }
           </div>
@@ -111,7 +111,7 @@ const ProjectPage = () => {
             </div>
           </div>
           <div>
-            <button className='btn-primary' id='pledge-btn' onClick={() => setShow(true)} disabled={!user}>
+            <button className='btn btn-primary' id='pledge-btn' onClick={() => setShow(true)} disabled={!user}>
               Back this project
             </button>
             <Modal title='Back this project' onClose={() => setShow(false)} show={show}>
@@ -151,7 +151,7 @@ const ProjectPage = () => {
             </NavLink>
           </div>
           <div className='test-item-container'>
-            <button className='btn-primary test-item-btn' onClick={() => setShow(true)} disabled={!user}>
+            <button className='btn btn-primary test-item-btn' onClick={() => setShow(true)} disabled={!user}>
               Back this project
             </button>
           </div>

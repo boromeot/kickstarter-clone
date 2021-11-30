@@ -2,11 +2,15 @@
 @import 'spacers.css';
 @import 'icon.css';
 @import 'button.css';
+@import 'border.css';
 
 
 :root {
   --nav-bar-height: 66px;
   --body-background-color: #F7F7F6;
+  --btn-bg: #fff;
+  --btn-border: rgb(209, 209, 209);
+  --btn-text: rgb(34, 34, 34);
 }
 
 * {
@@ -33,10 +37,22 @@ li {
   list-style: none;
 }
 
+.flex {
+  display: flex;
+}
+
 .flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .grid-container {
@@ -48,10 +64,6 @@ li {
 
 .grid-row {
   margin: 0 -18px;
-}
-
-.border-bottom-gray {
-  border-bottom: 1px solid #E8E8E8;
 }
 
 .bg-grey-100 {

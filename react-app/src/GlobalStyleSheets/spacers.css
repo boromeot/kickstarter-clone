@@ -12,8 +12,13 @@
   margin-right: 24px;
 }
 
+/*Margin top*/
 .mt4 {
   margin-top: 24px;
+}
+
+.mt8 {
+  margin-top: 48px;
 }
 
 .pl2 {
@@ -30,6 +35,10 @@
 
 .pb8 {
   padding-bottom: 48px;
+}
+
+.py3 {
+  padding: 18px 0;
 }
 
 .py6 {
