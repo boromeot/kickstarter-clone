@@ -13,3 +13,7 @@
   line-height: 21px;
   float: none;
 }
+
+.update-body2, .update-body2:hover {
+  max-height: 100%;
+}

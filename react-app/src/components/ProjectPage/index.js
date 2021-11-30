@@ -157,27 +157,29 @@ const ProjectPage = () => {
           </div>
         </div>
       </div>
-      <Route path={`${path}/description`}>
-        <Campaign campaign={campaign} />
-      </Route>
-      <Route path={`${path}/risks`}>
-        <Risks risks={risks} />
-      </Route>
-      <Route path={`${path}/faqs`}>
-        {FAQRender && <FAQ faqs={faqs} setFAQRender={setFAQRender} setFAQListRender={setFAQListRender} setFAQQuestion={setFAQQuestion} setFAQAnswer={setFAQAnswer} setFAQId={setFAQId} FAQId={FAQId} />}
-        {FAQListRender && <FAQListComponent setFAQRender={setFAQRender} setFAQListRender={setFAQListRender} FAQQuestion={FAQQuestion} FAQAnswer={FAQAnswer} FAQId={FAQId} />}
-      </Route>
-      <Route path={`${path}/updates`} exact>
-        <UpdatesSection updates={updates} />
-      </Route>
-      <Route path={`${path}/updates/:updateId`}>
-        <UpdatePage />
-      </Route>
-      <Route path={`${path}/comments`}>
-        {comments ?
-          <CommentsSection comments={comments} project_id={id} />
-          : 'no comments'}
-      </Route >
+      <div className='project-sub-page-container'>
+        <Route path={`${path}/description`}>
+          <Campaign campaign={campaign} />
+        </Route>
+        <Route path={`${path}/risks`}>
+          <Risks risks={risks} />
+        </Route>
+        <Route path={`${path}/faqs`}>
+          {FAQRender && <FAQ faqs={faqs} setFAQRender={setFAQRender} setFAQListRender={setFAQListRender} setFAQQuestion={setFAQQuestion} setFAQAnswer={setFAQAnswer} setFAQId={setFAQId} FAQId={FAQId} />}
+          {FAQListRender && <FAQListComponent setFAQRender={setFAQRender} setFAQListRender={setFAQListRender} FAQQuestion={FAQQuestion} FAQAnswer={FAQAnswer} FAQId={FAQId} />}
+        </Route>
+        <Route path={`${path}/updates`} exact>
+          <UpdatesSection updates={updates} />
+        </Route>
+        <Route path={`${path}/updates/:updateId`}>
+          <UpdatePage />
+        </Route>
+        <Route path={`${path}/comments`}>
+          {comments ?
+            <CommentsSection comments={comments} project_id={id} />
+            : 'no comments'}
+        </Route >
+      </div>
 
     </div >
   )
