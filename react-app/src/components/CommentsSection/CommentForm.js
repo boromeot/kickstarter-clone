@@ -34,7 +34,7 @@ const CommentForm = ({ comment_user_id, comment_id, setShow, method }) => {
           className='input'
         />
       </div>
-      <button className='btn-primary' type='submit'>Submit</button>
+      <button className='btn btn-primary' type='submit'>Submit</button>
     </form>
   )
 }

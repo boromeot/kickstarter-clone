@@ -71,13 +71,13 @@
   line-height: 18px;
 }
 
-.update-body {
+.update-truncated-body {
   max-height: 240px;
   transition: max-height 0.2s;
   overflow: hidden;
 }
 
-.update-body:hover {
+.update-truncated-body:hover {
   max-height: 320px;
 }
 
@@ -149,11 +149,4 @@
   display: flex;
   align-items: center;
   color: rgb(34, 34, 34);
-}
-
-.update-readmore-icon {
-  margin-left: 6px;
-  height: 20px;
-  width: 20px;
-  vertical-align: middle;
 }

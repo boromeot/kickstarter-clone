@@ -80,8 +80,8 @@ const ProjectPage = () => {
             {
               user?.id === user_id &&
               <>
-                <NavLink to={`/projects/${projectId}/edit/basics`} className='btn-edit project-minor-btn'>Edit</NavLink>
-                <button onClick={deleteProject} className='btn-delete project-minor-btn' id='project-delete-btn'>Delete</button>
+                <NavLink to={`/projects/${projectId}/edit/basics`} className='btn btn-edit project-minor-btn'>Edit</NavLink>
+                <button onClick={deleteProject} className='btn btn-delete project-minor-btn' id='project-delete-btn'>Delete</button>
               </>
             }
           </div>
@@ -111,7 +111,7 @@ const ProjectPage = () => {
             </div>
           </div>
           <div>
-            <button className='btn-primary' id='pledge-btn' onClick={() => setShow(true)} disabled={!user}>
+            <button className='btn btn-primary' id='pledge-btn' onClick={() => setShow(true)} disabled={!user}>
               Back this project
             </button>
             <Modal title='Back this project' onClose={() => setShow(false)} show={show}>
@@ -151,33 +151,35 @@ const ProjectPage = () => {
             </NavLink>
           </div>
           <div className='test-item-container'>
-            <button className='btn-primary test-item-btn' onClick={() => setShow(true)} disabled={!user}>
+            <button className='btn btn-primary test-item-btn' onClick={() => setShow(true)} disabled={!user}>
               Back this project
             </button>
           </div>
         </div>
       </div>
-      <Route path={`${path}/description`}>
-        <Campaign campaign={campaign} />
-      </Route>
-      <Route path={`${path}/risks`}>
-        <Risks risks={risks} />
-      </Route>
-      <Route path={`${path}/faqs`}>
-        {FAQRender && <FAQ faqs={faqs} setFAQRender={setFAQRender} setFAQListRender={setFAQListRender} setFAQQuestion={setFAQQuestion} setFAQAnswer={setFAQAnswer} setFAQId={setFAQId} FAQId={FAQId} />}
-        {FAQListRender && <FAQListComponent setFAQRender={setFAQRender} setFAQListRender={setFAQListRender} FAQQuestion={FAQQuestion} FAQAnswer={FAQAnswer} FAQId={FAQId} />}
-      </Route>
-      <Route path={`${path}/updates`} exact>
-        <UpdatesSection updates={updates} />
-      </Route>
-      <Route path={`${path}/updates/:updateId`}>
-        <UpdatePage />
-      </Route>
-      <Route path={`${path}/comments`}>
-        {comments ?
-          <CommentsSection comments={comments} project_id={id} />
-          : 'no comments'}
-      </Route >
+      <div className='project-sub-page-container'>
+        <Route path={`${path}/description`}>
+          <Campaign campaign={campaign} />
+        </Route>
+        <Route path={`${path}/risks`}>
+          <Risks risks={risks} />
+        </Route>
+        <Route path={`${path}/faqs`}>
+          {FAQRender && <FAQ faqs={faqs} setFAQRender={setFAQRender} setFAQListRender={setFAQListRender} setFAQQuestion={setFAQQuestion} setFAQAnswer={setFAQAnswer} setFAQId={setFAQId} FAQId={FAQId} />}
+          {FAQListRender && <FAQListComponent setFAQRender={setFAQRender} setFAQListRender={setFAQListRender} FAQQuestion={FAQQuestion} FAQAnswer={FAQAnswer} FAQId={FAQId} />}
+        </Route>
+        <Route path={`${path}/updates`} exact>
+          <UpdatesSection updates={updates} />
+        </Route>
+        <Route path={`${path}/updates/:updateId`}>
+          <UpdatePage />
+        </Route>
+        <Route path={`${path}/comments`}>
+          {comments ?
+            <CommentsSection comments={comments} project_id={id} />
+            : 'no comments'}
+        </Route >
+      </div>
 
     </div >
   )

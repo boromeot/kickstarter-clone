@@ -99,7 +99,7 @@ const SignUpForm = () => {
             className='input'
           ></input>
         </div>
-        <button className='btn-primary' type='submit'>Create account</button>
+        <button className='btn btn-primary' type='submit'>Create account</button>
       </form>
     </div>
   );

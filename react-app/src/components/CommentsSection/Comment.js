@@ -34,8 +34,8 @@ const Comment = ({ comment }) => {
         {
           user?.id === commentUserId &&
           <div className='comment-buttons'>
-            <button className='btn-edit comment-edit' onClick={onPatch}>Edit</button>
-            <button className='btn-delete comment-delete' onClick={onDelete}>Delete</button>
+            <button className='btn btn-edit comment-edit' onClick={onPatch}>Edit</button>
+            <button className='btn btn-delete comment-delete' onClick={onDelete}>Delete</button>
           </div>
         }
       </div>

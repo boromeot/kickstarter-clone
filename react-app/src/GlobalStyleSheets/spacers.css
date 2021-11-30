@@ -1,0 +1,55 @@
+/*Margin left*/
+.ml1 {
+  margin-left: 6px;
+}
+
+.ml2 {
+  margin-left: 12px;
+}
+
+/*Margin right*/
+.mr4 {
+  margin-right: 24px;
+}
+
+/*Margin top*/
+.mt4 {
+  margin-top: 24px;
+}
+
+.mt6 {
+  margin-top: 36px;
+}
+
+.mt8 {
+  margin-top: 48px;
+}
+
+.pl2 {
+  padding-left: 12px;
+}
+
+.pl3 {
+  padding-left: 18px;
+}
+
+.pt6 {
+  padding-top: 36px;
+}
+
+.pb3 {
+  padding-bottom: 18px;
+}
+
+.pb8 {
+  padding-bottom: 48px;
+}
+
+.py3 {
+  padding: 18px 0;
+}
+
+.py6 {
+  padding-top: 36px;
+  padding-bottom: 36px;
+}

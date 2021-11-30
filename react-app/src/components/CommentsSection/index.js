@@ -33,7 +33,7 @@ const CommentsSection = ({ comments, project_id }) => {
         </div>
         {user &&
           <>
-            <button className='comments-btn btn-primary' onClick={() => setShow(true)}>
+            <button className='btn comments-btn btn-primary' onClick={() => setShow(true)}>
               Add a comment
             </button>
             <Modal title='Add a comment' onClose={() => setShow(false)} show={show}>

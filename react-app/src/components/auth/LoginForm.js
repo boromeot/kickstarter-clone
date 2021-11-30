@@ -69,8 +69,8 @@ const LoginForm = () => {
           />
         </div>
         <div className='login-button-container'>
-          <button className='btn-primary' type='submit'>Login</button>
-          <button className='btn-edit' onClick={demoLogin}>Demo Login</button>
+          <button className='btn btn-primary' type='submit'>Login</button>
+          <button className='btn btn-edit' onClick={demoLogin}>Demo Login</button>
         </div>
         <div>
           New to Kickstarter?&nbsp;
