@@ -3,7 +3,8 @@
 @import 'icon.css';
 @import 'button.css';
 @import 'border.css';
-
+@import 'colors.css';
+@import 'font.css';
 
 :root {
   --nav-bar-height: 66px;
