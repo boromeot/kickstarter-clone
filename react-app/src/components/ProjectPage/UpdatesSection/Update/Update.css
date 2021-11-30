@@ -71,13 +71,13 @@
   line-height: 18px;
 }
 
-.update-body {
+.update-truncated-body {
   max-height: 240px;
   transition: max-height 0.2s;
   overflow: hidden;
 }
 
-.update-body:hover {
+.update-truncated-body:hover {
   max-height: 320px;
 }
 

@@ -1,10 +1,9 @@
 import React from "react";
 import { NavLink, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import Update from "../Update";
-import './UpdatePage.css';
 import UpdateHeader from "../Update/UpdateHeader";
 import UpdateBody from "../Update/UpdateBody";
+import './UpdatePage.css';
 
 
 const UpdatePage = () => {
@@ -24,7 +23,7 @@ const UpdatePage = () => {
           </NavLink>
         </div>
         <UpdateHeader update={update} />
-        <UpdateBody update={update} className={'update-body2'} />
+        <UpdateBody update={update} className={'update-body'} />
       </div>
     </div>
   )
