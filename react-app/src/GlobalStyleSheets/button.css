@@ -1,3 +1,7 @@
+.btn {
+  display: inline-flex;
+}
+
 .btn:hover {
   cursor: pointer;
   box-shadow: 0px 2px 5px rgba(22, 22, 22, 0.16);

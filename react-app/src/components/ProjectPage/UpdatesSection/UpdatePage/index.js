@@ -3,7 +3,9 @@ import { NavLink, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import UpdateHeader from "../Update/UpdateHeader";
 import UpdateBody from "../Update/UpdateBody";
+import LeftChevron from "../../../SVGS/LeftChevron";
 import './UpdatePage.css';
+import RightChevron from "../../../SVGS/RightChevron";
 
 
 const UpdatePage = () => {
@@ -15,9 +17,7 @@ const UpdatePage = () => {
         <div className='pb8'>
           <NavLink className='update-page-all-updates btn-secondary' to={`/projects/${projectId}/updates`}>
             <div className='flex-center'>
-              <svg className='icon-12 ' viewBox='0 0 60 60'>
-                <path fill-rule="nonzero" d="M14 30l26 26 5-5-21-21L45 9l-5-5"></path>
-              </svg>
+              <LeftChevron className='icon-20' viewBox='0 0 60 60' />
               <span className='ml2'>All updates</span>
             </div>
           </NavLink>
@@ -35,6 +35,28 @@ const UpdatePage = () => {
             Placeholder 213 people like this update
           </span>
         </footer>
+        <div className='mt6 flex align-center'>
+          <div className='flex1'>
+            <NavLink to='#' >
+              <div className='btn btn-secondary btn-medium'>
+                <div className='flex align-center'>
+                  <LeftChevron className='icon-12' viewBox='0 0 60 60' />
+                  <span className='ml2'>Previous</span>
+                </div>
+              </div>
+            </NavLink>
+          </div>
+          <div className='flex1 text-right'>
+            <NavLink to='#' >
+              <div className='btn btn-secondary btn-medium'>
+                <div className='flex align-center'>
+                  <span>Next</span>
+                  <RightChevron className='icon-12 ml2' viewBox='0 0 60 60' />
+                </div>
+              </div>
+            </NavLink>
+          </div>
+        </div>
       </div>
     </div>
   )

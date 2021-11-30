@@ -19,6 +19,7 @@
 	padding: 0;
   box-sizing: border-box;
   font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.5;
 }
 
 a {
@@ -40,6 +41,10 @@ li {
 
 .flex {
   display: flex;
+}
+
+.flex1 {
+  flex: 1;
 }
 
 .flex-center {
