@@ -32,6 +32,24 @@ const UpdatesSection = ({ updates }) => {
               }
             </div>
           </div>
+          <div className='grid-container'>
+            <div className='grid-row'>
+              <div className='update-spacer'>
+                <div className='relative clip'>
+                  <div style={{position: 'absolute', width: '185px', top: '72%', left: '50%'}}>
+                    <img src="https://ksr-static.imgix.net/FINAL_KSR_10_YELLOW-DISC_01.png?ixlib=rb-1.1.0&amp;auto=compress&amp;w=1000&amp;fit=min&amp;s=39dcbd5cac8d508b0646822b20ab6677" alt="A yellow-colored 3D disc" width="185" />
+                  </div>
+                  <div style={{position: 'absolute', width: '185px', top: '-28%', left: '-9%'}}>
+                    <img src="https://ksr-static.imgix.net/FINAL_KSR_10_CORAL-CUBE_01.png?ixlib=rb-1.1.0&amp;auto=compress&amp;w=1000&amp;fit=min&amp;s=ff76fadeacdfdc77476b4571aab17dd9" alt="A coral-colored cube illustration" width="185" />
+                  </div>
+                  <div style={{position: 'absolute', width: '185px', top: '-28%', left: '83%'}}>
+                    <img src="https://ksr-static.imgix.net/FINAL_KSR_10_CORAL-TUBE_01.png?ixlib=rb-1.1.0&amp;auto=compress&amp;w=1000&amp;fit=min&amp;s=b9d06ac1f74686b326d06511ef47ee81" alt="A coral-colored hollow cylinder" width="185" />
+                  </div>
+                  <div className='flex justify-center align-center' style={{ height:'280px', backgroundColor: '#05CE78'}}></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
     </div>
   )
