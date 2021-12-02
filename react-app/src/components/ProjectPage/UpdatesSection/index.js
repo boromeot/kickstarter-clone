@@ -3,9 +3,11 @@ import Update from "./Update";
 import { NavLink, useRouteMatch } from "react-router-dom";
 import './UpdatesSection.css';
 import './Update/Update.css';
+import { useSelector } from "react-redux";
 
 const UpdatesSection = ({ updates }) => {
   const { url } = useRouteMatch();
+  const { project } = useSelector(state => state);
 
   return (
     <div className='updates-section'>
@@ -45,7 +47,14 @@ const UpdatesSection = ({ updates }) => {
                   <div style={{position: 'absolute', width: '185px', top: '-28%', left: '83%'}}>
                     <img src="https://ksr-static.imgix.net/FINAL_KSR_10_CORAL-TUBE_01.png?ixlib=rb-1.1.0&amp;auto=compress&amp;w=1000&amp;fit=min&amp;s=b9d06ac1f74686b326d06511ef47ee81" alt="A coral-colored hollow cylinder" width="185" />
                   </div>
-                  <div className='flex justify-center align-center' style={{ height:'280px', backgroundColor: '#05CE78'}}></div>
+                  <div className='flex flex-column justify-center align-center white' style={{ height:'280px', backgroundColor: '#05CE78'}}>
+                    <div className='pb1 font-size--24 bold'>
+                      Project launches
+                    </div>
+                    <div className='font-size--14 uppercase'>
+                      {project.end_date}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
