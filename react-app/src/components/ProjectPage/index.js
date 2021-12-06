@@ -12,6 +12,7 @@ import Modal from '../Modal';
 import { clear_project, getProject } from '../../store/project';
 import './ProjectPage.css'
 import UpdatePage from './UpdatesSection/UpdatePage';
+import FAQsection from './FAQsection';
 
 const ProjectPage = () => {
   const dispatch = useDispatch();
@@ -23,12 +24,6 @@ const ProjectPage = () => {
   const { path, url } = useRouteMatch(); //Allows for backwards compatibility of route names
 
   const [show, setShow] = useState(false);
-
-  const [FAQListRender, setFAQListRender] = useState(false)
-  const [FAQRender, setFAQRender] = useState(true)
-  const [FAQQuestion, setFAQQuestion] = useState("")
-  const [FAQAnswer, setFAQAnswer] = useState("")
-  const [FAQId, setFAQId] = useState(0)
 
   const differenceByDays = (date1, date2) => {
     const timeDelta = Math.abs(date2 - date1);
@@ -165,8 +160,7 @@ const ProjectPage = () => {
           <Risks risks={risks} />
         </Route>
         <Route path={`${path}/faqs`}>
-          {FAQRender && <FAQ faqs={faqs} setFAQRender={setFAQRender} setFAQListRender={setFAQListRender} setFAQQuestion={setFAQQuestion} setFAQAnswer={setFAQAnswer} setFAQId={setFAQId} FAQId={FAQId} />}
-          {FAQListRender && <FAQListComponent setFAQRender={setFAQRender} setFAQListRender={setFAQListRender} FAQQuestion={FAQQuestion} FAQAnswer={FAQAnswer} FAQId={FAQId} />}
+          <FAQsection />
         </Route>
         <Route path={`${path}/updates`} exact>
           <UpdatesSection updates={updates} />
