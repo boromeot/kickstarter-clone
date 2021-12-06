@@ -25,6 +25,15 @@
   margin-top: 48px;
 }
 
+/* Margin bottom */
+.mb3 {
+  margin-bottom: 18px;
+}
+
+.mb5 {
+  margin-bottom: 30px;
+}
+
 .pl2 {
   padding-left: 12px;
 }
@@ -52,4 +61,13 @@
 .py6 {
   padding-top: 36px;
   padding-bottom: 36px;
+}
+
+.py10 {
+  padding: 60px 0;
+}
+
+.pz3 {
+  padding-left: 18px;
+  padding-right: 18px;
 }
