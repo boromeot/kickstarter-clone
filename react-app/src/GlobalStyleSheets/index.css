@@ -80,6 +80,10 @@ li {
   background-color: #FBFBFA;
 }
 
+.hover-bg-gray-200:hover {
+  background-color: #F7F7F6;
+}
+
 .relative {
   position: relative;
 }

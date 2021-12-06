@@ -1,14 +1,7 @@
 import React from "react";
+import FAQ from "./FAQ";
 
 const FAQsection = ({ faqs }) => {
-
-  console.log(faqs, 'faqs');
-
-  if (faqs?.length > 0) {
-    return (
-      <h3>Faqs</h3>
-    )
-  }
 
   return (
     <div className='py10'>
@@ -19,8 +12,16 @@ const FAQsection = ({ faqs }) => {
           </div>
         </div>
         <div className='grid-row'>
-          <p className='mb3 font-size--16'>Looks like there aren't any frequently asked questions yet.</p>
-        </div>
+          {faqs?.length > 0
+            ? <div className='pz3'>
+                {faqs.map(faq => {
+                  return <FAQ faq={faq} />
+                })}
+              </div>
+            :
+              <p className='mb3 font-size--16'>Looks like there aren't any frequently asked questions yet.</p>
+          }
+          </div>
       </div>
     </div>
   )
