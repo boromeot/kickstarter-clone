@@ -21,7 +21,10 @@ const FAQsection = ({ faqs }) => {
             :
               <p className='mb3 font-size--16'>Looks like there aren't any frequently asked questions yet.</p>
           }
-          </div>
+        </div>
+        <div className='pz3 '>
+          <p>Don't see your question?</p>
+        </div>
       </div>
     </div>
   )
