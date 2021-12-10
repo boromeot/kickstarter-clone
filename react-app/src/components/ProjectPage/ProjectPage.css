@@ -150,15 +150,6 @@
   border-right: dotted 0.8px black;
 }
 
-.test-item-btn {
-  display: flex;
-  align-items: center;
-  padding: 10.5px 18px;
-  height: 40px;
-  width: 145px;
-}
-
-
 .project-sub-page-container {
   background-color: white;
 }

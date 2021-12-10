@@ -153,8 +153,8 @@ const ProjectPage = () => {
                 {comments?.length > 0 && <span className='count'>{comments?.length}</span>}
               </NavLink>
             </div>
-            <div className='inline-b'>
-              <button className='btn btn-primary ' onClick={() => setShow(true)} disabled={!user}>
+            <div className='inline-b' style={{width: '30%'}}>
+              <button className='btn btn-medium btn-primary' onClick={() => setShow(true)} disabled={!user}>
                 Back this project
               </button>
             </div>
