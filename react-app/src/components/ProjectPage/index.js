@@ -142,13 +142,15 @@ const ProjectPage = () => {
               </NavLink>
               <NavLink to={`${url}/faqs`} className='mz3 project-nav-item font-size--14' activeClassName='active-project-nav-item'>
                 {`FAQ `}
-                <span className='count'>{faqs?.length}</span>
+                {faqs?.length > 0 && <span className='count'>{faqs?.length}</span>}
               </NavLink>
               <NavLink to={`${url}/updates`} className='mz3 project-nav-item font-size--14' activeClassName='active-project-nav-item'>
                 {`Updates `}
+                {updates?.length > 0 && <span className='count'>{updates?.length}</span>}
               </NavLink>
               <NavLink to={`${url}/comments`} className='mz3 project-nav-item font-size--14' activeClassName='active-project-nav-item'>
-                Comments
+                {`Comments `}
+                {comments?.length > 0 && <span className='count'>{comments?.length}</span>}
               </NavLink>
             </div>
             <div className='inline-b'>
