@@ -2,6 +2,10 @@
   color: rgba(40, 40, 40, 0.5);
 }
 
+.bg-white {
+  background-color: #fff;
+}
+
 .white {
   color: #fff;
 }

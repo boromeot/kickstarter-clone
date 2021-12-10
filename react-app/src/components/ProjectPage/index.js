@@ -130,29 +130,34 @@ const ProjectPage = () => {
           You’re only charged if the project meets its funding goal by the campaign deadline.
         </div>
       </div>
-      <div className='test'>
-        <div className='test-block'>
-          <div className='test-item-container'>
-            <NavLink to={`${url}/description`} className='test-item' activeClassName='active-test'>
-              Campaign
-            </NavLink>
-            <NavLink to={`${url}/risks`} className='test-item' activeClassName='active-test'>
-              Risk
-            </NavLink>
-            <NavLink to={`${url}/faqs`} className='test-item' activeClassName='active-test'>
-              FAQ
-            </NavLink>
-            <NavLink to={`${url}/updates`} className='test-item' activeClassName='active-test'>
-              Updates
-            </NavLink>
-            <NavLink to={`${url}/comments`} className='test-item' activeClassName='active-test'>
-              Comments
-            </NavLink>
-          </div>
-          <div className='test-item-container'>
-            <button className='btn btn-primary test-item-btn' onClick={() => setShow(true)} disabled={!user}>
-              Back this project
-            </button>
+      <div className='sticky border-top border-bottom bg-white'>
+        <div className='grid-container'>
+          <div className='grid-row'>
+            <div className='inline-b width-8-12'>
+              <NavLink to={`${url}/description`} className='mz3 project-nav-item font-size--14' activeClassName='active-project-nav-item'>
+                Campaign
+              </NavLink>
+              <NavLink to={`${url}/risks`} className='mz3 project-nav-item font-size--14' activeClassName='active-project-nav-item'>
+                Risk
+              </NavLink>
+              <NavLink to={`${url}/faqs`} className='mz3 project-nav-item font-size--14' activeClassName='active-project-nav-item'>
+                {`FAQ `}
+                {faqs?.length > 0 && <span className='count'>{faqs?.length}</span>}
+              </NavLink>
+              <NavLink to={`${url}/updates`} className='mz3 project-nav-item font-size--14' activeClassName='active-project-nav-item'>
+                {`Updates `}
+                {updates?.length > 0 && <span className='count'>{updates?.length}</span>}
+              </NavLink>
+              <NavLink to={`${url}/comments`} className='mz3 project-nav-item font-size--14' activeClassName='active-project-nav-item'>
+                {`Comments `}
+                {comments?.length > 0 && <span className='count'>{comments?.length}</span>}
+              </NavLink>
+            </div>
+            <div className='inline-b' style={{width: '30%'}}>
+              <button className='btn btn-medium btn-primary' onClick={() => setShow(true)} disabled={!user}>
+                Back this project
+              </button>
+            </div>
           </div>
         </div>
       </div>
