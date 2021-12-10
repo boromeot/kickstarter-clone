@@ -5,3 +5,19 @@
 .white {
   color: #fff;
 }
+
+.navy-500 {
+  color: #95959E;
+}
+
+.navy-700 {
+  color:#282828;
+}
+
+.fill-navy {
+  fill: #656969;
+}
+
+.green-hover:hover {
+  color: #009E74;
+}

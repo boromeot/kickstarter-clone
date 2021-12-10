@@ -1,6 +1,5 @@
 .border-top {
   border-top: 1px solid #DCDEDD;
-
 }
 
 .border-bottom {
@@ -9,4 +8,16 @@
 
 .border-bottom-gray {
   border-bottom: 1px solid #E8E8E8;
+}
+
+.border-gray {
+  border: 1px solid #E8E8E8;
+}
+
+.border-left {
+  border-left: 1px solid #DCDEDD;
+}
+
+.border3px {
+  border-width: 3px;
 }

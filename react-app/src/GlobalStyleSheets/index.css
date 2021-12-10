@@ -27,9 +27,9 @@ a {
   color: rgb(40, 40, 40);
 }
 
-a:hover {
+/* a:hover {
   color: rgb(3, 115, 98);
-}
+} */
 
 .underline:hover {
   text-decoration: underline;
@@ -80,10 +80,18 @@ li {
   background-color: #FBFBFA;
 }
 
+.hover-bg-gray-200:hover {
+  background-color: #F7F7F6;
+}
+
 .relative {
   position: relative;
 }
 
 .clip {
   overflow: hidden;
+}
+
+.hidden {
+  display: none;
 }
