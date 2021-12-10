@@ -17,3 +17,7 @@
 .fill-navy {
   fill: #656969;
 }
+
+.green-hover:hover {
+  color: #009E74;
+}

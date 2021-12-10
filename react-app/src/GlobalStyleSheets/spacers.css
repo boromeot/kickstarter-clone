@@ -11,6 +11,10 @@
   margin-left: 12px;
 }
 
+.ml7 {
+  margin-left: 42px;
+}
+
 /*Margin right*/
 .mr4 {
   margin-right: 24px;
@@ -86,4 +90,16 @@
 .pz3 {
   padding-left: 18px;
   padding-right: 18px;
+}
+
+.h20p {
+  height: 20%;
+}
+
+.width-4-12 {
+  width: calc(4/12 * 100%);
+}
+
+.width-8-12 {
+  width: calc(8/12 * 100%);
 }
