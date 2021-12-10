@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import FAQ from "./FAQ";
 
 const FAQsection = ({ faqs }) => {
@@ -23,6 +24,11 @@ const FAQsection = ({ faqs }) => {
           }
           <div className='pz3 h20p ml7 border-left border3px mb5 width-4-12'>
             <p className="mb3 font-size--14">Don't see the answer to your question? Ask the project creator directly.</p>
+            <span>
+              <NavLink to='#' className='btn btn-medium btn-tertiary'>
+                Ask a question
+              </NavLink>
+            </span>
           </div>
         </div>
       </div>
