@@ -54,6 +54,11 @@
   padding: 18px;
 }
 
+/* padding left */
+.pl0 {
+  padding-left: 0px;
+}
+
 .pl2 {
   padding-left: 12px;
 }
@@ -62,35 +67,52 @@
   padding-left: 18px;
 }
 
+/* padding top */
 .pt6 {
   padding-top: 36px;
+}
+
+/* padding right */
+.pr3 {
+  padding-right: 18px;
 }
 
 .pr9 {
   padding-right: 54px;
 }
 
+/* padding bottom */
 .pb3 {
   padding-bottom: 18px;
+}
+
+.pb4 {
+  padding-bottom: 24px;
 }
 
 .pb8 {
   padding-bottom: 48px;
 }
 
+
+/* padding top/bot */
 .py3 {
   padding: 18px 0;
 }
 
 .py6 {
-  padding-top: 36px;
-  padding-bottom: 36px;
+  padding: 36px 0;
+}
+
+.py8 {
+  padding: 48px 0;
 }
 
 .py10 {
   padding: 60px 0;
 }
 
+/* padding left/right */
 .pz3 {
   padding-left: 18px;
   padding-right: 18px;

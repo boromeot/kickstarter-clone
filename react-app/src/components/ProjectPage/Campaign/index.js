@@ -1,20 +1,28 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import "./Campaign.css";
 
-function Campaign({campaign}){
+function Campaign({ campaign }){
 
-  useEffect(() => {
-    let campaignText = document.getElementsByClassName("campaign-description");
-    campaignText[0].innerHTML = campaign;
-  })
+  // useEffect(() => {
+  //   let campaignText = document.getElementsByClassName("campaign-description");
+  //   campaignText[0].innerHTML = campaign;
+  // })
 
   return(
-    <div class="component-container">
-      <div class="risk-inner">
-        <h2 class="component-header">Campaign</h2>
-        <div class="campaign-description">
+    <div className="grid-container pr3 py8">
+      <div className="grid-row">
+        <div className="float-left width-8-12">
+          <div className="pz3">
+            <div id="campaign">
+              <div className="grid-row">
+                <nav className="sticky ">
 
+                </nav>
+              </div>
+            </div>
+          </div>
         </div>
+        <div></div>
       </div>
     </div>
   )

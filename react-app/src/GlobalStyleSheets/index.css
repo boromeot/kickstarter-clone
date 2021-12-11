@@ -103,3 +103,7 @@ li {
 .sticky {
   position: sticky;
 }
+
+.float-left {
+  float: left;
+}

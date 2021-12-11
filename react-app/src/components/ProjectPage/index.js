@@ -17,8 +17,8 @@ const ProjectPage = () => {
   const history = useHistory();
   const { projectId } = useParams();
   const { user } = useSelector(state => state.session);
-  const { updates, faqs } = useSelector(state => state.project);
-  const { id, title, description, campaign, video_src, image_src, current_funding, pledge_goal, risks, comments, tag, username, user_id, end_date} = useSelector(state => state.project)
+  const { campaign, updates, faqs } = useSelector(state => state.project);
+  const { id, title, description, video_src, image_src, current_funding, pledge_goal, risks, comments, tag, username, user_id, end_date} = useSelector(state => state.project)
   const { path, url } = useRouteMatch(); //Allows for backwards compatibility of route names
 
   const [loaded, setLoaded] = useState(false);
