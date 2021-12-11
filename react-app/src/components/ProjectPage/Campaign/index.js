@@ -16,7 +16,7 @@ function Campaign({ campaign }){
           <div className="pz3">
             <div id="campaign">
               <div className="grid-row">
-                <nav className="t2 sticky pb4 pl0 pr3 float-left width-2-12">
+                <nav className="t20 sticky pb4 pl0 pr3 float-left width-2-12">
                   <div>
                     <NavLink to="#" className="block font-size--13 bold lsp-2 pb3 green border-bottom">Story</NavLink>
                   </div>
