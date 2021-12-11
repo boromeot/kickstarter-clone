@@ -137,9 +137,6 @@ const ProjectPage = () => {
               <NavLink to={`${url}/description`} className='mz3 project-nav-item font-size--14' activeClassName='active-project-nav-item'>
                 Campaign
               </NavLink>
-              <NavLink to={`${url}/risks`} className='mz3 project-nav-item font-size--14' activeClassName='active-project-nav-item'>
-                Risk
-              </NavLink>
               <NavLink to={`${url}/faqs`} className='mz3 project-nav-item font-size--14' activeClassName='active-project-nav-item'>
                 {`FAQ `}
                 {faqs?.length > 0 && <span className='count'>{faqs?.length}</span>}
@@ -164,9 +161,6 @@ const ProjectPage = () => {
       <div className='project-sub-page-container'>
         <Route path={`${path}/description`}>
           <Campaign campaign={campaign} />
-        </Route>
-        <Route path={`${path}/risks`}>
-          <Risks risks={risks} />
         </Route>
         <Route path={`${path}/faqs`}>
           <FAQsection faqs={faqs} />
