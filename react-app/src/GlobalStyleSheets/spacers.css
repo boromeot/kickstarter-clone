@@ -1,3 +1,7 @@
+.m-auto {
+  margin: auto;
+}
+
 /*Margin left*/
 .ml-auto {
   margin-left: auto;
@@ -118,8 +122,16 @@
   padding-right: 18px;
 }
 
+.pz8 {
+  padding: 0 48px;
+}
+
 .h20p {
   height: 20%;
+}
+
+.width-2-12 {
+  width: calc(2/12 * 100%);
 }
 
 .width-4-12 {
@@ -128,4 +140,8 @@
 
 .width-8-12 {
   width: calc(8/12 * 100%);
+}
+
+.width-10-12 {
+  width: calc(10/12 * 100%);
 }
