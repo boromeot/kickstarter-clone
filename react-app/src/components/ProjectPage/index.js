@@ -17,8 +17,8 @@ const ProjectPage = () => {
   const history = useHistory();
   const { projectId } = useParams();
   const { user } = useSelector(state => state.session);
-  const { updates, faqs } = useSelector(state => state.project);
-  const { id, title, description, campaign, video_src, image_src, current_funding, pledge_goal, risks, comments, tag, username, user_id, end_date} = useSelector(state => state.project)
+  const { campaign, updates, faqs } = useSelector(state => state.project);
+  const { id, title, description, video_src, image_src, current_funding, pledge_goal, risks, comments, tag, username, user_id, end_date} = useSelector(state => state.project)
   const { path, url } = useRouteMatch(); //Allows for backwards compatibility of route names
 
   const [loaded, setLoaded] = useState(false);
@@ -130,7 +130,7 @@ const ProjectPage = () => {
           You’re only charged if the project meets its funding goal by the campaign deadline.
         </div>
       </div>
-      <div className='sticky border-top border-bottom bg-white'>
+      <div className='sticky border-top border-bottom bg-white t0' style={{zIndex: '9999'}}>
         <div className='grid-container'>
           <div className='grid-row'>
             <div className='inline-b width-8-12'>
