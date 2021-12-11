@@ -22,6 +22,10 @@
   fill: #656969;
 }
 
+.green {
+  color: #009E74;
+}
+
 .green-hover:hover {
   color: #009E74;
 }

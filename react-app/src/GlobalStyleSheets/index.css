@@ -39,6 +39,10 @@ li {
   list-style: none;
 }
 
+.block {
+  display: block;
+}
+
 .inline-b {
   display: inline-block;
 }
