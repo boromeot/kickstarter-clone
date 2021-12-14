@@ -1,15 +1,15 @@
-import "./risks.css";
+// import "./risks.css";
 
-function Risks({ risks }) {
+// function Risks({ risks }) {
 
-  return (
-    <div className="component-container">
-      <div className="risk-inner">
-        <h2 className="component-header">Risks</h2>
-        <div className="risk-description">{risks}</div>
-      </div>
-    </div>
-  )
-}
+//   return (
+//     <div className="component-container">
+//       <div className="risk-inner">
+//         <h2 className="component-header">Risks</h2>
+//         <div className="risk-description">{risks}</div>
+//       </div>
+//     </div>
+//   )
+// }
 
-export default Risks
+// export default Risks
