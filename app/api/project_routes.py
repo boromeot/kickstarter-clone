@@ -75,13 +75,6 @@ def delete_project(id):
   else:
     return {'error': 'Unauthorized'}
 
-#? is this route being used by anything ?
-@project_routes.route('/')
-def get_projects_by_tag():
-  projects = Project.query.all()
-  projectDict = {"projects" : [project.to_dict() for project in projects]}
-  return projectDict
-
 #Returns 4 random projects
 @project_routes.route('/random')
 def get_random_projects():

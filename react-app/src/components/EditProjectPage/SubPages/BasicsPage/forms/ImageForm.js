@@ -9,7 +9,7 @@ const ImageForm = ({ image_src, handleChange }) => {
   ]
   return (
     <FormWrapper header='Project Image' infoArr={infoArr}>
-      <div className='edit-form-container'>
+      {/* <div className='edit-form-container'>
         <div className='edit-form-title-container'>
           <div className='edit-form-header'>Title</div>
           <textarea
@@ -22,7 +22,14 @@ const ImageForm = ({ image_src, handleChange }) => {
           />
           <div className='edit-form-character-count'>{image_src?.length}/100</div>
         </div>
-      </div>
+      </div> */}
+      {/* <input
+        type='file'
+        accept='image/*'
+        onChange={handleChange}
+        name='image_src'
+        value={image_src}
+      /> */}
     </FormWrapper>
   )
 }
