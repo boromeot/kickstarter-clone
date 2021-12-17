@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import FormWrapper from "../../FormWrapper";
 
 const ImageForm = ({ image_src, handleChange }) => {
@@ -7,6 +7,32 @@ const ImageForm = ({ image_src, handleChange }) => {
     'Your image should be at least 1024x576 pixels. It will be cropped to a 16:9 ratio.',
     'Avoid images with banners, badges, or text—they are illegible at smaller sizes, can be penalized by the Facebook algorithm, and decrease your chances of getting Kickstarter homepage and newsletter features.'
   ]
+
+  const [image, setImage] = useState(null);
+
+  const handleSubmit = async (e) => {
+    console.log('submit');
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("image", image);
+
+    const res = await fetch('/api/projects/52/images', {
+        method: "POST",
+        body: formData,
+    });
+    if (res.ok) {
+        await res.json();
+    }
+    else {
+        console.log("error");
+    }
+  }
+
+  const updateImage = (e) => {
+    const file = e.target.files[0];
+    setImage(file);
+}
+
   return (
     <FormWrapper header='Project Image' infoArr={infoArr}>
       {/* <div className='edit-form-container'>
@@ -23,13 +49,12 @@ const ImageForm = ({ image_src, handleChange }) => {
           <div className='edit-form-character-count'>{image_src?.length}/100</div>
         </div>
       </div> */}
-      {/* <input
-        type='file'
-        accept='image/*'
-        onChange={handleChange}
-        name='image_src'
-        value={image_src}
-      /> */}
+        <input
+          type="file"
+          accept="image/*"
+          onChange={updateImage}
+        />
+        <button type="submit" onClick={handleSubmit}>Submit</button>
     </FormWrapper>
   )
 }

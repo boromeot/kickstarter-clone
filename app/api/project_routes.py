@@ -1,10 +1,10 @@
 from flask import Blueprint, request, jsonify
 from app.forms.funding_form import FundingForm
 from flask_login import login_required, current_user
-from app.models import Project, db
-from sqlalchemy.orm import joinedload
-import random
+from app.models import Project, db, project
 from app.forms import ProjectForm
+from app.aws import (upload_file_to_s3, allowed_file, get_unique_filename)
+import random
 
 project_routes = Blueprint('projects', __name__)
 
@@ -96,4 +96,23 @@ def add_funding(id):
     db.session.commit()
     return {'current_funding': project.current_funding}
   else:
+    return {'error': validation_errors_to_error_messages(form.errors)}, 401
+
+
+@project_routes.route('/<int:id>/images', methods=['POST'])
+@login_required
+def post_image(id):
+  form = ProjectForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
+  if form:
+    print('validated')
+    project = Project.query.get(id)
+    image = request.files["image"]
+    upload = upload_file_to_s3(image)
+    print(upload, 'uplooooooooooooooooooooooooooad---------------------------------------------------------------------------------------------------------------------')
+    project.image_src = upload['url']
+    db.session.commit()
+    return {'image_src': upload['url']}
+  else:
+    print('did not validated')
     return {'error': validation_errors_to_error_messages(form.errors)}, 401

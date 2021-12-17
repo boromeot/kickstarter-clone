@@ -28,6 +28,7 @@
   height: 43px;
   min-width: 168px;
   padding: 10.5px 36px;
+  justify-content: center;
 }
 
 .edit-project-next:active {

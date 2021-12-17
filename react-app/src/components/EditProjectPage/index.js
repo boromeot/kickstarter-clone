@@ -130,6 +130,7 @@ const EditProjectPage = () => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <div onClick={() => console.log(formData)}>console log formdata</div>
       <nav className='nav-bar edit-page-nav-bar'>
         <div className=''>
           <NavLink to='/' className='nav-button' exact={true}>
