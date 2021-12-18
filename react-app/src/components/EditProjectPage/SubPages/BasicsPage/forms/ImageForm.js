@@ -35,26 +35,18 @@ const ImageForm = ({ image_src, handleChange }) => {
 
   return (
     <FormWrapper header='Project Image' infoArr={infoArr}>
-      {/* <div className='edit-form-container'>
-        <div className='edit-form-title-container'>
-          <div className='edit-form-header'>Title</div>
-          <textarea
-            name='image_src'
-            value={image_src}
-            onChange={handleChange}
-            placeholder='https://www.somewebsite.com/image.jpg'
-            className='edit-form-text-area edit-page-text-area'
-            maxLength={100}
-          />
-          <div className='edit-form-character-count'>{image_src?.length}/100</div>
-        </div>
-      </div> */}
-        <input
-          type="file"
-          accept="image/*"
-          onChange={updateImage}
-        />
+      <div style={{height: '210px'}}>
+        <label className="pointer h100p w100p relative">
+          <div className="bg-grey-100 h100p w100p border-dashed border-gray-500 radius2px border-dashed">
+            <input
+              type="file"
+              accept="image/*"
+              onChange={updateImage}
+            />
+          </div>
+        </label>
         <button type="submit" onClick={handleSubmit}>Submit</button>
+      </div>
     </FormWrapper>
   )
 }

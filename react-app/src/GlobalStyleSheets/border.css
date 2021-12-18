@@ -14,10 +14,22 @@
   border: 1px solid #E8E8E8;
 }
 
+.border-gray-500 {
+  border: 1px solid #DCDEDD;
+}
+
 .border-left {
   border-left: 1px solid #DCDEDD;
 }
 
 .border3px {
   border-width: 3px;
+}
+
+.border-dashed {
+  border-style: dashed;
+}
+
+.radius2px {
+  border-radius: 2px;
 }

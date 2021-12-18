@@ -111,3 +111,7 @@ li {
 .float-left {
   float: left;
 }
+
+.pointer {
+  cursor: pointer;
+}
