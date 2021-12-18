@@ -34,6 +34,11 @@
   border-radius: 2px;
 }
 
+.radius-100 {
+  border-radius: 100%;
+}
+
+
 .hover-border-green:hover {
   border-color: #009E74;
 }

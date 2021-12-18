@@ -146,6 +146,14 @@
   top: 120px;
 }
 
+.w11 {
+  width: 66px;
+}
+
+.h11 {
+  height: 66px;
+}
+
 .width-2-12 {
   width: calc(2/12 * 100%);
 }

@@ -1,5 +1,9 @@
 .soft-black {
-  color: rgba(40, 40, 40, 0.5);
+  color: #282828;
+}
+
+.dark-gray-500 {
+  color: rgb(101, 105, 105);
 }
 
 .bg-white {

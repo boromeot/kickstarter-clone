@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import File from "../../../../SVGS/File";
 import FormWrapper from "../../FormWrapper";
 
 const ImageForm = ({ image_src, handleChange }) => {
@@ -44,8 +45,14 @@ const ImageForm = ({ image_src, handleChange }) => {
               onChange={updateImage}
               className="z-1 h100p w100p absolute"
             />
-            <div className="flex flex-column justify-center w100p h100p">
-
+            <div className="flex flex-column justify-center align-center w100p h100p">
+              <div className="flex-center h11 w11 mb3 radius-100 shadow-2 bg-white">
+                <File className='icon-22' viewBox='0 0 60 60'/>
+              </div>
+              <div className="text-center soft-black">
+                <span className="font-size--14 block">Drop an image here, or select a file.</span>
+                <span className="font-size--12 block dark-gray-500">It must be a JPG, JPEG, PNG, or GIF no larger than 50 MB.</span>
+              </div>
             </div>
           </div>
         </label>
