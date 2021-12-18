@@ -37,11 +37,12 @@ const ImageForm = ({ image_src, handleChange }) => {
     <FormWrapper header='Project Image' infoArr={infoArr}>
       <div style={{height: '210px'}}>
         <label className="pointer h100p w100p relative">
-          <div className="bg-grey-100 h100p w100p border-dashed border-gray-500 radius2px border-dashed">
+          <div className="bg-grey-100 h100p w100p border-dashed border-gray-500 radius2px border-dashed hover-border-green transition-600ms">
             <input
               type="file"
               accept="image/*"
               onChange={updateImage}
+              className="z-1 h100p w100p absolute"
             />
           </div>
         </label>

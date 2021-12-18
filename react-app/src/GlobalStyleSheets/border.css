@@ -33,3 +33,7 @@
 .radius2px {
   border-radius: 2px;
 }
+
+.hover-border-green:hover {
+  border-color: #009E74;
+}

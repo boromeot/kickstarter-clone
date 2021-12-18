@@ -96,6 +96,10 @@ li {
   position: relative;
 }
 
+.absolute {
+  position: absolute;
+}
+
 .clip {
   overflow: hidden;
 }
@@ -114,4 +118,12 @@ li {
 
 .pointer {
   cursor: pointer;
+}
+
+.z-1 {
+  z-index: -1;
+}
+
+.transition-600ms {
+  transition: all 600ms;
 }
