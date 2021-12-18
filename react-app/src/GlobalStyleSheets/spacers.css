@@ -130,12 +130,28 @@
   height: 20%;
 }
 
+.h100p {
+  height: 100%;
+}
+
+.w100p {
+  width: 100%;
+}
+
 .t0 {
   top: 0;
 }
 
 .t20 {
   top: 120px;
+}
+
+.w11 {
+  width: 66px;
+}
+
+.h11 {
+  height: 66px;
 }
 
 .width-2-12 {

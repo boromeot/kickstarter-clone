@@ -3,6 +3,7 @@
   top: 0;
   padding: 12px 18px;
   background-color: white;
+  z-index: 999;
 }
 
 .edit-page-buttons {
@@ -28,6 +29,7 @@
   height: 43px;
   min-width: 168px;
   padding: 10.5px 36px;
+  justify-content: center;
 }
 
 .edit-project-next:active {
