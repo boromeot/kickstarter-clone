@@ -44,6 +44,9 @@ const ImageForm = ({ image_src, handleChange }) => {
               onChange={updateImage}
               className="z-1 h100p w100p absolute"
             />
+            <div className="flex flex-column justify-center w100p h100p">
+
+            </div>
           </div>
         </label>
         <button type="submit" onClick={handleSubmit}>Submit</button>
