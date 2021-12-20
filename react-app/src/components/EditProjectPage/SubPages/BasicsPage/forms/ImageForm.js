@@ -10,6 +10,7 @@ const ImageForm = ({ image_src, handleChange }) => {
   ]
 
   const [image, setImage] = useState(null);
+  const [imageLink, setImageLink] = useState('');
 
   const handleSubmit = async (e) => {
     console.log('submit');
@@ -29,16 +30,36 @@ const ImageForm = ({ image_src, handleChange }) => {
     }
   }
 
-  const updateImage = (e) => {
-    const file = e.target.files[0];
+  const onDropHandler = (e) => {
+    e.preventDefault();
+    const file = e.dataTransfer.items[0].getAsFile();
     setImage(file);
+}
+
+const updateImage = e => {
+  e.preventDefault();
+  const file = e.target.files[0];
+  setImage(file);
 }
 
   return (
     <FormWrapper header='Project Image' infoArr={infoArr}>
+      {
+        image &&
+        <div className="shadow-2 p2 mb4">
+          <div className="aspect-ratio aspect-ratio--16x9 border-gray-500">
+            <img
+              className="h100p w100p absolute"
+              src="https://ksr-ugc.imgix.net/assets/035/893/611/84367ea19d8648918cd8d36105a9638b_original.png?ixlib=rb-4.0.2&crop=faces&w=2048&h=1152&fit=crop&v=1640042850&auto=format&frame=1&q=92&s=46a06185bc4e554bbe823a2b3ee56b4a" alt="Preview"/>
+          </div>
+        </div>
+      }
       <div style={{height: '210px'}}>
-        <label className="pointer h100p w100p relative">
-          <div className="bg-grey-100 h100p w100p border-dashed border-gray-500 radius2px border-dashed hover-border-green transition-600ms">
+        <label className="pointer h100p w100p relative"
+            onDragOver={e => e.preventDefault()}
+            onDrop={onDropHandler}
+          >
+          <div className="bg-grey-100 h100p w100p border-dashed border-gray-500 radius2px border-dashed hover-border-green transition-600ms relative">
             <input
               type="file"
               accept="image/*"

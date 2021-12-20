@@ -54,6 +54,10 @@
   margin: 0 18px;
 }
 
+.p2 {
+  padding: 12px;
+}
+
 .p3 {
   padding: 18px;
 }
@@ -168,4 +172,13 @@
 
 .width-10-12 {
   width: calc(10/12 * 100%);
+}
+
+.aspect-ratio--16x9 {
+  padding-bottom: 56.25%;
+}
+
+.aspect-ratio {
+  height: 0;
+  position: relative;
 }
