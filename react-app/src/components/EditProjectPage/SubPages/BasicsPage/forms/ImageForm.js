@@ -10,6 +10,7 @@ const ImageForm = ({ image_src, handleChange }) => {
   ]
 
   const [imageLink, setImageLink] = useState('');
+  const [showPreview, setShowPreview] = useState(false);
 
   const handleSubmit = async file => {
     const formData = new FormData();
@@ -20,8 +21,8 @@ const ImageForm = ({ image_src, handleChange }) => {
     });
     if (res.ok) {
       let data = await res.json();
-      console.log(data, 'data');
       setImageLink(data.image_src);
+      setShowPreview(true);
     }
     else {
       console.log(res);
@@ -43,12 +44,15 @@ const ImageForm = ({ image_src, handleChange }) => {
   return (
     <FormWrapper header='Project Image' infoArr={infoArr}>
       {
-        imageLink ?
+        imageLink && showPreview ?
           <div className="shadow-2 p2 mb4">
             <div className="aspect-ratio aspect-ratio--16x9 border-gray-500">
               <img
                 className="h100p w100p absolute"
                 src={imageLink} alt="Preview"/>
+            </div>
+            <div className="mt2 flex align-center">
+              <button className="btn"></button>
             </div>
           </div>
         :
