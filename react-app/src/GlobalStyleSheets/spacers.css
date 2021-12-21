@@ -25,6 +25,10 @@
 }
 
 /*Margin top*/
+.mt2 {
+  margin-top: 12px;
+}
+
 .mt4 {
   margin-top: 24px;
 }
@@ -52,6 +56,10 @@
 
 .mz3 {
   margin: 0 18px;
+}
+
+.p2 {
+  padding: 12px;
 }
 
 .p3 {
@@ -138,6 +146,10 @@
   width: 100%;
 }
 
+.l0 {
+  left: 0;
+}
+
 .t0 {
   top: 0;
 }
@@ -168,4 +180,13 @@
 
 .width-10-12 {
   width: calc(10/12 * 100%);
+}
+
+.aspect-ratio--16x9 {
+  padding-bottom: 56.25%;
+}
+
+.aspect-ratio {
+  height: 0;
+  position: relative;
 }

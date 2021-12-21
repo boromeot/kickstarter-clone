@@ -107,9 +107,9 @@ def post_image(id):
   if form:
     print('validated')
     project = Project.query.get(id)
+    print(request.files, 'filess')
     image = request.files["image"]
     upload = upload_file_to_s3(image)
-    print(upload, 'uplooooooooooooooooooooooooooad---------------------------------------------------------------------------------------------------------------------')
     project.image_src = upload['url']
     db.session.commit()
     return {'image_src': upload['url']}
