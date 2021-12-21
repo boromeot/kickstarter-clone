@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import File from "../../../../SVGS/File";
+import Upload from "../../../../SVGS/Upload";
 import FormWrapper from "../../FormWrapper";
 
 const ImageForm = ({ image_src, handleChange }) => {
@@ -52,7 +53,9 @@ const ImageForm = ({ image_src, handleChange }) => {
                 src={imageLink} alt="Preview"/>
             </div>
             <div className="mt2 flex align-center">
-              <button className="btn"></button>
+              <button className="btn btn-small btn-tertiary">
+                <Upload className='icon-12' viewBox='0 0 60 60' />
+              </button>
             </div>
           </div>
         :
