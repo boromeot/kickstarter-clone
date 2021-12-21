@@ -67,5 +67,7 @@
 }
 
 .btn-tertiary:hover {
-  background-color: #000;
+  background-color: rgb(105, 105, 105);
+  color: white;
+  fill: white;
 }

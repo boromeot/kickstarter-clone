@@ -53,9 +53,16 @@ const ImageForm = ({ image_src, handleChange }) => {
                 src={imageLink} alt="Preview"/>
             </div>
             <div className="mt2 flex align-center">
-              <button className="btn btn-small btn-tertiary">
-                <Upload className='icon-12' viewBox='0 0 60 60' />
-              </button>
+              <div className="btn btn-small btn-tertiary relative">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={updateImage}
+                    id="project-image-input"
+                    className="opacity-0 pointer h100p w100p absolute t0 l0"
+                  />
+                  <Upload className='icon-12' viewBox='0 0 60 60' />
+              </div>
             </div>
           </div>
         :
