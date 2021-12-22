@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import File from "../../../../SVGS/File";
 import Upload from "../../../../SVGS/Upload";
 import FormWrapper from "../../FormWrapper";
@@ -10,8 +10,11 @@ const ImageForm = ({ image_src, handleChange }) => {
     'Avoid images with banners, badges, or text—they are illegible at smaller sizes, can be penalized by the Facebook algorithm, and decrease your chances of getting Kickstarter homepage and newsletter features.'
   ]
 
-  const [imageLink, setImageLink] = useState('');
-  const [showPreview, setShowPreview] = useState(false);
+  const [imageLink, setImageLink] = useState();
+
+  useEffect(() => {
+    setImageLink(image_src);
+  }, [image_src])
 
   const handleSubmit = async file => {
     const formData = new FormData();
@@ -23,7 +26,6 @@ const ImageForm = ({ image_src, handleChange }) => {
     if (res.ok) {
       let data = await res.json();
       setImageLink(data.image_src);
-      setShowPreview(true);
     }
     else {
       console.log(res);
@@ -45,7 +47,7 @@ const ImageForm = ({ image_src, handleChange }) => {
   return (
     <FormWrapper header='Project Image' infoArr={infoArr}>
       {
-        imageLink && showPreview ?
+        imageLink ?
           <div className="shadow-2 p2 mb4">
             <div className="aspect-ratio aspect-ratio--16x9 border-gray-500">
               <img
