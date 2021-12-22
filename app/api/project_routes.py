@@ -110,7 +110,9 @@ def post_image(id):
     print(request.files, 'filess')
     image = request.files["image"]
     upload = upload_file_to_s3(image)
+    print(project.image_src)
     project.image_src = upload['url']
+    print(project.image_src)
     db.session.commit()
     return {'image_src': upload['url']}
   else:
