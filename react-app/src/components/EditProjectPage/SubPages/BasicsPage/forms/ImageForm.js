@@ -20,16 +20,17 @@ const ImageForm = ({ image_src, handleChange }) => {
   const handleSubmit = async file => {
     const formData = new FormData();
     formData.append("image", file);
-    const res = await fetch(`/api/projects/${projectId}/images`, {
+    const response = await fetch(`/api/projects/${projectId}/images`, {
       method: "POST",
       body: formData,
     });
-    if (res.ok) {
-      let data = await res.json();
+    if (response.ok) {
+      let data = await response.json();
       setImageLink(data.image_src);
     }
     else {
-      console.log(res);
+      let data = await response.json();
+      console.log(data.errors);
     }
   }
 
