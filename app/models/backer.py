@@ -13,3 +13,11 @@ class Backer(db.Model):
   #Relationships
   user = db.relationship('User', back_populates='backers')
   project = db.relationship('Project', back_populates='backers')
+
+  def to_dict(self):
+    return {
+      'id': self.id,
+      'amount': self.amount,
+      'user': self.user,
+      'project': self.project,
+    }
