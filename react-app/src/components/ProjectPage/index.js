@@ -129,7 +129,7 @@ const ProjectPage = () => {
           You’re only charged if the project meets its funding goal by the campaign deadline.
         </div>
       </div>
-      <div className='sticky border-top border-bottom bg-white t0' style={{zIndex: '9999'}}>
+      <div className='sticky border-top border-bottom bg-white t0' style={{zIndex: '1'}}>
         <div className='grid-container'>
           <div className='grid-row'>
             <div className='inline-b width-8-12'>
@@ -150,7 +150,7 @@ const ProjectPage = () => {
               </NavLink>
             </div>
             <div className='inline-b' style={{width: '30%'}}>
-              <button className='btn btn-medium btn-primary' onClick={() => setShow(true)} disabled={!user}>
+              <button className='btn btn-medium btn-primary' onClick={() => {user ? setShow(true) : history.push('/login')}}>
                 Back this project
               </button>
             </div>
