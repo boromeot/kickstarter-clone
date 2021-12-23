@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Route, NavLink, useParams, useRouteMatch, useHistory } from 'react-router-dom';
+import { Route, NavLink, useParams, useRouteMatch, useHistory, } from 'react-router-dom';
 import Campaign from './Campaign';
 import UpdatesSection from './UpdatesSection';
 import CommentsSection from '../CommentsSection';
@@ -109,7 +109,7 @@ const ProjectPage = () => {
             </div>
           </div>
           <div>
-            <button className='btn btn-primary' id='pledge-btn' onClick={() => setShow(true)} disabled={!user}>
+            <button className='btn btn-primary' id='pledge-btn' onClick={() => {user ? setShow(true) : history.push('/login')}} >
               Back this project
             </button>
             <Modal title='Back this project' onClose={() => setShow(false)} show={show}>
