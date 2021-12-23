@@ -105,14 +105,23 @@ def post_image(id):
   form = ProjectForm()
   form['csrf_token'].data = request.cookies['csrf_token']
   if form:
-    print('validated')
-    project = Project.query.get(id)
-    print(request.files, 'filess')
+    if "image" not in request.files:
+      return {'errors': 'image required'}, 404
+
     image = request.files["image"]
+    if not allowed_file(image.filename):
+      return {'errors': 'file type not permitted'}, 400
+
+    image.filename = get_unique_filename(image.filename)
+
     upload = upload_file_to_s3(image)
+
+    if 'url' not in upload:
+      return upload, 400
+
+    project = Project.query.get(id)
     project.image_src = upload['url']
     db.session.commit()
     return {'image_src': upload['url']}
   else:
-    print('did not validated')
-    return {'error': validation_errors_to_error_messages(form.errors)}, 401
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401

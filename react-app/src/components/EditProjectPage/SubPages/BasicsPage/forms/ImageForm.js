@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import File from "../../../../SVGS/File";
 import Upload from "../../../../SVGS/Upload";
 import FormWrapper from "../../FormWrapper";
@@ -9,24 +10,27 @@ const ImageForm = ({ image_src, handleChange }) => {
     'Your image should be at least 1024x576 pixels. It will be cropped to a 16:9 ratio.',
     'Avoid images with banners, badges, or text—they are illegible at smaller sizes, can be penalized by the Facebook algorithm, and decrease your chances of getting Kickstarter homepage and newsletter features.'
   ]
+  const [imageLink, setImageLink] = useState();
+  const projectId = useSelector(state => state.project.id);
 
-  const [imageLink, setImageLink] = useState('');
-  const [showPreview, setShowPreview] = useState(false);
+  useEffect(() => {
+    setImageLink(image_src);
+  }, [image_src])
 
   const handleSubmit = async file => {
     const formData = new FormData();
     formData.append("image", file);
-    const res = await fetch('/api/projects/52/images', {
+    const response = await fetch(`/api/projects/${projectId}/images`, {
       method: "POST",
       body: formData,
     });
-    if (res.ok) {
-      let data = await res.json();
+    if (response.ok) {
+      let data = await response.json();
       setImageLink(data.image_src);
-      setShowPreview(true);
     }
     else {
-      console.log(res);
+      let data = await response.json();
+      console.log(data.errors);
     }
   }
 
@@ -45,7 +49,7 @@ const ImageForm = ({ image_src, handleChange }) => {
   return (
     <FormWrapper header='Project Image' infoArr={infoArr}>
       {
-        imageLink && showPreview ?
+        imageLink ?
           <div className="shadow-2 p2 mb4">
             <div className="aspect-ratio aspect-ratio--16x9 border-gray-500">
               <img
