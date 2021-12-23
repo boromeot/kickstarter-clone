@@ -28,6 +28,7 @@ class Project(db.Model):
   updates = db.relationship('Update', back_populates='project')
   faqs = db.relationship('Faq', back_populates='project')
   tag = db.relationship('Tag', back_populates='projects')
+  backers = db.relationship('Backer', back_populates='project')
 
   def to_dict(self):
     return {

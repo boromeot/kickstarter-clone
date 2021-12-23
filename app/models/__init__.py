@@ -5,3 +5,4 @@ from .comment import Comment
 from .update import Update
 from .faq import Faq
 from .tag import Tag
+from .backer import Backer
