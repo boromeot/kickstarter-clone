@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from app.forms.funding_form import FundingForm
+from app.forms.backer_form import BackerForm
 from flask_login import login_required, current_user
 from app.models import Project, db
 from app.forms import ProjectForm
@@ -88,7 +88,7 @@ def get_random_projects():
 @project_routes.route('/<int:id>/funding', methods=['PUT'])
 @login_required
 def add_funding(id):
-  form = FundingForm()
+  form = BackerForm()
   form['csrf_token'].data = request.cookies['csrf_token']
   if form.validate_on_submit():
     project = Project.query.get(id)
