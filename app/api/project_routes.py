@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify
-from app.forms.backer_form import BackerForm
+from app.forms import BackerForm
 from flask_login import login_required, current_user
 from app.models import Project, db
 from app.forms import ProjectForm

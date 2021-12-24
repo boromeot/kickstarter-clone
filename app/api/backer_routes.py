@@ -1,10 +1,23 @@
-from flask import Blueprint
+from flask import Blueprint, request
 from flask.login import login_required, current_user
 from app.models import Backer, db
-from app.forms import FundingForm
+from app.forms import BackerForm
+from app.utils import validation_errors_to_error_messages
 
 backer_routes = Blueprint('backers', __name__)
 
-# @backer_routes.route('/', methods=['POST'])
-# @login_required
-# def post_backer(project_id):
+@backer_routes.route('/', methods=['POST'])
+@login_required
+def post_backer():
+  form = BackerForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
+  if form.validate_on_submit():
+    backer = Backer(
+      amount = form.data['additional_funding'],
+      user_id = form.data['user_id'],
+      project_id = form.data['project_id'],
+    )
+    db.session.add(backer)
+    db.session.commit()
+    return backer.to_dict()
+  return {'errors': validation_errors_to_error_messages(form.errors)}, 401
