@@ -113,7 +113,7 @@ const ProjectPage = () => {
               Back this project
             </button>
             <Modal title='Back this project' onClose={() => setShow(false)} show={show}>
-              <BackerForm setShow={setShow} project_id={projectId}/>
+              <BackerForm setShow={setShow} project_id={projectId} user_id={user_id}/>
             </Modal>
           </div>
         </div>

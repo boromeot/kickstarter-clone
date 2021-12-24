@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { putFunds } from "../../store/project";
 
 
-const BackerForm = ({ project_id, setShow }) => {
+const BackerForm = ({ setShow, project_id, user_id }) => {
   const [additional_funding, setAdditional_funding] = useState();
   const dispatch = useDispatch();
 
@@ -13,7 +13,7 @@ const BackerForm = ({ project_id, setShow }) => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    dispatch(putFunds(project_id, +additional_funding));
+    dispatch(putFunds(+additional_funding, project_id, user_id));
     setShow(false);
   }
 

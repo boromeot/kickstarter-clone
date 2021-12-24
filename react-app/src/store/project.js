@@ -44,14 +44,16 @@ const get_random_projects = (project) => {
 }
 
 
-export const putFunds = (projectId, additional_funding) => async dispatch => {
-  const response = await fetch(`/api/projects/${projectId}/funding`, {
+export const putFunds = (additional_funding, project_id, user_id) => async dispatch => {
+  const response = await fetch(`/api/projects/${project_id}/funding`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
       additional_funding,
+      project_id,
+      user_id
     })
   });
   dispatch(put_funds(additional_funding));
