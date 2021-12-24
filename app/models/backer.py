@@ -18,6 +18,6 @@ class Backer(db.Model):
     return {
       'id': self.id,
       'amount': self.amount,
-      'user': self.user,
-      'project': self.project,
+      'user': self.user.to_dict(),
+      'project': self.project.to_dict(),
     }

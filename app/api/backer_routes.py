@@ -1,6 +1,6 @@
 from flask import Blueprint, request
-from flask.login import login_required, current_user
-from app.models import Backer, db
+from flask_login import login_required, current_user
+from app.models import Project, Backer, db
 from app.forms import BackerForm
 from app.utils import validation_errors_to_error_messages
 
@@ -17,6 +17,9 @@ def post_backer():
       user_id = form.data['user_id'],
       project_id = form.data['project_id'],
     )
+    project = Project.query.get(form.data['project_id'])
+    project.current_funding = project.current_funding + form.data['additional_funding']
+    db.session.add(project)
     db.session.add(backer)
     db.session.commit()
     return backer.to_dict()

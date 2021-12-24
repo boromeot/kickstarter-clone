@@ -45,8 +45,8 @@ const get_random_projects = (project) => {
 
 
 export const putFunds = (additional_funding, project_id, user_id) => async dispatch => {
-  const response = await fetch(`/api/projects/${project_id}/funding`, {
-    method: 'PUT',
+  const response = await fetch(`/api/backers/`, {
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },

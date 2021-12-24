@@ -42,6 +42,7 @@ app.register_blueprint(update_routes, url_prefix='/api/updates/')
 app.register_blueprint(comment_routes, url_prefix='/api/comments')
 app.register_blueprint(FAQ_routes, url_prefix='/api/faqs')
 app.register_blueprint(tag_routes, url_prefix='/api/tags')
+app.register_blueprint(backer_routes, url_prefix='/api/backers')
 db.init_app(app)
 Migrate(app, db)
 
