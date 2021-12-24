@@ -9,3 +9,4 @@ def not_less_than_zero(form, field):
 
 class FundingForm(FlaskForm):
   additional_funding = IntegerField('additional_funding', validators=[DataRequired(), not_less_than_zero])
+  

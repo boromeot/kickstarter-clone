@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 from app.forms.funding_form import FundingForm
 from flask_login import login_required, current_user
-from app.models import Project, db, project
+from app.models import Project, db
 from app.forms import ProjectForm
 from app.aws import (upload_file_to_s3, allowed_file, get_unique_filename)
 import random

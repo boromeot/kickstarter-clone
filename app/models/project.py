@@ -49,5 +49,6 @@ class Project(db.Model):
       'updates': [update.to_dict() for update in self.updates],
       'faqs': [faq.to_dict() for faq in self.faqs],
       'tag': self.tag.title,
-      'tag_id': self.tag_id
+      'tag_id': self.tag_id,
+      'total_backers': len(self.backers)
     }
