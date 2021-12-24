@@ -22,5 +22,8 @@ def post_backer():
     db.session.add(project)
     db.session.add(backer)
     db.session.commit()
-    return backer.to_dict()
+    return {
+      'backer': backer.to_dict(),
+      'total_backers': project.total_unique_backers()
+    }
   return {'errors': validation_errors_to_error_messages(form.errors)}, 401

@@ -14,10 +14,10 @@ export const clear_project = () => {
   };
 }
 
-const put_funds = (funds) => {
+const put_funds = (data) => {
   return {
     type: PUT_FUNDS,
-    payload: funds,
+    payload: data,
   }
 }
 
@@ -56,8 +56,9 @@ export const putFunds = (additional_funding, project_id, user_id) => async dispa
       user_id
     })
   });
-  dispatch(put_funds(additional_funding));
-  return response;
+  const data = await response.json()
+  dispatch(put_funds(data));
+  return data;
 }
 
 
@@ -109,8 +110,8 @@ const projectReducer = (state = {}, action) => {
   switch (action.type) {
     case PUT_FUNDS:
       newState = Object.assign({}, state);
-      console.log(typeof action.payload);
-      newState.current_funding += action.payload;
+      newState.current_funding += action.payload.backer.amount;
+      newState.total_backers = action.payload.total_backers;
       return newState;
     case CLEAR_PROJECT:
       return action.payload;//Empty object

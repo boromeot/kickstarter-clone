@@ -41,7 +41,6 @@ const CreateProjectPage = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-    console.log(user.id, 'user id post');
     const response = await fetch('/api/projects/', {
       method: 'POST',
       headers: {
