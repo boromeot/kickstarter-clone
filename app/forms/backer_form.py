@@ -9,3 +9,5 @@ def not_less_than_zero(form, field):
 
 class BackerForm(FlaskForm):
   additional_funding = IntegerField('additional_funding', validators=[DataRequired(), not_less_than_zero])
+  project_id = IntegerField('project_id')
+  user_id = IntegerField('user_id')
