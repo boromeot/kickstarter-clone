@@ -50,6 +50,7 @@
   width: 42px;
   border: 1px solid #DCDEDD;
   border-radius: 100%;
+  object-fit: contain;
 }
 
 .update-author-creator {
