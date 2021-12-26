@@ -1,15 +1,17 @@
 import React from "react";
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, useParams, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import UpdateHeader from "../Update/UpdateHeader";
 import UpdateBody from "../Update/UpdateBody";
 import LeftChevron from "../../../SVGS/LeftChevron";
-import './UpdatePage.css';
 import RightChevron from "../../../SVGS/RightChevron";
+import './UpdatePage.css';
 
 
 const UpdatePage = () => {
   const { projectId, updateId } = useParams();
+  const params = new URLSearchParams(useLocation().search)
+  const index = params.get('index');
   const update = useSelector(state => state.project.updates?.find(update => update.id === +updateId));
   return (
     <div className='grid-container py6'>
@@ -22,7 +24,7 @@ const UpdatePage = () => {
             </div>
           </NavLink>
         </div>
-        <UpdateHeader update={update} />
+        <UpdateHeader update={update} index={index} />
         <UpdateBody update={update} className={'update-body'} />
         <footer className='flex align-center py3 mt8 border-bottom border-top'>
           <button className='flex-center btn btn-secondary btn-medium'>
