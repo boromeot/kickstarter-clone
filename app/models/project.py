@@ -28,6 +28,14 @@ class Project(db.Model):
   updates = db.relationship('Update', back_populates='project')
   faqs = db.relationship('Faq', back_populates='project')
   tag = db.relationship('Tag', back_populates='projects')
+  backers = db.relationship('Backer', back_populates='project')
+
+  def total_unique_backers(self):
+    unique_backers = []
+    for backer in self.backers:
+      if backer.user_id not in unique_backers:
+        unique_backers.append(backer.user_id)
+    return len(unique_backers)
 
   def to_dict(self):
     return {
@@ -48,5 +56,6 @@ class Project(db.Model):
       'updates': [update.to_dict() for update in self.updates],
       'faqs': [faq.to_dict() for faq in self.faqs],
       'tag': self.tag.title,
-      'tag_id': self.tag_id
+      'tag_id': self.tag_id,
+      'total_backers': self.total_unique_backers()
     }

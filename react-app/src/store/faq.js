@@ -61,7 +61,6 @@ export const createFAQ = (body) => async (dispatch) => {
 
 
 export const patchFAQ = (body) => async (dispatch) => {
-    console.log(body.idx)
     const response = await fetch(`/api/faqs/${body.idx}`, {
         method: "PATCH",
         headers: {
@@ -78,7 +77,6 @@ export const patchFAQ = (body) => async (dispatch) => {
 }
 
 export const deleteFAQ = (body) => async (dispatch) => {
-    console.log(body.idx)
     const response = await fetch(`/api/faqs/${body.idx}`, {
         method: "DELETE",
         headers: {

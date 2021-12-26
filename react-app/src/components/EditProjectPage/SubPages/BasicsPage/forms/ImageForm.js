@@ -30,7 +30,7 @@ const ImageForm = ({ image_src, handleChange }) => {
     }
     else {
       let data = await response.json();
-      console.log(data.errors);
+      console.log(data);
     }
   }
 

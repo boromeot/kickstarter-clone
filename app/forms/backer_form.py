@@ -4,8 +4,9 @@ from wtforms.validators import DataRequired, ValidationError
 
 def not_less_than_zero(form, field):
   if field.data < 0:
-    print(type(field.data))
     raise ValidationError('Can not donate less than 0')
 
-class FundingForm(FlaskForm):
+class BackerForm(FlaskForm):
   additional_funding = IntegerField('additional_funding', validators=[DataRequired(), not_less_than_zero])
+  project_id = IntegerField('project_id')
+  user_id = IntegerField('user_id')

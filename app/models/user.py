@@ -16,6 +16,7 @@ class User(db.Model, UserMixin):
     comments = db.relationship('Comment', back_populates='user')
     updates = db.relationship('Update', back_populates='user')
     faqs = db.relationship('Faq', back_populates='user')
+    backers = db.relationship('Backer', back_populates='user')
 
     @property
     def password(self):

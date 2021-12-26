@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Route, NavLink, useParams, useRouteMatch, useHistory } from 'react-router-dom';
+import { Route, NavLink, useParams, useRouteMatch, useHistory, } from 'react-router-dom';
 import Campaign from './Campaign';
 import UpdatesSection from './UpdatesSection';
 import CommentsSection from '../CommentsSection';
@@ -17,7 +17,7 @@ const ProjectPage = () => {
   const { projectId } = useParams();
   const { user } = useSelector(state => state.session);
   const { campaign, updates, faqs } = useSelector(state => state.project);
-  const { id, title, description, video_src, image_src, current_funding, pledge_goal, comments, tag, username, user_id, end_date} = useSelector(state => state.project)
+  const { id, title, description, video_src, image_src, current_funding, pledge_goal, comments, tag, username, user_id, end_date, total_backers} = useSelector(state => state.project)
   const { path, url } = useRouteMatch(); //Allows for backwards compatibility of route names
 
   const [loaded, setLoaded] = useState(false);
@@ -97,7 +97,7 @@ const ProjectPage = () => {
             </div>
             <div>
               <div className='project-main-info-header'>
-                <span>611</span>
+                <span>{total_backers}</span>
               </div>
               <span className='project-main-info-description'>backers</span>
             </div>
@@ -109,11 +109,11 @@ const ProjectPage = () => {
             </div>
           </div>
           <div>
-            <button className='btn btn-primary' id='pledge-btn' onClick={() => setShow(true)} disabled={!user}>
+            <button className='btn btn-primary' id='pledge-btn' onClick={() => {user ? setShow(true) : history.push('/login')}} >
               Back this project
             </button>
             <Modal title='Back this project' onClose={() => setShow(false)} show={show}>
-              <BackerForm setShow={setShow} project_id={projectId}/>
+              <BackerForm setShow={setShow} project_id={projectId} user_id={user?.id}/>
             </Modal>
           </div>
         </div>
@@ -129,7 +129,7 @@ const ProjectPage = () => {
           You’re only charged if the project meets its funding goal by the campaign deadline.
         </div>
       </div>
-      <div className='sticky border-top border-bottom bg-white t0' style={{zIndex: '9999'}}>
+      <div className='sticky border-top border-bottom bg-white t0' style={{zIndex: '1'}}>
         <div className='grid-container'>
           <div className='grid-row'>
             <div className='inline-b width-8-12'>
@@ -150,7 +150,7 @@ const ProjectPage = () => {
               </NavLink>
             </div>
             <div className='inline-b' style={{width: '30%'}}>
-              <button className='btn btn-medium btn-primary' onClick={() => setShow(true)} disabled={!user}>
+              <button className='btn btn-medium btn-primary' onClick={() => {user ? setShow(true) : history.push('/login')}}>
                 Back this project
               </button>
             </div>
