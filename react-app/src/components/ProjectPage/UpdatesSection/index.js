@@ -23,7 +23,7 @@ const UpdatesSection = ({ updates }) => {
                           <path d="M30 52C17.85 52 8 42.15 8 30S17.85 8 30 8s22 9.85 22 22-9.85 22-22 22zm-9-32c-.552 0-1 .448-1 1v1c0 .552.448 1 1 1h13c.552 0 1-.448 1-1v-1c0-.552-.448-1-1-1H21zm0 6c-.552 0-1 .448-1 1v1c0 .552.448 1 1 1h18c.552 0 1-.448 1-1v-1c0-.552-.448-1-1-1H21zm0 6c-.552 0-1 .448-1 1v1c0 .552.448 1 1 1h18c.552 0 1-.448 1-1v-1c0-.552-.448-1-1-1H21zm0 6c-.552 0-1 .448-1 1v1c0 .552.448 1 1 1h6c.552 0 1-.448 1-1v-1c0-.552-.448-1-1-1h-6z" fill-rule="evenodd" />
                         </svg>
                       </div>
-                      <NavLink className='update-container' to={`${url}/${update?.id}`}>
+                      <NavLink className='update-container' to={`${url}/${update?.id}?index=${index}`}>
                         <div className='update'>
                           <Update update={update} index={index}/>
                         </div>
