@@ -1,3 +1,4 @@
+import email
 from app.models import db, User
 
 
@@ -9,10 +10,13 @@ def seed_users():
         username='marnie', email='marnie@aa.io', password='password')
     bobbie = User(
         username='bobbie', email='bobbie@aa.io', password='password')
+    larry= User(
+        username='larry', email='larry@aa.io', password='password')
 
     db.session.add(demo)
     db.session.add(marnie)
     db.session.add(bobbie)
+    db.session.add(larry)
 
     db.session.commit()
 
