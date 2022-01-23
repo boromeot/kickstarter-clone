@@ -43,13 +43,13 @@ def seed_updates():
       title='Incredible start! We are well on our way to meeting our goal.',
       description='Thanks to all who have donated. I want to point out something you may not have noticed. There is an add on offered.  For only $15 you can add on a print of Blind Angel, by Stephen Dominguez. Stephen was one of our original members and made many memorable photographs, This photo of fellow member Jessica Jones has never been published. Like all the prints we offer it will be printed on archival heavy weight paper.  Just press the add on button to add it to your rewards.',
       project_id=4,
-      user_ud=1
+      user_id=1
     ),
     Update(
       title="We've reached our funding goal!!! Thank you so much for your support!",
       description="Dear Blind Visionaries backers, We're thrilled to inform you that today we reached our funding goal! We are profoundly thankful for all your support and overjoyed that Blind Visionaries will become a reality!  Thank you!!!",
       project_id=4,
-      user_ud=1
+      user_id=1
     ),
     Update(
       title='Great first days and gained the “Project We Love” tag!',
