@@ -5,7 +5,7 @@ def seed_comments():
   comments.append(Comment(description="Simply amazing", project_id=1, user_id=1))
   comments.append(Comment(description="nice work", project_id=1, user_id=1))
   comments.append(Comment(description="What a wonderful idea", project_id=2, user_id=2))
-  comments.append(Comment(description="wack", project_id=3, user_id=3))
+  comments.append(Comment(description="Woo hoo! Off we go!", project_id=5, user_id=3))
 
 
   for comment in comments:
