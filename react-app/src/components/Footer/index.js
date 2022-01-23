@@ -5,6 +5,7 @@ import './Footer.css';
 
 const Footer = () => {
   const tags = useSelector(state => Object.values(state.tags));
+  console.log(tags);
   return (
     <div className='footer-container'>
       {/* <div className='footer-tags-container'>
