@@ -70,6 +70,18 @@ def seed_updates():
       user_id=1,
     ),
     Update(
+      title='We will ship the Adventure Boil-Grill to EU countries',
+      description='Dear backers, Thank you very much for your pledges so far. We are grateful for all your support and feedback; they really mean a lot to us! As a response to many requests from the backers living outside Denmark, we now open new shipment destinations to all the countries within the European Union. The shipment prices used on the project page are the estimated ones. The exact shipping price will be confirmed by the time we prepare for shipping the product to you ;)',
+      project_id=8,
+      user_id=2
+    ),
+    Update(
+      title='We achieved 44% of the funding goal in 24 hours!',
+      description='Dear great backers, After 24 hours, we achieved 44% of the funding goal. It is the first time we launched a project on the Kickstarter platform, and the result went far beyond our expectations 💪. We are much happy and grateful for all the pledges from you. Now we would like to shout out a big thank to all of you <3Thank you, the supporters from Denmark, Germany, Spain - and other countries - thank you for kicking us that far!',
+      project_id=8,
+      user_id=2
+    ),
+    Update(
       title='Great First Day',
       description='Thanks to all of you for being the first group to support CHAOS. I’ve been going over the album in my head all day and the thought that I may be sitting in a studio for a MONTH making this this is surreal. It’s going to be a journey, but this is the best start I could have asked for!',
       project_id=9,
