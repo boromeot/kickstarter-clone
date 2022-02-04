@@ -89,7 +89,7 @@ def seed_updates():
     ),
     Update(
       title='40% FUNDED!',
-      description='Hello Everyone! We have a little under 30 Days left and I wanted to give a little update. We have just reached 40% funding! I want to thank all of you for every single dollar you have pledged for this project. Not only have you removed about 155 hours of breaking pallets from my march agenda, but you have given me that time IN A STUDIO to make this album. Ive been writing up a storm and Im locked and ready to go!',
+      description='Hello Everyone! I wanted to give a little update. We have just reached 40% funding! I want to thank all of you for every single dollar you have pledged for this project. Not only have you removed about 155 hours of breaking pallets from my march agenda, but you have given me that time IN A STUDIO to make this album. Ive been writing up a storm and Im locked and ready to go!',
       project_id=9,
       user_id=1
     )
