@@ -26,7 +26,7 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     if environment == "production":
-        op.execute(f"ALTER TABLE <table_name> SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE tags SET SCHEMA {SCHEMA};")
     op.add_column('projects', sa.Column('tag_id', sa.Integer(), nullable=True))
     op.create_foreign_key(None, 'projects', 'tags', ['tag_id'], ['id'])
     # ### end Alembic commands ###
