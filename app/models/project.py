@@ -1,10 +1,12 @@
-from .db import db
+from .db import db, environment, SCHEMA, add_prefix_for_prod
 from datetime import datetime, timedelta
 now = datetime.now()
 year = timedelta(days=365)
 
 class Project(db.Model):
   __tablename__ = 'projects'
+  if environment == "production":
+      __table_args__ = {'schema': SCHEMA}
 
   id = db.Column(db.Integer, primary_key=True)
   title = db.Column(db.String(100), nullable=False, default='')
@@ -19,8 +21,8 @@ class Project(db.Model):
   risks = db.Column(db.Text, nullable=False, default='')
 
   # Foreign Keys
-  user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-  tag_id = db.Column(db.Integer, db.ForeignKey('tags.id'))
+  user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
+  tag_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('tags.id')))
 
   # Relationships
   user = db.relationship('User', back_populates='projects')

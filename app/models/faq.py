@@ -1,14 +1,16 @@
-from .db import db
+from .db import db, environment, SCHEMA, add_prefix_for_prod
 
 class Faq(db.Model):
   __tablename__ = 'faqs'
+  if environment == "production":
+      __table_args__ = {'schema': SCHEMA}
   id = db.Column(db.Integer, primary_key=True)
   question = db.Column(db.String(200), nullable=False)
   answer = db.Column(db.String(500), nullable=False)
 
   # Foreign Keys
-  project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
-  user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+  project_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('projects.id')))
+  user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
 
   # Relationships
   project = db.relationship('Project', back_populates='faqs')
